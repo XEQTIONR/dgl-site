@@ -23,7 +23,7 @@ class CreateTournamentsTable extends Migration
 
             //FK esport
             $table->unsignedInteger('title');
-            $table->unsignedInteger('champion_id');
+            $table->unsignedInteger('champion_id')->nullable()->default(null);
 
             //timestamps
             $table->timestamps();
