@@ -16,6 +16,7 @@ class CreateEsportsTable extends Migration
         Schema::create('esports', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
+            $table->longText('description')->nullable()->default(null);
             $table->timestamps();
         });
     }
