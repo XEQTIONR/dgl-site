@@ -16,7 +16,7 @@ class CreateClansTable extends Migration
         Schema::create('clans', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
-            $table->string('clantag', 5);
+            $table->string('clantag', 10)->unique();
 
             //FK Gamer clan lord 
             $table->unsignedInteger('clanlord')->nullable()->default(null);
