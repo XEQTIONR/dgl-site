@@ -48,9 +48,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            //'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:gamers',
             'password' => 'required|string|min:6|confirmed',
+            'alias' => 'required|string|min:1|max:25|unique:gamers',
+            'fname' =>  'required|alpha_dash|min:1|max:25',
+            'lname' =>  'required|alpha_dash|min:1|max:25',
+            'dob' =>  'required|date',
         ]);
     }
 
@@ -63,9 +67,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Gamer::create([
-            'name' => $data['name'],
+
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+
+            'alias' =>  $data['alias'],
+            'fname' =>  $data['fname'],
+            'lname' =>  $data['lname'],
+            'dob'   =>  $data['dob'],
+            'status'=>  'unverified',
+
+            'steamid'     =>  $data['steamid'],
+            'battlenetid' =>  $data['battlenetid'],
+            'discordid'   =>  $data['discordid'],
         ]);
     }
 }

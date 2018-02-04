@@ -13,7 +13,8 @@ class Gamer extends Authenticatable
 
     protected $table = 'gamers';
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password', 'alias', 'fname', 'lname', 'dob',
+        'steamid', 'battlenetid', 'discordid',
     ];
 
     /**
