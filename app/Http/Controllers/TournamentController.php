@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright 2018 DAGAMELEAGUE
+_____     ____  ___
+ ||  \\  //  \\ ||
+ ||   || || ___ ||  __
+_||__//  \\__// ||__||core.com
+
+@author XEQTIONR
+*/
 
 namespace App\Http\Controllers;
 
@@ -100,5 +109,33 @@ class TournamentController extends Controller
     public function destroy(Tournament $tournament)
     {
         //
+    }
+
+    ////CUSTOM FUNCTIONS
+
+    /**
+     * Show registeration form for this tournament.
+     *
+     * @param  \App\Tournament  $tournament
+     * @return \Illuminate\Http\Response
+     */
+    public function registration(Tournament $tournament)
+    {
+
+        return view('tournaments.register', compact('tournament'));
+    }
+
+    /**
+     * Show registeration form for this tournament.
+     *
+     * @param  \App\Tournament  $tournament
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Tournament $tournament, Request $request)
+    {
+        echo $tournament->name;
+        echo "<br>";
+        echo $request->theinput;
+
     }
 }

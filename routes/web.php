@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright 2018 DAGAMELEAGUE
+_____     ____  ___
+ ||  \\  //  \\ ||
+ ||   || || ___ ||  __
+_||__//  \\__// ||__||core.com
+
+@author XEQTIONR
+*/
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +29,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/tournaments', 'TournamentController');
-
+Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
+Route::post('/tournaments/{tournament}/register','TournamentController@register');
 Route::get('/verify/{code}', 'VerificationController@verifyEmail');
