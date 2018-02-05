@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tournament;
 use Illuminate\Http\Request;
+use App\Esport;
 
 class TournamentController extends Controller
 {
@@ -25,7 +26,9 @@ class TournamentController extends Controller
     public function create()
     {
         //
-        return view('tournaments.create');
+        $titles = Esport::all();
+
+        return view('tournaments.create', compact('titles'));
     }
 
     /**
@@ -45,6 +48,8 @@ class TournamentController extends Controller
         $tournament->rules = $request->rules;
         $tournament->startdate = $request->startdate;
         $tournament->enddate = $request->enddate;
+        $tournament->title = $request->title;
+        $tournament->squadsize = $request->squadsize;
 
         $tournament->save();
 

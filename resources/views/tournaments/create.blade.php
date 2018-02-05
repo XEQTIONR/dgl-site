@@ -1,3 +1,8 @@
+<!--
+_  _  __  __  ___ _   __        __
+\\// |__ /  \  |  |  /  \ |\ | |__/
+//\\ |__ \_\   |  |  \__/ | \| |  \
+-->
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -18,7 +23,17 @@
       Description <textarea name="description" rows="4" cols="50"></textarea> <br>
       Rules <textarea name="rules" rows="4" cols="50"></textarea> <br>
 
+      Game
+          <select name="title">
+              @foreach( $titles as $title )
+                  <option value="{{$title->id}}"> {{$title->name}} </option>
+              @endforeach
+          </select><br>
+
+      Squad Size <input type="number" name="squadsize"><br>
       <button type="submit" value="submit">Submit</button>
       </form>
+
+
     </body>
 </html>
