@@ -20,6 +20,7 @@ class CreateTournamentsTable extends Migration
             $table->longtext('rules')->nullable()->default(null);
             $table->date('startdate');
             $table->date('enddate')->nullable()->defualt(null);
+            $table->tinyInteger('squadsize')->default('1');
 
             //FK esport
             $table->unsignedInteger('title');
