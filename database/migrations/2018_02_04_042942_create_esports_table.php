@@ -17,6 +17,7 @@ class CreateEsportsTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->longText('description')->nullable()->default(null);
+            $table->integer('teamsize')->default(1);
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateContendingTeamTable extends Migration
         Schema::create('contending_team', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('clan_id');
+            $table->unsignedInteger('clan_id')->nullable()->default(null);
             $table->unsignedInteger('tournament_id');
 
             $table->foreign('clan_id')->references('id')->on('clans');
