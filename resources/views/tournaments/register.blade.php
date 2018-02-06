@@ -2,7 +2,7 @@
  * Copyright 2018 DAGAMELEAGUE
 _____     ____  ___
  ||  \\  //  \\ ||
- ||   || || ___ ||  __
+===   || || ___ ||  __
 _||__//  \\__// ||__||core.com
 
 @author XEQTIONR
@@ -21,7 +21,32 @@ _||__//  \\__// ||__||core.com
 <body>
 <form method="POST" action="/tournaments/{{$tournament->id}}/register">
     {{csrf_field()}}
-    <input type="text" name="theinput">
+    Team Name <input type="text" name="name"><br>
+    Team Tag <input type="text" name="tag"><br>
+    <ol>
+        <span>Team captain</span><br>
+        <li>
+            Your Registered <br>
+            Email Address <input type="email" name="email"> OR DGLusername <input type="text" name="alias"><br>
+        </li>
+        <hr>
+    @for($i=1; $i<$tournament->squadsize; $i++)
+
+        @if( $i == $tournament->esport->teamsize)
+            <hr>
+            <hr>
+        @endif
+        <li>
+
+            Email Address <input type="email" name="email"> OR DGLusername <input type="text" name="alias"><br>
+
+        </li>
+    @endfor
+    </ol>
+    <input type="checkbox">I confirm that I have read and understood the rules and regulations of the tournament. I understand that if I am in violation of these rules, I or my team maybe disqualified from the tournament and/or banned from DGL.
+
+    <br>
+
     <button type="submit" value="submit">Submit</button>
 </form>
 
