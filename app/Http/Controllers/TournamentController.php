@@ -1,20 +1,25 @@
 <?php
+
 /*
  * Copyright 2018 DAGAMELEAGUE
-_____     ____  ___
- ||  \\  //  \\ ||
- ||   || || ___ ||  __
-_||__//  \\__// ||__||core.com
 
-@author XEQTIONR
+ ____    ___  __
+(  _ \  / __)(  )
+ )(_) )( (_-. )(__  / _/ _ \ '_/ -_)_/ _/ _ \ '  \
+(____/  \___/(____) \__\___/_| \___(_)__\___/_|_|_|
+
+  @author XEQTIONR
+  @class Tournament Controller
 */
 
 namespace App\Http\Controllers;
 
 use App\Tournament;
 use Illuminate\Http\Request;
-use App\Esport;
+use Illuminate\Support\Facades\Mail;
 
+use App\Esport;
+use App\Mail\SignUpAndRegister;
 class TournamentController extends Controller
 {
     /**
@@ -137,5 +142,17 @@ class TournamentController extends Controller
         echo "<br>";
         echo $request->theinput;
 
+    }
+
+    public function mail()
+    {
+        Mail::to('x.e.q.tionrz@gmail.com')->send(new SignUpAndRegister());
+        return(redirect('/'));
+        echo "MAIL FUNC";
+    }
+
+    public function hi()
+    {
+        echo "PUBLIC HI FUNCTION";
     }
 }

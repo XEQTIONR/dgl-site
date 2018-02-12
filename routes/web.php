@@ -1,15 +1,13 @@
 <?php
 /*
  * Copyright 2018 DAGAMELEAGUE
-_____     ____  ___
- ||  \\  //  \\ ||
- ||   || || ___ ||  __
-_||__//  \\__// ||__||core.com
+
+ ____    ___  __
+(  _ \  / __)(  )
+ )(_) )( (_-. )(__  / _/ _ \ '_/ -_)_/ _/ _ \ '  \
+(____/  \___/(____) \__\___/_| \___(_)__\___/_|_|_|
 
 @author XEQTIONR
-*/
-
-/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -27,8 +25,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/hi', 'TournamentController@hi');
 
 Route::resource('/tournaments', 'TournamentController');
 Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
 Route::post('/tournaments/{tournament}/register','TournamentController@register');
 Route::get('/verify/{code}', 'VerificationController@verifyEmail');
+Route::get('/mail','TournamentController@mail');
+
+
+Route::resource('/gamers', 'GamerController');
