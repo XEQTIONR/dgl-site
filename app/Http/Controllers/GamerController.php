@@ -40,17 +40,23 @@ class GamerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  alias or email  $identifier
      * @return \Illuminate\Http\Response
      */
-    public function show($alias)
+    public function show($identifier)
     {
         //
-        $gamer = Gamer::where('alias', $alias)->first();
+        $is_email = filter_var($identifier, FILTER_VALIDATE_EMAIL);
+
+        if($is_email)
+          $gamer = Gamer::where('email', $identifier)->first();
+        else
+          $gamer = Gamer::where('alias', $identifier)->first();
 
         if(is_null($gamer))
-            return "NOT FOUND";
-        return json_encode($gamer);
+          return "NOT FOUND";
+
+        return $gamer;
     }
 
     /**
