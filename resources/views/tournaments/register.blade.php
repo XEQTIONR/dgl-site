@@ -43,7 +43,7 @@
             <div class="col-md-8 col-sm-9">
 
               Email Address <input class="email" type="email" name="email" value="">
-              OR DGLusername <input type="text" name="alias" v-on:change="getGamer(gamer)" v-model="gamer.alias">
+              OR DGLusername <input type="text" name="alias" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
             </div>
             <div class="col-md-4 col-sm-3">
               <span id="span">@{{gamer.fname+" "+gamer.lname}}</span><br>
@@ -68,7 +68,7 @@
     let data = {
           gamers:[
           @for($i=0; $i<$tournament->squadsize; $i++)
-          {sl: "{{$i}}", fname : "f{{$i}}", lname : "l{{$i}}", email: "someone@example.com", alias:"a{{$i}}"},
+          {sl: "{{$i}}", fname : "", lname : "", email: "", alias:null, status : "init"},
           @endfor
           ]
 
@@ -80,7 +80,7 @@
         methods: {
             getGamer: function(gamer){
 
-                console.log("VALUE: "+gamer);
+                //console.log("VALUE: "+gamer);
                 let sl = gamer.sl;
                 //Update the gamer based on the alias change that just occurred.
                 axios.get('/gamers/'+gamer.alias).then( function(response) {
@@ -88,12 +88,29 @@
                     gamer = response.data;
                     // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
                     //these return undefined if not found.
-                    app.gamers[sl].fname = gamer.fname;
-                    app.gamers[sl].lname = gamer.lname;
-                    app.gamers[sl].dob = gamer.dob;
 
+
+                      app.gamers[sl].fname=gamer.fname;
+                      app.gamers[sl].lname = gamer.lname;
+                      app.gamers[sl].email = gamer.email;
+                      //app.gamers[sl].status = "initassigned";
+                    if((gamer.fname!=undefined) && (gamer.lname!=undefined) && (gamer.email!=undefined))
+                    {
+                        app.gamers[sl].status = "ok";
+
+                    }
+                    else
+                    {
+                        app.gamers[sl].status = "undefined";
+                        app.gamers[sl].fname="";
+                        app.gamers[sl].lname = "";
+                        app.gamers[sl].email = "";
+                        app.gamers[sl].alias = "";
+
+                        document.getElementById(sl).focus();
+                    }
                     //this is not the same instance as app.gamers[sl]
-                    console.log(gamer);
+                    //console.log(gamer);
 
                 } );
 
