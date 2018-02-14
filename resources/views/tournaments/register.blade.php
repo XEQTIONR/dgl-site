@@ -23,6 +23,16 @@
 
   <!-- Axios script -- for ajax calls -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    .visible{
+      /**visibility : visible;*/
+      display: inherit;
+    }
+    .hidden{
+      /**visibility: hidden;*/
+      display: none;
+    }
+  </style>
 
 </head>
 <body>
@@ -40,13 +50,14 @@
       <ol>
         <li v-for="gamer in gamers">
           <div class="row">
-            <div class="col-md-8 col-sm-9">
+            <div v-bind:class="[{'visible' : !isActive(gamer)}, {'hidden' : isActive(gamer)}, 'col-md-10']" >
 
-              Email Address <input class="email" type="email" name="email" value="">
-              OR DGLusername <input type="text" name="alias" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
+              Email Address OR DGLusername <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
+              
             </div>
-            <div class="col-md-4 col-sm-3">
+            <div v-bind:class="[{'visible' : isActive(gamer)}, {'hidden' : !isActive(gamer)}, 'col-md-10']" style="background-color: #AAA;">
               <span id="span">@{{gamer.fname+" "+gamer.lname}}</span><br>
+              <button type="button" v-on:click="unsetGamer(gamer)">Kick</button>
             </div>
           </div>
         </li>
@@ -78,6 +89,21 @@
         el: '#app',
         data: data,
         methods: {
+            isActive: function(gamer){
+
+                if((gamer.status=='init')||(gamer.status=='undefined'))
+                    return false;
+                if(gamer.status=='ok')
+                    return true;
+            },
+            unsetGamer: function(gamer){
+                let sl = gamer.sl;
+                app.gamers[sl].fname= "";
+                app.gamers[sl].lname = "";
+                app.gamers[sl].email = "";
+                app.gamers[sl].alias = null;
+                app.gamers[sl].status = "init";
+            },
             getGamer: function(gamer){
 
                 //console.log("VALUE: "+gamer);
@@ -89,7 +115,7 @@
                     // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
                     //these return undefined if not found.
 
-
+                      app.gamers[sl].alias=gamer.alias;
                       app.gamers[sl].fname=gamer.fname;
                       app.gamers[sl].lname = gamer.lname;
                       app.gamers[sl].email = gamer.email;
@@ -105,7 +131,7 @@
                         app.gamers[sl].fname="";
                         app.gamers[sl].lname = "";
                         app.gamers[sl].email = "";
-                        app.gamers[sl].alias = "";
+                        app.gamers[sl].alias = null;
 
                         document.getElementById(sl).focus();
                     }
