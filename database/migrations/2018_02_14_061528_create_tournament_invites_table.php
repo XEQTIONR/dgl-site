@@ -15,10 +15,10 @@ class CreateTournamentInvitesTable extends Migration
     {
         Schema::create('tournament_invites', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('tournament_id');
+            $table->unsignedInteger('contending_team_id');
             $table->string('email', 50);
             $table->enum('status',['available','used','invalid']);
-            $table->foreign('tournament_id')->references('id')->on('tournaments');
+            $table->foreign('contending_team_id')->references('id')->on('contending_teams');
         });
     }
 
