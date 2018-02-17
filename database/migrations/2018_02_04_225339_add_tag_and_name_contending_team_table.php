@@ -14,7 +14,7 @@ class AddTagAndNameContendingTeamTable extends Migration
     public function up()
     {
         //
-        Schema::table('contending_team', function (Blueprint $table) {
+        Schema::table('contending_teams', function (Blueprint $table) {
 
             $table->string('name', 50)->after('id')->nullable()->default(null);
             $table->string('tag', 10)->after('name')->nullable()->default(null);
@@ -29,7 +29,7 @@ class AddTagAndNameContendingTeamTable extends Migration
     public function down()
     {
         //
-        Schema::table('contending_team', function (Blueprint $table) {
+        Schema::table('contending_teams', function (Blueprint $table) {
 
             $table->dropColumn('name');
             $table->dropColumn('tag');

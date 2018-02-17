@@ -14,7 +14,7 @@ class AddStatusFieldToContendingTeam extends Migration
     public function up()
     {
         //
-        Schema::table('contending_team', function (Blueprint $table){
+        Schema::table('contending_teams', function (Blueprint $table){
             $table->enum('status',[
                                             'registration_incomplete', // a member has not registered on our site yet
                                             'ineligible',  // for whatever reason
@@ -32,7 +32,7 @@ class AddStatusFieldToContendingTeam extends Migration
     public function down()
     {
         //
-        Schema::table('contending_team', function (Blueprint $table){
+        Schema::table('contending_teams', function (Blueprint $table){
             $table->dropColumn('status');
         });
     }

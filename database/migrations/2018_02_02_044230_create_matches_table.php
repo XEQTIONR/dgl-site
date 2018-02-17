@@ -32,7 +32,7 @@ class CreateMatchesTable extends Migration
             $table->unsignedInteger('won_id')->nullable()->default(null);
 
             $table->foreign('tournament_id')->references('id')->on('tournaments');
-            $table->foreign('won_id')->references('id')->on('contending_team');
+            $table->foreign('won_id')->references('id')->on('contending_teams');
 
 
             $table->timestamps();

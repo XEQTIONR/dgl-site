@@ -13,7 +13,7 @@ class CreateContendingTeamTable extends Migration
      */
     public function up()
     {
-        Schema::create('contending_team', function (Blueprint $table) {
+        Schema::create('contending_teams', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('clan_id')->nullable()->default(null);
@@ -33,6 +33,6 @@ class CreateContendingTeamTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contending_team');
+        Schema::dropIfExists('contending_teams');
     }
 }
