@@ -23,7 +23,7 @@ class CreateRosterTable extends Migration
      */
     public function up()
     {
-        Schema::create('roster', function (Blueprint $table) {
+        Schema::create('rosters', function (Blueprint $table) {
 
             $table->unsignedInteger('contending_team_id');
             $table->unsignedInteger('gamer_id');
@@ -43,6 +43,6 @@ class CreateRosterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roster');
+        Schema::dropIfExists('rosters');
     }
 }
