@@ -53,7 +53,7 @@
             <div v-bind:class="[{'visible' : !isActive(gamer)}, {'hidden' : isActive(gamer)}, 'col-md-10']" >
 
               Email Address OR DGLusername <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
-              
+
             </div>
             <div v-bind:class="[{'visible' : isActive(gamer)}, {'hidden' : !isActive(gamer)}, 'col-md-10']" style="background-color: #AAA;">
               <span id="span">@{{gamer.fname+" "+gamer.lname}}</span><br>
@@ -104,14 +104,14 @@
                 app.gamers[sl].alias = null;
                 app.gamers[sl].status = "init";
             },
-            getGamer: function(gamer){
+            getGamer: function(input){
 
                 //console.log("VALUE: "+gamer);
-                let sl = gamer.sl;
+                let sl = input.sl;
                 //Update the gamer based on the alias change that just occurred.
-                axios.get('/gamers/'+gamer.alias).then( function(response) {
+                axios.get('/gamers/'+input.alias).then( function(response) {
 
-                    gamer = response.data;
+                    var gamer = response.data;
                     // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
                     //these return undefined if not found.
 
@@ -125,7 +125,7 @@
                         app.gamers[sl].status = "ok";
 
                     }
-                    else
+                    else// gamer was not found
                     {
                         app.gamers[sl].status = "undefined";
                         app.gamers[sl].fname="";

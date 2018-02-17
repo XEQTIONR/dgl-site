@@ -14,12 +14,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Tournament;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-
-use App\Esport;
 use App\Mail\SignUpAndRegister;
+
+use App\Tournament;
+use App\Esport;
+use App\Roster;
+use App\ContendingTeam;
+use App\Gamer;
+
+
 class TournamentController extends Controller
 {
     /**
@@ -136,11 +142,50 @@ class TournamentController extends Controller
      * @param  \App\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function register(Tournament $tournament, Request $request)
+    public function register(Request $request, Tournament $tournament)
     {
-        echo $tournament->name;
-        echo "<br>";
-        echo $request->theinput;
+      $gamerCollection = $request->gamer;
+      $rosters = collect();
+//      foreach ($gamers as $gamer) {
+//
+//        echo $gamer;
+//        echo "<br>";
+//      }
+//      echo $tournament->id;
+      //dd($request->all());
+        $team = new ContendingTeam();
+
+        $team->name = $request->name;
+        $team->tag = $request->tag;
+        //$team->tournament()->associate($tournament);
+        $team->tournament_id = $tournament->id;
+        $team->status = 'registration_incomplete';
+
+        $team->save();
+
+        foreach ($gamerCollection as $alias)
+        {
+          $gamer = Gamer::where('alias', $alias)->first();
+          //dd($gamer);
+          $roster  = new Roster();
+          //$roster->contending_team_id = $team->id;
+          $roster->gamer_id = $gamer->id;
+          $roster->status = 'ok';
+          $roster->contending_team_id = $team->id;
+
+          $rosters->push($roster);
+          //array_push($rosters, $roster);
+        }
+        //return $rosters;
+        //var_dump($rosters);
+//        foreach ($rosters as $r)
+//        {
+//          Roster::create($r);
+//        }
+      //dd($rosters);
+      $team->roster()->saveMany($rosters);
+
+      return $team->id;
 
     }
 

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Roster;
 use Illuminate\Http\Request;
-use App\Gamer;
-class GamerController extends Controller
+
+class RosterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,38 +41,21 @@ class GamerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  alias or email  $identifier
+     * @param  \App\Roster  $roster
      * @return \Illuminate\Http\Response
      */
-    public function show($identifier)
+    public function show(Roster $roster)
     {
         //
-      //dd($request->route()->uri);
-        $is_email = filter_var($identifier, FILTER_VALIDATE_EMAIL);
-
-        if($is_email) //identifier is an email try searching by email
-          $gamer = Gamer::where('email', $identifier)->first();
-        else
-        {
-          //try searching by id
-          $gamer=Gamer::where('id', $identifier)->first();
-          if(is_null($gamer)) // if fails try searching by alias
-            $gamer = Gamer::where('alias', $identifier)->first();
-        }
-        if(is_null($gamer))
-          return "NOT FOUND";
-
-
-        return $gamer;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Roster  $roster
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Roster $roster)
     {
         //
     }
@@ -80,10 +64,10 @@ class GamerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Roster  $roster
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Roster $roster)
     {
         //
     }
@@ -91,10 +75,10 @@ class GamerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Roster  $roster
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Roster $roster)
     {
         //
     }

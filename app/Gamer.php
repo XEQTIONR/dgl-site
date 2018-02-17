@@ -30,4 +30,9 @@ class Gamer extends Authenticatable
     {
       return $this->hasMany('App\GamerMeta');
     }
+
+    public function contendingTeam()
+    {
+      return $this->hasMany('App\ContendingTeam');
+    }
 }
