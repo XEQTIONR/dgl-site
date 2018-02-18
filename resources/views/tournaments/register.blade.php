@@ -50,13 +50,20 @@
       <ol>
         <li v-for="gamer in gamers">
           <div class="row">
-            <div v-bind:class="[{'visible' : !isActive(gamer)}, {'hidden' : isActive(gamer)}, 'col-md-10']" >
+            <div v-bind:class="[{'visible' : !isRegistered(gamer)&&!isNew(gamer)}, {'hidden' : isRegistered(gamer)||isNew(gamer)}, 'col-md-10']" >
 
               Email Address OR DGLusername <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
 
             </div>
-            <div v-bind:class="[{'visible' : isActive(gamer)}, {'hidden' : !isActive(gamer)}, 'col-md-10']" style="background-color: #AAA;">
+            <div v-bind:class="[{'visible' : isRegistered(gamer)}, {'hidden' : !isRegistered(gamer)}, 'col-md-10']" style="background-color: #AAA;">
               <span id="span">@{{gamer.fname+" "+gamer.lname}}</span><br>
+              <button type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+            </div>
+            <div v-bind:class="[{'visible' : isNew(gamer)}, {'hidden' : !isNew(gamer)}, 'col-md-10']" style="background-color: #AAA;">
+              <span id="span">@{{gamer.email}}</span><br>
+              This person will be emailed an invite<br>
+              to DGL and to your team for <br>
+              this tournament.
               <button type="button" v-on:click="unsetGamer(gamer)">Kick</button>
             </div>
           </div>
@@ -89,12 +96,17 @@
         el: '#app',
         data: data,
         methods: {
-            isActive: function(gamer){
+            isRegistered: function(gamer){
 
-                if((gamer.status=='init')||(gamer.status=='undefined'))
+                if((gamer.status=='init')||(gamer.status=='undefined')||(gamer.status=='new'))
                     return false;
                 if(gamer.status=='ok')
                     return true;
+            },
+            isNew: function (gamer) {
+              if(gamer.status=='new')
+                  return true;
+              return false;
             },
             unsetGamer: function(gamer){
                 let sl = gamer.sl;
