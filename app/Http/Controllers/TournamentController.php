@@ -24,6 +24,7 @@ use App\Esport;
 use App\Roster;
 use App\ContendingTeam;
 use App\Gamer;
+use App\TournamentInvite;
 
 
 class TournamentController extends Controller
@@ -146,6 +147,7 @@ class TournamentController extends Controller
     {
       $gamerCollection = $request->gamer;
       $rosters = collect();
+      $invites = collect();
 
       $team = new ContendingTeam();
 
@@ -162,7 +164,12 @@ class TournamentController extends Controller
         if( filter_var($alias, FILTER_VALIDATE_EMAIL))
         {
           $email = new SignUpandRegister($alias, $team, $tournament);
+          $invite = new TournamentInvite();
+          $invite->contending_team_id = $team->id;
+          $invite->email = $alias;
+          $invite->status = 'available';
 
+          $invites->push($invite);
           Mail::to($alias)->send($email);
         }
         else // an alias of an already existing gamer was returned
@@ -178,7 +185,7 @@ class TournamentController extends Controller
         }
       }
       $team->roster()->saveMany($rosters);
-
+      $team->invites()->saveMany($invites);
       return $team->id;
     }
 }
