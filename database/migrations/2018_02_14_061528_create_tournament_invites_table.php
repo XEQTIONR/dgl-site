@@ -19,6 +19,8 @@ class CreateTournamentInvitesTable extends Migration
             $table->string('email', 50);
             $table->enum('status',['available','used','invalid']);
             $table->foreign('contending_team_id')->references('id')->on('contending_teams');
+
+            $table->timestamps();
         });
     }
 
