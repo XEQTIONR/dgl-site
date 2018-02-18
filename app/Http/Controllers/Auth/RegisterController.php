@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Gamer;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+
+use App\Gamer;
+use App\GamerMeta;
+use App\Mail\VerifyEmailAddress;
 
 class RegisterController extends Controller
 {
@@ -66,7 +71,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Gamer::create([
+        $gamer =  Gamer::create([
 
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -81,5 +86,18 @@ class RegisterController extends Controller
             'battlenetid' =>  $data['battlenetid'],
             'discordid'   =>  $data['discordid'],
         ]);
+
+        $metaVerify = new GamerMeta();
+
+        $metaVerify->meta_key = 'email_verification_code';
+        $metaVerify->meta_value = uniqid();
+
+        $gamer->meta()->save($metaVerify);
+        $email = new VerifyEmailAddress($data['email'], $metaVerify->metaValue);
+
+        Mail::to($data['email'])->send($email);
+
+        return $gamer;
+
     }
 }

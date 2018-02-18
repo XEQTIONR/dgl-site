@@ -25,4 +25,9 @@ class Gamer extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function meta()
+    {
+      return $this->hasMany('App\GamerMeta');
+    }
 }
