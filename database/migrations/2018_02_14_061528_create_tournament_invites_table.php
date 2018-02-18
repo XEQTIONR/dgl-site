@@ -14,13 +14,17 @@ class CreateTournamentInvitesTable extends Migration
     public function up()
     {
         Schema::create('tournament_invites', function (Blueprint $table) {
-            $table->increments('id');
+
+            $table->string('id',13);
             $table->unsignedInteger('contending_team_id');
             $table->string('email', 50);
             $table->enum('status',['available','used','invalid']);
+            $table->timestamps();
+
+            $table->primary('id');
             $table->foreign('contending_team_id')->references('id')->on('contending_teams');
 
-            $table->timestamps();
+
         });
     }
 
