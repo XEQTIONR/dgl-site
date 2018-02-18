@@ -106,37 +106,49 @@
             },
             getGamer: function(input){
 
-                //console.log("VALUE: "+gamer);
                 let sl = input.sl;
                 //Update the gamer based on the alias change that just occurred.
                 axios.get('/gamers/'+input.alias).then( function(response) {
 
                     var gamer = response.data;
+
+                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    let is_email = re.test(gamer);
                     // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
                     //these return undefined if not found.
-
-                      app.gamers[sl].alias=gamer.alias;
-                      app.gamers[sl].fname=gamer.fname;
-                      app.gamers[sl].lname = gamer.lname;
-                      app.gamers[sl].email = gamer.email;
-                      //app.gamers[sl].status = "initassigned";
-                    if((gamer.fname!=undefined) && (gamer.lname!=undefined) && (gamer.email!=undefined))
+                    if(is_email)  // NEW UNREGISTERED gamer
                     {
-                        app.gamers[sl].status = "ok";
+                        //console.log("NEW UNREGISTERED GAMER: " + gamer);
+                        app.gamers[sl].status = "new";
+                        app.gamers[sl].fname = null;
+                        app.gamers[sl].lname = null;
+                        app.gamers[sl].email = gamer;
 
                     }
-                    else// gamer was not found
+                    else // REGISTERED gamer FOUND
                     {
-                        app.gamers[sl].status = "undefined";
-                        app.gamers[sl].fname="";
-                        app.gamers[sl].lname = "";
-                        app.gamers[sl].email = "";
-                        app.gamers[sl].alias = null;
 
-                        document.getElementById(sl).focus();
+                        app.gamers[sl].alias = gamer.alias;
+                        app.gamers[sl].fname = gamer.fname;
+                        app.gamers[sl].lname = gamer.lname;
+                        app.gamers[sl].email = gamer.email;
+
+                        if ((gamer.fname != undefined) && (gamer.lname != undefined) && (gamer.email != undefined)) {
+                            app.gamers[sl].status = "ok";
+
+                        }
+                        else// gamer was not found
+                        {
+                            app.gamers[sl].status = "undefined";
+                            app.gamers[sl].fname = "";
+                            app.gamers[sl].lname = "";
+                            app.gamers[sl].email = "";
+                            app.gamers[sl].alias = null;
+
+                            document.getElementById(sl).focus();
+                        }
                     }
                     //this is not the same instance as app.gamers[sl]
-                    //console.log(gamer);
 
                 } );
 

@@ -123,7 +123,6 @@ class TournamentController extends Controller
     }
 
     ////CUSTOM FUNCTIONS
-
     /**
      * Show registeration form for this tournament.
      *
@@ -137,67 +136,49 @@ class TournamentController extends Controller
     }
 
     /**
-     * Show registeration form for this tournament.
+     * Process Registration for tournment.
      *
      * @param  \App\Tournament  $tournament
+     * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request, Tournament $tournament)
     {
       $gamerCollection = $request->gamer;
       $rosters = collect();
-//      foreach ($gamers as $gamer) {
-//
-//        echo $gamer;
-//        echo "<br>";
-//      }
-//      echo $tournament->id;
-      //dd($request->all());
-        $team = new ContendingTeam();
 
-        $team->name = $request->name;
-        $team->tag = $request->tag;
-        //$team->tournament()->associate($tournament);
-        $team->tournament_id = $tournament->id;
-        $team->status = 'registration_incomplete';
+      $team = new ContendingTeam();
 
-        $team->save();
+      $team->name = $request->name;
+      $team->tag = $request->tag;
+      $team->tournament_id = $tournament->id;
+      $team->status = 'registration_incomplete';
 
-        foreach ($gamerCollection as $alias)
+      $team->save();
+
+      foreach ($gamerCollection as $alias)
+      {
+        // if the alias returned is an email then create a new gamer
+        if( filter_var($alias, FILTER_VALIDATE_EMAIL))
+        {
+          $email = new SignUpandRegister($alias, $team, $tournament);
+
+          Mail::to($alias)->send($email);
+        }
+        else // an alias of an already existing gamer was returned
         {
           $gamer = Gamer::where('alias', $alias)->first();
-          //dd($gamer);
           $roster  = new Roster();
-          //$roster->contending_team_id = $team->id;
+
           $roster->gamer_id = $gamer->id;
           $roster->status = 'ok';
           $roster->contending_team_id = $team->id;
 
           $rosters->push($roster);
-          //array_push($rosters, $roster);
         }
-        //return $rosters;
-        //var_dump($rosters);
-//        foreach ($rosters as $r)
-//        {
-//          Roster::create($r);
-//        }
-      //dd($rosters);
+      }
       $team->roster()->saveMany($rosters);
 
       return $team->id;
-
-    }
-
-    public function mail()
-    {
-        Mail::to('x.e.q.tionrz@gmail.com')->send(new SignUpAndRegister());
-        return(redirect('/'));
-        echo "MAIL FUNC";
-    }
-
-    public function hi()
-    {
-        echo "PUBLIC HI FUNCTION";
     }
 }
