@@ -15,14 +15,14 @@ class CreateContendingTeamTable extends Migration
     {
         Schema::create('contending_teams', function (Blueprint $table) {
             $table->increments('id');
-
             $table->unsignedInteger('clan_id')->nullable()->default(null);
             $table->unsignedInteger('tournament_id');
+            $table->timestamps();
 
             $table->foreign('clan_id')->references('id')->on('clans');
             $table->foreign('tournament_id')->references('id')->on('tournaments');
             
-            $table->timestamps();
+
         });
     }
 
