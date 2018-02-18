@@ -8,5 +8,8 @@ class GamerMeta extends Model
 {
     //
 
-
+  public function gamer()
+  {
+    return $this->belongsTo('App\Gamer');
+  }
 }
