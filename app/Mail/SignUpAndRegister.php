@@ -14,25 +14,28 @@ class SignUpAndRegister extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $inviteId;
     public $teamId;
     public $teamName;
     public $teamTag;
     public $tournamentId;
     public $tournamentName;
-
+    public $toEmail;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($emailAddress, ContendingTeam $team, Tournament $tournament)
+    public function __construct($emailAddress, $inviteId, ContendingTeam $team, Tournament $tournament)
     {
         //
+      $this->inviteId = $inviteId;
       $this->teamId = $team->id;
       $this->teamName = $team->name;
       $this->teamTag = $team->tag;
       $this->tournamentId = $tournament->id;
       $this->tournamentName = $tournament->name;
+      $this->toEmail = $emailAddress;
     }
 
     /**

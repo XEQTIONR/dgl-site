@@ -163,11 +163,15 @@ class TournamentController extends Controller
         // if the alias returned is an email then create a new gamer
         if( filter_var($alias, FILTER_VALIDATE_EMAIL))
         {
-          $email = new SignUpandRegister($alias, $team, $tournament);
+
           $invite = new TournamentInvite();
+          $invite->id = uniqid();
           $invite->contending_team_id = $team->id;
           $invite->email = $alias;
           $invite->status = 'available';
+          $email = new SignUpandRegister($alias, $invite->id, $team, $tournament);
+
+
 
           $invites->push($invite);
           Mail::to($alias)->send($email);
