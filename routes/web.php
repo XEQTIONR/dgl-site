@@ -25,13 +25,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/hi', 'TournamentController@hi');
+
+Route::get('/verify/{code}', 'VerificationController@verifyEmail');
 
 Route::resource('/tournaments', 'TournamentController');
 Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
 Route::post('/tournaments/{tournament}/register','TournamentController@register');
-Route::get('/verify/{code}', 'VerificationController@verifyEmail');
-Route::get('/mail','TournamentController@mail');
 
 
 Route::resource('/gamers', 'GamerController');

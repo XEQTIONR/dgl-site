@@ -18,6 +18,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SignUpAndRegister;
+use App\Mail\RegisterforTournament;
 
 use App\Tournament;
 use App\Esport;
@@ -25,6 +26,7 @@ use App\Roster;
 use App\ContendingTeam;
 use App\Gamer;
 use App\TournamentInvite;
+
 
 
 class TournamentController extends Controller
@@ -180,12 +182,14 @@ class TournamentController extends Controller
         {
           $gamer = Gamer::where('alias', $alias)->first();
           $roster  = new Roster();
+          $emailNotification = new RegisterforTournament($alias, $team, $tournament);
 
           $roster->gamer_id = $gamer->id;
-          $roster->status = 'ok';
+          $roster->status = 'confirmation_required'; //previously ok
           $roster->contending_team_id = $team->id;
 
           $rosters->push($roster);
+          Mail::to($gamer->email)->send($emailNotification);
         }
       }
       $team->roster()->saveMany($rosters);
