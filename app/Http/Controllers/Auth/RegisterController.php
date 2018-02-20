@@ -93,7 +93,7 @@ class RegisterController extends Controller
         $metaVerify->meta_value = uniqid();
 
         $gamer->meta()->save($metaVerify);
-        $email = new VerifyEmailAddress($data['email'], $metaVerify->metaValue);
+        $email = new VerifyEmailAddress($data['email'], $metaVerify->meta_value);
 
         Mail::to($data['email'])->send($email);
 
