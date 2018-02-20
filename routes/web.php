@@ -32,5 +32,6 @@ Route::resource('/tournaments', 'TournamentController');
 Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
 Route::post('/tournaments/{tournament}/register','TournamentController@register');
 
-
 Route::resource('/gamers', 'GamerController');
+
+Route::get('/roster/{alias}/{team}', 'RosterController@confirm');
