@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\ContendingTeam;
+use App\Gamer;
 use App\Roster;
 use Illuminate\Http\Request;
 
@@ -12,74 +15,26 @@ class RosterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function confirm($alias, ContendingTeam $team)
     {
-        //
-    }
+      $gamer = Gamer::where('alias', $alias)->first();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    //Following block of code does not work because roster does not have an atomic primary key.
+//      $roster = Roster::where('contending_team_id', $team->id)
+//                      ->where('gamer_id', $gamer->id)
+//                      ->first();
+//
+//      $roster->status = 'ok';
+//      $roster->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Roster  $roster
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Roster $roster)
-    {
-        //
-    }
+      Roster::where('contending_team_id', $team->id)
+            ->where('gamer_id', $gamer->id)
+            ->update(['status' => 'ok']);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Roster  $roster
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Roster $roster)
-    {
-        //
-    }
+      $roster = Roster:: where('contending_team_id', $team->id)
+      ->where('gamer_id', $gamer->id)->first();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Roster  $roster
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Roster $roster)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Roster  $roster
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Roster $roster)
-    {
-        //
+      return [$alias, $team->name, $roster->status];
     }
 }
