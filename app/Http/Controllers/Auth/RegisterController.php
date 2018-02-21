@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Gamer;
 use App\GamerMeta;
+use App\ContendingTeam;
+use App\Roster;
+use App\TournamentInvite;
+
 use App\Mail\VerifyEmailAddress;
+
+
 
 class RegisterController extends Controller
 {
@@ -87,17 +93,53 @@ class RegisterController extends Controller
             'discordid'   =>  $data['discordid'],
         ]);
 
-        $metaVerify = new GamerMeta();
+        if(array_has($data, ['inviteId']))//skip the email verification
+        {
 
-        $metaVerify->meta_key = 'email_verification_code';
-        $metaVerify->meta_value = uniqid();
+          //update game status to normal
+          $gamer->status = 'normal';
+          $gamer->save();
 
-        $gamer->meta()->save($metaVerify);
-        $email = new VerifyEmailAddress($data['email'], $metaVerify->meta_value);
+          //add gamer to the roster of the contending team
+          $roster = new Roster();
+          $tournament_invite = TournamentInvite::find($data['inviteId']);
+          $teamId = $tournament_invite->contending_team_id;
+          $team = ContendingTeam::find($teamId);
 
-        Mail::to($data['email'])->send($email);
+          $roster->gamer_id = $gamer->id;
+          $roster->status =  'ok';
+          $roster->contending_team_id = $teamId;
+          $team->roster()->save($roster);
+
+          //update the tournament invite to unusable
+          $tournament_invite->status = 'used';
+          $tournament_invite->save();
+          // Send an email confirming entry into tournament
+        }
+        else
+        {
+          $metaVerify = new GamerMeta();
+
+          $metaVerify->meta_key = 'email_verification_code';
+          $metaVerify->meta_value = uniqid();
+
+          $gamer->meta()->save($metaVerify);
+          $email = new VerifyEmailAddress($data['email'], $metaVerify->meta_value);
+
+          Mail::to($data['email'])->send($email);
+
+        }
+
 
         return $gamer;
 
+    }
+
+    public function tournamentInvites(TournamentInvite $invite)
+    {
+      $inviteId = $invite->id;
+      $toEmail = $invite->email;
+
+      return view('auth.register_with_tournament', compact('inviteId', 'toEmail'));
     }
 }
