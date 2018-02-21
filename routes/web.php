@@ -31,6 +31,7 @@ Route::get('/verify/{code}', 'VerificationController@verifyEmail');
 Route::resource('/tournaments', 'TournamentController');
 Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
 Route::post('/tournaments/{tournament}/register','TournamentController@register');
+Route::get('/tournament_invites/{invite}', 'Auth\RegisterController@tournamentInvites');
 
 Route::resource('/gamers', 'GamerController');
 
