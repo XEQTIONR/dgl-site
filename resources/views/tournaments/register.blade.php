@@ -129,7 +129,17 @@
                     let is_email = re.test(gamer);
                     // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
                     //these return undefined if not found.
-                    if(is_email)  // NEW UNREGISTERED gamer
+                    if(response.data == "already-registered")
+                    {
+                        alert("This gamer has already registered for another team in this tournament.");
+                        app.gamers[sl].status = "undefined";
+                        app.gamers[sl].fname = "";
+                        app.gamers[sl].lname = "";
+                        app.gamers[sl].email = "";
+                        app.gamers[sl].alias = null;
+                        document.getElementById(sl).focus();
+                    }
+                    else if(is_email)  // NEW UNREGISTERED gamer
                     {
                         //console.log("NEW UNREGISTERED GAMER: " + gamer);
                         app.gamers[sl].status = "new";
@@ -140,7 +150,6 @@
                     }
                     else // REGISTERED gamer FOUND
                     {
-
                         app.gamers[sl].alias = gamer.alias;
                         app.gamers[sl].fname = gamer.fname;
                         app.gamers[sl].lname = gamer.lname;
