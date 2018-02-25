@@ -188,6 +188,11 @@ class TournamentController extends Controller
           $roster->status = 'confirmation_required'; //previously ok
           $roster->contending_team_id = $team->id;
 
+          if($gamerCollection[0] == $alias) // if this is the first in gamer collection
+            $roster->captain = "true"; // then this person is the captain of the team
+          else
+            $roster->captain = "false";
+
           $rosters->push($roster);
           Mail::to($gamer->email)->send($emailNotification);
         }

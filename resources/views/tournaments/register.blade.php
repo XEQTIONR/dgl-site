@@ -54,7 +54,7 @@
 
               Email Address OR DGLusername <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
 
-            </div>
+            </div><span v-if="gamer.captain === 'true'">captain</span>
             <div v-bind:class="[{'visible' : isRegistered(gamer)}, {'hidden' : !isRegistered(gamer)}, 'col-md-10']" style="background-color: #AAA;">
               <span id="span">@{{gamer.fname+" "+gamer.lname}}</span><br>
               <button type="button" v-on:click="unsetGamer(gamer)">Kick</button>
@@ -85,8 +85,9 @@
 <script>
     let data = {
           gamers:[
-          @for($i=0; $i<$tournament->squadsize; $i++)
-          {sl: "{{$i}}", fname : "", lname : "", email: "", alias:null, status : "init"},
+          {sl: "0", captain : "true", fname : "", lname : "", email : "", alias : null, status : "init"},
+          @for($i=1; $i<$tournament->squadsize; $i++)
+          {sl: "{{$i}}", captain : "false", fname : "", lname : "", email : "", alias : null, status : "init"},
           @endfor
           ]
 
