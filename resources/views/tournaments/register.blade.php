@@ -139,6 +139,16 @@
                         app.gamers[sl].alias = null;
                         document.getElementById(sl).focus();
                     }
+                    else if(response.data == "gamer-unverified")
+                    {
+                        alert("Cannot add a gamer who has not verified their email address.");
+                        app.gamers[sl].status = "undefined";
+                        app.gamers[sl].fname = "";
+                        app.gamers[sl].lname = "";
+                        app.gamers[sl].email = "";
+                        app.gamers[sl].alias = null;
+                        document.getElementById(sl).focus();
+                    }
                     else if(is_email)  // NEW UNREGISTERED gamer
                     {
                         //console.log("NEW UNREGISTERED GAMER: " + gamer);

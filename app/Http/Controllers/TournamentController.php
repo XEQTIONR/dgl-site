@@ -224,6 +224,8 @@ class TournamentController extends Controller
       }
       else // a gamer was found. Now check whether already registered for tournament
       {
+        if( $gamer->status == 'unverified')
+          return "gamer-unverified";
         $registrations = Roster::where('gamer_id', $gamer->id)
           ->where('status', 'ok')
           ->get();
