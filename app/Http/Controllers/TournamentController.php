@@ -201,4 +201,29 @@ class TournamentController extends Controller
       $team->invites()->saveMany($invites);
       return $team->id;
     }
+
+    public function verifyGamer($identifier, Tournament $tournament)
+    {
+      $is_email = filter_var($identifier, FILTER_VALIDATE_EMAIL);
+
+      if($is_email) //identifier is an email try searching by email
+        $gamer = Gamer::where('email', $identifier)->first();
+      else
+      {
+        //try searching by id
+        $gamer = Gamer::where('id', $identifier)->first();
+        if(is_null($gamer)) // if fails try searching by alias
+          $gamer = Gamer::where('alias', $identifier)->first();
+      }
+      if(is_null($gamer)) // if null then 2 possibilities
+      {
+        if($is_email) // 1. New unregistered gamer
+          return $identifier;
+        else // 2. Incorrect gamer id or alias;
+          return "NOT FOUND";
+      }
+
+      return $gamer;
+
+    }
 }
