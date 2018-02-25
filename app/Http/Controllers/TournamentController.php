@@ -222,7 +222,24 @@ class TournamentController extends Controller
         else // 2. Incorrect gamer id or alias;
           return "NOT FOUND";
       }
+      else // a gamer was found. Now check whether already registered for tournament
+      {
+        $registrations = Roster::where('gamer_id', $gamer->id)
+          ->where('status', 'ok')
+          ->get();
 
+        foreach ($registrations as $registration)
+        {
+          if($registration->contendingTeam->tournament->id = $tournament->id)
+          {
+            return "already-registered"; // we check against this returned text
+            break;
+          }
+        }
+      }
+
+      // Check whether this gamer is already registered in a team
+      // for this tournament
       return $gamer;
 
     }
