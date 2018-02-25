@@ -121,7 +121,7 @@
 
                 let sl = input.sl;
                 //Update the gamer based on the alias change that just occurred.
-                axios.get('/gamers/'+input.alias).then( function(response) {
+                axios.get('/tournaments/'+input.alias+"/{{$tournament->id}}").then( function(response) {
 
                     var gamer = response.data;
 
