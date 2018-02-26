@@ -1,8 +1,22 @@
 <?php
+/*
+ * Copyright 2018 DAGAMELEAGUE
 
+   ____    ___  __
+  (  _ \  / __)(  )
+   )(_) )( (_-. )(__  / _/ _ \ '_/ -_)_/ _/ _ \ '  \
+  (____/  \___/(____) \__\___/_| \___(_)__\___/_|_|_|
+
+  @author XEQTIONR
+  @class MatchController
+*/
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+
+use App\Match;
+use App\Tournament;
 
 class MatchController extends Controller
 {
@@ -24,6 +38,17 @@ class MatchController extends Controller
     public function create()
     {
         //
+      $tournaments = Tournament::whereDate('enddate', '>' , Carbon::now())->get();
+      return view('matches.create', compact('tournaments'));
+
+    }
+
+    public function getContestants(Tournament $tournament)
+    {
+      $contestants = $tournament->contenders()
+                                ->where('status', 'ok')
+                                ->get();
+      return $contestants;
     }
 
     /**
