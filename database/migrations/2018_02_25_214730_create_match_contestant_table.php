@@ -13,7 +13,7 @@ class CreateMatchContestantTable extends Migration
      */
     public function up()
     {
-        Schema::create('match_contestant', function (Blueprint $table) {
+        Schema::create('match_contestants', function (Blueprint $table) {
 
             $table->unsignedInteger('match_id');
             $table->unsignedInteger('contending_team_id');
@@ -32,6 +32,6 @@ class CreateMatchContestantTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('match_contestant');
+        Schema::dropIfExists('match_contestants');
     }
 }
