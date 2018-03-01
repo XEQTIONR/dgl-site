@@ -29,9 +29,10 @@
       <option value="{{$tournament->id}}"> {{$tournament->name}} </option>
     @endforeach
   </select><br>
-<ol>
-  <li>
-  <select name="contestants" v-model="selected_team">
+<ol v-if="tournament != ''">
+  Number of contestants<input type="number" min="2" v-model=num><br>
+  <li v-for="index in intNum">
+  <select v-bind:name="'select['+index+']'">
     <option disabled value="" v-if="tournament ==''">Select a tournament first</option>
     <option v-for="contestant in contestants" v-bind:value="contestant.id">@{{ contestant.name }}</option>
   </select>
@@ -48,11 +49,17 @@
   let data = {
       contestants: [],
       tournament: '',
-      selected_team: '',
+      num: "2"
   };
   var app = new Vue({
       el: '#app',
       data: data,
+      computed:
+      {
+          intNum : function(){
+              return parseInt(this.num);
+          }
+      },
       methods:
       {
           getContestants: function(){
