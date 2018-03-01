@@ -37,5 +37,6 @@ Route::resource('/gamers', 'GamerController');
 
 Route::get('/roster/{alias}/{team}', 'RosterController@confirm');
 
-Route::get('/matches', 'MatchController@create');
+Route::resource('/matches', 'MatchController');
+
 Route::get('/matches/contestants/{tournament}', 'MatchController@getContestants');

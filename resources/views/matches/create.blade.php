@@ -20,7 +20,7 @@
 </head>
 <body>
 <div id="app">
-<form method="POST" action="/tournaments">
+<form method="POST" action="/matches">
   {{csrf_field()}}
   Select Tournament
   <select name="tournament" v-model="tournament" v-on:change="getContestants()">
@@ -30,7 +30,7 @@
     @endforeach
   </select><br>
 <ol v-if="tournament != ''">
-  Number of contestants<input type="number" min="2" v-model=num><br>
+  Number of contestants<input type="number" name="number" min="2" v-model=num><br>
   <li v-for="index in intNum">
   <select v-bind:name="'select['+index+']'">
     <option disabled value="" v-if="tournament ==''">Select a tournament first</option>

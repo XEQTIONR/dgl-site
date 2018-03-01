@@ -12,6 +12,7 @@
 */
 namespace App\Http\Controllers;
 
+use App\MatchContestant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -60,6 +61,26 @@ class MatchController extends Controller
     public function store(Request $request)
     {
         //
+      $match = new Match;
+      $contestants = collect(); //empty collection
+      $match->tournament_id = $request->tournament;
+
+      $match->save();
+
+      foreach ($request->select as $contestant)
+      {
+        $mcontestant = new MatchContestant;
+        //$mcontestant->match_id = $match->id;
+        $mcontestant->contending_team_id = $contestant;
+
+        $contestants->push($mcontestant);
+      }
+
+      $match->contestants()->saveMany($contestants);
+      echo "DONE";
+      //return $request;
+      //var_dump($request);
+      //echo "W E  H I T  T H I S";
     }
 
     /**

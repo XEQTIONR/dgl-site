@@ -19,4 +19,9 @@ class Match extends Model
     // won_id references id on contending_teams table
     return $this->belongsTo('App\ContendingTeam', 'won_id');
   }
+
+  public function contestants()
+  {
+    return $this->hasMany('App\MatchContestant');
+  }
 }
