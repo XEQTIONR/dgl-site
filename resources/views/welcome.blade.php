@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="/css/app.css">
         <!--JQuery-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
+        <!--Font Awesome-->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -28,26 +29,37 @@
                 <div class="col-1"></div>
                 <div class="col">
                     <ul class="nav justify-content-start">
-                        <li class="nav-item"><a class="nav-link">news</a></li>
-                        <li class="nav-item"><a class="nav-link">tournaments</a></li>
-                        <li class="nav-item"><a class="nav-link">matches</a></li>
-                        <li class="nav-item"><a class="nav-link">teams</a></li>
-                        <li class="nav-item"><a class="nav-link">players</a></li>
-                        <li class="nav-item"><a class="nav-link">media</a></li>
-                        <li class="nav-item"><a class="nav-link">about us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/blog">news</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/tournaments">tournaments</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/matches">matches</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/teams">teams</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/players">players</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/media">media</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">about us</a></li>
                     </ul>
                 </div>
                 <div class="col">
                     <ul class="nav justify-content-end">
                         @if(Auth::guest())
-                            <li class="nav-item"><a href="{{  route('login')  }}" class="nav-link">sign in</a></li>
-                            <li class="nav-item"><a href="{{  route('register')  }}" class="nav-link">register</a></li>
+                            <li class="nav-item">
+                                <a href="{{  route('login')  }}" class="nav-link">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    sign in
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{  route('register')  }}" class="nav-link">
+                                    <i class="fas fa-user-plus"></i>
+                                    register
+                                </a>
+                            </li>
                         @else
                             <li class="nav-item">
                               <a href="{{ route('logout') }}" class="nav-link"
                               onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                              logout
+                                  <i class="fas fa-sign-out-alt"></i>
+                                  logout
                               </a>
                             </li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -58,7 +70,7 @@
                 </div>
                 <div class="col-1"></div>
             </div>
-            
+
         {{--<script src="/js/popper.min.js"></script>--}}
         {{--<script src="/js/bootstrap.min.js"></script>--}}
         <script src="/js/app.js"></script>
