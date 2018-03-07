@@ -17,61 +17,9 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row justify-content-center">
-                Professional Esports Leagues and Tournaments
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-10" style="border: 1px solid black;">
-                    DAGAMELEAGUE
-                </div>
-            </div>
-            <div class="row main-menu">
-                <div class="col-1"></div>
-                <div class="col-8">
-                    <ul class="nav justify-content-start">
-                        <li class="nav-item"><a class="nav-link" href="/blog">news</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/tournaments">tournaments</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/matches">matches</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/teams">teams</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/players">players</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/media">media</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/about">about us</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <ul class="nav justify-content-end">
-                        @if(Auth::guest())
-                            <li class="nav-item">
-                                <a href="{{  route('login')  }}" class="nav-link">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                    sign in
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{  route('register')  }}" class="nav-link">
-                                    <i class="fas fa-user-plus"></i>
-                                    register
-                                </a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                              <a href="{{ route('logout') }}" class="nav-link"
-                              onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                  <i class="fas fa-sign-out-alt"></i>
-                                  logout
-                              </a>
-                            </li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              {{ csrf_field() }}
-                            </form>
-                        @endif
-                    </ul>
-                </div>
-                <div class="col-1"></div>
-            </div> <!-- row main-menu -->
-            <div class="row banner-background">
-                <div class="col-lg-10 offset-lg-1">
+            @include('partials.header')
+            <div class="row banner-background" style="background-color: pink">
+                <div class="col-lg-10 offset-lg-1" style="background-color: orange">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -121,7 +69,7 @@
                 </div>
             </div> <!-- row banner-background -->
             <div class="row justify-content-center main">
-                <div class="col-md-8">
+                <div class="col-md-8" style="border: 1px solid pink">
                     <div class="row main-content">
                         <div class="col-12">
                             <div class="row main-content-heading">
@@ -154,11 +102,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="row  justify-content-center main-sidebar">
-                        <div class="col-12" style="background-color: #00b3ee">
-                            <h5>Some widget stuff</h5>
-                        </div>
+                <div class="col-md-2" style="border: 1px solid black">
+                    <div class="row main-sidebar">
+                        {{--<div class="col-12" style="background-color: #00b3ee">--}}
+                            {{--<div class="row">--}}
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                          <h6 class="text-center">NEXT TOURNAMENT</h6>
+                                        </div>
+                                        <img class="card-img" src="{{URL::asset('storage/2.jpg')}}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{--</div>--}}
+
+
+
+                        {{--</div>--}}
                     </div>
                 </div>
             </div><!-- row main -->
