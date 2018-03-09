@@ -10,16 +10,22 @@
   @author XEQTIONR
 
 --}}
-<div class="row justify-content-center">
+<div class="row justify-content-center top-banner">
   Professional Esports Leagues and Tournaments
 </div>
-<div class="row justify-content-center">
-  <div class="col-10" style="border: 1px solid black;">
-    DAGAMELEAGUE
+<div class="row justify-content-center align-items-end no-gutters">
+  <div class="col-2 col-sm-1 offset-sm-1 col-md-1 offset-md-1" style="">
+    <div class="title-banner-img-container">
+      <img class="title-banner-img" src="{{URL::asset('storage/DGLCrownPrimary.svg')}}" />
+    </div>
+  </div>
+  <div class="col">
+      <h3 class="regular">ĐAGAMELEAGUE</h3>
   </div>
 </div>
 <div class="row main-menu">
-  <div class="col-1"></div>
+  <div class="col-1">
+  </div>
   <div class="col-8">
     <ul class="nav justify-content-start">
       <li class="nav-item"><a class="nav-link" href="/blog">news</a></li>

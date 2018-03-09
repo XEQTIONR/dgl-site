@@ -1,9 +1,61 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
 @import "variables";
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+body{
+
+  .regular{
+    font-family: $font-header;
+    font-weight: 700;
+    font-style: italic;
+    padding-bottom: 5px;
+  }
+
+  .top-banner{
+    background-color: $dgl-primary;
+    padding : 10px 0;
+    color: #FFF;
+    font-weight: 700;
+  }
+
+  //.title-banner-img{
+  //  width : 75px;
+  //}
+
+  .title-banner-img-container{
+    width : 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    .title-banner-img{
+      //max-width: 75px;
+      max-height: 50px;
+    }
+  }
+
+  .title-row{
+    background-color: $dgl-lightergray;
+  }
+  .main-menu{
+    background-color: $dgl-gray;
+    a {
+      color: $dgl-lightgray;
+      font-family: $font-header;
+      font-weight: 700;
+
+      &:hover{
+        color: #FFF;
+        background-color: $dgl-primary;
+      }
+    }
+  }
+
+  .banner-background{
+    background-color: $dgl-darkergray;
+  }
+
+}
