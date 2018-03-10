@@ -1,0 +1,94 @@
+.font-primary-color {
+  color: #8381F7;
+}
+
+.faded {
+  opacity: .3;
+}
+
+body .regular {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+body .top-banner {
+  background-color: #8381F7;
+  padding: 10px 0;
+  color: #FFF;
+  font-weight: 700;
+}
+
+body .title-banner-img-container {
+  width: 100%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+body .title-row {
+  background-color: #EEEBFA;
+}
+
+body .main-menu {
+  background-color: #5E5E6B;
+}
+
+body .main-menu a {
+  color: #CECEEB;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+}
+
+body .main-menu a:hover {
+  color: #FFF;
+  background-color: #8381F7;
+}
+
+body .banner-background {
+  background-color: #2F2F36;
+}
+
+body .footer {
+  background-color: #313152;
+  border-top: 15px solid #8381F7;
+  margin-top: 2em;
+  padding-top: 2em;
+  font-family: "Titillium Web", sans-serif;
+}
+
+body .footer a {
+  color: #5E5E6B;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body .footer h2,
+body .footer h5 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+body .footer .footer-text {
+  height: 25vw;
+}
+
+body .footer .footer-text .footer-list-div {
+  min-width: 100px;
+}
+
+body .flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 300px;
+}
+

@@ -4,9 +4,16 @@
 // Variables
 @import "variables";
 
-// Bootstrap
 
+// Generic
+.font-primary-color{
+  color: $dgl-primary;
+}
 
+.faded{
+  opacity: .3;
+}
+// Componenets
 body{
 
   .regular{
@@ -31,10 +38,6 @@ body{
     width : 100%;
     padding-bottom: 10px;
     padding-top: 10px;
-    .title-banner-img{
-      //max-width: 75px;
-      max-height: 50px;
-    }
   }
 
   .title-row{
@@ -57,5 +60,48 @@ body{
   .banner-background{
     background-color: $dgl-darkergray;
   }
+  .footer {
+    background-color: $dgl-darkpuple;
+    border-top: 15px solid $dgl-primary;
+    margin-top: 2em;
+    padding-top: 2em;
+    font-family: $font-header;
 
+    a{
+      color: #5E5E6B;
+      font-family: $font-header;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    h2, h5 {
+      font-family: $font-header;
+      font-weight: 700;
+      line-height: 1em;
+
+    }
+
+    .footer-text {
+
+      height: 25vw;
+
+
+
+      .footer-list-div{
+        //float : left;
+        //display: inline;
+        min-width : 100px;
+        //border : 1px solid black;
+        //margin-top : 1em;
+      }
+
+    }
+  }
+
+  .flex-container{
+    display : flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-height : 300px;
+
+  }
 }
