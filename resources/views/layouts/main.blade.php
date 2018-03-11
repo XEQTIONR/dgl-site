@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid no-horizontal-padding">
   @include('partials.header')
 
   @yield('body-section')

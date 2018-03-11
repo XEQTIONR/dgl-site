@@ -9,6 +9,15 @@
   color: #8381F7;
 }
 
+h1,
+h2,
+h3,
+h5 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  line-height: 1em;
+}
+
 .font-primary-700b {
   font-family: "Titillium Web", sans-serif;
   font-weight: 700;
@@ -20,8 +29,17 @@
   font-style: italic;
 }
 
+.mt-10 {
+  margin-top: 7em;
+}
+
 .faded {
   opacity: .3;
+}
+
+.no-horizontal-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .white-border {
@@ -97,6 +115,7 @@ body .footer {
   border-top: 15px solid #8381F7;
   margin-top: 2em;
   padding-top: 2em;
+  padding-bottom: 20px;
   font-family: "Titillium Web", sans-serif;
 }
 
@@ -107,12 +126,8 @@ body .footer a {
   text-decoration: none;
 }
 
-body .footer h2,
-body .footer h3,
-body .footer h5 {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
-  line-height: 1em;
+body .footer a:hover {
+  color: #CECEEB;
 }
 
 body .footer .footer-text {
@@ -120,7 +135,7 @@ body .footer .footer-text {
 }
 
 body .footer .footer-text .footer-list-div {
-  min-width: 100px;
+  min-width: 175px;
 }
 
 body .flex-container {

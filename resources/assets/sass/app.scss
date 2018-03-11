@@ -10,6 +10,13 @@
   color: $dgl-primary;
 }
 
+h1, h2, h3, h5 {
+  font-family: $font-primary;
+  font-weight: 700;
+  line-height: 1em;
+
+}
+
 .font-primary-700b{
   font-family: $font-primary;
   font-weight: 700;
@@ -21,8 +28,17 @@
   //padding-bottom: 5px;
 }
 
+.mt-10{
+  margin-top : 7em;
+}
+
 .faded{
   opacity: .3;
+}
+
+.no-horizontal-padding{
+  padding-left: 0;
+  padding-right: 0;
 }
 //Bootstrap overrides.
 .white-border{
@@ -107,19 +123,18 @@ body{
     border-top: 15px solid $dgl-primary;
     margin-top: 2em;
     padding-top: 2em;
+    padding-bottom : 20px;
     font-family: $font-primary;
 
     a{
-      color: #5E5E6B;
+      color: $dgl-gray;
       font-family: $font-primary;
       font-weight: 700;
       text-decoration: none;
-    }
-    h2, h3, h5 {
-      font-family: $font-primary;
-      font-weight: 700;
-      line-height: 1em;
 
+      &:hover{
+        color: $dgl-lightgray;
+      }
     }
 
     .footer-text {
@@ -131,7 +146,7 @@ body{
       .footer-list-div{
         //float : left;
         //display: inline;
-        min-width : 100px;
+        min-width : 175px;
         //border : 1px solid black;
         //margin-top : 1em;
       }
