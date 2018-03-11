@@ -9,15 +9,64 @@
   color: #8381F7;
 }
 
+.font-primary-700b {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+}
+
+.font-primary-700bi {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .faded {
   opacity: .3;
 }
 
-body .regular {
+.white-border {
+  border-color: #FFF !important;
+}
+
+.lightgray-border {
+  border-color: #CECEEB !important;
+}
+
+body #alertBannerTop {
+  background-color: #8381F7;
+}
+
+body .navbar {
+  padding: 0 !important;
+}
+
+body .navbar-dgl-background {
+  background-color: #5E5E6B;
+}
+
+body .navbar-dgl .navbar-toggler-icon {
+  background-image: url("/storage/hamburger.svg");
+}
+
+body .navbar-dgl a {
+  color: #CECEEB;
   font-family: "Titillium Web", sans-serif;
   font-weight: 700;
-  font-style: italic;
-  padding-bottom: 5px;
+}
+
+body .navbar-dgl a:hover {
+  color: #FFF;
+  background-color: #8381F7;
+}
+
+body .navbar-dgl a button {
+  color: #FFF;
+  border-color: #FFF !important;
+}
+
+body .navbar-dgl li a {
+  padding-right: 1vw !important;
+  padding-left: 1vw !important;
 }
 
 body .top-banner {
@@ -31,25 +80,12 @@ body .title-banner-img-container {
   width: 100%;
   padding-bottom: 10px;
   padding-top: 10px;
+  min-width: 75px;
+  max-width: 100px;
 }
 
 body .title-row {
   background-color: #EEEBFA;
-}
-
-body .main-menu {
-  background-color: #5E5E6B;
-}
-
-body .main-menu a {
-  color: #CECEEB;
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
-}
-
-body .main-menu a:hover {
-  color: #FFF;
-  background-color: #8381F7;
 }
 
 body .banner-background {
@@ -72,6 +108,7 @@ body .footer a {
 }
 
 body .footer h2,
+body .footer h3,
 body .footer h5 {
   font-family: "Titillium Web", sans-serif;
   font-weight: 700;
