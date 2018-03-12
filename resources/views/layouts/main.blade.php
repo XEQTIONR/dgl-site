@@ -7,7 +7,8 @@
   <title>DaGameLeague - DGLcore.com</title>
 
   <!--Fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,600,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web:400,400i,600,700,700i,900" rel="stylesheet">
+
   <!--Stylesheet-->
   <link rel="stylesheet" href="/css/app.css">
   <!--JQuery-->
@@ -18,7 +19,7 @@
 
 </head>
 <body>
-<div class="container-fluid no-horizontal-padding">
+<div class="container-fluid">
   @include('partials.header')
 
   @yield('body-section')

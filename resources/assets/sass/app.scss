@@ -1,6 +1,5 @@
 
 // Fonts
-
 // Variables
 @import "variables";
 
@@ -10,11 +9,72 @@
   color: $dgl-primary;
 }
 
+.back-color-primary{
+  //background-color: darken($dgl-primary, 5%);
+  background-color: $dgl-primary;
+}
+
+.back-color-orange{
+  background-color: $dgl-orange;
+}
+.back-color-primary-hover{
+  background-color: darken($dgl-primary, 5%);
+  border-top: 1px solid white;
+
+  &:hover{
+    background-color: darken($dgl-primary, 10%);
+  }
+}
+.back-color-orange-hover{
+  border-top: 1px solid white;
+  &:hover{
+    background-color: saturate(darken($dgl-orange, 5%),15%);
+  }
+}
+
+
 h1, h2, h3, h5 {
   font-family: $font-primary;
   font-weight: 700;
   line-height: 1em;
 
+}
+
+p {
+  font-family: $font-copy;
+  //font-size: 18px;
+}
+
+.jumbotron-fluid{
+  //background-repeat: no-repeat;
+  //background-size: 100% 100%;
+  //style="background-image: url('{{URL::asset('storage/hearthstone.jpg')}}');"
+  position: relative;
+  overflow: hidden;
+  padding: auto;
+  //min-height: 50vh;
+  z-index: -4;
+  //img {
+  //  position: absolute;
+  //  //left: 50%;
+  //  //top: 100%;
+  //  z-index: -3;
+  //  width: 100%;
+  //  height: auto;
+  //  //-webkit-transform: translate(-50%,-50%);
+  //  //-ms-transform: translate(-50%,-50%);
+  //  //transform: translate(-50%,-50%);
+  //}
+}
+.card { //set a back color
+
+  .card-body{
+    color: #FFF;
+  }
+  .card-link {
+    color: #FFF;
+    font-weight: 700;
+  }
 }
 
 .font-primary-700b{
@@ -28,10 +88,17 @@ h1, h2, h3, h5 {
   //padding-bottom: 5px;
 }
 
+.font-primary-900{
+  font-family: $font-primary;
+  font-weight: 900;
+}
+
 .mt-10{
   margin-top : 7em;
 }
-
+.pr-6{
+  padding-right: 4rem !important;
+}
 .faded{
   opacity: .3;
 }
@@ -40,6 +107,45 @@ h1, h2, h3, h5 {
   padding-left: 0;
   padding-right: 0;
 }
+
+.thumbnail {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+}
+
+.thumbnail-sq {
+  width: 12vw;
+  height: 12vw;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.thumbnail-rect {
+  width: 20vw;
+  height: 15vw;
+
+  max-width: 300px;
+  max-height: 225px;
+}
+
+.thumbnail-rect-smscreen {
+  width: 86vw;
+  height: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 //Bootstrap overrides.
 .white-border{
   border-color: #FFF !important;
@@ -52,15 +158,37 @@ h1, h2, h3, h5 {
 // Componenets
 body{
 
+  //width: 100vw;
+
   #alertBannerTop{
     background-color: $dgl-primary;
+  }
+
+  #moreButton{
+    font-family: $font-primary;
+    color: $dgl-primary;
+    font-size: 1.4em;
+    font-weight: 700;
+
+    &:hover{
+      color: $dgl-orange;
+      text-decoration: none;
+    }
   }
   .navbar{ // bootstrap override
     padding: 0 !important;
   }
 
+  .nav-brand{
+    a{
+      font-family: $font-primary;
+      font-weight: 900;
+      vertical-align: baseline;
+    }
+  }
+
   .navbar-dgl-background{
-    background-color: $dgl-gray;
+    background-color: $dgl-gray !important;
   }
 
   .navbar-dgl{
@@ -68,7 +196,7 @@ body{
     background-image: url('/storage/hamburger.svg')
     }
     a{
-      color: $dgl-lightgray;
+      color: $dgl-lightergray;
       font-family: $font-primary;
       font-weight: 700;
 
@@ -76,13 +204,13 @@ body{
         color: #FFF;
         background-color: $dgl-primary;
       }
-
-      button{ //bootstrap override
-        color: #FFF;
-        border-color: #FFF !important;
-      }
     }
-
+    button{ //bootstrap override
+      color: #FFF;
+      border-color: $dgl-lightgray !important;
+      background-color: $dgl-primary;
+      margin-left: 2vw;
+    }
     li{
       a{
         padding-right: 1vw !important;
@@ -100,28 +228,69 @@ body{
     font-weight: 700;
   }
 
-  //.title-banner-img{
-  //  width : 75px;
-  //}
+  .footer-banner-img{
+    opacity: .7;
+  }
 
   .title-banner-img-container{
-    width : 100%;
+    width : 50%;
     padding-bottom: 10px;
     padding-top: 10px;
     min-width: 75px;
     max-width: 100px;
-  }
 
-  .title-row{
-    background-color: $dgl-lightergray;
+    .title-banner-img{
+      vertical-align: baseline;
+    }
   }
   .banner-background{
     background-color: $dgl-darkergray;
   }
+
+  .dgl-card-img{
+    width: 50%;
+    display: block;
+    margin: 2em auto 0 auto;
+  }
+
+  .main{
+    //background: linear-gradient($dgl-gray, $dgl-lightergray);
+    ///background: linear-gradient(#FFF, #9696AB);
+    background-color: $dgl-lightestgray;//lighten($dgl-darkergray, 65%);
+  }
+
+  .post-body{
+    padding-bottom: 1em;
+    //border : 1px dashed $dgl-orange;
+    //border-bottom-width: .45vw;
+    //border-bottom-style: solid;
+    //border-bottom-color : $dgl-orange;
+
+    background-color: #FFF;
+    .post-link {
+      text-decoration: none;
+      .post-title {
+
+        color: $dgl-gray;
+        text-decoration: none;
+        margin-top : 5px;
+        &:hover {
+          color: $dgl-orange;
+
+        }
+      }
+    }
+
+    &:hover{
+      //box-shadow: 5px 5px $dgl-primary;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
   .footer {
-    background-color: $dgl-darkpuple;
-    border-top: 15px solid $dgl-primary;
-    margin-top: 2em;
+    background-color: $dgl-darkergray;
+    background: linear-gradient($dgl-darkish-gray , $dgl-darkergray);
+   // border-top: 2px dashed $dgl-primary;
+
     padding-top: 2em;
     padding-bottom : 20px;
     font-family: $font-primary;
@@ -133,7 +302,7 @@ body{
       text-decoration: none;
 
       &:hover{
-        color: $dgl-lightgray;
+        color: #FFF;
       }
     }
 
@@ -152,6 +321,10 @@ body{
       }
 
     }
+
+    p{
+      font-family: $font-copy;
+    }
   }
 
   .flex-container{
@@ -159,6 +332,7 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
     max-height : 300px;
+    border-bottom : 1px solid $dgl-darkish-gray;
 
   }
 }

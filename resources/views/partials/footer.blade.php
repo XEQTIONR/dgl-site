@@ -44,7 +44,7 @@
         <h2 class="font-primary-color"><em>ĐAGAMELEAGUE</em></h2>
         <h2 class="faded font-primary-color"><em>ĐGLcore.com</em></h2>
       </div>
-      <div class="col-12">
+      <div class="col-12" >
         <div class="flex-container">
             <div class="footer-list-div">
               <h5 class="text-uppercase font-primary-color">News</h5>
@@ -96,13 +96,13 @@
   </div>
   <div class="col-12 col-md-4">
     <div class="row d-md-none">
-      <div class="col-12">
+      <div class="col-12" style="border-bottom: 1px solid #363636;">
         <p class="text-center" style="color: #FFF;">2018 &copy; ĐAGAMELEAGUE INC. All rights reserved</p>
       </div>
     </div>
     <div class="row justify-content-center footer-img">
-      <div class="col-12">
-      <img class="title-banner-img faded" src="{{URL::asset('storage/DGLCrownPrimary.svg')}}" />
+      <div class="col-12 mt-5 ml-md-5">
+      <img class="" src="{{URL::asset('storage/DGLCrownPrimary.svg')}}" />
       </div>
     </div>
   </div>
