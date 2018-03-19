@@ -13,6 +13,10 @@
   background-color: #8381F7;
 }
 
+.back-color-primary-grad {
+  background-image: radial-gradient(circle, #8381F7 0%, #625ff5 100%);
+}
+
 .back-color-orange {
   background-color: #EB893C;
 }
@@ -52,6 +56,12 @@ p {
   overflow: hidden;
   padding: auto;
   z-index: -4;
+  color: #FFF;
+  padding-bottom: 3em;
+}
+
+.jumbotron-fluid h1 {
+  font-weight: 900;
 }
 
 .card .card-body {
