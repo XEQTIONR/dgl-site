@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="row justify-content-center d-block d-sm-block d-md-none mt-4">
       <div class="col-12 mb-4">
-        <h2 class="font-primary-color text-center"><em>ĐAGAMELEAGUE</em></h2>
+        <h2 class="font-primary-color text-center">ĐAGAMELEAGUE</h2>
         <h2 class="faded font-primary-color text-center"><em>ĐGLcore.com</em></h2>
       </div>
       <div class="col-12">
@@ -41,7 +41,7 @@
     </div>
     <div class="row footer-text d-none d-md-block mt-4">
       <div class="col-12 mb-4">
-        <h2 class="font-primary-color"><em>ĐAGAMELEAGUE</em></h2>
+        <h2 class="font-primary-color">ĐAGAMELEAGUE</h2>
         <h2 class="faded font-primary-color"><em>ĐGLcore.com</em></h2>
       </div>
       <div class="col-12" >
