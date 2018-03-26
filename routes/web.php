@@ -40,3 +40,7 @@ Route::get('/roster/{alias}/{team}', 'RosterController@confirm');
 Route::resource('/matches', 'MatchController');
 
 Route::get('/matches/contestants/{tournament}', 'MatchController@getContestants');
+
+Route::get('/atournament', function (){
+  return view('tournaments.atournament');
+});

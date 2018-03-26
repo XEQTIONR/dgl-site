@@ -1,4 +1,4 @@
-<!--
+{{--
  * Copyright 2018 DAGAMELEAGUE
 
  ____    ___  __
@@ -8,77 +8,101 @@
 
 @author XEQTIONR
 @template register
--->
-<!DOCTYPE HTML>
-<html lang="{{ app()->getLocale() }}">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Register for {{$tournament->name}}</title>
-
-  <!-- Bootstrap CSS CDN -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+--}}
   <!-- Axios script -- for ajax calls -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <style>
-    .visible{
-      /**visibility : visible;*/
-      display: inherit;
-    }
-    .hidden{
-      /**visibility: hidden;*/
-      display: none;
-    }
-  </style>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style>
+  .visible{
+    /**visibility : visible;*/
+    display: inherit;
+  }
+  .hidden{
+    /**visibility: hidden;*/
+    display: none;
+  }
+</style>
 
-</head>
-<body>
-
-<div class="container-fluid">
+<div class="row">
+  <div class="col-12">
+    <h1 class="font-primary-color py-3">Registration</h1>
+  </div>
+</div>
 <div class="row justify-content-md-center">
-  <div class="col-md-12 col-sm-12" style="border: 2px solid red;">
-    <form method="POST" action="/tournaments/{{$tournament->id}}/register">
+  <div class="col-12" >
 
+    <form method="POST" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
       {{csrf_field()}}
       <div id="app">
-      Team Name <input type="text" name="name"><br>
-      Team Tag <input type="text" name="tag"><br>
-
-      <ol>
-        <li v-for="gamer in gamers">
-          <div class="row">
-            <div v-bind:class="[{'visible' : !isRegistered(gamer)&&!isNew(gamer)}, {'hidden' : isRegistered(gamer)||isNew(gamer)}, 'col-md-10']" >
-
-              Email Address OR DGLusername <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
-
-            </div><span v-if="gamer.captain === 'true'">captain</span>
-            <div v-bind:class="[{'visible' : isRegistered(gamer)}, {'hidden' : !isRegistered(gamer)}, 'col-md-10']" style="background-color: #AAA;">
-              <span id="span">@{{gamer.fname+" "+gamer.lname}}</span><br>
-              <button type="button" v-on:click="unsetGamer(gamer)">Kick</button>
-            </div>
-            <div v-bind:class="[{'visible' : isNew(gamer)}, {'hidden' : !isNew(gamer)}, 'col-md-10']" style="background-color: #AAA;">
-              <span id="span">@{{gamer.email}}</span><br>
-              This person will be emailed an invite<br>
-              to DGL and to your team for <br>
-              this tournament.
-              <button type="button" v-on:click="unsetGamer(gamer)">Kick</button>
-            </div>
+        <div class="form-group">
+          <label for="teamName">Team Name</label>
+          <input type="text" name="name" class="form-control" id="teamName">
+        </div>
+        <div class="form-group">
+          <label for="teamTag">Team Tag</label>
+          <div class="col-2 pl-0">
+          <input type="text" name="tag" class="form-control" id="teamTag">
           </div>
-        </li>
-      </ol>
+        </div>
 
-      <input type="checkbox">I confirm that I have read and understood the rules and regulations of the tournament. I understand that if I am in violation of these rules, I or my team maybe disqualified from the tournament and/or banned from DGL.
+        <ol class="list-group">
+          <li  v-for="gamer in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
+            <div class="row">
+              <div v-bind:class="[{'visible' : !isRegistered(gamer)&&!isNew(gamer)}, {'hidden' : isRegistered(gamer)||isNew(gamer)}, 'col-12']" >
+                <div class="row" style="width :100%"> {{--Need this CSS hack--}}
+                  <label class="col-12 col-md-6 col-form-label">Email Address OR DGLusername </label>
+                  <div class="col-12 col-md-6">
+                    <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
+                  </div>
+                  {{--<div v-if="gamer.captain === 'true'" class="col-1">--}}
+                    {{--<span>captain</span>--}}
+                  {{--</div>--}}
+                </div>
+              </div>
+
+              <!-- hidden divs-->
+              <div v-bind:class="[{'visible' : isRegistered(gamer)}, {'hidden' : !isRegistered(gamer)}, 'col-md-10']">
+                <div class="col-5">
+                  <span>@{{gamer.fname+" "+gamer.lname}}</span>
+                </div>
+                <div class="col-6 ">
+                  <span>@{{gamer.alias}}</span>
+                </div>
+                <div class="col-1">
+                  <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+                </div>
+              </div>
+              <div v-bind:class="[{'visible' : isNew(gamer)}, {'hidden' : !isNew(gamer)}, 'col-md-10']">
+                <div class="col-5">
+                <span id="span">@{{gamer.email}}</span>
+                </div>
+                <div class="col-6">
+                  This person will be emailed an invite
+                to DGL and to your team for
+                this tournament.
+                </div>
+                <div class="col-1">
+                  <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+                </div>
+              </div>
+
+            </div>
+          </li>
+        </ol>
+
+        <div class="form-check mt-5">
+          <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option2 ">
+          <label class="form-check-label" for="exampleRadios1">
+            I confirm that I have read and understood the rules and regulations of the tournament. I understand that if I am in violation of these rules, I or my team maybe disqualified from the tournament and/or banned from DGL.
+          </label>
+        </div>
       </div>
       <br>
-
-      <button type="submit" value="submit">Submit</button>
+      <button  class="btn btn-outline-dgl" type="submit" value="submit">Submit</button>
     </form>
+
+
   </div>  <!-- col -->
 </div>    <!--row-->
-</div> <!-- container -->
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 
@@ -108,6 +132,11 @@
               if(gamer.status=='new')
                   return true;
               return false;
+            },
+            isOK: function(gamer){
+                 if(gamer.status=='ok')
+                     return true;
+                return false;
             },
             unsetGamer: function(gamer){
                 let sl = gamer.sl;
@@ -189,5 +218,3 @@
 
     });
 </script>
-</body>
-</html>

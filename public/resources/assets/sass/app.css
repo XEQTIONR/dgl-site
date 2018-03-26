@@ -2,8 +2,8 @@
   color: #EF9F3C;
 }
 
-.font-darken-primary {
-  color: #ed9324;
+.font-purple {
+  color: #5c60a8;
 }
 
 .font-gray {
@@ -16,14 +16,6 @@
 
 .font-blue {
   color: #00A0EA;
-}
-
-.font-green-color {
-  color: #0cff99;
-}
-
-.font-red-color {
-  color: #ff6154;
 }
 
 .font-alternate-color {
@@ -58,6 +50,10 @@
   background-image: radial-gradient(circle, #FF386D 50%, #ff0548 100%);
 }
 
+.back-color-grayple {
+  background-color: #06021c;
+}
+
 .back-color-orange {
   background-color: #EB893C;
 }
@@ -86,6 +82,10 @@
   z-index: -2;
 }
 
+.background-a-tournament {
+  background-size: cover;
+}
+
 .overlay {
   z-index: -1;
   height: 100%;
@@ -110,6 +110,15 @@ h5 {
 p {
   font-family: "Open Sans", "Helvetica", "Arial";
   color: #FFF;
+}
+
+.jumbotron-atournament {
+  background-size: cover !important;
+  background-position: bottom !important;
+}
+
+.jumbotron-atournament .tournament-name-row + div {
+  height: 35vh;
 }
 
 .jumbotron-fluid {
@@ -182,11 +191,33 @@ p {
   transform: translate(-50%, -50%);
 }
 
+.thumbnail-x {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbnail-x img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .thumbnail-sq {
   width: 12vw;
   height: 12vw;
   min-width: 100px;
   min-height: 100px;
+}
+
+.thumbnail-rect-lg {
+  width: 100vw;
+  height: 24vw;
+  min-width: 100px;
+  min-height: 24px;
 }
 
 .thumbnail-sq-lg {
@@ -223,6 +254,35 @@ p {
           transform: skewX(-20deg);
 }
 
+body {
+  /* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
+}
+
+body .dgl-ol li {
+  counter-increment: list;
+  list-style-type: none;
+  position: relative;
+}
+
+body .dgl-ol li:before {
+  color: #EF9F3C;
+  content: counter(list) ".";
+  left: -32px;
+  position: absolute;
+  text-align: right;
+  width: 26px;
+}
+
+body .list-group-item-primary {
+  background-color: #EF9F3C !important;
+  color: #2B2B2A !important;
+}
+
+body .list-group-item-gray {
+  background-color: #454545 !important;
+  color: #EF9F3C !important;
+}
+
 body #alertBannerTop {
   background-color: #EF9F3C;
 }
@@ -239,6 +299,45 @@ body #moreButton:hover {
   text-decoration: none;
 }
 
+body .team-logo-300 {
+  width: 100%;
+  background-color: #262625;
+}
+
+body .team-logo-300-trans {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+body .team-registration {
+  padding: 1em;
+}
+
+body .team-registration label {
+  color: #EF9F3C;
+}
+
+body .team-registration input {
+  border-color: #EF9F3C;
+  background-color: transparent;
+  color: #00A0EA;
+}
+
+body .team-registration input:focus {
+  background-color: #313152;
+  color: #EF9F3C;
+}
+
+body .team-registration .list-group-item {
+  background-color: transparent;
+  border-color: #EF9F3C;
+}
+
+body .team-registration .checkbox {
+  color: #EF9F3C;
+}
+
 body .slide-link {
   text-decoration: none;
 }
@@ -249,6 +348,17 @@ body .slide-link h1 {
 
 body .slide-link h1:hover {
   color: #EF9F3C;
+}
+
+body .btn-outline-dgl {
+  background-color: transparent;
+  border-color: #00A0EA;
+  color: #00A0EA;
+}
+
+body .btn-outline-dgl:hover {
+  background-color: #00A0EA;
+  color: #FFF;
 }
 
 body .btn-dgl-contaianer {
@@ -307,6 +417,34 @@ body .btn-dgl:focus {
 body .btn-dgl:active {
   color: #fff;
   background-color: #ff9818;
+}
+
+body .sidebar-header {
+  background-color: #5c60a8;
+  -webkit-transform: skewX(-15deg);
+          transform: skewX(-15deg);
+}
+
+body .sidebar-header h5 {
+  color: #FFF;
+  -webkit-transform: skewX(15deg);
+          transform: skewX(15deg);
+  padding: .4em 2em;
+}
+
+body .nav .nav-link {
+  color: #FFF;
+}
+
+body .nav .disabled {
+  text-decoration: line-through;
+}
+
+body .nav-container {
+  background-color: rgba(92, 96, 168, 0.5);
+  position: relative;
+  top: -40px;
+  z-index: 1;
 }
 
 body .navbar {
@@ -413,7 +551,6 @@ body .post-body-hover:hover {
 body .footer {
   background-color: #262625;
   padding-top: 2em;
-  padding-bottom: 20px;
   font-family: "Titillium Web", sans-serif;
 }
 

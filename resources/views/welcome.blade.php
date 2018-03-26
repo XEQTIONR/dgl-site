@@ -10,29 +10,29 @@
                 </ol>
                 <div class="carousel-inner mt-5">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{URL::asset('storage/overwatch-1.jpg')}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
+                        <img class="d-block w-100" src="{{URL::asset('storage/dota-1.png')}}" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block mb-5 pb-5">
                             <a class="slide-link" href="">
-                                <h1 class="">DGL Faceoff 5</h1>
-                                <p class=" slide-text">DOTA 2 tournament</p>
+                                <h1 class="text-center text-md-left">DGL Faceoff 5</h1>
+                                <p class="text-left slide-text">DOTA 2 tournament</p>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
+                        <div class="carousel-caption d-none d-md-block mb-5 pb-5">
                             <a class="slide-link" href="">
-                                <h1 class="">DA* League</h1>
-                                <p class="slide-text">1st division DOTA2 League</p>
+                                <h1 class="text-left">DA* League</h1>
+                                <p class="text-left slide-text">1st division DOTA2 League</p>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{URL::asset('storage/overwatch-4.jpg')}}" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
+                        <div class="carousel-caption d-none d-md-block mb-5 pb-5">
                             <a class="slide-link" href="">
-                                <h1 class="">Overpowered</h1>
-                                <p class="slide-text">Overwatch tournament</p>
+                                <h1 class="text-left">Overpowered</h1>
+                                <p class="text-left slide-text">Overwatch tournament</p>
                             </a>
                         </div>
                     </div>

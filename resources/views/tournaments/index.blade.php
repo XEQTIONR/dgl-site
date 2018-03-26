@@ -38,13 +38,13 @@
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-1.jpg')}}">
+            <img class="mt-3" src="{{URL::asset('storage/dota-1.png')}}">
           </div>
           <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-1.jpg')}}">
+            <img class="mt-3" src="{{URL::asset('storage/dota-1.png')}}">
           </div>
           <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-1.jpg')}}">
+            <img class="mt-3" src="{{URL::asset('dota-1.png')}}">
           </div>
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
@@ -54,7 +54,7 @@
           </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer btn-dgl-container-gray">
-              <a href="" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
+              <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
           </div>
       </div><!-- active tournament rows -->
@@ -89,7 +89,7 @@
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-overwatch-96.png')}}">
             <div class="btn-dgl-contaianer">
-              <a href="" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
+              <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
       </div><!-- active tournament rows -->
@@ -123,7 +123,7 @@
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer">
-              <a href="" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
+              <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
       </div><!-- active tournament rows -->

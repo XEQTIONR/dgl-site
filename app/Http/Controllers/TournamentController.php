@@ -90,6 +90,8 @@ class TournamentController extends Controller
     public function show(Tournament $tournament)
     {
         //
+
+      return view('tournaments.atournament', compact('tournament'));
     }
 
     /**

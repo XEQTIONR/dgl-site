@@ -2,15 +2,13 @@
 // Fonts
 // Variables
 @import "variables";
-
-
 // Generic
 .font-primary-color{
   color: $dgl-primary;
 }
 
-.font-darken-primary{
-  color: darken($dgl-primary, 5%);
+.font-purple{
+  color: $dgl-purple;
 }
 
 .font-gray{
@@ -23,14 +21,6 @@
 
 .font-blue{
   color: $dgl-action;
-}
-
-.font-green-color{
-  color: saturate(lighten(#00A560, 20%), 2%);
-}
-
-.font-red-color{
-  color: saturate(lighten(#EE3728, 12%), 20%);
 }
 
 .font-alternate-color{
@@ -64,7 +54,9 @@
   background-image: radial-gradient(circle,$dgl-accent-2 50%,darken($dgl-accent-2, 10%) 100%);
 
 }
-
+.back-color-grayple{
+  background-color: $dgl-grayple;
+}
 .back-color-orange{
   background-color: $dgl-orange;
 }
@@ -94,6 +86,16 @@
   background-size: cover;
   z-index: -2;
 }
+.background-a-tournament{
+  //background:
+  //        linear-gradient(
+  //          //rgba(239, 159, 60, 0.60),
+  //                        rgba(8,3,37,.7),
+  //                        rgba(8,3,37,.7)
+  //        );
+  background-size: cover;
+  //z-index: -2;
+}
 .overlay {
   z-index: -1;
   height: 100%;
@@ -117,7 +119,18 @@ p {
   color: #FFF;
   //font-size: 18px;
 }
+.jumbotron-atournament{
+  background-size: cover !important;
+  background-position: bottom !important;
 
+  .tournament-name-row{
+
+  }
+
+  .tournament-name-row + div{
+    height: 35vh;
+  }
+}
 .jumbotron-fluid{
   position: relative;
   overflow: hidden;
@@ -187,11 +200,33 @@ p {
   }
 }
 
+.thumbnail-x {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+}
 .thumbnail-sq {
   width: 12vw;
   height: 12vw;
   min-width: 100px;
   min-height: 100px;
+}
+
+.thumbnail-rect-lg {
+  width: 100vw;
+  height: 24vw;
+  min-width: 100px;
+  min-height: 24px;
 }
 
 .thumbnail-sq-lg {
@@ -233,7 +268,31 @@ p {
 body{
 
   //width: 100vw;
+  .dgl-ol li {
+    counter-increment: list;
+    list-style-type: none;
+    position: relative;
+  }
 
+  /* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
+  .dgl-ol li:before {
+    color: $dgl-primary;
+    content: counter(list) ".";
+    left: -32px;
+    position: absolute;
+    text-align: right;
+    width: 26px;
+  }
+
+  .list-group-item-primary{
+    background-color: $dgl-primary !important;
+    color: $dgl-darkgray !important;
+  }
+
+  .list-group-item-gray{
+    background-color: $dgl-gray !important;
+    color: $dgl-primary !important;
+  }
   #alertBannerTop{
     background-color: $dgl-primary;
   }
@@ -250,6 +309,47 @@ body{
     }
   }
 
+  .team-logo-300{
+    width: 100%;
+    background-color: $dgl-darkergray;
+  }
+  .team-logo-300-trans{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+  .team-registration{
+    padding: 1em;
+    //background-color: white;
+
+    label{
+      color: $dgl-primary
+    }
+
+    input{
+      border-color: $dgl-primary;
+      background-color: transparent;
+      color: $dgl-action;
+
+      &:focus{
+        background-color: $dgl-darkpuple;
+        color: $dgl-primary;
+      }
+    }
+    .list-group-item{
+      background-color: transparent;
+      border-color: $dgl-primary;
+    }
+
+    .checkbox{
+      color: $dgl-primary;
+    }
+  }
+  .sub-menu{
+    //position: relative;
+    //top : -20px;
+    //z-index: 1;
+  }
   .slide-link{
     text-decoration: none;
 
@@ -259,6 +359,17 @@ body{
       &:hover{
         color: $dgl-primary;
       }
+    }
+  }
+
+  .btn-outline-dgl{
+    background-color: transparent;
+    border-color: $dgl-action;
+    color: $dgl-action;
+
+    &:hover{
+      background-color: $dgl-action;
+      color: #FFF;
     }
   }
   .btn-dgl-contaianer{
@@ -313,12 +424,42 @@ body{
       //border-color: #005cbf;
     }
   }
+
+  .sidebar-header{
+    //background-color: lighten($dgl-grayple, 10%);
+    background-color: $dgl-purple;
+    transform: skewX(-15deg);
+
+    h5{
+      color: #FFF;
+      transform: skewX(15deg);
+      padding: .4em 2em;
+    }
+  }
+  .nav{//bootstrap-override - for atournament page
+    .nav-link{
+      color: #FFF;
+    }
+
+    .disabled{
+      text-decoration: line-through;
+    }
+
+  }
+  .nav-container{
+    //background: linear-gradient(rgba(239,159,60,.3),rgba(239,159,60,.4));
+    background-color: transparentize($dgl-purple, .5);
+    position: relative;
+    top: -40px;
+    z-index: 1;
+  }
   .navbar{ // bootstrap override
     padding: 0 !important;
-    //background: linear-gradient($dgl-darkgray , $dgl-primary);
     background-color: $dgl-darkergray;
   }
-
+  .container-fluid{
+    //background-color: $dgl-grayple;
+  }
   .nav-brand{
     a{
       font-family: $font-primary;
@@ -407,6 +548,10 @@ body{
   .main{
     background-color: $dgl-darkgray;//$dgl-lightestgray;//lighten($dgl-darkergray, 65%);
   }
+
+  .main-slot{
+
+  }
   .post-body{
     padding-bottom: 1em;
 
@@ -435,11 +580,14 @@ body{
     }
   }
   .footer {
+    //position: relative;
+    //top: -20px;
+    //bottom: -20px;
     background-color: $dgl-darkergray;
     //background: linear-gradient($dgl-darkgray , $dgl-darkergray);
 
     padding-top: 2em;
-    padding-bottom : 20px;
+    //padding-bottom : 20px;
     font-family: $font-primary;
 
     a{
