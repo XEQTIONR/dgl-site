@@ -135,7 +135,7 @@
 
 
                 <div class="col-11 col-lg-12 my-4">
-                    <div class="card back-color-accent2-grad">
+                    <div class="card back-color-purple">
                         <div class="card-body">
                             <h6 class="font-primary-700b text-center">NEXT TOURNAMENT</h6>
                         </div>
@@ -144,14 +144,14 @@
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
-                        <div class="card-body text-center back-color-accent2-grad">
+                        <div class="card-body text-center back-color-purple-grad">
                             <a href="#" class="card-link">Go somewhere</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-11 col-lg-12 my-4">
-                    <div class="card back-color-accent1-grad">
+                    <div class="card back-color-primary">
                         <div class="card-body">
                             <h6 class="font-primary-700b text-center">NEXT TOURNAMENT</h6>
                             <img class="dgl-card-img" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="Card image cap">
@@ -162,7 +162,7 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
                         </div>
-                        <div class="card-body text-center back-color-accent1-grad">
+                        <div class="card-body text-center back-color-primary-grad">
                             <a href="#" class="card-link">Go somewhere</a>
                         </div>
                     </div>

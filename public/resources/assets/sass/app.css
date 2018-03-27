@@ -2,10 +2,6 @@
   color: #EF9F3C;
 }
 
-.font-purple {
-  color: #5c60a8;
-}
-
 .font-gray {
   color: #454545;
 }
@@ -26,6 +22,10 @@
   background-color: #EF9F3C;
 }
 
+.back-color-purple {
+  background-color: #5c60a8;
+}
+
 .back-color-darkgray {
   background-color: #2B2B2A;
 }
@@ -40,6 +40,18 @@
 
 .back-color-primary-grad {
   background-image: radial-gradient(circle, #EF9F3C 0%, #ce7911 100%);
+}
+
+.back-color-primary-grad:hover {
+  background-image: radial-gradient(circle, #f7cd9a 0%, #f1ab54 100%);
+}
+
+.back-color-purple-grad {
+  background-image: radial-gradient(circle, #5c60a8 0%, #404378 100%);
+}
+
+.back-color-purple-grad:hover {
+  background-image: radial-gradient(circle, #9fa1cb 0%, #6d70b1 100%);
 }
 
 .back-color-accent1-grad {
@@ -109,7 +121,7 @@ h5 {
 
 p {
   font-family: "Open Sans", "Helvetica", "Arial";
-  color: #FFF;
+  color: #EAEAEB;
 }
 
 .jumbotron-atournament {
@@ -536,7 +548,7 @@ body .post-body .post-link {
 }
 
 body .post-body .post-link .post-title {
-  color: #454545;
+  color: #B6B9BD;
   text-decoration: none;
   margin-top: 5px;
 }
@@ -544,8 +556,16 @@ body .post-body .post-link .post-title {
 body .post-body-hover:hover {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #EF9F3C;
+  background-color: #EAEAEB;
   cursor: pointer;
+}
+
+body .post-body-hover:hover p {
+  color: #494c88;
+}
+
+body .post-body-hover:hover .post-title {
+  color: #5c60a8;
 }
 
 body .footer {

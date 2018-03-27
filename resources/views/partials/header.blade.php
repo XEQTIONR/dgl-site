@@ -36,7 +36,7 @@
 {{--</div>--}}
 {{--<div class="row justify-content-center">--}}
   {{--<div class="col-xl-10">--}}
-    <nav class="navbar navbar-expand-lg navbar-dgl fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dgl navbar-dgl-background fixed-top">
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -72,7 +72,7 @@
           </li>
           <li class="nav-item dropdown">
             <a href="/about" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">about us</a>
-            <div class="dropdown-menu back-color-primary mx-md-1" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu back-color-purple mx-md-1" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">About DGL</a>
               {{--<div class="dropdown-divider"></div>--}}
               <a class="dropdown-item" href="#">About DaTeaM</a>

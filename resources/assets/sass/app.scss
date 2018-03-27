@@ -7,10 +7,6 @@
   color: $dgl-primary;
 }
 
-.font-purple{
-  color: $dgl-purple;
-}
-
 .font-gray{
   color: $dgl-gray;
 }
@@ -30,6 +26,10 @@
   background-color: $dgl-primary;
 }
 
+.back-color-purple{
+  background-color: $dgl-purple;
+}
+
 .back-color-darkgray{
   background-color: $dgl-darkgray;
 }
@@ -44,7 +44,17 @@
 
 .back-color-primary-grad{
   background-image: radial-gradient(circle,$dgl-primary 0%,darken($dgl-primary, 15%) 100%);
+  &:hover{
+    background-image: radial-gradient(circle,lighten($dgl-primary,20%) 0%,lighten($dgl-primary, 5%) 100%);
+  }
 }
+.back-color-purple-grad{
+  background-image: radial-gradient(circle,$dgl-purple 0%,darken($dgl-purple, 15%) 100%);
+ &:hover{
+   background-image: radial-gradient(circle,lighten($dgl-purple,20%) 0%,lighten($dgl-purple, 5%) 100%);
+ }
+}
+
 .back-color-accent1-grad{
   background-image: radial-gradient(circle,$dgl-accent-1 0%,darken($dgl-accent-1, 20%) 100%);
 
@@ -116,7 +126,7 @@ h1, h2, h3, h5 {
 
 p {
   font-family: $font-copy;
-  color: #FFF;
+  color: $dgl-lightgray;
   //font-size: 18px;
 }
 .jumbotron-atournament{
@@ -455,6 +465,7 @@ body{
   }
   .navbar{ // bootstrap override
     padding: 0 !important;
+
     background-color: $dgl-darkergray;
   }
   .container-fluid{
@@ -560,7 +571,7 @@ body{
       text-decoration: none;
       .post-title {
 
-        color: $dgl-gray;
+        color: $dgl-lightergray;
         text-decoration: none;
         margin-top : 5px;
         //&:hover {
@@ -574,9 +585,16 @@ body{
   .post-body-hover{
     &:hover{
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      background-color: $dgl-primary;
+      background-color: $dgl-lightgray;
       cursor: pointer;
 
+      p{
+        color: darken($dgl-purple,10%);
+      }
+
+      .post-title{
+        color: $dgl-purple;
+      }
     }
   }
   .footer {
