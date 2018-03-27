@@ -89,6 +89,7 @@
             </div>
         </div> <!--flex-container-->
       </div>
+      <hr>
     </div>
     <div class="row justify-content-start mt-10 d-none d-md-block">
         <p class="font-blue">2018 &copy; ĐAGAMELEAGUE INC. All rights reserved</p>

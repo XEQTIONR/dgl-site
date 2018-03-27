@@ -3,6 +3,15 @@
 // Variables
 @import "variables";
 // Generic
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $dgl-darkish-gray;
+  margin: 1em 0;
+  padding: 0;
+}
 .font-primary-color{
   color: $dgl-primary;
 }
@@ -16,11 +25,11 @@
 }
 
 .font-blue{
-  color: $dgl-action;
+  color: $dgl-blue;
 }
 
 .font-alternate-color{
-  color: saturate(lighten($dgl-orange, 10%),50%);
+  color: saturate(lighten($dgl-primary, 10%),50%);
 }
 .back-color-primary{
   background-color: $dgl-primary;
@@ -55,20 +64,8 @@
  }
 }
 
-.back-color-accent1-grad{
-  background-image: radial-gradient(circle,$dgl-accent-1 0%,darken($dgl-accent-1, 20%) 100%);
-
-}
-
-.back-color-accent2-grad{
-  background-image: radial-gradient(circle,$dgl-accent-2 50%,darken($dgl-accent-2, 10%) 100%);
-
-}
-.back-color-grayple{
-  background-color: $dgl-grayple;
-}
 .back-color-orange{
-  background-color: $dgl-orange;
+  background-color: $dgl-primary;
 }
 .back-color-primary-hover{
   background-color: darken($dgl-primary, 5%);
@@ -81,7 +78,7 @@
 .back-color-orange-hover{
   border-top: 1px solid white;
   &:hover{
-    background-color: saturate(darken($dgl-orange, 5%),15%);
+    background-color: saturate(darken($dgl-primary, 5%),15%);
   }
 }
 
@@ -314,7 +311,7 @@ body{
     font-weight: 700;
 
     &:hover{
-      color: $dgl-orange;
+      color: $dgl-primary;
       text-decoration: none;
     }
   }
@@ -339,10 +336,10 @@ body{
     input{
       border-color: $dgl-primary;
       background-color: transparent;
-      color: $dgl-action;
+      color: $dgl-blue;
 
       &:focus{
-        background-color: $dgl-darkpuple;
+        background-color: $dgl-purple;
         color: $dgl-primary;
       }
     }
@@ -374,11 +371,11 @@ body{
 
   .btn-outline-dgl{
     background-color: transparent;
-    border-color: $dgl-action;
-    color: $dgl-action;
+    border-color: $dgl-blue;
+    color: $dgl-blue;
 
     &:hover{
-      background-color: $dgl-action;
+      background-color: $dgl-blue;
       color: #FFF;
     }
   }
@@ -388,12 +385,12 @@ body{
     display: inline-block;
     transform: skewX(-10deg);
     //border-radius : 7px;
-    border: 3px solid $dgl-action;
+    border: 3px solid $dgl-blue;
 
     &:hover{
       //color: #fff;
-      background-color: $dgl-action;
-      border-color: $dgl-action;
+      background-color: $dgl-blue;
+      border-color: $dgl-blue;
 
       .btn-dgl{
         color: #FFF !important;
@@ -417,7 +414,7 @@ body{
   }
 
   .btn-dgl{
-    color: $dgl-action;
+    color: $dgl-blue;
     border-width: 0;
     transform: skewX(10deg);
     font-family: $font-primary;
@@ -496,7 +493,7 @@ body{
     }
     .nav-item{
       //&:hover{
-      //  //color: $dgl-action;
+      //  //color: $dgl-blue;
       //  //background-color: $dgl-primary;
       //  border-bottom: 5px solid $dgl-primary;
       //}
@@ -504,7 +501,7 @@ body{
     a.nav-link{
       border-bottom: 5px solid transparent;
       &:hover{
-        //color: $dgl-action;
+        //color: $dgl-blue;
         //background-color: $dgl-primary;
         border-bottom: 5px solid $dgl-primary;
       }
@@ -574,10 +571,6 @@ body{
         color: $dgl-lightergray;
         text-decoration: none;
         margin-top : 5px;
-        //&:hover {
-        //  color: $dgl-orange;
-        //
-        //}
       }
     }
   }
@@ -639,7 +632,7 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
     max-height : 300px;
-    border-bottom : 1px solid $dgl-darkish-gray;
+    //border-bottom : 1px solid $dgl-darkish-gray;
 
   }
   .footer-banner-img{
