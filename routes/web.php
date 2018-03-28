@@ -41,6 +41,6 @@ Route::resource('/matches', 'MatchController');
 
 Route::get('/matches/contestants/{tournament}', 'MatchController@getContestants');
 
-Route::get('/atournament', function (){
-  return view('tournaments.atournament');
+Route::get('/news', function (){
+  return view('blog');
 });

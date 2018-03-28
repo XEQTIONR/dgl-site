@@ -30,6 +30,10 @@ hr {
   color: #00A0EA;
 }
 
+.font-purple {
+  color: #5c60a8;
+}
+
 .font-alternate-color {
   color: #ffb75f;
 }
@@ -91,9 +95,14 @@ hr {
   background-color: #ff9513;
 }
 
+.background-news {
+  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/bh.jpg");
+  background-size: cover;
+  z-index: -2;
+}
+
 .background-tournament {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 3, 37, 0.7)), to(rgba(8, 3, 37, 0.7))), url("/storage/hearthstone.jpg");
-  background: linear-gradient(rgba(8, 3, 37, 0.7), rgba(8, 3, 37, 0.7)), url("/storage/hearthstone.jpg");
+  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/hearthstone.jpg");
   background-size: cover;
   z-index: -2;
 }
@@ -289,6 +298,16 @@ body .dgl-ol li:before {
   width: 26px;
 }
 
+body .tag {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  padding: 0px 2px;
+}
+
+body .tag:hover {
+  background-color: #5c60a8;
+}
+
 body .list-group-item-primary {
   background-color: #EF9F3C !important;
   color: #2B2B2A !important;
@@ -395,6 +414,28 @@ body .btn-dgl-contaianer:hover .btn-dgl {
   color: #FFF !important;
 }
 
+body .btn-dgl-contaianer-purple {
+  padding: 0;
+  background-color: transparent;
+  display: inline-block;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
+  border: 3px solid #5c60a8;
+}
+
+body .btn-dgl-contaianer-purple .btn-dgl {
+  color: #5c60a8 !important;
+}
+
+body .btn-dgl-contaianer-purple:hover {
+  background-color: #5c60a8;
+  border-color: #5c60a8;
+}
+
+body .btn-dgl-contaianer-purple:hover .btn-dgl {
+  color: #FFF !important;
+}
+
 body .btn-dgl-container-gray {
   border: 3px solid #454545;
 }
@@ -410,6 +451,23 @@ body .btn-dgl-container-gray:hover .btn-dgl {
 
 body .btn-dgl-container-gray .btn-dgl {
   color: #454545 !important;
+}
+
+body .btn-dgl-container-primary {
+  border: 3px solid #EF9F3C;
+}
+
+body .btn-dgl-container-primary .btn-dgl {
+  color: #EF9F3C !important;
+}
+
+body .btn-dgl-container-primary:hover {
+  border: 3px solid #EF9F3C;
+  background-color: #EF9F3C;
+}
+
+body .btn-dgl-container-primary:hover .btn-dgl {
+  color: #FFF !important;
 }
 
 body .btn-dgl {
@@ -494,7 +552,7 @@ body .navbar-dgl a.nav-link {
 }
 
 body .navbar-dgl a.nav-link:hover {
-  border-bottom: 5px solid #EF9F3C;
+  color: #f3b66b;
 }
 
 body .navbar-dgl button {

@@ -28,6 +28,9 @@ hr {
   color: $dgl-blue;
 }
 
+.font-purple{
+  color: $dgl-purple;
+}
 .font-alternate-color{
   color: saturate(lighten($dgl-primary, 10%),50%);
 }
@@ -81,13 +84,23 @@ hr {
     background-color: saturate(darken($dgl-primary, 5%),15%);
   }
 }
+.background-news{
+  background:
+          radial-gradient(
+            //rgba(239, 159, 60, 0.60),
+//                          rgba(96,92,168,.1) 1%,rgba(96,92,168,1) 90%
+                          rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
+          ),
+          url('/storage/bh.jpg');
+  background-size: cover;
+  z-index: -2;
+}
 
 .background-tournament{
   background:
-          linear-gradient(
-            //rgba(239, 159, 60, 0.60),
-                          rgba(8,3,37,.7),
-                          rgba(8,3,37,.7)
+          radial-gradient(
+                          rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
+                          //rgba(96,92,168,.1),rgba(96,92,168,1)
           ),
           url('/storage/hearthstone.jpg');
   background-size: cover;
@@ -290,7 +303,16 @@ body{
     text-align: right;
     width: 26px;
   }
+  .tag{
+    font-family: $font-primary;
+    font-weight: 700;
+    padding: 0px 2px;
+    &:hover{
+      background-color: $dgl-purple;
+      //color: $dgl-purple;
 
+    }
+  }
   .list-group-item-primary{
     background-color: $dgl-primary !important;
     color: $dgl-darkgray !important;
@@ -398,6 +420,28 @@ body{
     }
   }
 
+  .btn-dgl-contaianer-purple{
+    padding: 0;
+    background-color: transparent;
+    display: inline-block;
+    transform: skewX(-10deg);
+    //border-radius : 7px;
+    border: 3px solid $dgl-purple;
+
+    .btn-dgl{
+      color: $dgl-purple !important;
+    }
+    &:hover{
+      //color: #fff;
+      background-color: $dgl-purple;
+      border-color: $dgl-purple;
+
+      .btn-dgl{
+        color: #FFF !important;
+      }
+    }
+  }
+
   .btn-dgl-container-gray{
     border: 3px solid $dgl-gray;
 
@@ -410,6 +454,21 @@ body{
     }
     .btn-dgl{
       color: $dgl-gray !important;
+    }
+  }
+  .btn-dgl-container-primary{
+    border: 3px solid $dgl-primary;
+
+    .btn-dgl{
+      color: $dgl-primary !important;
+    }
+
+    &:hover{
+      border: 3px solid $dgl-primary;
+      background-color: $dgl-primary;
+      .btn-dgl{
+        color: #FFF !important;
+      }
     }
   }
 
@@ -501,9 +560,9 @@ body{
     a.nav-link{
       border-bottom: 5px solid transparent;
       &:hover{
-        //color: $dgl-blue;
+        color: lighten($dgl-primary,10%);
         //background-color: $dgl-primary;
-        border-bottom: 5px solid $dgl-primary;
+        //border-bottom: 5px solid $dgl-primary;
       }
     }
 

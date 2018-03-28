@@ -11,16 +11,16 @@
                 <div class="carousel-inner mt-5">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="{{URL::asset('storage/dota-1.png')}}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block mb-5 pb-5">
+                        <div class="carousel-caption d-block mb-5 pb-5">
                             <a class="slide-link" href="">
-                                <h1 class="text-center text-md-left">DGL Faceoff 5</h1>
+                                <h1 class="text-left">DGL Faceoff 5</h1>
                                 <p class="text-left slide-text">DOTA 2 tournament</p>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block mb-5 pb-5">
+                        <div class="carousel-caption d-block mb-5 pb-5">
                             <a class="slide-link" href="">
                                 <h1 class="text-left">DA* League</h1>
                                 <p class="text-left slide-text">1st division DOTA2 League</p>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{URL::asset('storage/overwatch-4.jpg')}}" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block mb-5 pb-5">
+                        <div class="carousel-caption d-block mb-5 pb-5">
                             <a class="slide-link" href="">
                                 <h1 class="text-left">Overpowered</h1>
                                 <p class="text-left slide-text">Overwatch tournament</p>
@@ -63,7 +63,7 @@
                             <div class="row post-body my-5 d-block d-sm-block d-md-none"  onclick="window.location.href='/tournaments'">
                                 <div class="col-12">
                                     <div class="thumbnail thumbnail-rect-smscreen">
-                                    <img class="mt-3" src="{{URL::asset('storage/2.jpg')}}">
+                                    <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3">
@@ -82,7 +82,7 @@
                             <div class="row post-body mb-5 d-none d-md-flex d-lg-none" onclick="window.location.href='/tournaments'">
                                 <div class="col-4">
                                     <div class="thumbnail thumbnail-sq-lg">
-                                        <img class="mt-3" src="{{URL::asset('storage/1.jpg')}}">
+                                        <img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">
                                     </div>
                                 </div>
                                 <div class="col-8 col-lg-7">
@@ -101,7 +101,7 @@
                             <div class="row post-body post-body-hover mb-5 d-none d-lg-flex ml-xl-1" onclick="window.location.href='#'">
                                 <div class="col-4">
                                     <div class="thumbnail thumbnail-rect">
-                                        <img class="mt-3" src="{{URL::asset('storage/3.jpg')}}">
+                                        <img class="mt-3" src="{{URL::asset('storage/overwatch-4.jpg')}}">
                                     </div>
                                 </div>
                                 <div class="col-8 col-lg-7">
@@ -139,7 +139,7 @@
                         <div class="card-body">
                             <h6 class="font-primary-700b text-center">NEXT TOURNAMENT</h6>
                         </div>
-                        <img class="card-img" src="{{URL::asset('storage/2.jpg')}}" alt="Card image cap">
+                        <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
