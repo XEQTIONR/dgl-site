@@ -22,6 +22,10 @@ hr {
   color: #454545;
 }
 
+.font-light-gray {
+  color: #B6B9BD;
+}
+
 .font-white {
   color: #FFF;
 }
@@ -109,6 +113,13 @@ hr {
 
 .background-a-tournament {
   background-size: cover;
+}
+
+.background-matches {
+  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/overwatch-3.jpg");
+  background-size: cover;
+  background-position: center top;
+  z-index: -2;
 }
 
 .overlay {
@@ -308,6 +319,14 @@ body .tag:hover {
   background-color: #5c60a8;
 }
 
+body .fixture-table-primary {
+  border: 1px solid #EF9F3C;
+}
+
+body .fixture-table-purple {
+  border: 1px solid #5c60a8;
+}
+
 body .list-group-item-primary {
   background-color: #EF9F3C !important;
   color: #2B2B2A !important;
@@ -343,6 +362,14 @@ body .team-logo-300-trans {
   width: 100%;
   background-color: transparent;
   border: none;
+}
+
+body .team-logo-300-trans .sm-md-logo {
+  min-width: 50px;
+  max-width: 75px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body .team-registration {

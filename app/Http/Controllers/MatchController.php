@@ -29,6 +29,7 @@ class MatchController extends Controller
     public function index()
     {
         //
+      return view('matches.index');
     }
 
     /**

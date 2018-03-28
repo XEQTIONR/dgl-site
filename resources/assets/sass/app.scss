@@ -20,6 +20,9 @@ hr {
   color: $dgl-gray;
 }
 
+.font-light-gray{
+  color: $dgl-lightergray;
+}
 .font-white{
   color: #FFF;
 }
@@ -115,6 +118,18 @@ hr {
   //        );
   background-size: cover;
   //z-index: -2;
+}
+.background-matches{
+  background:
+          radial-gradient(
+                          rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
+            //rgba(96,92,168,.1),rgba(96,92,168,1)
+          ),
+          url('/storage/overwatch-3.jpg');
+  background-size: cover;
+  background-position: center top;
+  z-index: -2;
+  //position: relative;
 }
 .overlay {
   z-index: -1;
@@ -313,6 +328,13 @@ body{
 
     }
   }
+  .fixture-table-primary{
+    border: 1px solid $dgl-primary;
+  }
+
+  .fixture-table-purple{
+    border: 1px solid $dgl-purple;
+  }
   .list-group-item-primary{
     background-color: $dgl-primary !important;
     color: $dgl-darkgray !important;
@@ -346,6 +368,15 @@ body{
     width: 100%;
     background-color: transparent;
     border: none;
+
+
+    .sm-md-logo{
+      min-width: 50px;
+      max-width:  75px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   .team-registration{
     padding: 1em;
