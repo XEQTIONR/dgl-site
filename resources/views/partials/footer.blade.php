@@ -45,7 +45,7 @@
         <h2 class="faded font-primary-color"><em>ĐGLcore.com</em></h2>
       </div>
       <div class="col-12" >
-        <div class="flex-container">
+        <div id="footerFlexContainer">
             <div class="footer-list-div">
               <h5 class="text-uppercase font-primary-color">News</h5>
               <ul class="list list-unstyled">

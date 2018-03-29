@@ -98,6 +98,13 @@ hr {
   z-index: -2;
 }
 
+.background-teams {
+  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/rainbow6.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  z-index: -2;
+}
+
 .background-tournament {
   background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/hearthstone.jpg");
   background-size: cover;
@@ -344,6 +351,11 @@ body #moreButton {
 body #moreButton:hover {
   color: #EF9F3C;
   text-decoration: none;
+}
+
+body .team-logo-300-gray {
+  width: 100%;
+  background-color: #EAEAEB;
 }
 
 body .team-logo-300 {
@@ -679,7 +691,7 @@ body .footer p {
   font-family: "Open Sans", "Helvetica", "Arial";
 }
 
-body .flex-container {
+body #footerFlexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

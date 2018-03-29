@@ -15,6 +15,7 @@ class ContendingTeamController extends Controller
     public function index()
     {
         //
+      return view('teams');
     }
 
     /**

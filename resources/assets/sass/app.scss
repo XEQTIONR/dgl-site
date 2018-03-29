@@ -98,14 +98,22 @@ hr {
   background-size: cover;
   z-index: -2;
 }
-
+.background-teams{
+   background: radial-gradient(
+                   rgba(96,92,168,.2) 1%,
+                   rgba(96,92,168,1) 100%
+   ),
+   url('/storage/rainbow6.jpg');
+   background-size: cover;
+   background-position: center bottom;
+   z-index: -2;
+ }
 .background-tournament{
-  background:
-          radial-gradient(
-                          rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
-                          //rgba(96,92,168,.1),rgba(96,92,168,1)
-          ),
-          url('/storage/hearthstone.jpg');
+  background: radial-gradient(
+    rgba(96,92,168,.2) 1%,
+    rgba(96,92,168,1) 100%
+    ),
+    url('/storage/hearthstone.jpg');
   background-size: cover;
   z-index: -2;
 }
@@ -302,7 +310,6 @@ p {
 // Componenets
 body{
 
-  //width: 100vw;
   .dgl-ol li {
     counter-increment: list;
     list-style-type: none;
@@ -358,6 +365,11 @@ body{
       color: $dgl-primary;
       text-decoration: none;
     }
+  }
+
+  .team-logo-300-gray{
+    width: 100%;
+    background-color: $dgl-lightgray;
   }
 
   .team-logo-300{
@@ -717,7 +729,7 @@ body{
     }
   }
 
-  .flex-container{
+  #footerFlexContainer{
     display : flex;
     flex-wrap: wrap;
     flex-direction: column;
