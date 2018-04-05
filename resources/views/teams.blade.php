@@ -42,7 +42,7 @@
       </div>
       <div class="row">
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-8.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-2.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -60,7 +60,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-3.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -69,7 +69,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-5.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -78,7 +78,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-4.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -87,7 +87,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-6.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-7.png')}}" alt="Card image cap">
             <div class="card-body">
@@ -105,7 +105,7 @@
           </div>
         </div>
 
-        <div class="col-3  my-3">
+        <div class="col-6 col-md-4 col-lg-3  my-3">
           <div class="card p-4 team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/team-9.png')}}" alt="Card image cap">
             <div class="card-body">

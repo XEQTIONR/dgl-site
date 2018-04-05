@@ -2,7 +2,21 @@
 // Body
 
 // Borders
+.white-border{
+  border-color: #FFF !important;
+}
 
+.lightgray-border{
+  border-color: #CECEEB !important;
+}
+
+//Margins and Paddings
+.mt-10{
+  margin-top : 7em;
+}
+.pr-6{
+  padding-right: 4rem !important;
+}
 // Brands
 $dgl-primary: #EF9F3C;
 $dgl-purple : rgba(92,96,168,1.0);//#605CA8;
@@ -17,10 +31,98 @@ $dgl-darkish-gray: #363636;
 $dgl-darkgray: #2B2B2A;
 $dgl-darkergray: #262625;
 
+//Font Colors Classes
+.font-primary-color{
+  color: $dgl-primary;
+}
+
+.font-gray{
+  color: $dgl-gray;
+}
+
+.font-light-gray{
+  color: $dgl-lightergray;
+}
+.font-white{
+  color: #FFF;
+}
+
+.font-blue{
+  color: $dgl-blue;
+}
+
+.font-purple{
+  color: $dgl-purple;
+}
+.font-alternate-color{
+  color: saturate(lighten($dgl-primary, 10%),50%);
+}
+
+//Background Color Classes
+.back-color-primary{
+  background-color: $dgl-primary;
+}
+
+.back-color-purple{
+  background-color: $dgl-purple;
+}
+
+.back-color-darkgray{
+  background-color: $dgl-darkgray;
+}
+
+.back-color-lightgray{
+  background-color: $dgl-lightgray;
+}
+
+.back-color-lightergray{
+  background-color: $dgl-lightergray;
+}
+
+.back-color-primary-grad{
+  background-image: radial-gradient(circle,$dgl-primary 0%,darken($dgl-primary, 15%) 100%);
+  &:hover{
+    background-image: radial-gradient(circle,lighten($dgl-primary,20%) 0%,lighten($dgl-primary, 5%) 100%);
+  }
+}
+.back-color-purple-grad{
+  background-image: radial-gradient(circle,$dgl-purple 0%,darken($dgl-purple, 15%) 100%);
+  &:hover{
+    background-image: radial-gradient(circle,lighten($dgl-purple,20%) 0%,lighten($dgl-purple, 5%) 100%);
+  }
+}
+
+.back-color-orange{
+  background-color: $dgl-primary;
+}
+.back-color-primary-hover{
+  background-color: darken($dgl-primary, 5%);
+  border-top: 1px solid white;
+
+  &:hover{
+    background-color: darken($dgl-primary, 10%);
+  }
+}
+.back-color-orange-hover{
+  border-top: 1px solid white;
+  &:hover{
+    background-color: saturate(darken($dgl-primary, 5%),15%);
+  }
+}
 
 
 // Typography
 $font-primary: "Titillium Web", sans-serif;
 $font-copy: "Open Sans", "Helvetica", "Arial";
 
+h1, h2, h3, h5 {
+  font-family: $font-primary;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+p {
+  font-family: $font-copy;
+  color: $dgl-lightgray;
+}
 // Panels

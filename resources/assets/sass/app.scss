@@ -12,89 +12,12 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
-.font-primary-color{
-  color: $dgl-primary;
-}
 
-.font-gray{
-  color: $dgl-gray;
-}
-
-.font-light-gray{
-  color: $dgl-lightergray;
-}
-.font-white{
-  color: #FFF;
-}
-
-.font-blue{
-  color: $dgl-blue;
-}
-
-.font-purple{
-  color: $dgl-purple;
-}
-.font-alternate-color{
-  color: saturate(lighten($dgl-primary, 10%),50%);
-}
-.back-color-primary{
-  background-color: $dgl-primary;
-}
-
-.back-color-purple{
-  background-color: $dgl-purple;
-}
-
-.back-color-darkgray{
-  background-color: $dgl-darkgray;
-}
-
-.back-color-lightgray{
-  background-color: $dgl-lightgray;
-}
-
-.back-color-lightergray{
-  background-color: $dgl-lightergray;
-}
-
-.back-color-primary-grad{
-  background-image: radial-gradient(circle,$dgl-primary 0%,darken($dgl-primary, 15%) 100%);
-  &:hover{
-    background-image: radial-gradient(circle,lighten($dgl-primary,20%) 0%,lighten($dgl-primary, 5%) 100%);
-  }
-}
-.back-color-purple-grad{
-  background-image: radial-gradient(circle,$dgl-purple 0%,darken($dgl-purple, 15%) 100%);
- &:hover{
-   background-image: radial-gradient(circle,lighten($dgl-purple,20%) 0%,lighten($dgl-purple, 5%) 100%);
- }
-}
-
-.back-color-orange{
-  background-color: $dgl-primary;
-}
-.back-color-primary-hover{
-  background-color: darken($dgl-primary, 5%);
-  border-top: 1px solid white;
-
-  &:hover{
-    background-color: darken($dgl-primary, 10%);
-  }
-}
-.back-color-orange-hover{
-  border-top: 1px solid white;
-  &:hover{
-    background-color: saturate(darken($dgl-primary, 5%),15%);
-  }
-}
+//PAGE SPECIFIC BACKGROUNDS
 .background-news{
-  background:
-          radial-gradient(
-            //rgba(239, 159, 60, 0.60),
-//                          rgba(96,92,168,.1) 1%,rgba(96,92,168,1) 90%
-                          rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
-          ),
-          url('/storage/bh.jpg');
+  background: radial-gradient(
+    rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%),
+              url('/storage/bh.jpg');
   background-size: cover;
   z-index: -2;
 }
@@ -118,26 +41,27 @@ hr {
   z-index: -2;
 }
 .background-a-tournament{
-  //background:
-  //        linear-gradient(
-  //          //rgba(239, 159, 60, 0.60),
-  //                        rgba(8,3,37,.7),
-  //                        rgba(8,3,37,.7)
-  //        );
   background-size: cover;
-  //z-index: -2;
 }
 .background-matches{
-  background:
-          radial-gradient(
-                          rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
-            //rgba(96,92,168,.1),rgba(96,92,168,1)
-          ),
-          url('/storage/overwatch-3.jpg');
+  background: radial-gradient(
+    rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
+    ),
+    url('/storage/overwatch-3.jpg');
   background-size: cover;
   background-position: center top;
   z-index: -2;
   //position: relative;
+}
+
+.background-players{
+  background: radial-gradient(
+    rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
+    ),
+    url('/storage/lanparty1.jpg');
+  background-size: cover;
+  background-position: center bottom;
+  z-index: -2;
 }
 .overlay {
   z-index: -1;
@@ -150,25 +74,10 @@ hr {
   background: rgba(0, 0, 0, 0.7); /*can be anything, of course*/
 }
 
-h1, h2, h3, h5 {
-  font-family: $font-primary;
-  font-weight: 700;
-  line-height: 1em;
 
-}
-
-p {
-  font-family: $font-copy;
-  color: $dgl-lightgray;
-  //font-size: 18px;
-}
 .jumbotron-atournament{
   background-size: cover !important;
   background-position: bottom !important;
-
-  .tournament-name-row{
-
-  }
 
   .tournament-name-row + div{
     height: 35vh;
@@ -185,6 +94,7 @@ p {
     font-weight: 900;
   }
 }
+
 .card { //set a back color
 
   .card-body{
@@ -212,12 +122,7 @@ p {
   font-weight: 900;
 }
 
-.mt-10{
-  margin-top : 7em;
-}
-.pr-6{
-  padding-right: 4rem !important;
-}
+
 .faded{
   opacity: .3;
 }
@@ -294,21 +199,15 @@ p {
   margin-right: auto;
 }
 
-//Bootstrap overrides.
-.white-border{
-  border-color: #FFF !important;
-}
-
-.lightgray-border{
-  border-color: #CECEEB !important;
-}
-
 .carousel-indicators li{
   transform: skewX(-20deg);
 }
 
 // Componenets
 body{
+
+
+
 
   .dgl-ol li {
     counter-increment: list;
@@ -335,6 +234,59 @@ body{
 
     }
   }
+
+  //Thumbnail for video
+  .video-thumbnail-link{ //thumbnail main <a>
+    text-decoration: none;
+    color: $dgl-primary;
+  .video-thumbnail{
+    text-decoration: none;
+    position: relative;
+    width: 100%;
+
+    img{
+      -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+      clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .icon-container {
+      background-color: transparent;
+      color: $dgl-purple;
+      font-size: 50px;
+      padding: 16px 32px;
+    }
+  }
+
+    &:hover{
+      color: $dgl-purple;
+      img {
+        opacity: 0.3;
+      }
+      .middle {
+        opacity: 1;
+      }
+    } //video-thumbnail
+  } // video-thumbnail-link
+
+
   .fixture-table-primary{
     border: 1px solid $dgl-primary;
   }
@@ -417,14 +369,9 @@ body{
       color: $dgl-primary;
     }
   }
-  .sub-menu{
-    //position: relative;
-    //top : -20px;
-    //z-index: 1;
-  }
+
   .slide-link{
     text-decoration: none;
-
     h1{
       color: #FFF;
 
@@ -438,25 +385,21 @@ body{
     background-color: transparent;
     border-color: $dgl-blue;
     color: $dgl-blue;
-
     &:hover{
       background-color: $dgl-blue;
       color: #FFF;
     }
   }
+
   .btn-dgl-contaianer{
     padding: 0;
     background-color: transparent;
     display: inline-block;
     transform: skewX(-10deg);
-    //border-radius : 7px;
     border: 3px solid $dgl-blue;
-
     &:hover{
-      //color: #fff;
       background-color: $dgl-blue;
       border-color: $dgl-blue;
-
       .btn-dgl{
         color: #FFF !important;
       }
@@ -468,17 +411,13 @@ body{
     background-color: transparent;
     display: inline-block;
     transform: skewX(-10deg);
-    //border-radius : 7px;
     border: 3px solid $dgl-purple;
-
     .btn-dgl{
       color: $dgl-purple !important;
     }
     &:hover{
-      //color: #fff;
       background-color: $dgl-purple;
       border-color: $dgl-purple;
-
       .btn-dgl{
         color: #FFF !important;
       }
@@ -487,7 +426,6 @@ body{
 
   .btn-dgl-container-gray{
     border: 3px solid $dgl-gray;
-
     &:hover{
       border: 3px solid $dgl-gray;
       background-color: $dgl-gray;
@@ -499,13 +437,12 @@ body{
       color: $dgl-gray !important;
     }
   }
+
   .btn-dgl-container-primary{
     border: 3px solid $dgl-primary;
-
     .btn-dgl{
       color: $dgl-primary !important;
     }
-
     &:hover{
       border: 3px solid $dgl-primary;
       background-color: $dgl-primary;
@@ -530,12 +467,10 @@ body{
     &:active{
       color: #fff;
       background-color: darken(saturate($dgl-primary, 15%),4%);
-      //border-color: #005cbf;
     }
   }
 
   .sidebar-header{
-    //background-color: lighten($dgl-grayple, 10%);
     background-color: $dgl-purple;
     transform: skewX(-15deg);
 
@@ -549,7 +484,6 @@ body{
     .nav-link{
       color: #FFF;
     }
-
     .disabled{
       text-decoration: line-through;
     }
@@ -564,11 +498,7 @@ body{
   }
   .navbar{ // bootstrap override
     padding: 0 !important;
-
     background-color: $dgl-darkergray;
-  }
-  .container-fluid{
-    //background-color: $dgl-grayple;
   }
   .nav-brand{
     a{
@@ -593,19 +523,10 @@ body{
       font-weight: 700;
       text-decoration: none;
     }
-    .nav-item{
-      //&:hover{
-      //  //color: $dgl-blue;
-      //  //background-color: $dgl-primary;
-      //  border-bottom: 5px solid $dgl-primary;
-      //}
-    }
     a.nav-link{
       border-bottom: 5px solid transparent;
       &:hover{
         color: lighten($dgl-primary,10%);
-        //background-color: $dgl-primary;
-        //border-bottom: 5px solid $dgl-primary;
       }
     }
 
@@ -623,16 +544,12 @@ body{
     }
   }
 
-
-
   .top-banner{
     background-color: $dgl-primary;
     padding : 10px 0;
     color: #FFF;
     font-weight: 700;
   }
-
-
 
   .title-banner-img-container{
     width : 50%;
@@ -656,7 +573,7 @@ body{
   }
 
   .main{
-    background-color: $dgl-darkgray;//$dgl-lightestgray;//lighten($dgl-darkergray, 65%);
+    background-color: $dgl-darkgray;
   }
 
   .main-slot{
@@ -692,15 +609,11 @@ body{
       }
     }
   }
-  .footer {
-    //position: relative;
-    //top: -20px;
-    //bottom: -20px;
-    background-color: $dgl-darkergray;
-    //background: linear-gradient($dgl-darkgray , $dgl-darkergray);
 
+  //Footer
+  .footer {
+    background-color: $dgl-darkergray;
     padding-top: 2em;
-    //padding-bottom : 20px;
     font-family: $font-primary;
 
     a{
@@ -715,13 +628,10 @@ body{
     }
 
     .footer-text {
-
       height: 25vw;
-
       .footer-list-div{
         min-width : 175px;
       }
-
     }
 
     p{
@@ -734,7 +644,6 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
     max-height : 300px;
-    //border-bottom : 1px solid $dgl-darkish-gray;
 
   }
   .footer-banner-img{

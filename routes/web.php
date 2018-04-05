@@ -47,3 +47,9 @@ Route::resource('/teams', 'ContendingTeamController');
 Route::get('/news', function (){
   return view('blog');
 });
+
+Route::get('/players', function(){
+  return view('players');
+});
+
+Route::resource('/media', 'MediaController');

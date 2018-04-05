@@ -1,10 +1,17 @@
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #363636;
-  margin: 1em 0;
-  padding: 0;
+.white-border {
+  border-color: #FFF !important;
+}
+
+.lightgray-border {
+  border-color: #CECEEB !important;
+}
+
+.mt-10 {
+  margin-top: 7em;
+}
+
+.pr-6 {
+  padding-right: 4rem !important;
 }
 
 .font-primary-color {
@@ -92,6 +99,29 @@ hr {
   background-color: #ff9513;
 }
 
+h1,
+h2,
+h3,
+h5 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  line-height: 1em;
+}
+
+p {
+  font-family: "Open Sans", "Helvetica", "Arial";
+  color: #EAEAEB;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #363636;
+  margin: 1em 0;
+  padding: 0;
+}
+
 .background-news {
   background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/bh.jpg");
   background-size: cover;
@@ -122,6 +152,13 @@ hr {
   z-index: -2;
 }
 
+.background-players {
+  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/lanparty1.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  z-index: -2;
+}
+
 .overlay {
   z-index: -1;
   height: 100%;
@@ -132,20 +169,6 @@ hr {
   left: 0px;
   background: rgba(0, 0, 0, 0.7);
   /*can be anything, of course*/
-}
-
-h1,
-h2,
-h3,
-h5 {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
-  line-height: 1em;
-}
-
-p {
-  font-family: "Open Sans", "Helvetica", "Arial";
-  color: #EAEAEB;
 }
 
 .jumbotron-atournament {
@@ -193,14 +216,6 @@ p {
 .font-primary-900 {
   font-family: "Titillium Web", sans-serif;
   font-weight: 900;
-}
-
-.mt-10 {
-  margin-top: 7em;
-}
-
-.pr-6 {
-  padding-right: 4rem !important;
 }
 
 .faded {
@@ -277,14 +292,6 @@ p {
   margin-right: auto;
 }
 
-.white-border {
-  border-color: #FFF !important;
-}
-
-.lightgray-border {
-  border-color: #CECEEB !important;
-}
-
 .carousel-indicators li {
   -webkit-transform: skewX(-20deg);
           transform: skewX(-20deg);
@@ -317,6 +324,62 @@ body .tag {
 
 body .tag:hover {
   background-color: #5c60a8;
+}
+
+body .video-thumbnail-link {
+  text-decoration: none;
+  color: #EF9F3C;
+}
+
+body .video-thumbnail-link .video-thumbnail {
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+}
+
+body .video-thumbnail-link .video-thumbnail img {
+  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+body .video-thumbnail-link .video-thumbnail .middle {
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+body .video-thumbnail-link .video-thumbnail .icon-container {
+  background-color: transparent;
+  color: #5c60a8;
+  font-size: 50px;
+  padding: 16px 32px;
+}
+
+body .video-thumbnail-link:hover {
+  color: #5c60a8;
+}
+
+body .video-thumbnail-link:hover img {
+  opacity: 0.3;
+}
+
+body .video-thumbnail-link:hover .middle {
+  opacity: 1;
 }
 
 body .fixture-table-primary {
