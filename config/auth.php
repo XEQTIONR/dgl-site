@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admin' => [
+          'driver' => 'session',
+          'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Gamer::class,
+        ],
+
+        'admins' => [
+          'driver' => 'eloquent',
+          'model' => Backpack\Base\app\Models\BackpackUser::class,
         ],
 
         // 'users' => [
@@ -97,6 +107,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+      'admin' => [
+        'provider' => 'admins',
+        'table' => 'password_resets',
+        'expire' => 60,
+      ],
     ],
 
 ];
