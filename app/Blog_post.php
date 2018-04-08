@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+  namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\CrudTrait;
+  use Illuminate\Database\Eloquent\Model;
+  use Backpack\CRUD\CrudTrait;
 
-class Blog_post extends Model
-{
+  class Blog_post extends Model
+  {
     use CrudTrait;
 
     /*
@@ -52,4 +52,4 @@ class Blog_post extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-}
+  }
