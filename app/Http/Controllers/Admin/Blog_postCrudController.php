@@ -62,12 +62,15 @@ class Blog_postCrudController extends CrudController
         , 'update/create/both');
 
       //TODO: tags
-//      $this->crud->addField([
-//          'name' => 'tournament_id',
-//          'label' => 'Tournament',
-//          'type' => 'text'
-//        ]
-//        , 'update/create/both');
+      $this->crud->addField([
+          'name' => 'tournament_id',
+          'label' => 'Tournament',
+          'type' => 'select2',
+          'entity' => 'tournament',
+          'attribute' => 'name',
+          'model' => "App\Tournament"
+        ]
+        , 'update/create/both');
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
@@ -95,8 +98,11 @@ class Blog_postCrudController extends CrudController
       ]);
       $this->crud->addColumn([
         'name' => 'tournament_id',
-        'type' => 'text',
+        'type' => 'select',
         'label' => 'Tournament',
+        'entity' => 'tournament',
+        'attribute' => 'name',
+        'model' => "App\Tournament"
       ]);
       //TODO: tags
 //      $this->crud->addColumn([
