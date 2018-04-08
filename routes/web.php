@@ -62,4 +62,5 @@ Route::resource('/media', 'MediaController');
     // your CRUD resources and other admin routes here
     CRUD::resource('gamer', 'GamerCrudController');
     CRUD::resource('blog_post', 'Blog_postCrudController');
+    CRUD::resource('tournament', 'TournamentCrudController');
   });
