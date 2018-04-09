@@ -18,7 +18,7 @@ class GamerCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Gamer');
+        $this->crud->setModel('App\Gamer');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/gamer');
         $this->crud->setEntityNameStrings('gamer', 'gamers');
 
@@ -28,15 +28,88 @@ class GamerCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+        //$this->crud->setFromDb();
 
-        // ------ CRUD FIELDS
+        // ------ CRUD FIELDS - For forms
+        $this->crud->addField([
+            'name' => 'alias',
+            'label' => 'Alias/Handle',
+            'type' => 'text'
+          ]
+          , 'update/create/both');
+        $this->crud->addField([
+            'name' => 'fname',
+            'label' => 'First Name',
+            'type' => 'text'
+          ]
+          , 'update/create/both');
+        $this->crud->addField([
+            'name' => 'lname',
+            'label' => 'Last Name',
+            'type' => 'text'
+          ]
+          , 'update/create/both');
+        $this->crud->addField([
+            'name' => 'email',
+            'label' => 'Email Address',
+            'type' => 'text'
+          ]
+          , 'update/create/both');
+
+        $this->crud->addField([
+            'name' => 'dob',
+            'type' => 'date_picker',
+            'label' => 'D.O.B',
+            // optional:
+            'date_picker_options' => [
+              'todayBtn' => true,
+              'format' => 'dd-mm-yyyy',
+              'language' => 'fr'
+            ],
+          ]
+          , 'update/create/both');
+        $this->crud->addField([
+            'name' => 'status',
+            'label' => 'Status',
+            'type' => 'enum'
+          ]
+          , 'update/create/both');
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
-        // ------ CRUD COLUMNS
+        // ------ CRUD COLUMNS - For tables
+
+      $this->crud->addColumn([
+        'name' => 'alias',
+        'type' => 'text',
+        'label' => 'Alias/Handle',
+      ]);
+
+      $this->crud->addColumn([
+        'name' => 'email',
+        'type' => 'text',
+        'label' => 'Email Address',
+      ]);
+
+      $this->crud->addColumn([
+        'name' => 'name',
+        'type' => 'model_function',
+        'label' => 'Name',
+        'function_name' => 'name',
+      ]);
+
+      $this->crud->addColumn([
+        'name' => 'dob',
+        'type' => 'date',
+        'label' => 'D.O.B',
+      ]);
+      $this->crud->addColumn([
+        'name' => 'status',
+        'type' => 'enum',
+        'label' => 'Status',
+      ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack

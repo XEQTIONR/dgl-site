@@ -3,14 +3,20 @@
 namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Backpack\CRUD\CrudTrait;
 
 
 class Gamer extends Authenticatable
 {
     //
     use Notifiable;
+    use CrudTrait;
 
+    /*
+    |--------------------------------------------------------------------------
+    | GLOBAL VARIABLES
+    |--------------------------------------------------------------------------
+    */
     protected $table = 'gamers';
     protected $fillable = [
         'email', 'password', 'alias', 'fname', 'lname', 'dob',
@@ -26,6 +32,21 @@ class Gamer extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /*
+    |--------------------------------------------------------------------------
+    | FUNCTIONS
+    |--------------------------------------------------------------------------
+    */
+    public function name()
+    {
+      $name = $this->fname.' '.$this->lname;
+      return $name;
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
     public function meta()
     {
       return $this->hasMany('App\GamerMeta');
