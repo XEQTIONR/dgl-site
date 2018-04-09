@@ -3,12 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class ContendingTeam extends Model
 {
 
   //
+  use CrudTrait;
 
+  /*
+  |--------------------------------------------------------------------------
+  | RELATIONS
+  |--------------------------------------------------------------------------
+  */
   public function tournament()
   {
     return $this->belongsTo('App\Tournament');
