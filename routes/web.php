@@ -63,4 +63,5 @@ Route::resource('/media', 'MediaController');
     CRUD::resource('gamer', 'GamerCrudController');
     CRUD::resource('blog_post', 'Blog_postCrudController');
     CRUD::resource('tournament', 'TournamentCrudController');
+    CRUD::resource('esport','EsportCrudController');
   });

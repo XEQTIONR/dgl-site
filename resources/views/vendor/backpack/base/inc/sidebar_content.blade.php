@@ -4,3 +4,4 @@
 <li><a href="{{ backpack_url('gamer') }}"><i class="fa fa-user-circle-o"></i> <span>Registered Gamers</span></a></li>
 <li><a href="{{ backpack_url('blog_post') }}"><i class="fa fa-newspaper-o"></i> <span>Blog</span></a></li>
 <li><a href="{{ backpack_url('tournament') }}"><i class="fa fa-trophy"></i> <span>Tournaments</span></a></li>
+<li><a href="{{ backpack_url('esport') }}"><i class="fa fa-gamepad"></i> <span>Esports</span></a></li>
