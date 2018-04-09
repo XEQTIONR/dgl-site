@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-
+use App\Tournament;
+use App\ContendingTeam;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TournamentRequest as StoreRequest;
 use App\Http\Requests\TournamentRequest as UpdateRequest;
@@ -176,7 +177,8 @@ class TournamentCrudController extends CrudController
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        // $this->crud->enableDetailsRow();
+        $this->crud->enableDetailsRow();
+        $this->crud->allowAccess('details_row');
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
@@ -212,7 +214,15 @@ class TournamentCrudController extends CrudController
         // $this->crud->limit();
     }
 
-    public function store(StoreRequest $request)
+    public function showDetailsRow($id)
+    {
+      $tournament = Tournament::find($id);
+      $contenders = $tournament->contenders()->get();
+
+      return view('admin.tournamentdetails', compact('contenders'));
+    }
+
+  public function store(StoreRequest $request)
     {
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
