@@ -15,8 +15,20 @@ class Tournament extends Model
   | GLOBAL VARIABLES
   |--------------------------------------------------------------------------
   */
-  protected $fillable =
-    ['name', 'description', 'rules', 'squadsize', 'title', 'champion_id'];
+//  protected $fillable =
+//    ['name', 'description', 'rules',
+//      'squadsize', 'title', 'champion_id',
+//      'registration_end','startdate','enddate'];
+
+    protected $table = 'tournaments';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+    //protected $guarded = ['id'];
+    protected $fillable = ['name', 'description', 'rules', 'registration_end',
+                          'startdate', 'enddate', 'squadsize', 'title'];
+    // protected $hidden = [];
+    // protected $dates = [];
+    //protected $hidden = [];
   /*
    |--------------------------------------------------------------------------
    | RELATIONS

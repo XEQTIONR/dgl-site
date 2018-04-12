@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Tournament;
-use App\ContendingTeam;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TournamentRequest as StoreRequest;
 use App\Http\Requests\TournamentRequest as UpdateRequest;
@@ -68,7 +67,7 @@ class TournamentCrudController extends CrudController
             'date_picker_options' => [
               'todayBtn' => true,
               'format' => 'dd-mm-yyyy',
-              'language' => 'fr'
+              'language' => 'en'
             ],]
           , 'update/create/both');
 
@@ -80,7 +79,7 @@ class TournamentCrudController extends CrudController
             'date_picker_options' => [
               'todayBtn' => true,
               'format' => 'dd-mm-yyyy',
-              'language' => 'fr'
+              'language' => 'en'
             ],]
           , 'update/create/both');
 

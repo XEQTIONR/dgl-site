@@ -42,7 +42,8 @@ Route::resource('/matches', 'MatchController');
 Route::get('/matches/contestants/{tournament}', 'MatchController@getContestants');
 
 Route::resource('/teams', 'ContendingTeamController');
-
+Route::get('/api/contendingteams', 'ContendingTeamController@index');
+Route::get('/api/category/{id}', 'ContendingTeamController@show');
 
 Route::get('/news', function (){
   return view('blog');
@@ -60,9 +61,11 @@ Route::resource('/media', 'MediaController');
     'namespace' => 'Admin'
   ], function() {
     // your CRUD resources and other admin routes here
+    CRUD::resource('tournament', 'TournamentCrudController');
     CRUD::resource('gamer', 'GamerCrudController');
     CRUD::resource('blog_post', 'Blog_postCrudController');
-    CRUD::resource('tournament', 'TournamentCrudController');
+
     CRUD::resource('esport','EsportCrudController');
     CRUD::resource('contending_team','Contending_teamCrudController');
+    CRUD::resource('match','MatchCrudController');
   });

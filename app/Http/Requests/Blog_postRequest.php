@@ -16,7 +16,8 @@ class Blog_postRequest extends FormRequest
     {
         // only allow updates if the user is logged in
         //return \Auth::check();
-        return true;
+        $auth = backpack_auth();
+        return $auth->check();
     }
 
     /**

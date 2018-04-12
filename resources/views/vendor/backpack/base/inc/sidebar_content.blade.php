@@ -6,3 +6,9 @@
 <li><a href="{{ backpack_url('tournament') }}"><i class="fa fa-trophy"></i> <span>Tournaments</span></a></li>
 <li><a href="{{ backpack_url('esport') }}"><i class="fa fa-gamepad"></i> <span>Esports</span></a></li>
 <li><a href="{{ backpack_url('contending_team') }}"><i class="fa fa-group"></i> <span>Contending Teams</span></a></li>
+<li><a href="{{ backpack_url('match') }}">
+    <img src="{{URL::asset('storage/matchesicon.svg')}}" height="18" style="margin-right: 6px">
+    <span>Matches</span>
+
+  </a>
+</li>

@@ -3,11 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class Match extends Model
 {
   //
+  use CrudTrait;
+
   protected $table = 'matches';
+
+  protected $fillable = ['checkinstart','checkinend', 'matchstart', 'stage', 'notes',
+                        'tournament_id', 'won_id'];
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | RELATIONS
+  |--------------------------------------------------------------------------
+  */
 
   public function tournament()
   {
@@ -24,4 +37,11 @@ class Match extends Model
   {
     return $this->hasMany('App\MatchContestant');
   }
+
+  public function potentialContestants()
+  {
+    return $this->belongsToMany('App\ContendingTeam','id','tournament_id');
+  }
+
+  
 }
