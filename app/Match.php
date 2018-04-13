@@ -40,7 +40,7 @@ class Match extends Model
 
   public function potentialContestants()
   {
-    return $this->belongsToMany('App\ContendingTeam','id','tournament_id');
+    return $this->hasMany('App\ContendingTeam','id','tournament_id');
   }
 
   

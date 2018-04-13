@@ -105,14 +105,12 @@ class MatchCrudController extends CrudController
 //          'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
 
           'label' => "Match Contestants",
-          'type' => 'select2_multiple',
+          'type' => 'contendingteam',
           'name' => 'contestants', // the method that defines the relationship in your Model
           'entity' => 'contestants', // the method that defines the relationship in your Model
           'attribute' => 'name', // foreign key attribute that is shown to user
           'model' => "App\ContendingTeam", // foreign key model
           'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-          'fake' => true,
-          'store_in' => 'notes'
         ]
         , 'create');
         // $this->crud->addField($options, 'update/create/both');
@@ -289,10 +287,6 @@ class MatchCrudController extends CrudController
     }
     public function destroy($id)
     {
-      //dd($id);
-      //my code
-      //$contestants = MatchContestant::where('match_id', $id);
-
       MatchContestant::where('match_id', $id)->delete();
       parent::destroy($id);
       //return $redirect_location;
