@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ContendingTeam;
+use App\Gamer;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -124,7 +126,8 @@ class Contending_teamCrudController extends CrudController
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
-        // $this->crud->enableDetailsRow();
+        $this->crud->enableDetailsRow();
+        $this->crud->allowAccess('details_row');
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
         // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
 
@@ -158,6 +161,22 @@ class Contending_teamCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
+    }
+
+    public function showDetailsRow($id)
+    {
+      $team = ContendingTeam::find($id);
+      $roster = $team->roster()->get();
+      $gamerids = array();
+
+      foreach ($roster as $item)
+      {
+        array_push($gamerids, $item->gamer_id);
+      }
+
+      $gamers = Gamer::find($gamerids);
+
+      return view('admin.teamdetails', compact('gamers','roster'));
     }
 
     public function store(StoreRequest $request)
