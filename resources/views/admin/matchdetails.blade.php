@@ -36,12 +36,22 @@
             <td style="color: white">Alias</td>
             <td style="color: white">Name</td>
             <td style="color: white">Email</td>
+            <td style="color: white">Checkin Status</td>
           </tr>
           @foreach($contender->contending_team->roster as $aroster)
             <tr>
               <td>{{$aroster->gamer->alias}}</td>
               <td>{{$aroster->gamer->fname}} {{$aroster->gamer->lname}}</td>
               <td>{{$aroster->gamer->email}}</td>
+                @php
+                  $value = '<td style="color: red">NOT CHECKED IN</td>';
+                  foreach($checkins as $checkin)
+                  {
+                    if($aroster->gamer->id == $checkin->gamer_id)
+                      $value = '<td style="color: green">CHECKED IN</td>';
+                  }
+                  echo $value;
+                @endphp
             </tr>
           @endforeach
         </table>

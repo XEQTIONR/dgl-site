@@ -8,6 +8,7 @@ use App\MatchContestant;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\MatchRequest as StoreRequest;
 use App\Http\Requests\MatchRequest as UpdateRequest;
+use DB;
 
 class MatchCrudController extends CrudController
 {
@@ -225,7 +226,10 @@ class MatchCrudController extends CrudController
     public function showDetailsRow($id)
     {
       $contestants = \App\MatchContestant::where('match_id', $id)->with('contending_team.roster.gamer')->get();
-      return view('admin.matchdetails', compact('contestants'));
+      $checkins = DB::table('checkins')
+                      ->where('match_id', $id)
+                      ->get();
+      return view('admin.matchdetails', compact('contestants','checkins'));
     }
 
     public function store(StoreRequest $request)

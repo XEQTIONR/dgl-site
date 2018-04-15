@@ -41,5 +41,6 @@ In the following file
 
 __Match CRUD controller contestants select2 multiple pulls all contestants of all matches. FIX THIS.__
 
+_Did not create a Eloquent model for Checkin. Change this in the future if required._
 
 ###### XEQTIONR
