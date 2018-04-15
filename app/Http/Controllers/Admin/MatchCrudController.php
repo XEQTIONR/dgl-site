@@ -54,7 +54,7 @@ class MatchCrudController extends CrudController
           // optional:
           'datetime_picker_options' => [
             'format' => 'DD/MM/YYYY HH:mm',
-            'language' => 'fr'
+            'language' => 'en'
           ],
           'allows_null' => true,
         ]
@@ -66,7 +66,7 @@ class MatchCrudController extends CrudController
           // optional:
           'datetime_picker_options' => [
             'format' => 'DD/MM/YYYY HH:mm',
-            'language' => 'fr'
+            'language' => 'en'
           ],
           'allows_null' => true,
         ]
@@ -78,7 +78,7 @@ class MatchCrudController extends CrudController
           // optional:
           'datetime_picker_options' => [
             'format' => 'DD/MM/YYYY HH:mm',
-            'language' => 'fr'
+            'language' => 'en'
           ],
           'allows_null' => true,
         ]
@@ -92,18 +92,6 @@ class MatchCrudController extends CrudController
         , 'update/create/both');
 
       $this->crud->addField([
-          // n-n relationship
-//          'label' => "Contestants", // Table column heading
-//          'type' => "select2_from_ajax_multiple",
-//          'name' => 'tournament_id', // the column that contains the ID of that connected entity
-//          'entity' => 'potentialContestant', // the method that defines the relationship in your Model
-//          'attribute' => "name", // foreign key attribute that is shown to user
-//          'model' => "App\ContendingTeam", // foreign key model
-//          'data_source' => url("api/cities"), // url to controller search function (with /{id} should return model)
-//          'placeholder' => "Select Tournaments", // placeholder for the select
-//          'minimum_input_length' => 2, // minimum characters to type before querying results
-//          'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-
           'label' => "Match Contestants",
           'type' => 'contendingteam',
           'name' => 'contestants', // the method that defines the relationship in your Model
@@ -113,10 +101,6 @@ class MatchCrudController extends CrudController
           'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
         ]
         , 'create');
-        // $this->crud->addField($options, 'update/create/both');
-        // $this->crud->addFields($array_of_arrays, 'update/create/both');
-        // $this->crud->removeField('name', 'update/create/both');
-        // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         // ------ CRUD COLUMNS - For tables
       $this->crud->addColumn([
@@ -139,7 +123,7 @@ class MatchCrudController extends CrudController
         // optional:
         'datetime_picker_options' => [
           'format' => 'DD/MM/YYYY HH:mm',
-          'language' => 'fr'
+          'language' => 'en'
         ],
         'allows_null' => true,
       ]);
@@ -150,7 +134,7 @@ class MatchCrudController extends CrudController
         // optional:
         'datetime_picker_options' => [
           'format' => 'DD/MM/YYYY HH:mm',
-          'language' => 'fr'
+          'language' => 'en'
         ],
         'allows_null' => true,
       ]);
@@ -161,7 +145,7 @@ class MatchCrudController extends CrudController
         // optional:
         'datetime_picker_options' => [
           'format' => 'DD/MM/YYYY HH:mm',
-          'language' => 'fr'
+          'language' => 'en'
         ],
         'allows_null' => true,
       ]);
@@ -240,9 +224,7 @@ class MatchCrudController extends CrudController
 
     public function showDetailsRow($id)
     {
-      $match = Match::find($id);
-      $contestants = $match->contestants()->get();
-
+      $contestants = \App\MatchContestant::where('match_id', $id)->with('contending_team.roster.gamer')->get();
       return view('admin.matchdetails', compact('contestants'));
     }
 
@@ -270,15 +252,11 @@ class MatchCrudController extends CrudController
         $mcon->save();
       }
       }
-      //dd($match, $contestants);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
 
     public function update(UpdateRequest $request)
     {
-        dd($request);
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
@@ -289,6 +267,5 @@ class MatchCrudController extends CrudController
     {
       MatchContestant::where('match_id', $id)->delete();
       parent::destroy($id);
-      //return $redirect_location;
     }
 }
