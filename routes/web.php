@@ -68,4 +68,13 @@ Route::resource('/media', 'MediaController');
     CRUD::resource('esport','EsportCrudController');
     CRUD::resource('contending_team','Contending_teamCrudController');
     CRUD::resource('match','MatchCrudController');
+    CRUD::resource('match_contestant', 'Match_contestantCrudController'); // for scores
   });
+
+//Route::get('/test/{id}', function($id){
+//  $contestants = \App\MatchContestant::where('match_id', $id)->with('contending_team.roster.gamer')->get();
+//  $checkins = DB::table('checkins')
+//    ->where('match_id', $id)
+//    ->get();
+//  return view('admin.matchdetails', compact('contestants','checkins'));
+//});

@@ -12,3 +12,4 @@
 
   </a>
 </li>
+<li><a href="{{ backpack_url('match_contestant') }}"><i class="fa fa-bar-chart"></i> <span>Scores</span></a></li>
