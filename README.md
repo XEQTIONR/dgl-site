@@ -43,4 +43,6 @@ __Match CRUD controller contestants select2 multiple pulls all contestants of al
 
 _Did not create a Eloquent model for Checkin. Change this in the future if required._
 
+_Added ability to select match winner from Match Contestants/Scores CRUD -_ __This is currently the sole reason why 'id' field is added as primary key in the 'match_contestants' table.__
+
 ###### XEQTIONR

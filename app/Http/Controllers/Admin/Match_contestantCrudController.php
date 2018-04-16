@@ -56,6 +56,14 @@ class Match_contestantCrudController extends CrudController
           'type'  =>  'text',
         ]
         , 'update/create/both');
+
+        $this->crud->addField([
+          // Checkbox
+          'name' => 'winner',
+          'label' => 'Is the Winner?',
+          'type' => 'checkbox'
+        ]
+        , 'update');
         // ------ CRUD COLUMNS
         $this->crud->addColumn([
           'name' => 'match_id',
@@ -140,6 +148,7 @@ class Match_contestantCrudController extends CrudController
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
+        $this->crud->removeField('winner', 'update/create/both');
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
@@ -148,13 +157,22 @@ class Match_contestantCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
-       $redirect_location= redirect('/admin/match_contestant');
-        DB::table('match_contestants')
-            ->where([
-              ['match_id', $request->match_id],
-              ['contending_team_id',$request->contending_team_id]
-            ])
-            ->update(['score'=> $request->score]);
+      $this->crud->removeField('winner', 'update/create/both');
+      $redirect_location= redirect('/admin/match_contestant');
+
+      if($request->winner=="1")
+      {
+
+         DB::table('matches')
+            ->where('id', $request->match_id)
+            ->update(['won_id'  =>  $request->contending_team_id]);
+      }
+      DB::table('match_contestants')
+        ->where([
+          ['match_id', $request->match_id],
+          ['contending_team_id',$request->contending_team_id]
+        ])
+        ->update(['score'=> $request->score]);
         // your additional operations before save here
         //$redirect_location = parent::updateCrud($request);
         // your additional operations after save here

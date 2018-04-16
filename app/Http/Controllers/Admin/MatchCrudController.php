@@ -156,9 +156,12 @@ class MatchCrudController extends CrudController
         'label' => 'Stage',
       ]);
       $this->crud->addColumn([
-        'name' => 'won_id',
-        'type' => 'text',
-        'label' => 'Winner',
+        'label' => "Winner", // Table column heading
+        'type' => "select",
+        'name' => 'won_id', // the column that contains the ID of that connected entity;
+        'entity' => 'winner', // the method that defines the relationship in your Model
+        'attribute' => "name", // foreign key attribute that is shown to user
+        'model' => "App\ContendingTeam", // foreign key model
       ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
