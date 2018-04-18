@@ -29,12 +29,12 @@
 
   <div class="row justify-content-center">
     <div class="col-10 mt-5">
-      <h1 class="">PHOTOS</h1>
+      <h1 class="font-light-gray">PHOTOS</h1>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-10 mt-5">
-      <h2 class="">ALBUMS</h2>
+      <h2 class="font-purple">ALBUMS</h2>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -44,7 +44,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
           <div class="card team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body back-color-lightergray">
               <h5 class="card-title text-center font-purple">Overtime Esports</h5>
             </div>
           </div>
@@ -53,7 +53,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
           <div class="card team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/dota-1.png')}}" alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body back-color-lightergray">
               <h5 class="card-title text-center font-purple">Rise Clan</h5>
             </div>
           </div>
@@ -62,7 +62,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
           <div class="card team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/bh.jpg')}}" alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body back-color-lightergray">
               <h5 class="card-title text-center font-purple">Vaevictis Esports</h5>
             </div>
           </div>
@@ -71,7 +71,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
           <div class="card team-logo-300-gray">
             <img class="card-img-top" src="{{URL::asset('storage/dd.jpg')}}" alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body back-color-lightergray">
               <h5 class="card-title text-center font-purple">Lyon Gaming</h5>
             </div>
           </div>
@@ -82,7 +82,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-10 mt-5">
-      <h1 class="">VIDEOS</h1>
+      <h1 class="font-light-gray">VIDEOS</h1>
     </div>
   </div>
   <div class="row justify-content-center">

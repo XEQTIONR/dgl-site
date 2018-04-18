@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'FuturaMedium';
+  src: url("/fonts/FuturaPT-Medium.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .white-border {
   border-color: #FFF !important;
 }
@@ -10,12 +17,20 @@
   margin-top: 7em;
 }
 
+.mb-10 {
+  margin-bottom: 7em;
+}
+
 .pr-6 {
   padding-right: 4rem !important;
 }
 
 .font-primary-color {
-  color: #EF9F3C;
+  color: #6ACC5C;
+}
+
+.font-red {
+  color: red;
 }
 
 .font-gray {
@@ -24,6 +39,10 @@
 
 .font-light-gray {
   color: #B6B9BD;
+}
+
+.font-lighter-gray {
+  color: #EAEAEB;
 }
 
 .font-white {
@@ -35,19 +54,23 @@
 }
 
 .font-purple {
-  color: #5c60a8;
+  color: #7D64D1;
 }
 
 .font-alternate-color {
-  color: #ffb75f;
+  color: #70ff5c;
+}
+
+.back-color-dark {
+  background-color: #1F1D26;
 }
 
 .back-color-primary {
-  background-color: #EF9F3C;
+  background-color: #6ACC5C;
 }
 
 .back-color-purple {
-  background-color: #5c60a8;
+  background-color: #7D64D1;
 }
 
 .back-color-darkgray {
@@ -55,40 +78,40 @@
 }
 
 .back-color-lightgray {
-  background-color: #EAEAEB;
-}
-
-.back-color-lightergray {
   background-color: #B6B9BD;
 }
 
+.back-color-lightergray {
+  background-color: #EAEAEB;
+}
+
 .back-color-primary-grad {
-  background-image: radial-gradient(circle, #EF9F3C 0%, #ce7911 100%);
+  background-image: radial-gradient(circle, #6ACC5C 0%, #43a734 100%);
 }
 
 .back-color-primary-grad:hover {
-  background-image: radial-gradient(circle, #f7cd9a 0%, #f1ab54 100%);
+  background-image: radial-gradient(circle, #b1e4aa 0%, #7cd26f 100%);
 }
 
 .back-color-purple-grad {
-  background-image: radial-gradient(circle, #5c60a8 0%, #404378 100%);
+  background-image: radial-gradient(circle, #7D64D1 0%, #5235b3 100%);
 }
 
 .back-color-purple-grad:hover {
-  background-image: radial-gradient(circle, #9fa1cb 0%, #6d70b1 100%);
+  background-image: radial-gradient(circle, #bfb3e8 0%, #8d78d7 100%);
 }
 
 .back-color-orange {
-  background-color: #EF9F3C;
+  background-color: #6ACC5C;
 }
 
 .back-color-primary-hover {
-  background-color: #ed9324;
+  background-color: #58c649;
   border-top: 1px solid white;
 }
 
 .back-color-primary-hover:hover {
-  background-color: #e58713;
+  background-color: #4abb3a;
 }
 
 .back-color-orange-hover {
@@ -96,21 +119,25 @@
 }
 
 .back-color-orange-hover:hover {
-  background-color: #ff9513;
+  background-color: #4bd837;
+}
+
+.font-futura {
+  font-family: "FuturaMedium", "Helvetica", "Arial" !important;
+  font-weight: 600;
 }
 
 h1,
 h2,
 h3,
 h5 {
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
-  line-height: 1em;
+  font-family: "Poppins", sans-serif;
 }
 
 p {
-  font-family: "Open Sans", "Helvetica", "Arial";
-  color: #EAEAEB;
+  font-family: "Nunito", serif, "Arial";
+  font-size: 1em;
+  color: #1F1D26;
 }
 
 hr {
@@ -123,20 +150,20 @@ hr {
 }
 
 .background-news {
-  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/bh.jpg");
+  background: radial-gradient(rgba(70, 67, 84, 0.2) 1%, #464354 100%), url("/storage/bh.jpg");
   background-size: cover;
   z-index: -2;
 }
 
 .background-teams {
-  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/rainbow6.jpg");
+  background: radial-gradient(rgba(70, 67, 84, 0.2) 1%, #464354 100%), url("/storage/rainbow6.jpg");
   background-size: cover;
   background-position: center bottom;
   z-index: -2;
 }
 
 .background-tournament {
-  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/hearthstone.jpg");
+  background: radial-gradient(rgba(70, 67, 84, 0.2) 1%, #464354 100%), url("/storage/hearthstone.jpg");
   background-size: cover;
   z-index: -2;
 }
@@ -146,7 +173,7 @@ hr {
 }
 
 .background-matches {
-  background: radial-gradient(rgba(96, 92, 168, 0.2) 1%, #605ca8 100%), url("/storage/overwatch-3.jpg");
+  background: radial-gradient(rgba(70, 67, 84, 0.2) 1%, #464354 100%), url("/storage/overwatch-3.jpg");
   background-size: cover;
   background-position: center top;
   z-index: -2;
@@ -202,19 +229,23 @@ hr {
   font-weight: 700;
 }
 
+.card .card-text {
+  color: #FFF;
+}
+
 .font-primary-700b {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
 }
 
 .font-primary-700bi {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .font-primary-900 {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 900;
 }
 
@@ -292,13 +323,39 @@ hr {
   margin-right: auto;
 }
 
+.carousel-item h5 {
+  font: "Poppins", sans-serif;
+  font-size: 22px;
+}
+
+.carousel-item p {
+  color: #00A0EA !important;
+  font-weight: 800;
+  background-color: rgba(126, 100, 209, 0.4);
+}
+
+.carousel-item p:hover {
+  color: #FFF !important;
+}
+
 .carousel-indicators li {
   -webkit-transform: skewX(-20deg);
           transform: skewX(-20deg);
 }
 
+.carousel-caption {
+  top: 15%;
+}
+
 body {
+  font-size: 15px;
+  font-family: "Nunito", serif, "Arial";
+  line-height: 1.618;
   /* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
+}
+
+body p {
+  font-size: 1.15em;
 }
 
 body .dgl-ol li {
@@ -308,7 +365,7 @@ body .dgl-ol li {
 }
 
 body .dgl-ol li:before {
-  color: #EF9F3C;
+  color: #6ACC5C;
   content: counter(list) ".";
   left: -32px;
   position: absolute;
@@ -317,18 +374,18 @@ body .dgl-ol li:before {
 }
 
 body .tag {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   padding: 0px 2px;
 }
 
 body .tag:hover {
-  background-color: #5c60a8;
+  background-color: #7D64D1;
 }
 
 body .video-thumbnail-link {
   text-decoration: none;
-  color: #EF9F3C;
+  color: #1F1D26;
 }
 
 body .video-thumbnail-link .video-thumbnail {
@@ -365,13 +422,13 @@ body .video-thumbnail-link .video-thumbnail .middle {
 
 body .video-thumbnail-link .video-thumbnail .icon-container {
   background-color: transparent;
-  color: #5c60a8;
+  color: #7D64D1;
   font-size: 50px;
   padding: 16px 32px;
 }
 
 body .video-thumbnail-link:hover {
-  color: #5c60a8;
+  color: #7D64D1;
 }
 
 body .video-thumbnail-link:hover img {
@@ -383,47 +440,47 @@ body .video-thumbnail-link:hover .middle {
 }
 
 body .fixture-table-primary {
-  border: 1px solid #EF9F3C;
+  border: 1px solid #6ACC5C;
 }
 
 body .fixture-table-purple {
-  border: 1px solid #5c60a8;
+  border: 1px solid #7D64D1;
 }
 
 body .list-group-item-primary {
-  background-color: #EF9F3C !important;
+  background-color: #6ACC5C !important;
   color: #2B2B2A !important;
 }
 
 body .list-group-item-gray {
   background-color: #454545 !important;
-  color: #EF9F3C !important;
+  color: #6ACC5C !important;
 }
 
 body #alertBannerTop {
-  background-color: #EF9F3C;
+  background-color: #6ACC5C;
 }
 
 body #moreButton {
-  font-family: "Titillium Web", sans-serif;
-  color: #EF9F3C;
+  font-family: "Poppins", sans-serif;
+  color: #6ACC5C;
   font-size: 1.4em;
   font-weight: 700;
 }
 
 body #moreButton:hover {
-  color: #EF9F3C;
+  color: #6ACC5C;
   text-decoration: none;
 }
 
 body .team-logo-300-gray {
   width: 100%;
-  background-color: #EAEAEB;
+  background-color: #B6B9BD;
 }
 
 body .team-logo-300 {
   width: 100%;
-  background-color: #262625;
+  background-color: #574986;
 }
 
 body .team-logo-300-trans {
@@ -445,39 +502,46 @@ body .team-registration {
 }
 
 body .team-registration label {
-  color: #EF9F3C;
+  color: #00A0EA;
 }
 
 body .team-registration input {
-  border-color: #EF9F3C;
+  border-color: #00A0EA;
   background-color: transparent;
   color: #00A0EA;
 }
 
 body .team-registration input:focus {
-  background-color: #5c60a8;
-  color: #EF9F3C;
+  background-color: #00A0EA;
+  border-color: #7D64D1;
+  color: #1F1D26;
 }
 
 body .team-registration .list-group-item {
   background-color: transparent;
-  border-color: #EF9F3C;
+  border-color: #6ACC5C;
 }
 
 body .team-registration .checkbox {
-  color: #EF9F3C;
+  color: #6ACC5C;
 }
 
 body .slide-link {
   text-decoration: none;
 }
 
-body .slide-link h1 {
-  color: #FFF;
+body .slide-link h1,
+body .slide-link h5 {
+  color: #7250e5;
 }
 
-body .slide-link h1:hover {
-  color: #EF9F3C;
+body .slide-link h1:hover,
+body .slide-link h5:hover {
+  color: #EAEAEB;
+}
+
+body .slide-link h1 {
+  font-size: 4em;
 }
 
 body .btn-outline-dgl {
@@ -515,16 +579,16 @@ body .btn-dgl-contaianer-purple {
   display: inline-block;
   -webkit-transform: skewX(-10deg);
           transform: skewX(-10deg);
-  border: 3px solid #5c60a8;
+  border: 3px solid #7D64D1;
 }
 
 body .btn-dgl-contaianer-purple .btn-dgl {
-  color: #5c60a8 !important;
+  color: #7D64D1 !important;
 }
 
 body .btn-dgl-contaianer-purple:hover {
-  background-color: #5c60a8;
-  border-color: #5c60a8;
+  background-color: #7D64D1;
+  border-color: #7D64D1;
 }
 
 body .btn-dgl-contaianer-purple:hover .btn-dgl {
@@ -549,16 +613,16 @@ body .btn-dgl-container-gray .btn-dgl {
 }
 
 body .btn-dgl-container-primary {
-  border: 3px solid #EF9F3C;
+  border: 3px solid #6ACC5C;
 }
 
 body .btn-dgl-container-primary .btn-dgl {
-  color: #EF9F3C !important;
+  color: #6ACC5C !important;
 }
 
 body .btn-dgl-container-primary:hover {
-  border: 3px solid #EF9F3C;
-  background-color: #EF9F3C;
+  border: 3px solid #6ACC5C;
+  background-color: #6ACC5C;
 }
 
 body .btn-dgl-container-primary:hover .btn-dgl {
@@ -570,7 +634,7 @@ body .btn-dgl {
   border-width: 0;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 
@@ -585,11 +649,11 @@ body .btn-dgl:focus {
 
 body .btn-dgl:active {
   color: #fff;
-  background-color: #ff9818;
+  background-color: #4fd93b;
 }
 
 body .sidebar-header {
-  background-color: #5c60a8;
+  background-color: #7D64D1;
   -webkit-transform: skewX(-15deg);
           transform: skewX(-15deg);
 }
@@ -610,7 +674,7 @@ body .nav .disabled {
 }
 
 body .nav-container {
-  background-color: rgba(92, 96, 168, 0.5);
+  background-color: rgba(125, 100, 209, 0.5);
   position: relative;
   top: -40px;
   z-index: 1;
@@ -622,22 +686,30 @@ body .navbar {
 }
 
 body .nav-brand a {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 900;
   vertical-align: baseline;
 }
 
-body .navbar-dgl-background {
-  background-color: #454545 !important;
+body .navbar-dgl {
+  background-color: #2B2B2A !important;
+}
+
+body .navbar-dgl .navbar-brand {
+  margin: 0;
 }
 
 body .navbar-dgl .navbar-toggler-icon {
   background-image: url("/storage/hamburger.svg");
 }
 
+body .navbar-dgl .navbar-text {
+  font-family: "FuturaMedium", "Helvetica", "Arial" !important;
+}
+
 body .navbar-dgl a {
   color: #FFF;
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Quicksand";
   font-weight: 700;
   text-decoration: none;
 }
@@ -647,13 +719,13 @@ body .navbar-dgl a.nav-link {
 }
 
 body .navbar-dgl a.nav-link:hover {
-  color: #f3b66b;
+  color: #00A0EA;
 }
 
 body .navbar-dgl button {
   color: #FFF;
-  border-color: #EAEAEB !important;
-  background-color: #EF9F3C;
+  border-color: #B6B9BD !important;
+  background-color: #7D64D1;
   margin-left: 2vw;
 }
 
@@ -662,8 +734,17 @@ body .navbar-dgl li a {
   padding-left: 1vw !important;
 }
 
+body .jumbotron-fluid h1 {
+  color: #7D64D1;
+  text-transform: uppercase;
+}
+
+body .jumbotron-fluid p {
+  color: #B6B9BD;
+}
+
 body .top-banner {
-  background-color: #EF9F3C;
+  background-color: #6ACC5C;
   padding: 10px 0;
   color: #FFF;
   font-weight: 700;
@@ -692,7 +773,7 @@ body .dgl-card-img {
 }
 
 body .main {
-  background-color: #2B2B2A;
+  background-color: #EAEAEB;
 }
 
 body .post-body {
@@ -705,7 +786,7 @@ body .post-body .post-link {
 }
 
 body .post-body .post-link .post-title {
-  color: #B6B9BD;
+  color: #454545;
   text-decoration: none;
   margin-top: 5px;
 }
@@ -713,28 +794,33 @@ body .post-body .post-link .post-title {
 body .post-body-hover:hover {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #EAEAEB;
+  background-color: #FFF;
+  border: 1px solid #7D64D1;
   cursor: pointer;
 }
 
 body .post-body-hover:hover p {
-  color: #494c88;
+  color: #5c3dc5;
 }
 
 body .post-body-hover:hover .post-title {
-  color: #5c60a8;
+  color: #7D64D1;
 }
 
 body .footer {
-  background-color: #262625;
+  background-color: #2B2B2A;
   padding-top: 2em;
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+body .footer h5 {
+  font-family: "Quicksand";
+  font-size: 1rem;
 }
 
 body .footer a {
   color: #454545;
-  font-family: "Titillium Web", sans-serif;
-  font-weight: 700;
+  font-family: "Quicksand";
   text-decoration: none;
 }
 
@@ -751,7 +837,7 @@ body .footer .footer-text .footer-list-div {
 }
 
 body .footer p {
-  font-family: "Open Sans", "Helvetica", "Arial";
+  font-family: "Nunito", serif, "Arial";
 }
 
 body #footerFlexContainer {

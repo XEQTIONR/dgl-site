@@ -27,7 +27,7 @@
   </div> <!-- row -->
   <div class="row justify-content-center"> <!-- the content row -->
     <div class="col-10">
-      <h3 class="font-primary-color my-5">FIXTURES</h3>
+      <h3 class="font-purple my-5">FIXTURES</h3>
 
       <!--A FIXTURE TABLE-->
       <div class="fixture-table-primary row justify-content-center mb-5">
@@ -235,7 +235,7 @@
       </div>
 
 
-      <h3 class="font-primary-color my-5">RESULTS</h3>
+      <h3 class="font-light-gray my-5">RESULTS</h3>
 
       <!--A FIXTURE TABLE-->
       <div class="fixture-table-purple row justify-content-center mb-5">

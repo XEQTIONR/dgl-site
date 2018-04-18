@@ -39,22 +39,45 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center sub-menu main">
+  <div class="row justify-content-center sub-menu back-color-dark">
     <div class="col col-lg-9 nav-container" >
       <nav class="nav justify-content-center">
-        <a class="nav-link active" href="#">Overview</a>
-        <a class="nav-link" href="#">Information</a>
-        <a class="nav-link" href="#">Teams</a>
-        <a class="nav-link" href="#">Rules</a>
-        <a class="nav-link disabled" href="#">Registration</a>
+        <a class="nav-link active" id="navOverview" href="#">Overview</a>
+        <a class="nav-link" id="navInfo" href="#infoRow">Information</a>
+        <a class="nav-link" id="navTeams" href="#teamsRow">Teams</a>
+        <a class="nav-link" id="navRules" href="#rulesRow">Rules</a>
+        <a class="nav-link" id="navRegistration" href="#registerRow">Registration</a>
       </nav>
     </div>
   </div>
-  <div class="row justify-content-center sub-menu main">
+  <div class="row justify-content-center back-color-dark">
     <div class="col-12 col-lg-9 my-0" style="">
       <div class="row mt-4">
         <div class="col-12 col-md-9 main-slot">
 
+          <script>
+              $( document ).ready(function(){
+                  $('.tournament-row').hide();
+
+                  $('#navInfo').click(function () {
+                      $('.tournament-row').hide();
+                      $('.info-row').show();
+
+                  });
+                  $('#navTeams').click(function () {
+                      $('.tournament-row').hide();
+                      $('.tournament-row-teams').show();
+                  });
+                  $('#navRules').click(function () {
+                      $('.tournament-row').hide();
+                      $('.tournament-row-rules').show();
+                  });
+                  $('#navRegistration').click(function () {
+                      $('.tournament-row').hide();
+                      $('.register-row').show();
+                  });
+              });
+          </script>
           @include('tournaments.tournament_info')
           @include('tournaments.tournament_rules')
           @include('tournaments.tournament_teams')

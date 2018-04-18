@@ -8,7 +8,7 @@
 
   <!--Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web:400,400i,600,700,700i,900" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Poppins:700|Nunito:400,800|Quicksand:700" rel="stylesheet">
   <!--Stylesheet-->
   <link rel="stylesheet" href="/css/app.css">
   <!--JQuery-->

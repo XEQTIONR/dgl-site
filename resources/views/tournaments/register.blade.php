@@ -9,25 +9,26 @@
 @author XEQTIONR
 @template register
 --}}
-  <!-- Axios script -- for ajax calls -->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<style>
-  .visible{
-    /**visibility : visible;*/
-    display: inherit;
-  }
-  .hidden{
-    /**visibility: hidden;*/
-    display: none;
-  }
-</style>
 
-<div class="row">
-  <div class="col-12">
-    <h1 class="font-primary-color py-3">Registration</h1>
+<div class="row tournament-row  register-row mb-5" id="registerRow"></div>
+<div class="row tournament-row register-row mt-5" >
+  <!-- Axios script -- for ajax calls -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    .visible{
+      /**visibility : visible;*/
+      display: inherit;
+    }
+    .hidden{
+      /**visibility: hidden;*/
+      display: none;
+    }
+  </style>
+  <div class="col-12" >
+    <h1 class="font-blue py-3">Registration</h1>
   </div>
 </div>
-<div class="row justify-content-md-center">
+<div class="row tournament-row register-row justify-content-md-center">
   <div class="col-12" >
 
     <form method="POST" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
@@ -102,119 +103,119 @@
 
 
   </div>  <!-- col -->
-</div>    <!--row-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-
-<script>
-    let data = {
+  <script>
+      let data = {
           gamers:[
-          {sl: "0", captain : "true", fname : "", lname : "", email : "", alias : null, status : "init"},
-          @for($i=1; $i<$tournament->squadsize; $i++)
-          {sl: "{{$i}}", captain : "false", fname : "", lname : "", email : "", alias : null, status : "init"},
-          @endfor
+              {sl: "0", captain : "true", fname : "", lname : "", email : "", alias : null, status : "init"},
+              @for($i=1; $i<$tournament->squadsize; $i++)
+              {sl: "{{$i}}", captain : "false", fname : "", lname : "", email : "", alias : null, status : "init"},
+            @endfor
           ]
 
-    };
+      };
 
-    var app = new Vue({
-        el: '#app',
-        data: data,
-        methods: {
-            isRegistered: function(gamer){
+      var app = new Vue({
+          el: '#app',
+          data: data,
+          methods: {
+              isRegistered: function(gamer){
 
-                if((gamer.status=='init')||(gamer.status=='undefined')||(gamer.status=='new'))
-                    return false;
-                if(gamer.status=='ok')
-                    return true;
-            },
-            isNew: function (gamer) {
-              if(gamer.status=='new')
-                  return true;
-              return false;
-            },
-            isOK: function(gamer){
-                 if(gamer.status=='ok')
-                     return true;
-                return false;
-            },
-            unsetGamer: function(gamer){
-                let sl = gamer.sl;
-                app.gamers[sl].fname= "";
-                app.gamers[sl].lname = "";
-                app.gamers[sl].email = "";
-                app.gamers[sl].alias = null;
-                app.gamers[sl].status = "init";
-            },
-            getGamer: function(input){
+                  if((gamer.status=='init')||(gamer.status=='undefined')||(gamer.status=='new'))
+                      return false;
+                  if(gamer.status=='ok')
+                      return true;
+              },
+              isNew: function (gamer) {
+                  if(gamer.status=='new')
+                      return true;
+                  return false;
+              },
+              isOK: function(gamer){
+                  if(gamer.status=='ok')
+                      return true;
+                  return false;
+              },
+              unsetGamer: function(gamer){
+                  let sl = gamer.sl;
+                  app.gamers[sl].fname= "";
+                  app.gamers[sl].lname = "";
+                  app.gamers[sl].email = "";
+                  app.gamers[sl].alias = null;
+                  app.gamers[sl].status = "init";
+              },
+              getGamer: function(input){
 
-                let sl = input.sl;
-                //Update the gamer based on the alias change that just occurred.
-                axios.get('/tournaments/'+input.alias+"/{{$tournament->id}}").then( function(response) {
+                  let sl = input.sl;
+                  //Update the gamer based on the alias change that just occurred.
+                  axios.get('/tournaments/'+input.alias+"/{{$tournament->id}}").then( function(response) {
 
-                    var gamer = response.data;
+                      var gamer = response.data;
 
-                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                    let is_email = re.test(gamer);
-                    // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
-                    //these return undefined if not found.
-                    if(response.data == "already-registered")
-                    {
-                        alert("This gamer has already registered for another team in this tournament.");
-                        app.gamers[sl].status = "undefined";
-                        app.gamers[sl].fname = "";
-                        app.gamers[sl].lname = "";
-                        app.gamers[sl].email = "";
-                        app.gamers[sl].alias = null;
-                        document.getElementById(sl).focus();
-                    }
-                    else if(response.data == "gamer-unverified")
-                    {
-                        alert("Cannot add a gamer who has not verified their email address.");
-                        app.gamers[sl].status = "undefined";
-                        app.gamers[sl].fname = "";
-                        app.gamers[sl].lname = "";
-                        app.gamers[sl].email = "";
-                        app.gamers[sl].alias = null;
-                        document.getElementById(sl).focus();
-                    }
-                    else if(is_email)  // NEW UNREGISTERED gamer
-                    {
-                        //console.log("NEW UNREGISTERED GAMER: " + gamer);
-                        app.gamers[sl].status = "new";
-                        app.gamers[sl].fname = null;
-                        app.gamers[sl].lname = null;
-                        app.gamers[sl].email = gamer;
+                      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                      let is_email = re.test(gamer);
+                      // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
+                      //these return undefined if not found.
+                      if(response.data == "already-registered")
+                      {
+                          alert("This gamer has already registered for another team in this tournament.");
+                          app.gamers[sl].status = "undefined";
+                          app.gamers[sl].fname = "";
+                          app.gamers[sl].lname = "";
+                          app.gamers[sl].email = "";
+                          app.gamers[sl].alias = null;
+                          document.getElementById(sl).focus();
+                      }
+                      else if(response.data == "gamer-unverified")
+                      {
+                          alert("Cannot add a gamer who has not verified their email address.");
+                          app.gamers[sl].status = "undefined";
+                          app.gamers[sl].fname = "";
+                          app.gamers[sl].lname = "";
+                          app.gamers[sl].email = "";
+                          app.gamers[sl].alias = null;
+                          document.getElementById(sl).focus();
+                      }
+                      else if(is_email)  // NEW UNREGISTERED gamer
+                      {
+                          //console.log("NEW UNREGISTERED GAMER: " + gamer);
+                          app.gamers[sl].status = "new";
+                          app.gamers[sl].fname = null;
+                          app.gamers[sl].lname = null;
+                          app.gamers[sl].email = gamer;
 
-                    }
-                    else // REGISTERED gamer FOUND
-                    {
-                        app.gamers[sl].alias = gamer.alias;
-                        app.gamers[sl].fname = gamer.fname;
-                        app.gamers[sl].lname = gamer.lname;
-                        app.gamers[sl].email = gamer.email;
+                      }
+                      else // REGISTERED gamer FOUND
+                      {
+                          app.gamers[sl].alias = gamer.alias;
+                          app.gamers[sl].fname = gamer.fname;
+                          app.gamers[sl].lname = gamer.lname;
+                          app.gamers[sl].email = gamer.email;
 
-                        if ((gamer.fname != undefined) && (gamer.lname != undefined) && (gamer.email != undefined)) {
-                            app.gamers[sl].status = "ok";
+                          if ((gamer.fname != undefined) && (gamer.lname != undefined) && (gamer.email != undefined)) {
+                              app.gamers[sl].status = "ok";
 
-                        }
-                        else// gamer was not found
-                        {
-                            app.gamers[sl].status = "undefined";
-                            app.gamers[sl].fname = "";
-                            app.gamers[sl].lname = "";
-                            app.gamers[sl].email = "";
-                            app.gamers[sl].alias = null;
+                          }
+                          else// gamer was not found
+                          {
+                              app.gamers[sl].status = "undefined";
+                              app.gamers[sl].fname = "";
+                              app.gamers[sl].lname = "";
+                              app.gamers[sl].email = "";
+                              app.gamers[sl].alias = null;
 
-                            document.getElementById(sl).focus();
-                        }
-                    }
-                    //this is not the same instance as app.gamers[sl]
+                              document.getElementById(sl).focus();
+                          }
+                      }
+                      //this is not the same instance as app.gamers[sl]
 
-                } );
+                  } );
 
-            }
-        }
+              }
+          }
 
-    });
-</script>
+      });
+  </script>
+</div>    <!--row-->
+

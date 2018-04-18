@@ -48,7 +48,7 @@
           </div>
           <div class="row">
             <div class="mt-1 mb-3 mr-3">
-              <i class="fas fa-tags font-primary-color"></i>
+              <i class="fas fa-tags font-purple"></i>
               <span class="tag">Tournament</span>,
               <span class="tag">Overwatch</span>,
               <span class="tag">1st Division</span>

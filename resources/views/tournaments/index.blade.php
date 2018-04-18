@@ -31,7 +31,7 @@
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">
-          <h1 class="font-white">ACTIVE TOURNAMENTS</h1>
+          <h1 class="font-primary-color">ACTIVE TOURNAMENTS</h1>
         </div>
       </div>
       <!-- active tournaments rows -->
@@ -49,7 +49,7 @@
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
-            <h1 class="font-primary-color">DOTA 2 All-Stars League</h1>
+            <h1 class="font-white">DOTA 2 All-Stars League</h1>
             <p class="">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
           </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
@@ -62,11 +62,11 @@
   </div> <!-- active tournament container row-->
 
 
-  <div class="row pb-5 border-bottom  back-color-lightgray">
+  <div class="row pb-5 border-bottom  back-color-lightergray">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">
-          <h1 class="font-primary-color">UPCOMING TOURNAMENTS</h1>
+          <h1 class="font-purple">UPCOMING TOURNAMENTS</h1>
         </div>
       </div>
       <!-- active tournaments rows -->
@@ -84,7 +84,7 @@
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
-            <h1 class="font-purple">OVERPOWERED - Overwatch Tournament</h1>
+            <h1 class="font-gray">OVERPOWERED - Overwatch Tournament</h1>
             <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-overwatch-96.png')}}">
@@ -96,11 +96,11 @@
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
 
-  <div class="row pb-5 border-bottom back-color-lightergray">
+  <div class="row pb-5 border-bottom back-color-lightgray">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">
-          <h1 class="font-gray">PAST TOURNAMENTS</h1>
+          <h1 class="font-lighter-gray">PAST TOURNAMENTS</h1>
         </div>
       </div>
       <!-- active tournaments rows -->
@@ -118,7 +118,7 @@
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
-            <h1 class="font-purple">DOTA 2 All-Stars League</h1>
+            <h1 class="font-gray">DOTA 2 All-Stars League</h1>
             <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">

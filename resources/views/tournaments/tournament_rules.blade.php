@@ -1,4 +1,5 @@
-<div class="row">
+<div class="row tournament-row  tournament-row-rules mb-5" id="rulesRow"></div>
+<div class="row tournament-row tournament-row-rules">
   <div class="col-12">
     <h1 class="font-primary-color py-3">Rules & Regulations</h1>
   </div>

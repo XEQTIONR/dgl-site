@@ -1,6 +1,9 @@
-
-// Body
-
+@font-face {
+  font-family: 'FuturaMedium';
+  src: url('/fonts/FuturaPT-Medium.otf');
+  font-weight: normal;
+  font-style: normal;
+}
 // Borders
 .white-border{
   border-color: #FFF !important;
@@ -14,33 +17,46 @@
 .mt-10{
   margin-top : 7em;
 }
+
+.mb-10{
+  margin-bottom : 7em;
+}
 .pr-6{
   padding-right: 4rem !important;
 }
 // Brands
-$dgl-primary: #EF9F3C;
-$dgl-purple : rgba(92,96,168,1.0);//#605CA8;
+$dgl-primary: #6ACC5C;
+$dgl-purple : #7D64D1;
 $dgl-blue: #00A0EA;
-$dgl-red: #E74C3C;
-$dgl-red-maroon: #FF386D;
 //$dgl-lightestgray: #DBE2EB;
-$dgl-lightergray: #B6B9BD;
-$dgl-lightgray: #EAEAEB;
+
+$dgl-lightergray: #EAEAEB;
+$dgl-lightgray: #B6B9BD;
+$dgl-lightestgray: lighten($dgl-lightgray, 10%);
 $dgl-gray: #454545;
 $dgl-darkish-gray: #363636;
 $dgl-darkgray: #2B2B2A;
 $dgl-darkergray: #262625;
+
+$dgl-dark: #1F1D26;
 
 //Font Colors Classes
 .font-primary-color{
   color: $dgl-primary;
 }
 
+.font-red{
+  color: red;
+}
 .font-gray{
   color: $dgl-gray;
 }
 
 .font-light-gray{
+  color: $dgl-lightgray;
+}
+
+.font-lighter-gray{
   color: $dgl-lightergray;
 }
 .font-white{
@@ -58,7 +74,11 @@ $dgl-darkergray: #262625;
   color: saturate(lighten($dgl-primary, 10%),50%);
 }
 
+
 //Background Color Classes
+.back-color-dark{
+  background-color: $dgl-dark;
+}
 .back-color-primary{
   background-color: $dgl-primary;
 }
@@ -112,17 +132,21 @@ $dgl-darkergray: #262625;
 
 
 // Typography
-$font-primary: "Titillium Web", sans-serif;
-$font-copy: "Open Sans", "Helvetica", "Arial";
-
+$font-primary: "Poppins", sans-serif;
+$font-copy: "Nunito", serif , "Arial";
+$font-futura: "FuturaMedium", "Helvetica", "Arial";
+$font-quicksand: "Quicksand";
+.font-futura{
+  font-family: $font-futura !important;
+  font-weight: 600;
+}
 h1, h2, h3, h5 {
   font-family: $font-primary;
-  font-weight: 700;
-  line-height: 1em;
 }
 
 p {
   font-family: $font-copy;
-  color: $dgl-lightgray;
+  font-size: 1em;
+  color: $dgl-dark;
 }
 // Panels

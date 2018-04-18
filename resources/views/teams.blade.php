@@ -25,11 +25,11 @@
       </div>
     </div>
   </div> <!-- row -->
-  <div class="row justify-content-center back-color-light"> <!-- the content row -->
+  <div class="row justify-content-center back-color-light main"> <!-- the content row -->
     <div class="col-10">
       <div class="row mt-5">
         <div class="col">
-          <h3 class="font-primary-color"> Select a tournament </h3>
+          <h3 class="font-light-gray"> Select a tournament </h3>
         </div>
         <div class="col">
         <select name="cars">
