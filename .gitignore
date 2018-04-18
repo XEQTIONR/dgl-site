@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+
 /vendor
 /.idea
 /.vagrant
@@ -10,3 +11,11 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+
+/routes/backpack/*
+/resources/views/vendor/*
+/resources/views/errors/*
+/resources/lang/vendor/backpack/*
+/public/vendor/*
+/public/packages/*
+public/packages/*
