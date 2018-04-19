@@ -45,4 +45,5 @@ _Did not create a Eloquent model for Checkin. Change this in the future if requi
 
 _Added ability to select match winner from Match Contestants/Scores CRUD -_ __This is currently the sole reason why 'id' field is added as primary key in the 'match_contestants' table.__
 
+__Changed from jquery slim to regular jquery CDN.__ 
 ###### XEQTIONR

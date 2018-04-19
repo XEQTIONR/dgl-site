@@ -27,80 +27,90 @@
   </div> <!-- row -->
 
   <!-- if an active tournament currently -->
+  <script>
+      $(document).ready(function(){
+          var x=1;
+          var max ={{$lastpage}};
+          //alert("max= "+max);
+          $("#moreButton").click(function(){
+              event.preventDefault();
+              x++;
+              if(x<=max)
+              {
+                  $.ajax({
+                      url: "{{url('/news')}}"+"?page="+x,
+                      method: "GET",
+                      success: function(result){
+                          $("#postContainer").append(result);
+                      }
+                  });
+              }
+              if(x=max)
+              {    $("#moreButton").hide(); }
+          });
+      });
+  </script>
   <div class="row py-5 border-bottom  back-color-lightgray">
     <div class="col-12">
-      <!-- active tournaments rows -->
-      <div class="row mb-5">
-        <div class="col-12 col-md-3 offset-md-1">
-          <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
+      <div id="postContainer" class="row">
+      <!-- blog rows -->
+      @foreach($posts as $post)
+      <!--post row -->
+        <div class="row mb-5">
+          <div class="col-12 col-md-3 offset-md-1">
+            <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
+              <img class="mt-3" src="{{$post->banner}}">
+            </div>
+            <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
+              <img class="mt-3" src="{{$post->banner}}">
+            </div>
+            <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
+              <img class="mt-3" src="{{$post->banner}}">
+            </div>
           </div>
-          <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
-          </div>
-          <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
-          </div>
-        </div>
-        <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
-          <div class="row">
-            <h1 class="font-purple">OVERPOWERED - Overwatch Tournament</h1>
-          </div>
-          <div class="row">
-            <div class="mt-1 mb-3 mr-3">
-              <i class="fas fa-tags font-purple"></i>
-              <span class="tag">Tournament</span>,
-              <span class="tag">Overwatch</span>,
-              <span class="tag">1st Division</span>
-              <span class="tag">Overwatch</span>,
-              <span class="tag">1st Division</span>
+          <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
+            <div class="row">
+              <h1 class="font-purple">{{$post->title}}</h1>
+            </div>
+            <div class="row">
+              <div class="mt-1 mb-3 pr-4">
+                <i class="fas fa-calendar-alt font-gray"></i>
+                <span class="">
+                  {{ $post->created_at->format('j F Y') }}
+                  </span>
+              </div>
+              <div class="mt-1 mb-3 mr-3">
+                <i class="fas fa-tags font-purple"></i>
+                <span class="tag">Tournament</span>,
+                <span class="tag">Overwatch</span>,
+                <span class="tag">1st Division</span>
+                <span class="tag">Overwatch</span>,
+                <span class="tag">1st Division</span>
+              </div>
 
+              <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
             </div>
-            <div class="mt-1 mb-3 pr-5">
-              <i class="fas fa-calendar-alt font-gray"></i>
-              <span class="">12 DECEMBER 2018</span>
+            <div class="btn-dgl-contaianer-purple">
+              <a href="/atournament" class="btn btn-lg btn-dgl">Read On</a>
             </div>
-            <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
           </div>
-          <div class="btn-dgl-contaianer-purple">
-            <a href="/atournament" class="btn btn-lg btn-dgl">Read On</a>
-          </div>
+        </div><!-- post row -->
+      @endforeach
+      </div>
+      @if($lastpage>1)
+      <div class="row justify-content-center" >
+        <div class="col-2">
+          <a id="moreButton" href="">
+            <div class="row justify-content-center">
+              <span id="">More</span>
+            </div>
+            <div class="row  justify-content-center">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </a>
         </div>
-      </div><!-- active tournament rows -->
+      </div>
+      @endif
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
-
-  {{--<div class="row pb-5 border-bottom back-color-lightergray">--}}
-    {{--<div class="col-12">--}}
-      {{--<div class="row my-5  justify-content-center">--}}
-        {{--<div class="col-10 pl-0">--}}
-          {{--<h1 class="font-gray">PAST TOURNAMENTS</h1>--}}
-        {{--</div>--}}
-      {{--</div>--}}
-      {{--<!-- active tournaments rows -->--}}
-      {{--<div class="row mb-5">--}}
-        {{--<div class="col-12 col-md-3 offset-md-1">--}}
-          {{--<div class="thumbnail thumbnail-rect d-none d-lg-inline-block">--}}
-            {{--<img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">--}}
-          {{--</div>--}}
-          {{--<div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">--}}
-            {{--<img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">--}}
-          {{--</div>--}}
-          {{--<div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">--}}
-            {{--<img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">--}}
-          {{--</div>--}}
-        {{--</div>--}}
-        {{--<div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">--}}
-          {{--<div class="row">--}}
-            {{--<h1 class="font-blue">DOTA 2 All-Stars League</h1>--}}
-            {{--<p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>--}}
-          {{--</div>--}}
-          {{--<img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">--}}
-          {{--<div class="btn-dgl-contaianer">--}}
-            {{--<a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>--}}
-          {{--</div>--}}
-        {{--</div>--}}
-      {{--</div><!-- active tournament rows -->--}}
-    {{--</div><!-- active tournament container column -->--}}
-  {{--</div> <!-- active tournament container row-->--}}
 @endsection

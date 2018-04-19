@@ -18,9 +18,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MiscController@home');
 
 Auth::routes();
 
@@ -45,9 +43,7 @@ Route::resource('/teams', 'ContendingTeamController');
 Route::get('/api/contendingteams', 'ContendingTeamController@index');
 Route::get('/api/category/{id}', 'ContendingTeamController@show');
 
-Route::get('/news', function (){
-  return view('blog');
-});
+Route::get('/news', 'MiscController@news');
 
 Route::get('/players', function(){
   return view('players');

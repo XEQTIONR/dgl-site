@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('body-section')
     <div class="row banner-background justify-content-center">
-        <div class="col-12 no-horizontal-padding">
+        <div class="col-12 col-xl-9 no-horizontal-padding">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -60,20 +60,46 @@
                             <h1 class="font-light-gray">LATEST</h1>
                         </div>
                     </div>
-                    <div class="row main-content-posts justify-content-center">
+                    <script>
+                        $(document).ready(function(){
+                            var x=1;
+                            var max ={{$lastpage}};
+                            //alert("max= "+max);
+                            $("#moreButton").click(function(){
+                                event.preventDefault();
+                                x++;
+                                if(x<=max)
+                                {
+                                    $.ajax({
+                                        url: "{{url('/')}}"+"?page="+x,
+                                        method: "GET",
+                                        success: function(result){
+                                            $("#postContainer").append(result);
+                                        }
+                                    });
+                                }
+                                if(x=max)
+                                {    $("#moreButton").hide(); }
+                            });
+                        });
+                    </script>
+                    <div class="row main-content-posts justify-content-center" id="postContainer">
+
+                        @foreach($posts as $post)
                         <div class="col-12">
                             <!-- div for small screens -->
                             <div class="row post-body my-5 d-block d-sm-block d-md-none"  onclick="window.location.href='/tournaments'">
                                 <div class="col-12">
                                     <div class="thumbnail thumbnail-rect-smscreen">
-                                    <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
+                                    <img class="mt-3" src="{{$post->banner}}">
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3">
                                     <a class="post-link" href="">
-                                        <h3 class="post-title mt-3">Title small screen</h3>
+                                        <h3 class="post-title mt-3">{{$post->title}}</h3>
                                     </a>
-                                    <p>Lorem ipsum dolor amet roof party yuccie everyday carry tumeric artisan semiotics beard hammock kombucha ugh portland craft beer. Man bun mlkshk yuccie meggings cred deep v austin. Drinking vinegar man bun snackwave cliche, fixie meh health goth intelligentsia.</p>
+                                    <p>{{$post->created_at}}</p>
+                                    <p>{{$post->excerpt}}</p>
                                 </div>
                                 <div class="col-12 mt-3">
                                     <div class="btn-dgl-contaianer btn-dgl-container-gray">
@@ -85,14 +111,15 @@
                             <div class="row post-body mb-5 d-none d-md-flex d-lg-none" onclick="window.location.href='/tournaments'">
                                 <div class="col-4">
                                     <div class="thumbnail thumbnail-sq-lg">
-                                        <img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">
+                                        <img class="mt-3" src="{{$post->banner}}">
                                     </div>
                                 </div>
                                 <div class="col-8 col-lg-7">
                                     <a class="post-link" href="">
-                                        <h2 class="post-title mt-3">Title md screen</h2>
+                                        <h2 class="post-title mt-3">{{$post->title}}</h2>
                                     </a>
-                                    <p>Lorem ipsum dolor amet roof party yuccie everyday carry tumeric artisan semiotics beard hammock kombucha ugh portland craft beer. Man bun mlkshk yuccie meggings cred deep v austin. Drinking vinegar man bun snackwave cliche, fixie meh health goth intelligentsia.</p>
+                                    <p>{{$post->created_at}}</p>
+                                    <p>{{$post->excerpt}}</p>
                                     <div class="col-12 mt-3">
                                         <div class="btn-dgl-contaianer btn-dgl-container-gray">
                                             <a href="" class="btn btn-lg btn-dgl">Read More</a>
@@ -104,23 +131,27 @@
                             <div class="row post-body post-body-hover mb-5 d-none d-lg-flex ml-xl-1" onclick="window.location.href='#'">
                                 <div class="col-4">
                                     <div class="thumbnail thumbnail-rect">
-                                        <img class="mt-3" src="{{URL::asset('storage/overwatch-4.jpg')}}">
+                                        <img class="mt-3" src="{{$post->banner}}">
                                     </div>
                                 </div>
                                 <div class="col-8 col-lg-7">
                                     <a class="post-link" href="">
-                                        <h2 class="post-title mt-3">Title large screen</h2>
+                                        <h2 class="post-title mt-3">{{$post->title}}</h2>
                                     </a>
-                                    <p>Lorem ipsum dolor amet roof party yuccie everyday carry tumeric artisan semiotics beard hammock kombucha ugh portland craft beer. Man bun mlkshk yuccie meggings cred deep v austin. Drinking vinegar man bun snackwave cliche, fixie meh health goth intelligentsia.</p>
+                                    <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+                                    <p>{{$post->excerpt}}</p>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+
                     </div> <!-- row main-content-posts-->
+                    @if($lastpage>1)
                     <div class="row justify-content-center" >
                         <div class="col-2">
                             <a id="moreButton" href="">
                                 <div class="row justify-content-center">
-                                <span>More</span>
+                                <span id="">More</span>
                                 </div>
                                 <div class="row  justify-content-center">
                                     <i class="fas fa-chevron-down"></i>
@@ -128,6 +159,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

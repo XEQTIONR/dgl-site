@@ -51,7 +51,7 @@ class Blog_postCrudController extends CrudController
           'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
           'upload' => true,
           'disk' => 'uploads',
-          'prefix' => 'uploads/images/blog_banners/'
+          //'prefix' => 'uploads/images/blog_banners/'
         ]
         , 'update/create/both');
       $this->crud->addField([
@@ -94,7 +94,7 @@ class Blog_postCrudController extends CrudController
         //'width' => '50px',
         'height' => '100px',
         'label' => 'Banner Image',
-        'prefix' => 'uploads/images/blog_banners/'
+        //'prefix' => 'uploads/images/blog_banners/'
       ]);
       $this->crud->addColumn([
         'name' => 'tournament_id',

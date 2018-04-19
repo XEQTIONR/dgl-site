@@ -4,7 +4,6 @@
 
   use Illuminate\Database\Eloquent\Model;
   use Backpack\CRUD\CrudTrait;
-
   class Blog_post extends Model
   {
     use CrudTrait;
@@ -28,6 +27,17 @@
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function getExcerptAttribute()
+    {
+      $body = $this->body;
+      $words = explode(" ", $body);
+      $words20 = array_slice($words,0,30);
+
+      $excerpt = implode(' ', $words20);
+
+      return $excerpt;
+    }
+
 
     /*
     |--------------------------------------------------------------------------
@@ -48,6 +58,16 @@
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+    public function getBannerAttribute($value)
+    {
+      //$name = $this->banner;
+      $prefix = "/uploads/images/blog_banners/";
+
+      $link = $prefix.$value;
+
+      //$url = \Storage::url($link);
+      return $link;
+    }
 
     /*
     |--------------------------------------------------------------------------
