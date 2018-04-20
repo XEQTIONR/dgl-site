@@ -42,7 +42,7 @@
   <div class="row justify-content-center sub-menu back-color-dark">
     <div class="col col-lg-9 nav-container" >
       <nav class="nav justify-content-center">
-        <a class="nav-link active" id="navOverview" href="#">Overview</a>
+        <a class="nav-link active" id="navOverview" href="#overviewRow">Overview</a>
         <a class="nav-link" id="navInfo" href="#infoRow">Information</a>
         <a class="nav-link" id="navTeams" href="#teamsRow">Teams</a>
         <a class="nav-link" id="navRules" href="#rulesRow">Rules</a>
@@ -58,6 +58,12 @@
           <script>
               $( document ).ready(function(){
                   $('.tournament-row').hide();
+                  $('.tournament-row-overview').show();
+
+                  $('#navOverview').click(function () {
+                      $('.tournament-row').hide();
+                      $('.tournament-row-overview').show();
+                  });
 
                   $('#navInfo').click(function () {
                       $('.tournament-row').hide();
@@ -78,6 +84,7 @@
                   });
               });
           </script>
+          @include('tournaments.tournament_overview')
           @include('tournaments.tournament_info')
           @include('tournaments.tournament_rules')
           @include('tournaments.tournament_teams')
