@@ -55,7 +55,7 @@
           </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer btn-dgl-container-primary">
-              <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
+              <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
           </div>
       </div><!-- active tournament rows -->
@@ -93,7 +93,7 @@
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-overwatch-96.png')}}">
             <div class="btn-dgl-contaianer-purple">
-              <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
+              <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
       </div><!-- upcoming tournament rows -->
@@ -131,7 +131,7 @@
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer-purple">
-              <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
+              <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
       </div><!-- past tournament rows -->
