@@ -39,23 +39,21 @@
       </tr>
       </thead>
       <tbody>
+      @foreach($players as $gamer)
         <tr>
-          <td>Col1</td>
-          <td>Col1</td>
-          <td>Col1</td>
+          <td>{{$gamer->alias}}</td>
+          <td>{{$gamer->fname}}</td>
+          <td>{{$gamer->lname}}</td>
           <td>Col1</td>
           <td>Col1</td>
         </tr>
-        <tr>
-          <td>Col1</td>
-          <td>Col1</td>
-          <td>Col1</td>
-          <td>Col1</td>
-          <td>Col1</td>
-        </tr>
+      @endforeach
       </tbody>
     </table>
   </div>
+</div>
+<div class="row justify-content-center">
+{{$players->links()}}
 </div>
 
 @endsection

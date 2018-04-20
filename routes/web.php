@@ -45,9 +45,7 @@ Route::get('/api/category/{id}', 'ContendingTeamController@show');
 
 Route::get('/news', 'MiscController@news');
 
-Route::get('/players', function(){
-  return view('players');
-});
+Route::get('/players', 'GamerController@index');
 
 Route::resource('/media', 'MediaController');
 

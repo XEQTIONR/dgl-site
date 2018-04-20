@@ -42,6 +42,11 @@ class Gamer extends Authenticatable
       $name = $this->fname.' '.$this->lname;
       return $name;
     }
+
+    public function lastteam()
+    {
+
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
