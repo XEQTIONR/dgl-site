@@ -27,6 +27,7 @@ use App\ContendingTeam;
 use App\Gamer;
 use App\TournamentInvite;
 
+use Carbon\Carbon;
 
 
 class TournamentController extends Controller
@@ -39,7 +40,38 @@ class TournamentController extends Controller
     public function index()
     {
         //
-      return view('tournaments.index');
+      $now = Carbon::now();
+      $nowstr = Carbon::now()->toDateString();
+      $ids = array();
+      $future = array();
+      $past = array();
+      //return $now;
+      $active_tournaments = Tournament::whereDate('startdate', '<=', $nowstr)
+                                      ->whereDate('enddate','>=', $nowstr)
+                                      ->get();
+      foreach ($active_tournaments as $active_tournament)
+      {
+        array_push($ids,$active_tournament->id);
+      }
+      $tournaments = Tournament::whereNotIn('id', $ids)
+                                ->orderBy('startdate','DESC')
+                                ->orderBy('enddate','DESC')
+                                ->get();
+      foreach ($tournaments as $tournament)
+      {
+        $date = Carbon::createFromFormat('Y-m-d',$tournament->startdate);
+        if($date->gt($now))
+          $tournament->upcoming = true;
+        else
+          $tournament->upcoming = false;
+      }
+
+      //return $tournaments;
+      //return $tournaments;
+      //return json_encode($tournaments);
+      //return $active_tournaments;
+      return view('tournaments.index', compact('active_tournaments',
+                                                          'tournaments'));
     }
 
     /**

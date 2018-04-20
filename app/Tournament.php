@@ -48,4 +48,20 @@ class Tournament extends Model
     {
       return $this->hasMany('App\Match');
     }
+
+  /*
+  |--------------------------------------------------------------------------
+  | FUNCTIONS
+  |--------------------------------------------------------------------------
+  */
+  public function getExcerptAttribute()
+  {
+    $body = $this->description;
+    $words = explode(" ", $body);
+    $words20 = array_slice($words,0,30);
+
+    $excerpt = implode(' ', $words20);
+
+    return $excerpt;
+  }
 }

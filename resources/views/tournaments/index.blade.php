@@ -35,6 +35,7 @@
         </div>
       </div>
       <!-- active tournaments rows -->
+      @foreach($active_tournaments as $tournament)
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
@@ -49,8 +50,8 @@
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
-            <h1 class="font-white">DOTA 2 All-Stars League</h1>
-            <p class="">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
+            <h1 class="font-white">{{$tournament->name}}</h1>
+            <p class="">{{$tournament->excerpt}}</p>
           </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer btn-dgl-container-primary">
@@ -58,6 +59,7 @@
             </div>
           </div>
       </div><!-- active tournament rows -->
+      @endforeach
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
 
@@ -69,7 +71,9 @@
           <h1 class="font-purple">UPCOMING TOURNAMENTS</h1>
         </div>
       </div>
-      <!-- active tournaments rows -->
+      @foreach($tournaments as $tournament)
+      @if( $tournament->upcoming )
+      <!-- upcoming tournaments rows -->
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
@@ -84,15 +88,17 @@
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
-            <h1 class="font-gray">OVERPOWERED - Overwatch Tournament</h1>
-            <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
+            <h1 class="font-gray">{{$tournament->name}}</h1>
+            <p class="font-gray">{{$tournament->excerpt}}</p>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-overwatch-96.png')}}">
             <div class="btn-dgl-contaianer-purple">
               <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
-      </div><!-- active tournament rows -->
+      </div><!-- upcoming tournament rows -->
+      @endif
+      @endforeach
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
 
@@ -103,7 +109,9 @@
           <h1 class="font-lighter-gray">PAST TOURNAMENTS</h1>
         </div>
       </div>
-      <!-- active tournaments rows -->
+      @foreach($tournaments as $tournament)
+      @if( !$tournament->upcoming )
+      <!-- past tournaments rows -->
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
@@ -118,15 +126,17 @@
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
-            <h1 class="font-gray">DOTA 2 All-Stars League</h1>
-            <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
+            <h1 class="font-gray">{{$tournament->name}}</h1>
+            <p class="font-gray">{{$tournament->excerpt}}</p>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer-purple">
               <a href="/atournament" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
-      </div><!-- active tournament rows -->
+      </div><!-- past tournament rows -->
+      @endif
+      @endforeach
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
 @endsection
