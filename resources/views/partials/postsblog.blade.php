@@ -34,7 +34,7 @@
       <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
     </div>
     <div class="btn-dgl-contaianer-purple">
-      <a href="/atournament" class="btn btn-lg btn-dgl">Read On</a>
+      <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read On</a>
     </div>
   </div>
 </div><!-- post row -->

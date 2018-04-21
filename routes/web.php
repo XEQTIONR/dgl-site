@@ -43,7 +43,7 @@ Route::resource('/teams', 'ContendingTeamController');
 Route::get('/api/contendingteams', 'ContendingTeamController@index');
 Route::get('/api/category/{id}', 'ContendingTeamController@show');
 
-Route::get('/news', 'MiscController@news');
+Route::resource('/news', 'NewsController');
 
 Route::get('/players', 'GamerController@index');
 
