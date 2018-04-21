@@ -44,6 +44,26 @@
           <input type="text" name="tag" class="form-control" id="teamTag">
           </div>
         </div>
+        <div class="form-group">
+          <div v-if="!image300">
+            <h2>Select an image</h2>
+          </div>
+          <div v-else>
+            <img :src="image300" />
+            <button @click="removeImage300">Remove image</button>
+          </div>
+          <input type="file" @change="onFileChange" id="img300Input" v-bind:class="[{'visible' : !image300}, {'hidden' : image300}]">
+        </div>
+        <div class="form-group">
+          <div v-if="!image100">
+            <h2>Select an image</h2>
+          </div>
+          <div v-else>
+            <img :src="image100" />
+            <button @click="removeImage100">Remove image</button>
+          </div>
+          <input type="file" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
+        </div>
 
         <ol class="list-group">
           <li  v-for="gamer in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
@@ -112,14 +132,64 @@
               @for($i=1; $i<$tournament->squadsize; $i++)
               {sl: "{{$i}}", captain : "false", fname : "", lname : "", email : "", alias : null, status : "init"},
             @endfor
-          ]
-
+          ],
+          image100: '',
+          image300: '',
       };
 
       var app = new Vue({
           el: '#app',
           data: data,
           methods: {
+
+              onFileChange(e) {
+                  var files = e.target.files || e.dataTransfer.files;
+                  if (!files.length)
+                      return;
+                  this.createImage300(files[0]);
+              },
+              createImage300(file) {
+                  var image = new Image();
+                  var reader = new FileReader();
+                  var vm = this;
+
+                  reader.onload = (e) => {
+                      vm.image300 = e.target.result;
+                  };
+                  reader.readAsDataURL(file);
+              },
+              removeImage300: function (e) {
+                  e.preventDefault();
+                  this.image300 = '';
+                  var input = document.getElementById("img300Input");
+                  input.value = "";
+              },
+
+              onFileChange2(e) {
+                  var files = e.target.files || e.dataTransfer.files;
+                  if (!files.length)
+                      return;
+                  this.createImage100(files[0]);
+              },
+
+              createImage100(file) {
+                  var image = new Image();
+                  var reader = new FileReader();
+                  var vm = this;
+
+                  reader.onload = (e) => {
+                      vm.image100 = e.target.result;
+                  };
+                  reader.readAsDataURL(file);
+              },
+
+              removeImage100: function (e) {
+                  e.preventDefault();
+                  this.image100 = '';
+                  var input = document.getElementById("img100Input");
+                  input.value = "";
+              },
+
               isRegistered: function(gamer){
 
                   if((gamer.status=='init')||(gamer.status=='undefined')||(gamer.status=='new'))
