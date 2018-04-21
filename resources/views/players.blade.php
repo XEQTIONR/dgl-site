@@ -44,8 +44,8 @@
           <td>{{$gamer->alias}}</td>
           <td>{{$gamer->fname}}</td>
           <td>{{$gamer->lname}}</td>
-          <td>Col1</td>
-          <td>Col1</td>
+          <td>{{$gamer->name}}</td>
+          <td>{{date('M j Y', strtotime($gamer->recent_at))}}</td>
         </tr>
       @endforeach
       </tbody>
