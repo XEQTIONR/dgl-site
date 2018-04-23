@@ -29,7 +29,100 @@ class MatchController extends Controller
     public function index()
     {
         //
-      return view('matches.index');
+      $matches = Match::orderBy('matchstart', 'ASC')
+                      ->with('contestants.contending_team')
+                      ->get();
+
+      $fixtures = array();
+      $results = array();
+      $today = Carbon::now()->format('jS F');;
+      //dd($today);
+      foreach ($matches as $match)
+      {
+        $count = count($results);
+        $now = Carbon::now();
+        $date = Carbon::parse($match->matchstart);
+        $match->hrdow = $date->format('l');
+        $match->hrdate = $date->format('jS F');
+
+        if($now->format('jS F') == $match->hrdate)
+          $match->today = false;
+        else
+        {
+          $match->today = true;
+        }
+        if($now->gt($date)) //if after match start
+        {
+          if($match->won_id > 0) // if match has a winner match has a result
+          {
+            array_push($results, $match);
+          }
+          else // if no winner (maybe draw)
+          {
+            foreach ($match->contestants as $contestant)
+            {
+              if(!is_null($contestant->score)) // if any contestant has a score
+              {
+                array_push($results, $match);
+                break;
+              }
+            }
+          }
+        }
+
+        if( !( ($count+1) == count($results) ) )
+          array_push($fixtures, $match);
+      }
+      $date = "";
+      for($i=0; $i<count($fixtures); $i++)
+      {
+        if($i==0) // IF FIRST ITEM
+        {
+          $date = $fixtures[$i]->hrdate;
+          $fixtures[$i]->newtable = true;
+          //$fixtures[$i]->DDATE = $date;
+        }
+        else // NOT FIRST ITEM
+        {
+          if($fixtures[$i]->hrdate == $date) // SAME TABLE
+          {
+            $fixtures[$i]->newtable = false;
+            //$fixtures[$i]->DDATE = $date;
+          }
+          else //($fixtures[$i]->matchstart != $date) // NEW TABLE
+          {
+            $date = $fixtures[$i]->matchstart;
+            $fixtures[$i]->newtable = true;
+            //$fixtures[$i]->DDATE = $date;
+          }
+        }
+      }
+
+      for($i=0; $i<count($results); $i++)
+      {
+        if($i==0) // IF FIRST ITEM
+        {
+          $date = $results[$i]->hrdate;
+          $results[$i]->newtable = true;
+          //$fixtures[$i]->DDATE = $date;
+        }
+        else // NOT FIRST ITEM
+        {
+          if($results[$i]->hrdate == $date) // SAME TABLE
+          {
+            $results[$i]->newtable = false;
+            //$fixtures[$i]->DDATE = $date;
+          }
+          else //($fixtures[$i]->matchstart != $date) // NEW TABLE
+          {
+            $date = $results[$i]->matchstart;
+            $results[$i]->newtable = true;
+            //$fixtures[$i]->DDATE = $date;
+          }
+        }
+      }
+      //dd($fixtures, $results, $now);
+      return view('matches.index', compact('fixtures', 'results', 'today'));
     }
 
     /**
