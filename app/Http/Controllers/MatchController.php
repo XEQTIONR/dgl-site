@@ -31,7 +31,8 @@ class MatchController extends Controller
         //
       $matches = Match::orderBy('matchstart', 'ASC')
                       ->with('contestants.contending_team')
-                      ->get();
+                      ->with('tournament')
+                      ->paginate(10);
 
       $fixtures = array();
       $results = array();
@@ -44,6 +45,7 @@ class MatchController extends Controller
         $date = Carbon::parse($match->matchstart);
         $match->hrdow = $date->format('l');
         $match->hrdate = $date->format('jS F');
+        $match->hrstarttime = $date->format('g:i A');
 
         if($now->format('jS F') == $match->hrdate)
           $match->today = false;
@@ -69,7 +71,7 @@ class MatchController extends Controller
             }
           }
         }
-
+        // checking if a match was pushed into $results array
         if( !( ($count+1) == count($results) ) )
           array_push($fixtures, $match);
       }
