@@ -66,10 +66,6 @@ class TournamentController extends Controller
           $tournament->upcoming = false;
       }
 
-      //return $tournaments;
-      //return $tournaments;
-      //return json_encode($tournaments);
-      //return $active_tournaments;
       return view('tournaments.index', compact('active_tournaments',
                                                           'tournaments'));
     }
@@ -182,9 +178,24 @@ class TournamentController extends Controller
      */
     public function register(Request $request, Tournament $tournament)
     {
+
+      $validatedData = $request->validate([
+        //'title' => 'required|unique:posts|max:255',
+        'img300' => 'required',
+      ]);
+
+
       $gamerCollection = $request->gamer;
       $rosters = collect();
       $invites = collect();
+      $path1 = $request->file('img300')->store('images/clan_logos', 'uploads');
+      $path1 = basename($path1);
+
+      if(!is_null($request->img100)) //100 px image optional
+      {
+        $path2 = $request->file('img100')->store('images/clan_logos', 'uploads');
+        $path2 = basename($path2);
+      }
 
       $team = new ContendingTeam();
 
@@ -192,7 +203,9 @@ class TournamentController extends Controller
       $team->tag = $request->tag;
       $team->tournament_id = $tournament->id;
       $team->status = 'registration_incomplete';
-
+      $team->logo_size1 = $path1;
+      if(!is_null($request->img100))
+        $team->logo_size2 = $path2;
       $team->save();
 
       foreach ($gamerCollection as $alias)
@@ -207,8 +220,6 @@ class TournamentController extends Controller
           $invite->email = $alias;
           $invite->status = 'available';
           $email = new SignUpandRegister($alias, $invite->id, $team, $tournament);
-
-
 
           $invites->push($invite);
           Mail::to($alias)->send($email);
@@ -267,14 +278,13 @@ class TournamentController extends Controller
 
         foreach ($registrations as $registration)
         {
-          if($registration->contendingTeam->tournament->id = $tournament->id)
+          if($registration->contendingTeam->tournament->id == $tournament->id)
           {
             return "already-registered"; // we check against this returned text
             break;
           }
         }
       }
-
       // Check whether this gamer is already registered in a team
       // for this tournament
       return $gamer;

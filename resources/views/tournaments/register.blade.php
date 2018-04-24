@@ -31,7 +31,7 @@
 <div class="row tournament-row register-row justify-content-md-center">
   <div class="col-12" >
 
-    <form method="POST" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
+    <form method="POST" enctype="multipart/form-data" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
       {{csrf_field()}}
       <div id="app">
         <div class="form-group">
@@ -44,26 +44,45 @@
           <input type="text" name="tag" class="form-control" id="teamTag">
           </div>
         </div>
+        <div class="row">
+          <div class="col">
         <div class="form-group">
           <div v-if="!image300">
             <h2>Select an image</h2>
           </div>
           <div v-else>
-            <img :src="image300" />
-            <button @click="removeImage300">Remove image</button>
+            <div class="row my-0 justify-content-center">
+              <span class="font-primary-color">300 x 300</span>
+            </div>
+            <div class="row mt-1 justify-content-center">
+              <img :src="image300" width="300" height="300" style="border: 1px solid #6ACC5C"/>
+            </div>
+            <div class="row mt-2 justify-content-center">
+              <button @click="removeImage300">Remove image</button>
+            </div>
           </div>
-          <input type="file" @change="onFileChange" id="img300Input" v-bind:class="[{'visible' : !image300}, {'hidden' : image300}]">
+          <input type="file" name="img300" @change="onFileChange" id="img300Input" v-bind:class="[{'visible' : !image300}, {'hidden' : image300}]">
         </div>
+          </div>
+          <div class="col">
         <div class="form-group">
           <div v-if="!image100">
             <h2>Select an image</h2>
           </div>
           <div v-else>
-            <img :src="image100" />
-            <button @click="removeImage100">Remove image</button>
+            <div class="row my-0 justify-content-center">
+              <span class="font-primary-color" style="margin-top: 125px;">50 x 50</span>
+            </div>
+            <div class="row mt-1 justify-content-center">
+              <img :src="image100" width="50" height="50" style="margin-top: 0px; margin-bottom: 125px;border: 1px solid #6ACC5C;"/>
+            </div>
+            <div class="row mt-2 justify-content-center">
+              <button @click="removeImage100">Remove image</button>
+            </div>
           </div>
-          <input type="file" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
+          <input type="file" name="img100" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
         </div>
+          </div></div>
 
         <ol class="list-group">
           <li  v-for="gamer in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
@@ -149,14 +168,39 @@
                   this.createImage300(files[0]);
               },
               createImage300(file) {
-                  var image = new Image();
-                  var reader = new FileReader();
-                  var vm = this;
+                  //alert(file["type"]);
+                  //if(file["type"]=="image/png")
+                  //{
+                    var image = new Image();
+                    var reader = new FileReader();
+                    var vm = this;
 
-                  reader.onload = (e) => {
-                      vm.image300 = e.target.result;
-                  };
-                  reader.readAsDataURL(file);
+                    var _URL = window.URL || window.webkitURL;
+
+                    reader.onload = (e) => {
+                        vm.image300 = e.target.result;
+
+                        image.src = _URL.createObjectURL(file);
+                        image.onload = function(){
+                            if(this.width!=300||this.height!=300)
+                            {
+                                 alert("Image uploaded of size 300px x 300px."+
+                                     " Image uploaded is "+this.width+"px x "+ this.height + "px.");
+                                vm.image300 ='';
+                                var input = document.getElementById("img300Input");
+                                input.value = "";
+                            }
+                            else if(file["type"]!="image/png")
+                            {
+                                alert("Image uploaded must be PNG"+
+                                    " Image uploaded is "+ file["type"]);
+                                vm.image300 ='';
+                                var input = document.getElementById("img300Input");
+                                input.value = "";
+                            }
+                        };
+                    };
+                    reader.readAsDataURL(file);
               },
               removeImage300: function (e) {
                   e.preventDefault();
@@ -177,8 +221,29 @@
                   var reader = new FileReader();
                   var vm = this;
 
+                  var _URL = window.URL || window.webkitURL;
                   reader.onload = (e) => {
                       vm.image100 = e.target.result;
+
+                      image.src = _URL.createObjectURL(file);
+                      image.onload = function(){
+                          if(this.width!=50||this.height!=50)
+                          {
+                              alert("Image uploaded of size 50px x 50px."+
+                                  " Image uploaded is "+this.width+"px x "+ this.height + "px.");
+                              vm.image100 ='';
+                              var input = document.getElementById("img100Input");
+                              input.value = "";
+                          }
+                          else if(file["type"]!="image/png")
+                          {
+                              alert("Image uploaded must be PNG"+
+                                  " Image uploaded is "+ file["type"]);
+                              vm.image100 ='';
+                              var input = document.getElementById("img100Input");
+                              input.value = "";
+                          }
+                      }
                   };
                   reader.readAsDataURL(file);
               },

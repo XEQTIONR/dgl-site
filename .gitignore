@@ -19,3 +19,4 @@ yarn-error.log
 /public/vendor/*
 /public/packages/*
 public/packages/*
+public/uploads/*
