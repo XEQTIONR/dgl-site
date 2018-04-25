@@ -43,5 +43,10 @@ class Match extends Model
     return $this->hasMany('App\ContendingTeam','id','tournament_id');
   }
 
+  public function checkins()
+  {
+    return $this->hasMany('App\Checkin');
+  }
+
   
 }

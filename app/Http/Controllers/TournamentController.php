@@ -119,7 +119,46 @@ class TournamentController extends Controller
     public function show(Tournament $tournament)
     {
         //
-            return view('tournaments.atournament', compact('tournament'));
+      $future = collect();
+      $checkingin = collect();
+      $waiting = collect();
+      $past = collect();
+      $now = Carbon::now();
+      $matches = $tournament->matches()
+        ->with(['contestants.contending_team.roster'=>function($query){
+          $query->where('status','ok');
+          },'checkins'])
+        ->get();
+
+      foreach ($matches as $match)
+      {
+        $start = new Carbon($match->matchstart);
+        $checkinstart = new Carbon($match->checkinstart);
+        $checkinend = new Carbon($match->checkinend);
+
+        if($now->lt($checkinstart))
+        {
+          $future->push($match);
+        }
+        else if( ($now->gte($checkinstart)) && ($now->lte($checkinend)) )
+        {
+          $checkingin->push($match);
+        }
+        else if($now->lt($start))
+        {
+          $waiting->push($match);
+        }
+        else
+        {
+          $past->push($match);
+        }
+      }
+            
+            
+      return [$future, $checkingin, $waiting, $past];
+
+      return view('tournaments.atournament',
+        compact('tournament', 'waiting','checkingin','future', 'past'));
     }
 
     /**

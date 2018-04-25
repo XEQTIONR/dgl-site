@@ -18,4 +18,9 @@ class Roster extends Model
     {
       return $this->belongsTo('App\Gamer'); //foreign key gamer_id;
     }
+
+    public function checkin()
+    {
+      return $this->hasMany('App\Checkin');
+    }
 }
