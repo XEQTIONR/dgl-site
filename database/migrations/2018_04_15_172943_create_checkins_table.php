@@ -16,12 +16,11 @@ class CreateCheckinsTable extends Migration
         Schema::create('checkins', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('match_id');
-            $table->unsignedInteger('contending_team_id');
-            $table->unsignedInteger('gamer_id');
+            $table->unsignedInteger('roster_id');
             $table->timestamps();
 
             //$table->foreign(['match_id', 'contending_team_id'])->references(['match_id', 'contending_team_id'])->on('match_contestants');
-            $table->foreign(['gamer_id', 'contending_team_id'])->references(['gamer_id', 'contending_team_id'])->on('rosters');
+            $table->foreign('roster_id')->references(['id'])->on('rosters');
         });
     }
 
