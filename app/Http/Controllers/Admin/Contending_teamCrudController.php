@@ -72,6 +72,15 @@ class Contending_teamCrudController extends CrudController
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         // ------ CRUD COLUMNS
+      $this->crud->addColumn([
+          'name' => 'logo_size1', // The db column name
+          'label' => "Logo", // Table column heading
+          'type' => 'image',
+          'prefix' => 'uploads/images/clan_logos/',
+          // optional width/height if 25px is not ok with you
+          'height' => '75px',
+          'width' => '75px',
+        ]);
         $this->crud->addColumn([
           'name' => 'name',
           'type' => 'text',

@@ -31,10 +31,11 @@
       $(document).ready(function(){
           var x=1;
           var max ={{$lastpage}};
-          //alert("max= "+max);
+
           $("#moreButton").click(function(){
               event.preventDefault();
               x++;
+
               if(x<=max)
               {
                   $.ajax({
@@ -45,7 +46,7 @@
                       }
                   });
               }
-              if(x=max)
+              if(x==max)
               {    $("#moreButton").hide(); }
           });
       });

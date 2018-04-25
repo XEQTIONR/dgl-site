@@ -4024,12 +4024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laracasts/Laravel-5-Generators-Extended.git",
-                "reference": "8d99c3f9891abce5cc84d5d1d4a7c26cf514ab6e"
+                "reference": "1aabd2955bfa9f433e8baa2a08226bb3d6040ae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/8d99c3f9891abce5cc84d5d1d4a7c26cf514ab6e",
-                "reference": "8d99c3f9891abce5cc84d5d1d4a7c26cf514ab6e",
+                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/1aabd2955bfa9f433e8baa2a08226bb3d6040ae3",
+                "reference": "1aabd2955bfa9f433e8baa2a08226bb3d6040ae3",
                 "shasum": ""
             },
             "require": {
@@ -4067,7 +4067,7 @@
                 "generators",
                 "laravel"
             ],
-            "time": "2017-11-15 07:23:53"
+            "time": "2018-04-24 13:57:30"
         },
         {
             "name": "maximebf/debugbar",

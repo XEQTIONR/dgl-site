@@ -26,6 +26,7 @@ use App\Roster;
 use App\ContendingTeam;
 use App\Gamer;
 use App\TournamentInvite;
+use App\Match;
 
 use Carbon\Carbon;
 
@@ -118,8 +119,7 @@ class TournamentController extends Controller
     public function show(Tournament $tournament)
     {
         //
-
-      return view('tournaments.atournament', compact('tournament'));
+            return view('tournaments.atournament', compact('tournament'));
     }
 
     /**

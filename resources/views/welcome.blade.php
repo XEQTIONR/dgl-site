@@ -78,7 +78,7 @@
                                         }
                                     });
                                 }
-                                if(x=max)
+                                if(x==max)
                                 {    $("#moreButton").hide(); }
                             });
                         });
