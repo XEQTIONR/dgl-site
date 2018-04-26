@@ -44,115 +44,132 @@
               </div>
             </div>
           @elseif(Auth::user()->status == 'normal' ||  Auth::user()->status == 'other')
-        <form method="POST" enctype="multipart/form-data" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
-          {{csrf_field()}}
-          <div id="app">
-            <div class="form-group">
-              <label for="teamName">Team Name</label>
-              <input type="text" name="name" class="form-control" id="teamName">
-            </div>
-            <div class="form-group">
-              <label for="teamTag">Team Tag</label>
-              <div class="col-2 pl-0">
-                <input type="text" name="tag" class="form-control" id="teamTag">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <div v-if="!image300">
-                    <h5 class="font-primary-color">Select an image</h5>
-                  </div>
-                  <div v-else>
-                    <div class="row my-0 justify-content-center">
-                      <span class="font-primary-color">300 x 300</span>
-                    </div>
-                    <div class="row mt-1 justify-content-center">
-                      <img :src="image300" width="300" height="300" style="border: 1px solid #6ACC5C"/>
-                    </div>
-                    <div class="row mt-2 justify-content-center">
-                      <button @click="removeImage300">Remove image</button>
-                    </div>
-                  </div>
-                  <input type="file" name="img300" @change="onFileChange" id="img300Input" v-bind:class="[{'visible' : !image300}, {'hidden' : image300}]">
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-group">
-                  <div v-if="!image100">
-                    <h5 class="font-primary-color">Select an image</h5>
-                  </div>
-                  <div v-else>
-                    <div class="row my-0 justify-content-center">
-                      <span class="font-primary-color" style="margin-top: 125px;">50 x 50</span>
-                    </div>
-                    <div class="row mt-1 justify-content-center">
-                      <img :src="image100" width="50" height="50" style="margin-top: 0px; margin-bottom: 125px;border: 1px solid #6ACC5C;"/>
-                    </div>
-                    <div class="row mt-2 justify-content-center">
-                      <button @click="removeImage100">Remove image</button>
-                    </div>
-                  </div>
-                  <input type="file" name="img100" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
-                </div>
-              </div></div>
+            <?php
+              $ids = array();
 
-            <ol class="list-group">
-              <li  v-for="gamer in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
-                <div class="row">
-                  <div v-bind:class="[{'visible' : !isRegistered(gamer)&&!isNew(gamer)}, {'hidden' : isRegistered(gamer)||isNew(gamer)}, 'col-12']" >
-                    <div class="row" style="width :100%"> {{--Need this CSS hack--}}
-                      <label class="col-12 col-md-6 col-form-label">Email Address OR DGLusername </label>
-                      <div class="col-12 col-md-6">
-                        <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
+              foreach($tournament->contenders as $team)
+              {
+                array_push($ids, $team->id);
+              }
+
+              $rosters = DB::table('rosters')
+                                ->whereIn('contending_team_id', $ids)
+                                ->where('gamer_id', Auth::id())
+                                 //->where('status', 'ok');
+                                ->get();
+              if(!count($rosters)>0) :
+            ?>
+              <form method="POST" enctype="multipart/form-data" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
+                {{csrf_field()}}
+                <div id="app">
+                  <div class="form-group">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" name="name" class="form-control" id="teamName">
+                  </div>
+                  <div class="form-group">
+                    <label for="teamTag">Team Tag</label>
+                    <div class="col-2 pl-0">
+                      <input type="text" name="tag" class="form-control" id="teamTag">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <div v-if="!image300">
+                          <h5 class="font-primary-color">Select an image</h5>
+                        </div>
+                        <div v-else>
+                          <div class="row my-0 justify-content-center">
+                            <span class="font-primary-color">300 x 300</span>
+                          </div>
+                          <div class="row mt-1 justify-content-center">
+                            <img :src="image300" width="300" height="300" style="border: 1px solid #6ACC5C"/>
+                          </div>
+                          <div class="row mt-2 justify-content-center">
+                            <button @click="removeImage300">Remove image</button>
+                          </div>
+                        </div>
+                        <input type="file" name="img300" @change="onFileChange" id="img300Input" v-bind:class="[{'visible' : !image300}, {'hidden' : image300}]">
                       </div>
-                      {{--<div v-if="gamer.captain === 'true'" class="col-1">--}}
-                      {{--<span>captain</span>--}}
-                      {{--</div>--}}
                     </div>
-                  </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <div v-if="!image100">
+                          <h5 class="font-primary-color">Select an image</h5>
+                        </div>
+                        <div v-else>
+                          <div class="row my-0 justify-content-center">
+                            <span class="font-primary-color" style="margin-top: 125px;">50 x 50</span>
+                          </div>
+                          <div class="row mt-1 justify-content-center">
+                            <img :src="image100" width="50" height="50" style="margin-top: 0px; margin-bottom: 125px;border: 1px solid #6ACC5C;"/>
+                          </div>
+                          <div class="row mt-2 justify-content-center">
+                            <button @click="removeImage100">Remove image</button>
+                          </div>
+                        </div>
+                        <input type="file" name="img100" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
+                      </div>
+                    </div></div>
 
-                  <!-- hidden divs-->
-                  <div v-bind:class="[{'visible' : isRegistered(gamer)}, {'hidden' : !isRegistered(gamer)}, 'col-md-10']">
-                    <div class="col-5">
-                      <span>@{{gamer.fname+" "+gamer.lname}}</span>
-                    </div>
-                    <div class="col-6 ">
-                      <span>@{{gamer.alias}}</span>
-                    </div>
-                    <div class="col-1">
-                      <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
-                    </div>
-                  </div>
-                  <div v-bind:class="[{'visible' : isNew(gamer)}, {'hidden' : !isNew(gamer)}, 'col-md-10']">
-                    <div class="col-5">
-                      <span id="span">@{{gamer.email}}</span>
-                    </div>
-                    <div class="col-6">
-                      This person will be emailed an invite
-                      to DGL and to your team for
-                      this tournament.
-                    </div>
-                    <div class="col-1">
-                      <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
-                    </div>
-                  </div>
+                  <ol class="list-group">
+                    <li  v-for="gamer in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
+                      <div class="row">
+                        <div v-bind:class="[{'visible' : !isRegistered(gamer)&&!isNew(gamer)}, {'hidden' : isRegistered(gamer)||isNew(gamer)}, 'col-12']" >
+                          <div class="row" style="width :100%"> {{--Need this CSS hack--}}
+                            <label class="col-12 col-md-6 col-form-label">Email Address OR DGLusername </label>
+                            <div class="col-12 col-md-6">
+                              <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
+                            </div>
+                            {{--<div v-if="gamer.captain === 'true'" class="col-1">--}}
+                            {{--<span>captain</span>--}}
+                            {{--</div>--}}
+                          </div>
+                        </div>
 
+                        <!-- hidden divs-->
+                        <div v-bind:class="[{'visible' : isRegistered(gamer)}, {'hidden' : !isRegistered(gamer)}, 'col-md-10']">
+                          <div class="col-5">
+                            <span>@{{gamer.fname+" "+gamer.lname}}</span>
+                          </div>
+                          <div class="col-6 ">
+                            <span>@{{gamer.alias}}</span>
+                          </div>
+                          <div class="col-1">
+                            <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+                          </div>
+                        </div>
+                        <div v-bind:class="[{'visible' : isNew(gamer)}, {'hidden' : !isNew(gamer)}, 'col-md-10']">
+                          <div class="col-5">
+                            <span id="span">@{{gamer.email}}</span>
+                          </div>
+                          <div class="col-6">
+                            This person will be emailed an invite
+                            to DGL and to your team for
+                            this tournament.
+                          </div>
+                          <div class="col-1">
+                            <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                  </ol>
+
+                  <div class="form-check mt-5">
+                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option2 ">
+                    <label class="form-check-label" for="exampleRadios1">
+                      I confirm that I have read and understood the rules and regulations of the tournament. I understand that if I am in violation of these rules, I or my team maybe disqualified from the tournament and/or banned from DGL.
+                    </label>
+                  </div>
                 </div>
-              </li>
-            </ol>
-
-            <div class="form-check mt-5">
-              <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option2 ">
-              <label class="form-check-label" for="exampleRadios1">
-                I confirm that I have read and understood the rules and regulations of the tournament. I understand that if I am in violation of these rules, I or my team maybe disqualified from the tournament and/or banned from DGL.
-              </label>
-            </div>
-          </div>
-          <br>
-          <button  class="btn btn-outline-dgl" type="submit" value="submit">Submit</button>
-        </form>
-
+                <br>
+                <button  class="btn btn-outline-dgl" type="submit" value="submit">Submit</button>
+              </form>
+            <?php else : ?>
+              <h1 class="font-white">You are already registered for this tournament.</h1>
+            <?php endif; ?>
           @else
             <div class="row justify-content-center">
               <div class="col-10">
