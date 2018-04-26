@@ -126,7 +126,8 @@ class TournamentController extends Controller
       $now = Carbon::now();
       $matches = $tournament->matches()
         ->with(['contestants.contending_team.roster'=>function($query){
-          $query->where('status','ok');
+            $query->where('status','ok');
+            $query->with('gamer');
           },'checkins'])
         ->get();
 
@@ -155,7 +156,7 @@ class TournamentController extends Controller
       }
             
             
-      return [$future, $checkingin, $waiting, $past];
+      //return ['waiting' => $waiting, 'checkingin' => $checkingin, 'future' => $future, 'past' => $past];
 
       return view('tournaments.atournament',
         compact('tournament', 'waiting','checkingin','future', 'past'));

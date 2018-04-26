@@ -12,6 +12,7 @@
 */
 namespace App\Http\Controllers;
 
+use App\Checkin;
 use App\MatchContestant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -223,4 +224,21 @@ class MatchController extends Controller
     {
         //
     }
+
+    //CUSTOM FUNCTIONS
+  public function checkin($rosterid, Match $match)
+  {
+    $myid = Auth::id();
+
+    $roster = Roster::find($rosterId);
+
+    if($roster->gamer_id == $myid)
+    {
+      $checkin = new Checkin();
+      $checkin->match_id = $match->id;
+      $checkin->roster_id = $rosterId;
+
+      $checkin->save();
+    }
+  }
 }
