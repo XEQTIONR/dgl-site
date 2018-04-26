@@ -8,77 +8,200 @@
     <div class="row">
       <h2>UPCOMING MATCHES</h2>
     </div>
-    @foreach($past as $match)
-    <div class="row"><!-- a waiting match-->
-      <div class="col-4">
-        <div class="row">
-          {{$match->contestants[0]->contending_team->name}}
-        </div>
-        <div class="row">
-          @foreach($match->checkins as $checkin)
+    @foreach($checkingin as $match)
+      <div class="row"><!-- a waiting match-->
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[0]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[0]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+          @if(Auth::check())
             @foreach($match->contestants[0]->contending_team->roster as $roster)
-              @if($roster->id==$checkin->roster_id)
-                <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
-                  {{$roster->gamer->alias}}
-                </div>
+              @if($roster->gamer_id==Auth::id())
+                <?php $needcheckin = true; ?>
+                @foreach($match->checkins as $checkin)
+                  @if($checkin->roster_id == $roster->id)
+                    <?php $needcheckin = false; ?>
+                  @endif
+                @endforeach
+
+                @if($needcheckin)
+                  <button>CHECKIN BUTTON</button>
+                @endif
               @endif
             @endforeach
-          @endforeach
+          @endif
         </div>
-        @if(Auth::check())
-          @foreach($match->contestants[0]->contending_team->roster as $roster)
-            @if($roster->gamer_id==Auth::id())
-              <?php $needcheckin = true; ?>
-              @foreach($match->checkins as $checkin)
-                @if($checkin->roster_id == $roster->id)
-                  <?php $needcheckin = false; ?>
+        <div class="col-1">
+          vs
+        </div>
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[1]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[1]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
                 @endif
               @endforeach
-
-              @if($needcheckin)
-                <button>CHECKIN BUTTON</button>
-              @endif
-            @endif
-          @endforeach
-        @endif
-      </div>
-      <div class="col-1">
-        vs
-      </div>
-      <div class="col-4">
-        <div class="row">
-        {{$match->contestants[1]->contending_team->name}}
-        </div>
-        <div class="row">
-          @foreach($match->checkins as $checkin)
+            @endforeach
+          </div>
+          @if(Auth::check())
             @foreach($match->contestants[1]->contending_team->roster as $roster)
-              @if($roster->id==$checkin->roster_id)
-                <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
-                  {{$roster->gamer->alias}}
-                </div>
+              @if($roster->gamer_id==Auth::id())
+                <?php $needcheckin = true; ?>
+                @foreach($match->checkins as $checkin)
+                  @if($checkin->roster_id == $roster->id)
+                    <?php $needcheckin = false; ?>
+                  @endif
+                @endforeach
+
+                @if($needcheckin)
+                  <button>CHECKIN BUTTON</button>
+                @endif
               @endif
             @endforeach
-          @endforeach
+          @endif
         </div>
-        @if(Auth::check())
-          @foreach($match->contestants[1]->contending_team->roster as $roster)
-            @if($roster->gamer_id==Auth::id())
-              <?php $needcheckin = true; ?>
-              @foreach($match->checkins as $checkin)
-                @if($checkin->roster_id == $roster->id)
-                  <?php $needcheckin = false; ?>
-                @endif
-              @endforeach
-
-              @if($needcheckin)
-                <button>CHECKIN BUTTON</button>
-              @endif
-            @endif
-          @endforeach
-        @endif
-      </div>
-    </div><!-- a waiting match end-->
+      </div><!-- a waiting match end-->
     @endforeach
 
+
+    @foreach($waiting as $match)
+      <div class="row"><!-- a waiting match-->
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[0]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[0]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+        </div>
+        <div class="col-1">
+          vs
+        </div>
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[1]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[1]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+        </div>
+      </div><!-- a waiting match end-->
+    @endforeach
+
+    @foreach($future as $match)
+      <div class="row"><!-- a waiting match-->
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[0]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[0]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+        </div>
+        <div class="col-1">
+          vs
+        </div>
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[1]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[1]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+        </div>
+      </div><!-- a waiting match end-->
+    @endforeach
+
+    <div class="row">
+      <h2>RESULTS</h2>
+    </div>
+    @foreach($past as $match)
+      <div class="row"><!-- a waiting match-->
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[0]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[0]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+        </div>
+        <div class="col-1">
+          vs
+        </div>
+        <div class="col-4">
+          <div class="row">
+            {{$match->contestants[1]->contending_team->name}}
+          </div>
+          <div class="row">
+            @foreach($match->checkins as $checkin)
+              @foreach($match->contestants[1]->contending_team->roster as $roster)
+                @if($roster->id==$checkin->roster_id)
+                  <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
+                    {{$roster->gamer->alias}}
+                  </div>
+                @endif
+              @endforeach
+            @endforeach
+          </div>
+        </div>
+      </div><!-- a waiting match end-->
+    @endforeach
   </div>
 </div>
