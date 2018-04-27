@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ContendingTeam;
+use App\Tournament;
 use Illuminate\Http\Request;
 
 class ContendingTeamController extends Controller
@@ -15,7 +16,20 @@ class ContendingTeamController extends Controller
     public function index()
     {
         //
-      return view('teams');
+      $tournaments = Tournament::all();
+      $this_tournament = "All";
+      $teams = ContendingTeam::paginate(2);
+
+      return view('teams', compact('teams', 'tournaments', 'this_tournament'));
+    }
+
+    public function indexTournament(Tournament $tournament)
+    {
+      $tournaments = Tournament::all();
+      $this_tournament = $tournament;
+      $teams = ContendingTeam::where('tournament_id', $tournament->id)
+                              ->get();
+      return view('teams', compact('teams', 'tournaments', 'this_tournament'));
     }
 
     /**

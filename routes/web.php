@@ -40,6 +40,8 @@ Route::get('/checkin/{roster}/{match}', 'MatchController@checkin');
 Route::get('/matches/contestants/{tournament}', 'MatchController@getContestants');
 
 Route::resource('/teams', 'ContendingTeamController');
+Route::get('/teams/tournament/{tournament}', 'ContendingTeamController@indexTournament');
+
 Route::get('/api/contendingteams', 'ContendingTeamController@index');
 Route::get('/api/category/{id}', 'ContendingTeamController@show');
 
