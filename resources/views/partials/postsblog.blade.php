@@ -31,7 +31,7 @@
         <span class="tag">1st Division</span>
       </div>
 
-      <p class="font-gray">This is the DOTA 2 All-Stars League. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.</p>
+      <p class="font-gray">{{$post->excerpt}}</p>
     </div>
     <div class="btn-dgl-contaianer-purple">
       <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read On</a>
