@@ -14,8 +14,10 @@ namespace App\Http\Controllers;
 
 use App\Checkin;
 use App\MatchContestant;
+use App\Roster;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Match;
 use App\Tournament;
@@ -226,19 +228,19 @@ class MatchController extends Controller
     }
 
     //CUSTOM FUNCTIONS
-  public function checkin($rosterid, Match $match)
+  public function checkin(Roster $roster, Match $match)
   {
     $myid = Auth::id();
-
-    $roster = Roster::find($rosterId);
 
     if($roster->gamer_id == $myid)
     {
       $checkin = new Checkin();
       $checkin->match_id = $match->id;
-      $checkin->roster_id = $rosterId;
+      $checkin->roster_id = $roster->id;
 
       $checkin->save();
+
+      return redirect('/tournaments/'. $match->tournament_id);
     }
   }
 }

@@ -11,8 +11,10 @@
     @foreach($checkingin as $match)
       <div class="row"><!-- a waiting match-->
         <div class="col-4">
-          <div class="row">
-            {{$match->contestants[0]->contending_team->name}}
+          <div class="row justify-content-center">
+            <span class="mt-3 mr-4 font-white">{{$match->contestants[0]->contending_team->name}}</span>
+            <img  class="align-text-bottom" src="/uploads/images/clan_logos/{{$match->contestants[0]->contending_team->logo_size2}}" width="50" height="50">
+
           </div>
           <div class="row">
             @foreach($match->checkins as $checkin)
@@ -36,18 +38,19 @@
                 @endforeach
 
                 @if($needcheckin)
-                  <button>CHECKIN BUTTON</button>
+                    <a href="/checkin/{{$roster->id}}/{{$match->id}}" class=" my-3 btn btn-primary">CHECKIN BUTTON</a>
                 @endif
               @endif
             @endforeach
           @endif
         </div>
-        <div class="col-1">
-          vs
+        <div class="col-1 mt-3">
+          <span class="font-white">vs</span>
         </div>
         <div class="col-4">
-          <div class="row">
-            {{$match->contestants[1]->contending_team->name}}
+          <div class="row justify-content-center">
+            <img  class="align-text-bottom" src="/uploads/images/clan_logos/{{$match->contestants[1]->contending_team->logo_size2}}" width="50" height="50">
+            <span class="mt-3 ml-4 font-white">{{$match->contestants[1]->contending_team->name}}</span>
           </div>
           <div class="row">
             @foreach($match->checkins as $checkin)
@@ -71,7 +74,7 @@
                 @endforeach
 
                 @if($needcheckin)
-                  <button>CHECKIN BUTTON</button>
+                  <a href="/checkin/{{$roster->id}}/{{$match->id}}" class="btn btn-primary">CHECKIN BUTTON</a>
                 @endif
               @endif
             @endforeach
