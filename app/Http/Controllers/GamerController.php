@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Roster;
 use DB;
 use App\Gamer;
@@ -48,5 +49,55 @@ class GamerController extends Controller
       $players->withPath('/players/');
 
       return view('players', compact('players'));
+    }
+
+    public function store(Request $request)
+    {
+      //dd($request);
+      if(Auth::check())
+      {
+        $gamer = Auth::user();
+        $changed = false;
+        $date = $request->dob;
+        $dob = implode('-', array_reverse(explode('/',$date)));
+        //dd($dob);
+        if($gamer->alias!=$request->alias)
+        {
+          $gamer->alias = $request->alias;
+          $changed = true;
+        }
+        if($gamer->fname!=$request->fname)
+        {
+          $gamer->fname = $request->fname;
+          $changed = true;
+        }
+        if($gamer->lname!=$request->lname)
+        {
+          $gamer->lname = $request->lname;
+          $changed = true;
+        }
+        if($gamer->dob!=$dob)
+        {
+          $gamer->dob = $dob;
+          $changed = true;
+        }
+
+        if($changed)
+          $gamer->save();
+
+        return redirect('/settings');
+      }
+      abort(404);
+    }
+
+    public function settings()
+    {
+      if(Auth::check())
+      {
+        $gamer = Auth::user();
+        return view ('user_settings', compact('gamer'));
+      }
+
+      abort(404);
     }
 }

@@ -67,3 +67,4 @@ Route::resource('/media', 'MediaController');
     CRUD::resource('match_contestant', 'Match_contestantCrudController'); // for scores
   });
 
+Route::get('/settings', 'GamerController@settings');
