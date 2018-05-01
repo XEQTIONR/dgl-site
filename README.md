@@ -41,7 +41,7 @@ In the following file
 
 __Match CRUD controller contestants select2 multiple pulls all contestants of all matches. FIX THIS.__
 
-_Did not create a Eloquent model for Checkin. Change this in the future if required._
+~~Did not create a Eloquent model for Checkin. Change this in the future if required.~~
 
 _Added ability to select match winner from Match Contestants/Scores CRUD -_ __This is currently the sole reason why 'id' field is added as primary key in the 'match_contestants' table.__
 
@@ -52,5 +52,7 @@ __Refactor the raw _players_ SQLQuery - SQL injection vulnerability__
 _Currently multiple checkins by the same gamer for the same match is only prevented by the DB constraint_
 
 _Fix query for contending teams for each tournament_
+
+__Second chance email verification (in settings page) depends on always having a _'email_verification_code'_ meta for each gamer.__
 
 ###### XEQTIØNR

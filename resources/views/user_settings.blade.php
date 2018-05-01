@@ -18,6 +18,8 @@
           <i class="fas fa-info ml-1 mr-3"></i>
           My Information
         </a>
+        {{--there should always be a gamer meta with a  verification code--}}
+        {{--@if($gamer->status == 'unverified')--}}
         <a href="#" 
            v-on:click="changeActive('emailverify')"
            v-bind:class="{active: panels.emailverify}"
@@ -25,6 +27,7 @@
           <i class="fas fa-at mr-2"></i>
           Email Verification
         </a>
+        {{--@endif--}}
         <a href="#" 
            v-on:click="changeActive('mycheckins')"
            v-bind:class="{active: panels.mycheckins}"
@@ -275,13 +278,44 @@
               Dont forget to check spam folder first though.
             </span>
           </div>
+          <?php $initial_meta = false;
+                $less_than_24 = true;
 
+            foreach ($meta as $item)
+            {
+              if($item->meta_key == 'email_verification_code') // meta found
+              {
+                if($item->created_at == $item->updated_at) // initial meta?
+                  $initial_meta = true;
+                else //not initial meta
+                {
+                  $today = \Carbon\Carbon::now();
+                  $ud = \Carbon\Carbon::parse($item->updated_at);
+                  $ud24 = $ud->addHours(24);
+                  if($today->gte($ud24)) // meta created a day or more ago
+                  {
+                    $less_than_24 = false;
+                  }
+                }
+                break;
+              }
+            }
+          ?>
+          @if($initial_meta || !$less_than_24)
           <div class="row mt-4 mb-5">
-            <button class="btn btn-primary" type="button">
+            <a href="/resend_verify/{{$gamer->id}}" class="btn btn-primary" type="button">
               <i class="fas fa-envelope mr-1"></i>
               Send verfication email.
-            </button>
+            </a>
           </div>
+          @elseif($less_than_24)
+            <div class="row mt-4 mb-5">
+              <span>Looks like we sent you a  <strong>NEW</strong> verification email less than 24 hours ago.
+                The earliest you can request another verification email is tomorrow. Confucius said -
+                <em>'When in doubt, check spam folder.'</em>
+              </span>
+            </div>
+          @endif
         </div>
       </div>
   </div>

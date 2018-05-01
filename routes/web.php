@@ -25,6 +25,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/verify/{code}', 'VerificationController@verifyEmail');
+Route::get('/resend_verify/{gamer}','VerificationController@resendVerificationEmail');
 
 Route::resource('/tournaments', 'TournamentController');
 Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
