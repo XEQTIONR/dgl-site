@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Roster;
@@ -99,5 +100,23 @@ class GamerController extends Controller
       }
 
       abort(404);
+    }
+    public function getSteamInfo($steam64id)
+    {
+      $url = env('STEAM_USERINFO_URL');
+      $key = env('STEAM_API_KEY');
+      $mailadmin = env('MAIL_FROM_NAME');
+      $endpoint = $url.$key."&steamids=".$steam64id;
+
+      $contents = file_get_contents($endpoint);
+
+      $data = json_decode($contents, TRUE);
+
+      $info = $data['response']['players'][0];
+      $info['responseStatus'] = 'success';
+      //dd($info);
+      return $info; //consumed by javascript. dot notation
+      //returns an array with keys NOT AN OBJECT
+      //return view('test', compact('info'));
     }
 }

@@ -164,12 +164,29 @@
           <div class="row mb-3">
             <small>Your gaming platform credentials. You will atleast some of these filled in before you can participate in our tournaments.</small>
           </div>
-          <div class="form-group row">
-            <label for="inputLname">SteamID</label>
-            <input {{--name="inputSteam"--}} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          {{--<div class="form-group row">--}}
+            {{--<label>Steam64ID</label>--}}
+          {{--</div>--}}
+          <div v-if="!steamProfileFound" class="form-group row">
+            <label for="inputLname">Steam64 ID</label>
+            <input v-model="steamIdInput" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">Required for tournaments with games hosted on Steam.</small>
           </div>
-
+          <div v-else class="form-group row">
+            <div class="col-12 ml-0 pl-0">
+              <label>Steam64ID</label>
+            </div>
+            <div class="col-2">
+              <img v-bind:src="steamAvatarURL">
+            </div>
+            <div class="col-9">
+              <h3>@{{ steamPersonaName }}</h3>
+              <span>@{{ steamStatus }}</span>
+            </div>
+            <div class="col-1 mr-0 pr-0">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
+          </div>
           <div class="form-group row">
             <label for="inputLname">BNet ID</label>
             <input {{--name="inputBattleNet"--}} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -225,6 +242,12 @@
 
 <script>
   let data = {
+
+      steamProfileFound: false,
+      steamIdInput: "",
+      steamPersonaName: "",
+      steamAvatarURL: "",
+      steamStatus: "",
       panels: {
           'myinfo': true,
           'emailverify': false,
@@ -283,10 +306,29 @@
           cancel: function()
           {
               this.gamer.edit = false;
+          },
+
+          getSteamInfo: function()//steam64id
+          {
+           //   console.log("triggered");
+              axios.get('/steamapi/'+this.steamIdInput).then(function(response){
+                  var steam_profile = response.data;
+
+                  //console.log(steam_profile.personaname);
+                  //console.log(steam_profile.avatarmedium);
+                  app.steamPersonaName = steam_profile.personaname;
+                  app.steamAvatarURL = steam_profile.avatarmedium;
+                  app.steamStatus = steam_profile.personastate;
+                  if(steam_profile.responseStatus == 'success')
+                    app.steamProfileFound = true;
+                  else
+                    app.steamProfileFound = false;
+            });
           }
       }
   })
 </script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style>
   .visible{
     /**visibility : visible;*/
