@@ -51,4 +51,6 @@ __Refactor the raw _players_ SQLQuery - SQL injection vulnerability__
 
 _Currently multiple checkins by the same gamer for the same match is only prevented by the DB constraint_
 
+_Fix query for contending teams for each tournament_
+
 ###### XEQTIØNR
