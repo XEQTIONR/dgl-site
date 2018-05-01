@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\GamerMeta;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,14 +55,14 @@ class GamerController extends Controller
 
     public function store(Request $request)
     {
-      //dd($request);
       if(Auth::check())
       {
         $gamer = Auth::user();
         $changed = false;
         $date = $request->dob;
         $dob = implode('-', array_reverse(explode('/',$date)));
-        //dd($dob);
+        $meta = array();
+
         if($gamer->alias!=$request->alias)
         {
           $gamer->alias = $request->alias;
@@ -82,9 +83,38 @@ class GamerController extends Controller
           $gamer->dob = $dob;
           $changed = true;
         }
+        if($gamer->battlenetid!=$request->battlenetid)
+        {
+          $gamer->battlenetid = $request->battlenetid;
+          $battnet_meta = new GamerMeta();
+          $battnet_meta->meta_key = 'overwatch_avatar_url';
+          $battnet_meta->meta_value = $request->battleNetAvatarURL;
+          array_push($meta, $battnet_meta);
+
+          GamerMeta::where('gamer_id', $gamer->id)
+                  ->where('meta_key', 'overwatch_avatar_url')
+                  ->delete();
+          $changed = true;
+        }
+        if($gamer->steamid!=$request->steamid)
+        {
+          $gamer->steamid = $request->steamid;
+          $steam_meta = new GamerMeta();
+          $steam_meta->meta_key = 'steam_avatar_url';
+          $steam_meta->meta_value = $request->steamAvatarURL;
+          array_push($meta, $steam_meta);
+
+          GamerMeta::where('gamer_id', $gamer->id)
+                  ->where('meta_key', 'steam_avatar_url')
+                  ->delete();
+          $changed = true;
+        }
 
         if($changed)
           $gamer->save();
+
+        if(count($meta)>0)
+          $gamer->meta()->saveMany($meta);
 
         return redirect('/settings');
       }
@@ -95,8 +125,20 @@ class GamerController extends Controller
     {
       if(Auth::check())
       {
-        $gamer = Auth::user();
-        return view ('user_settings', compact('gamer'));
+        //$id = Auth::id()
+        $gamer=Auth::user();
+        $meta=$gamer->meta;
+
+        $steamid=$gamer->steamid;
+
+        if (!is_null($steamid))
+        {
+          $data=$this->getSteamInfo($steamid);
+          $info=json_decode($data);
+          $personaname=$info->personaname;
+          $gamer->personaname=$personaname;
+        }
+        return view ('user_settings', compact('gamer','meta'));
       }
 
       abort(404);
@@ -105,18 +147,45 @@ class GamerController extends Controller
     {
       $url = env('STEAM_USERINFO_URL');
       $key = env('STEAM_API_KEY');
-      $mailadmin = env('MAIL_FROM_NAME');
       $endpoint = $url.$key."&steamids=".$steam64id;
 
       $contents = file_get_contents($endpoint);
 
-      $data = json_decode($contents, TRUE);
+      $data = json_decode($contents);
 
-      $info = $data['response']['players'][0];
-      $info['responseStatus'] = 'success';
-      //dd($info);
-      return $info; //consumed by javascript. dot notation
-      //returns an array with keys NOT AN OBJECT
-      //return view('test', compact('info'));
+      $info = $data->response->players[0];
+      $info->responseStatus = 'success';
+
+      return json_encode($info); //consumed by javascript. dot notation
     }
+
+    public function getOverwatchInfo($battletag)
+    {
+      $btag = str_replace("#", "-", $battletag);
+      $url = env('OW_API_URL');
+      $url_suffix = env('OW_API_SUFFIX');
+
+      $endpoint = $url.$btag.$url_suffix;
+
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL, $endpoint);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:dgl-site/beta'));
+
+      $contents = curl_exec($ch);
+      $data = json_decode($contents);
+      $response = new InfoResponse();
+
+      $response->data = $data->us->stats->quickplay->overall_stats->avatar;
+      $response->status = 'success';
+
+      return json_encode($response);
+    }
+}
+
+class InfoResponse
+{
+
 }

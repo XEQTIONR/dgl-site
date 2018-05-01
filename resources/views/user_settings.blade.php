@@ -89,19 +89,61 @@
               </div>
             </div>
 
+            <?php
+              $steamflag = false;
+              $steamavatarURL = "";
+              $owflag = false;
+              $owavatarURL = "";
+
+              foreach ($meta as $ameta)
+              {
+                if($ameta->meta_key == 'steam_avatar_url')
+                {
+                  $steamflag = true;
+                  $steamavatarURL = $ameta->meta_value;
+                }
+                if($ameta->meta_key == 'overwatch_avatar_url')
+                {
+                  $owflag = true;
+                  $owavatarURL = $ameta->meta_value;
+                }
+              }
+            ?>
             <dt class="col-sm-3">Steam ID</dt>
             <dd class="col-sm-9">
               <dl>
+                @if($steamflag)
+                <div class="row">
+                  <div class="col-2">
+                    <img src="{{$steamavatarURL}}" width="64" height="64">
+                  </div>
+                  <div class="col-9">
+                    <h3>{{$gamer->personaname}}</h3>
+                  </div>
+                </div>
+                @else
                 <dd>@{{ gamer.steam }}</dd>
                 <dd><small><em>You need to provide this to register for DGL tournaments of Steam games.</em></small></dd>
+                @endif
               </dl>
             </dd>
             <dt class="col-sm-3">BattleNet ID</dt>
             <dd class="col-sm-9">
+              @if($owflag)
+                <div class="row">
+                  <div class="col-2">
+                    <img src="{{$owavatarURL}}" width="64" height="64">
+                  </div>
+                  <div class="col-9">
+                    <h3>@{{ gamer.battlenet }}</h3>
+                  </div>
+                </div>
+              @else
               <dl>
                 <dd>@{{ gamer.battlenet }}</dd>
                 <dd><small><em>You need to provide this to register for DGL tournaments of Battle.Net games.</em></small></dd>
               </dl>
+              @endif
             </dd>
             <dt class="col-sm-3">Discord ID</dt>
             <dd class="col-sm-9">
@@ -182,15 +224,33 @@
             <div class="col-9">
               <h3>@{{ steamPersonaName }}</h3>
               <span>@{{ steamStatus }}</span>
+              <input name="steamid" v-model="steamIdInput" type="hidden">
+              <input name="steamAvatarURL" v-model="steamAvatarURL" type="hidden">
             </div>
             <div class="col-1 mr-0 pr-0">
               <button type="button" class="btn btn-danger">X</button>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="inputLname">BNet ID</label>
-            <input {{--name="inputBattleNet"--}} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <div v-if="!owProfileFound" class="form-group row">
+            <label for="inputLname">Battle Tag</label>
+            <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">Currently only Battle.Net accounts owning a copy of Overwatch. Required for Overwatch tournaments.</small>
+          </div>
+          <div v-else class="form-group row">
+            <div class="col-12 ml-0 pl-0">
+              <label>Battle Tag</label>
+            </div>
+            <div class="col-2">
+              <img v-bind:src="owAvatarURL" width="64" height="64">
+            </div>
+            <div class="col-9">
+              <h3>@{{ battleTagInput }}</h3>
+              <input name="battlenetid"  v-model="battleTagInput" type="hidden">
+              <input name="battleNetAvatarURL" v-model="owAvatarURL" type="hidden">
+            </div>
+            <div class="col-1 mr-0 pr-0">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
           </div>
 
           <div class="form-group row">
@@ -244,9 +304,14 @@
   let data = {
 
       steamProfileFound: false,
-      steamIdInput: "",
+      steamIdInput: "{{$gamer->steamid}}",
       steamPersonaName: "",
       steamAvatarURL: "",
+
+      battleTagInput: "{{$gamer->battlenetid}}",
+      owProfileFound: false,
+      owAvatarURL: "",
+
       steamStatus: "",
       panels: {
           'myinfo': true,
@@ -324,6 +389,16 @@
                   else
                     app.steamProfileFound = false;
             });
+          },
+          getOverwatchInfo: function()
+          {
+              axios.get('/owapi/'+this.battleTagInput.replace("#","-")).then(function(response){
+                  var ow_data = response.data;
+                  app.owAvatarURL = ow_data.data;
+
+                  if(ow_data.status == 'success')
+                      app.owProfileFound = true;
+              });
           }
       }
   })
