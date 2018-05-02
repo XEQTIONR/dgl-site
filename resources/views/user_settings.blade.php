@@ -318,6 +318,101 @@
           @endif
         </div>
       </div>
+
+      <div v-bind:class="[{'visible' : panels.mytournamentinvites}, {'hidden' : !panels.mytournamentinvites}]" class="row mt-10">
+        <div class="col-6 offset-1">
+          <div class="row">
+            <h5 class="text-uppercase">Invitations Received</h5>
+          </div>
+          <div class="row mb-3">
+            <small>Invitions from other captains to join their teams.</small>
+          </div>
+          <div class="row">
+            <ul class="list-group w-100 mb-5">
+              @foreach($teams_joined as $team)
+                <li class="list-group-item">
+                  <div class="d-flex w-100 justify-content-between">
+                    <p>{{$team->name}}</p>
+                    <small><strong>{{$team->tournament->name}}</strong></small>
+                  </div>
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5>{{$team->tag}}</h5>
+                    <small> Invited by
+                      <strong>
+                        @foreach($team->roster as $aroster)
+                          @if($aroster->gamer_id != $gamer->id)
+                            {{$aroster->gamer->alias}}
+                          @endif
+                        @endforeach
+                      </strong>
+                    </small>
+                  </div>
+                  @foreach($team->roster as $aroster)
+                    @if($aroster->gamer_id == $gamer->id)
+
+                        <div class="d-flex w-100 justify-content-end mt-1">
+                        @if($aroster->status=='confirmation_required')
+                          <a href="/roster/{{$gamer->alias}}/{{$team->id}}" class="btn btn-success">
+                            + JOIN TEAM
+                          </a>
+
+                        @elseif($aroster->status=='ok')
+                          <span class="font-primary-color"><i class="fas fa-check mr-3"></i><strong>TEAM JOINED</strong></span>
+                        @elseif($aroster->status=='rejected')
+                          <span class="font-red"><i class="fas fa-times mr-3"></i><strong>DECLINED</strong></span>
+                        @else
+                          <span class="font-light-gray"><i class="fas fa-exclamation mr-3"></i><strong>INVITE EXIPRED</strong></span>
+                        @endif
+                        </div>
+                    @endif
+                  @endforeach
+                </li>
+              @endforeach
+            </ul>
+          </div>
+
+          <div class="row">
+            <h5 class="text-uppercase">Invitations Sent</h5>
+          </div>
+          <div class="row mb-3">
+            <small>Your efforts to recruit gamers.</small>
+          </div>
+          <div class="row">
+            @foreach($teams_formed as $team)
+            <ul class="list-group w-100 mb-5">
+                @foreach($team->roster as $roster)
+                <li class="list-group-item">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5>{{$team->name}}</h5>
+                    <small><strong>{{$team->tournament->name}}</strong></small>
+                  </div>
+                  <div class="d-flex w-100 justify-content-between">
+                    <div class="d-flex w-100 justify-content-start">
+                      <p class="mr-1"><strong>{{$team->tag}}</strong></p>
+                      <span>{{$roster->gamer->alias}}</span>
+                    </div>
+                    <small><strong>{{$roster->status}}</strong></small>
+                  </div>
+                </li>
+                @endforeach
+                @foreach($team->invites as $invite)
+                <li class="list-group-item">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5>{{$team->name}}</h5>
+                    <small><strong>{{$team->tournament->name}}</strong></small>
+                  </div>
+                  <div class="d-flex w-100 justify-content-between">
+                    <span>{{$invite->email}}</span>
+
+                    <small><strong>{{$invite->status}}</strong></small>
+                  </div>
+                </li>
+                @endforeach
+            </ul>
+            @endforeach
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 

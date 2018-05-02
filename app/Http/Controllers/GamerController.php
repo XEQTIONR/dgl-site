@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ContendingTeam;
 use App\GamerMeta;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
@@ -138,7 +139,58 @@ class GamerController extends Controller
           $personaname=$info->personaname;
           $gamer->personaname=$personaname;
         }
-        return view ('user_settings', compact('gamer','meta'));
+
+        $rosters = Roster::where('gamer_id', $gamer->id)
+                        ->get();
+        $teams_captained = array();
+        $teams_not_captained = array();
+
+        foreach ($rosters as $roster)
+        {
+            if($roster->captain == 'true')
+              array_push($teams_captained, $roster->contending_team_id);
+            else
+              array_push($teams_not_captained, $roster->contending_team_id);
+        }
+
+        $teams_captained_ids = array_unique($teams_captained);
+        $teams_not_captained_ids = array_unique($teams_not_captained);
+
+        $teams_formed = ContendingTeam::with([
+        'roster' =>
+          function($query) use ($gamer)
+          {
+            $query->where('gamer_id','!=',$gamer->id);
+          },
+        'roster.gamer',
+        'tournament',
+        'invites' =>
+          function($query)
+          {
+            $query->whereNotIn('status', ['used']);
+          }])->whereIn('id', $teams_captained_ids)
+            ->get();
+
+        $teams_joined = ContendingTeam::with([
+          'tournament',
+          'roster' =>
+            function($query) use ($gamer)
+            {
+              $query->where('captain', 'true')
+                    ->orWhere('gamer_id', $gamer->id)
+                    ->get();
+            },
+          'roster.gamer' =>
+            function($query) use ($gamer)
+            {
+              $query->where('id', '!=', $gamer->id)
+                    ->get();
+            }
+          ])->whereIn('id', $teams_not_captained_ids)
+              ->get();
+
+        //return compact('teams_formed','teams_joined');
+        return view ('user_settings', compact('gamer','meta','teams_formed', 'teams_joined'));
       }
 
       abort(404);
