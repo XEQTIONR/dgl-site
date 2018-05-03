@@ -4,41 +4,27 @@
         <div class="col-12 col-xl-9 no-horizontal-padding">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <?php $i = 0 ?>
+                    @foreach($banners as $banner)
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="<?php if($i==0) echo 'active'?>"></li>
+                    <?php $i++ ?>
+                    @endforeach
                 </ol>
                 <div class="carousel-inner mt-5">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{URL::asset('storage/dota-1.png')}}" alt="First slide">
+                    <?php $i = 0 ?>
+                    @foreach($banners as $banner)
+                    <?php $i++ ?>
+                    <div class="carousel-item <?php if($i==1) echo 'active'?>">
+                        <img class="d-block w-100" src="{{$banner->image}}" alt="First slide">
                         <div class="carousel-caption d-block">
-                            <a class="slide-link" href="">
-                                <h5 class="d-md-none text-center">DGL Faceoff 5</h5>
-                                <h1 class="d-none d-md-block text-center">DGL Faceoff 5</h1>
-                                <p class="d-none d-sm-block text-center slide-text">DOTA 2 tournament</p>
+                            <a class="slide-link" href="{{$banner->link}}">
+                                <h5 class="d-md-none text-center">{{$banner->title}}</h5>
+                                <h1 class="d-none d-md-block text-center">{{$banner->title}}</h1>
+                                <p class="d-none d-sm-block text-center slide-text">{{$banner->subtitle}}</p>
                             </a>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Second slide">
-                        <div class="carousel-caption d-block ">
-                            <a class="slide-link" href="">
-                                <h5 class="d-md-none text-center">DA* League 2018</h5>
-                                <h1 class="d-none d-md-block text-center">DA* League 2018</h1>
-                                <p class="d-none d-sm-block text-center slide-text">1st division DOTA2 League</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{URL::asset('storage/overwatch-4.jpg')}}" alt="Third slide">
-                        <div class="carousel-caption d-block">
-                            <a class="slide-link" href="">
-                                <h5 class="d-md-none text-center">Overpowered</h5>
-                                <h1 class="d-none d-md-block text-center">Overpowered</h1>
-                                <p class="d-none d-sm-block text-center slide-text">Overwatch tournament</p>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

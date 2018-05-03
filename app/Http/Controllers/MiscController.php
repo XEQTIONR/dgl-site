@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class MiscController extends Controller
@@ -16,10 +17,11 @@ class MiscController extends Controller
         return view('partials.postswelcome', compact('postsajax'));
       }
       else {
+        $banners = Banner::orderBy('lft')->get();
         $posts=\App\Blog_post::paginate(1);
         $lastpage = $posts->lastPage();
-        //$posts->withPath('custom/url');
-        return view('welcome', compact('posts', 'lastpage'));
+        
+        return view('welcome', compact('posts', 'lastpage', 'banners'));
       }
     }
 }
