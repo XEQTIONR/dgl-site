@@ -66,6 +66,7 @@ Route::resource('/media', 'MediaController');
     CRUD::resource('contending_team','Contending_teamCrudController');
     CRUD::resource('match','MatchCrudController');
     CRUD::resource('match_contestant', 'Match_contestantCrudController'); // for scores
+    CRUD::resource('banner','BannerCrudController');
   });
 
 Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
