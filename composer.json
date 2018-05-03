@@ -9,6 +9,7 @@
         "backpack/base": "^0.9.2",
         "backpack/crud": "^3.4",
         "barryvdh/laravel-elfinder": "^0.3.12",
+        "erusev/parsedown": "^1.7",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.4",
