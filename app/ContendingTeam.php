@@ -29,4 +29,8 @@ class ContendingTeam extends Model
   {
     return $this->hasMany('App\TournamentInvite');
   }
+  public function matchContestants()
+  {
+    return $this->hasMany('App\MatchContestant');
+  }
 }

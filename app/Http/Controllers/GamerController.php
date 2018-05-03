@@ -189,8 +189,16 @@ class GamerController extends Controller
           ])->whereIn('id', $teams_not_captained_ids)
               ->get();
 
+        $checkin_meta = Roster::with(['contendingTeam.matchContestants.match.contestants.contending_team',
+                          'checkin'])
+                    ->where('gamer_id', $gamer->id)
+                    ->get();
+        //dd($checkin_meta);
+       // return($checkin_meta);
+        //return compact('checkin_meta');
         //return compact('teams_formed','teams_joined');
-        return view ('user_settings', compact('gamer','meta','teams_formed', 'teams_joined'));
+        return view ('user_settings',
+                          compact('gamer','meta','teams_formed', 'teams_joined', 'checkin_meta'));
       }
 
       abort(404);

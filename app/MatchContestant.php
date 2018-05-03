@@ -15,4 +15,9 @@ class MatchContestant extends Model
     {
       return $this->belongsTo('App\ContendingTeam');
     }
+    public function match()
+    {
+      return $this->belongsTo('App\Match');
+    }
+
 }

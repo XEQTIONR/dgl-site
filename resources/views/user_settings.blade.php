@@ -267,6 +267,65 @@
         </div>
       </div>
 
+    <div v-bind:class="[{'visible' : panels.mycheckins}, {'hidden' : !panels.mycheckins}]" class="row mt-10">
+      <div class="col-6 offset-1">
+        <div class="row">
+          <h5 class="text-uppercase">My Checkins</h5>
+        </div>
+        <div class="row">
+          <small>All your match Checkins. You must check-in into a match before playing.</small>
+        </div>
+        <div class="row mt-4">
+          <ul class="list-group w-100">
+            @foreach($checkin_meta as $record)
+            <li class="list-group-item">
+              <div class="d-flex w-100 justify-content-around">
+                  {{$record->contendingTeam->name}}
+                  {{$record->contendingTeam->tag}}
+                  <span>VS</span>
+                  @foreach($record->contendingTeam->matchContestants as $match_container)
+                    @if($match_container->contending_team_id == $record->contending_team_id)
+                      @foreach($match_container->match->contestants as $rival)
+                        @if($rival->contending_team_id != $record->contending_team_id)
+                          {{$rival->contending_team->tag}}
+                          {{$rival->contending_team->name}}
+                        @endif
+                      @endforeach
+                      <?php $checked_in = false; ?>
+                      @foreach($record->checkin as $acheckin)
+                        @if($match_container->match->id == $acheckin->match_id)
+                          <?php $checked_in = true ?>
+                        @endif
+                      @endforeach
+                      @if($checked_in)
+                          <span class="font-primary-color"><strong>CHECKED IN</strong></span>
+                      @else
+                      <?php
+                        //$now = \Carbon\Carbon::now();
+                        $now = \Carbon\Carbon::parse("2018-04-28 00:00:05");
+                        //$now = \Carbon\Carbon::parse("2018-04-27 00:00:05");
+                        $c_start = \Carbon\Carbon::parse($match_container->match->checkinstart);
+                        $c_end = \Carbon\Carbon::parse($match_container->match->checkinend);
+                      ?>
+                        @if($now->gte($c_start) && $now->lte($c_end))
+                          <a href="/checkin/{{$record->id}}/{{$match_container->match->id}}" class="btn btn-success btn-sm text-uppercase">
+                            <i class="fas fa-map-marker mr-1"></i>
+                            Checkin
+                          </a>
+                        @elseif($now->gt($c_end))
+                          <span class="font-light-gray text-uppercase"><strong>Checkin Expired</strong></span>
+                        @endif
+                      @endif
+                    @endif
+                  @endforeach
+              </div>
+            </li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+
       <div v-bind:class="[{'visible' : panels.emailverify}, {'hidden' : !panels.emailverify}]" class="row mt-10">
         <div class="col-6 offset-1">
           <div class="row">

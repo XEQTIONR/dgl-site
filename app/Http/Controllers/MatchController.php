@@ -231,7 +231,7 @@ class MatchController extends Controller
   public function checkin(Roster $roster, Match $match)
   {
     $myid = Auth::id();
-
+    // should check whether a checkin already exists to avoid duplicate
     if($roster->gamer_id == $myid)
     {
       $checkin = new Checkin();
