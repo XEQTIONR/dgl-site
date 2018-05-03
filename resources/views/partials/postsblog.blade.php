@@ -31,7 +31,7 @@
         <span class="tag">1st Division</span>
       </div>
 
-      <p class="font-gray">{{$post->excerpt}}</p>
+      <span class="font-gray">{!! $post->excerpt !!}</span>
     </div>
     <div class="btn-dgl-contaianer-purple">
       <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read On</a>

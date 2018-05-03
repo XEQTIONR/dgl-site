@@ -5,7 +5,7 @@
   </div>
   <div class="col-12 tournament-info-container">
 
-    <p class="font-white lead">{{$tournament->description}}</p>
+    <p class="font-white lead">{!! $tournament->description !!}}</p>
 
   </div>
 </div>

@@ -35,8 +35,10 @@ class NewsController extends Controller
     public function show($id)
     {
         //
+      $Parsedown = new \Parsedown();
       $post = \App\Blog_post::find($id);
-      //return $post;
+
+      $post->body = $Parsedown->text($post->body);
       return view('news.ablog', compact('post'));
     }
 

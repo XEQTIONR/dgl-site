@@ -12,7 +12,7 @@
           <h3 class="post-title mt-3">{{$post->title}}</h3>
         </a>
         <p>{{$post->created_at}}</p>
-        <p>{{$post->excerpt}}</p>
+        <span>{!! $post->excerpt !!}</span>
       </div>
       <div class="col-12 mt-3">
         <div class="btn-dgl-contaianer btn-dgl-container-gray">
@@ -32,7 +32,7 @@
           <h2 class="post-title mt-3">{{$post->title}}</h2>
         </a>
         <p>{{$post->created_at}}</p>
-        <p>{{$post->excerpt}}</p>
+        <span>{!! $post->excerpt !!}</span>
         <div class="col-12 mt-3">
           <div class="btn-dgl-contaianer btn-dgl-container-gray">
             <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read More</a>
@@ -52,7 +52,7 @@
           <h2 class="post-title mt-3">{{$post->title}}</h2>
         </a>
         <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
-        <p>{{$post->excerpt}}</p>
+        <span>{!! $post->excerpt !!}</span>
       </div>
     </div>
   </div>

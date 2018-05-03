@@ -41,6 +41,7 @@ class TournamentController extends Controller
     public function index()
     {
         //
+      $Parsedown = new \Parsedown();
       $now = Carbon::now();
       $nowstr = Carbon::now()->toDateString();
       $ids = array();
@@ -52,6 +53,7 @@ class TournamentController extends Controller
                                       ->get();
       foreach ($active_tournaments as $active_tournament)
       {
+        $active_tournament->description = $Parsedown->text($active_tournament->description);
         array_push($ids,$active_tournament->id);
       }
       $tournaments = Tournament::whereNotIn('id', $ids)
@@ -60,6 +62,7 @@ class TournamentController extends Controller
                                 ->get();
       foreach ($tournaments as $tournament)
       {
+        $tournament->description = $Parsedown->text($tournament->description);
         $date = Carbon::createFromFormat('Y-m-d',$tournament->startdate);
         if($date->gt($now))
           $tournament->upcoming = true;
@@ -119,6 +122,7 @@ class TournamentController extends Controller
     public function show(Tournament $tournament)
     {
         //
+      $Parsedown = new \Parsedown();
       $future = collect();
       $checkingin = collect();
       $waiting = collect();
@@ -155,6 +159,14 @@ class TournamentController extends Controller
           $past->push($match);
         }
       }
+
+      if(!is_null($tournament->description))
+        $tournament->description = $Parsedown->text($tournament->description);
+
+      if(!is_null($tournament->rules))
+        $tournament->rules = $Parsedown->text($tournament->rules);
+
+
 
       //return ['waiting' => $waiting, 'checkingin' => $checkingin, 'future' => $future, 'past' => $past];
 

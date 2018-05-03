@@ -4,6 +4,7 @@
 
   use Illuminate\Database\Eloquent\Model;
   use Backpack\CRUD\CrudTrait;
+
   class Blog_post extends Model
   {
     use CrudTrait;
@@ -15,7 +16,6 @@
     */
 
     protected $table = 'blog_posts';
-    protected $primaryKey = 'id';
     public $timestamps = true;
     //protected $guarded = ['id'];
     protected $fillable = ['title', 'subtitle', 'banner', 'body','tournament_id'];
@@ -34,6 +34,9 @@
       $words20 = array_slice($words,0,30);
 
       $excerpt = implode(' ', $words20);
+
+      $Parsedown = new \Parsedown();
+      $excerpt = $Parsedown->text($excerpt);
 
       return $excerpt;
     }

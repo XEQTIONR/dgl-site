@@ -16,7 +16,7 @@
     {{$post->created_at}}
   </div>
   <div class="row">
-    {{$post->body}}
+    {!! $post->body !!}
   </div>
 
   <div class="row">
