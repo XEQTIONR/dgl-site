@@ -104,6 +104,28 @@ class TournamentCrudController extends CrudController
           ]
           , 'update/create/both');
 
+      $this->crud->addField([ // Table
+          'name' => 'standings_json',
+          'label' => 'Standings',
+          'type' => 'table',
+          'entity_singular' => 'option', // used on the "Add X" button
+          'columns' => [
+            'id' => 'Team ID',
+            'team_name' => 'Team',
+            'team_tag' => 'Tag',
+            'mp' => 'MP',
+            'mw' => 'MW',
+            'mt' => 'MT',
+            'gp' => 'GP',
+            'gw' => 'GW',
+            'gt' => 'GT',
+            'points' => 'Points'
+          ],
+          'max' => 5, // maximum rows allowed in the table
+          'min' => 0 // minimum rows allowed in the table
+        ]
+        , 'update/create/both');
+
 
       // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

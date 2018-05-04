@@ -25,7 +25,7 @@ class Tournament extends Model
     public $timestamps = true;
     //protected $guarded = ['id'];
     protected $fillable = ['name', 'description', 'rules', 'registration_end',
-                          'startdate', 'enddate', 'squadsize', 'title'];
+                          'startdate', 'enddate', 'squadsize', 'title','standings_json'];
     // protected $hidden = [];
     // protected $dates = [];
     //protected $hidden = [];
