@@ -206,6 +206,12 @@ hr {
 
 .carousel-item
 {
+  .banner-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
   h5{
     font: $font-primary;
     font-size: 22px;
@@ -213,18 +219,29 @@ hr {
   p{
     color: $dgl-blue !important;
     font-weight: 800;
-    background-color: rgba(126, 100, 209, .4);
-    &:hover{
-      color: #FFF !important;
-    }
   }
+}
+
+.carousel-control-prev, .carousel-control-next{
+  z-index: 10;
 }
 .carousel-indicators li{
   transform: skewX(-20deg);
+  margin-bottom: 0;
+  padding-bottom: 7px;
 }
 
 .carousel-caption{
-  top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //justify-content: center;
+
+  h1{
+    font-family: "FuturaLight";
+    font-size: 50px;
+    //text-transform: uppercase;
+  }
 }
 
 // Componenets
@@ -396,23 +413,6 @@ body{
 
     .checkbox{
       color: $dgl-primary;
-    }
-  }
-
-  .slide-link{
-    text-decoration: none;
-    h1, h5{
-      color: saturate($dgl-purple, 20%);
-      //background-color: rgba(126, 100, 209, .5);
-      //text-shadow:  5px 5px $dgl-purple;
-      //text-;
-      &:hover{
-        color: $dgl-lightergray;
-      }
-    }
-
-    h1{
-      font-size: 4em;
     }
   }
 

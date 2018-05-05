@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'FuturaLight';
+  src: url("/fonts/FuturaLT-Light.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .white-border {
   border-color: #FFF !important;
 }
@@ -330,6 +337,13 @@ hr {
   margin-right: auto;
 }
 
+.carousel-item .banner-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
 .carousel-item h5 {
   font: "Poppins", sans-serif;
   font-size: 22px;
@@ -338,20 +352,36 @@ hr {
 .carousel-item p {
   color: #00A0EA !important;
   font-weight: 800;
-  background-color: rgba(126, 100, 209, 0.4);
 }
 
-.carousel-item p:hover {
-  color: #FFF !important;
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 10;
 }
 
 .carousel-indicators li {
   -webkit-transform: skewX(-20deg);
           transform: skewX(-20deg);
+  margin-bottom: 0;
+  padding-bottom: 7px;
 }
 
 .carousel-caption {
-  top: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.carousel-caption h1 {
+  font-family: "FuturaLight";
+  font-size: 50px;
 }
 
 body {
@@ -531,24 +561,6 @@ body .team-registration .list-group-item {
 
 body .team-registration .checkbox {
   color: #6ACC5C;
-}
-
-body .slide-link {
-  text-decoration: none;
-}
-
-body .slide-link h1,
-body .slide-link h5 {
-  color: #7250e5;
-}
-
-body .slide-link h1:hover,
-body .slide-link h5:hover {
-  color: #EAEAEB;
-}
-
-body .slide-link h1 {
-  font-size: 4em;
 }
 
 body .btn-outline-dgl {

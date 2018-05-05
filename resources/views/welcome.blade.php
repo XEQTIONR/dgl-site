@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('body-section')
-    <div class="row banner-background justify-content-center">
-        <div class="col-12 col-xl-9 no-horizontal-padding">
+    <div class="row justify-content-center d-none d-md-block">
+        <div class="col-12 no-horizontal-padding">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <?php $i = 0 ?>
@@ -14,17 +14,38 @@
                     <?php $i = 0 ?>
                     @foreach($banners as $banner)
                     <?php $i++ ?>
-                    <div class="carousel-item <?php if($i==1) echo 'active'?>">
+                    <a href="{{$banner->link}}" class="carousel-item <?php if($i==1) echo 'active'?>">
                         <img class="d-block w-100" src="{{$banner->image}}" alt="First slide">
-                        <div class="carousel-caption d-block">
-                            <a class="slide-link" href="{{$banner->link}}">
-                                <h5 class="d-md-none text-center">{{$banner->title}}</h5>
-                                <h1 class="d-none d-md-block text-center">{{$banner->title}}</h1>
-                                <p class="d-none d-sm-block text-center slide-text">{{$banner->subtitle}}</p>
-                            </a>
+
+                        <div class="w-100 h-100 back-color-dark banner-layer"></div>
+
+                        <div class="carousel-caption" style="height: 60%">
+                            <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
+                            <p class="d-none d-sm-block text-center slide-text carousel-text-subheader">{{$banner->subtitle}}</p>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
+                    <script>
+                        $(document).ready(function(){
+                            $(".banner-layer").css('opacity', '0');
+                            $(".carousel-caption").css('opacity','0');
+                            $(".carousel-indicators").hover(function(){
+                                $(".banner-layer").css('opacity', '.8');
+                                $(".carousel-caption").css('opacity','1');
+                            })
+                            $(".carousel-item").hover(function(){
+                                //".carousel-control-next, " +
+                                //".carousel-control-prev, " +
+
+                                $(".carousel-caption").fadeTo(300, 1);
+                                $(".banner-layer").fadeTo(300, .8);
+                            },function(){
+                                if(!$(".carousel-indicators").is(":hover"))
+                                {$(".banner-layer").fadeTo(300, 0);
+                                $(".carousel-caption").fadeTo(300, 0)};
+                            });
+                        });
+                    </script>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -37,7 +58,7 @@
             </div>
         </div>
     </div> <!-- row banner-background -->
-    <div class="row justify-content-center main">
+    <div class="row justify-content-center main mt-5 mt-md-0">
         <div class="col-11 col-md-10 col-lg-8">
             <div class="row main-content">
                 <div class="col-12">
