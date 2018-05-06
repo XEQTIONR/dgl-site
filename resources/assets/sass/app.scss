@@ -14,66 +14,8 @@ hr {
 }
 
 //PAGE SPECIFIC BACKGROUNDS
-.background-news{
-  background: radial-gradient(
-                  rgba(70,67,84,.2) 1%,
-                  rgba(70,67,84,1) 100%),
-              url('/storage/bh.jpg');
-  background-size: cover;
-  z-index: -2;
-}
-.background-teams{
-   background: radial-gradient(
-                   rgba(70,67,84,.2) 1%,
-                   rgba(70,67,84,1) 100%
-   ),
-   url('/storage/rainbow6.jpg');
-   background-size: cover;
-   background-position: center bottom;
-   z-index: -2;
- }
-.background-tournament{
-  background: radial-gradient(
-    rgba(70,67,84,.2) 1%,
-    rgba(70,67,84,1) 100%
-    ),
-    url('/storage/hearthstone.jpg');
-  background-size: cover;
-  z-index: -2;
-}
 .background-a-tournament{
   background-size: cover;
-}
-.background-matches{
-  background: radial-gradient(
-                  rgba(70,67,84,.2) 1%,
-                  rgba(70,67,84,1) 100%
-    ),
-    url('/storage/overwatch-3.jpg');
-  background-size: cover;
-  background-position: center top;
-  z-index: -2;
-  //position: relative;
-}
-
-.background-players{
-  background: radial-gradient(
-    rgba(96,92,168,.2) 1%,rgba(96,92,168,1) 100%
-    ),
-    url('/storage/lanparty1.jpg');
-  background-size: cover;
-  background-position: center bottom;
-  z-index: -2;
-}
-.overlay {
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  overflow: hidden;
-  top: 0px;
-  left: 0px;
-  background: rgba(0, 0, 0, 0.7); /*can be anything, of course*/
 }
 
 
@@ -602,6 +544,28 @@ body{
     padding : 10px 0;
     color: #FFF;
     font-weight: 700;
+  }
+
+  .banner-row{
+    margin-top: 50px;
+
+    .banner-row-background{
+      width: 100%; z-index: -2; position: relative;
+    }
+    h1{
+      z-index:2;
+      position: absolute;
+      top: 40%;
+      left: 10%;
+      text-transform: uppercase;
+      color: #FFF;
+    }
+    .banner-icon{
+      position: absolute;
+      z-index: 2;
+      top: 40%;
+      right: 10%;
+    }
   }
 
   .title-banner-img-container{

@@ -1,31 +1,13 @@
 @extends('layouts.main')
 @section('body-section')
-  <div class="row justify-content-center back-color-darkgray"> <!-- jumbotron row -->
-    <div class="col-12 mt-md-5 no-horizontal-padding">
-      <div class="jumbotron-fluid background-tournament">
-        <div class="row my-5 pt-5 justify-content-start">
-          <div class="col-12 col-md-7 offset-md-1 col-xl-6 offset-xl-1 mt-10">
-            <h1 class="display-4 text-center text-md-left">Tournaments</h1>
-          </div>
-          <div class="col-2 offset-3 offset-sm-4 offset-md-0 mt-10">
-            {{--<img src="{{URL::asset('storage/tournament-icon-white-96.png')}}" height="130">--}}
-          </div>
-          <hr class="my-4">
-        </div>
-        <div class="row">
-          <div class="col offset-1">
-            <h2 class="">Guts, Glory, Game</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col offset-1">
-            <p class="lead mr-4">Information hub for DGL Tournaments past and present.</p>
-          </div>
-        </div>
-      </div>
+  <div class="row justify-content-center banner-row">
+    <div class="col-12 mx-0 px-0">
+      <img src="{{URL::asset('storage/Banner1.png')}}"
+           class="banner-row-background">
+      <h1>Tournaments</h1>
+      <img src="{{URL::asset('storage/icons8-trophy-64.png')}}" class="banner-icon">
     </div>
-  </div> <!-- row -->
-
+  </div>
   <!-- if an active tournament currently -->
   <div class="row pb-5 border-bottom back-color-purple" style="z-index: 2;">
     <div class="col-12">
