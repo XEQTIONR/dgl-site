@@ -8,7 +8,7 @@
       <img src="{{URL::asset('storage/icons8-conference-64.png')}}" class="banner-icon">
     </div>
   </div>
-  <div class="row justify-content-center back-color-light main"> <!-- the content row -->
+  <div class="row justify-content-center"> <!-- the content row -->
     <div class="col-10">
       <div class="row mt-5">
         <div class="col">

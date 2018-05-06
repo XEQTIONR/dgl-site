@@ -9,6 +9,7 @@
     </div>
   </div>
   <!-- if an active tournament currently -->
+  @if(count($active_tournaments)>0)
   <div class="row pb-5 border-bottom back-color-purple" style="z-index: 2;">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
@@ -44,7 +45,7 @@
       @endforeach
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
-
+  @endif
 
   <div class="row pb-5 border-bottom  back-color-lightergray">
     <div class="col-12">

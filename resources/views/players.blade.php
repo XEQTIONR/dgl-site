@@ -22,6 +22,7 @@
       </tr>
       </thead>
       <tbody>
+      @if(count($players)>0)
       @foreach($players as $gamer)
         <tr>
           <td>{{$gamer->alias}}</td>
@@ -31,6 +32,14 @@
           <td>{{date('M j Y', strtotime($gamer->recent_at))}}</td>
         </tr>
       @endforeach
+      @else
+        <tr>
+          <td colspan="5">
+          <p class="text-center">No players yet. This list gets populated as teams register for new tournaments.</p>
+          </td>
+        </tr>
+
+      @endif
       </tbody>
     </table>
   </div>

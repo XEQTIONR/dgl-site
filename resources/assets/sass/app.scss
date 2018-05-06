@@ -511,7 +511,7 @@ body{
     a.nav-link{
       border-bottom: 5px solid transparent;
       &:hover{
-        color: $dgl-blue;
+        color: $dgl-primary;
       }
     }
 
@@ -553,12 +553,16 @@ body{
       width: 100%; z-index: -2; position: relative;
     }
     h1{
+      font-family: "FuturaMedium", "FuturaLight";
+      font-weight: 700;
+      font-size: 3rem;
       z-index:2;
       position: absolute;
       top: 40%;
       left: 10%;
       text-transform: uppercase;
       color: #FFF;
+      text-shadow: -3px 0 #474d55, 0 3px #474d55, 3px 0 #474d55, 0 -3px #474d55;
     }
     .banner-icon{
       position: absolute;

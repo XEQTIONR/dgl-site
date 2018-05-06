@@ -32,9 +32,11 @@
   padding-right: 4rem !important;
 }
 // Brands
-$dgl-primary: #6ACC5C;
+$dgl-primary: #51DBB0;
 $dgl-purple : #7D64D1;
-$dgl-blue: #00A0EA;
+$dgl-blue: #6FCDDE;
+$dgl-yellow: #FFED78 ;
+$dgl-red: #FF697D;
 //$dgl-lightestgray: #DBE2EB;
 
 $dgl-lightergray: #EAEAEB;
@@ -86,8 +88,8 @@ $dgl-dark: #1F1D26;
 .back-color-dark{
   background-color: $dgl-dark;
 }
-.back-color-primary{
-  background-color: $dgl-primary;
+.back-color-red{
+  background-color: $dgl-red;
 }
 
 .back-color-purple{
@@ -106,10 +108,10 @@ $dgl-dark: #1F1D26;
   background-color: $dgl-lightergray;
 }
 
-.back-color-primary-grad{
-  background-image: radial-gradient(circle,$dgl-primary 0%,darken($dgl-primary, 15%) 100%);
+.back-color-red-grad{
+  background-image: radial-gradient(circle,$dgl-red 0%,darken($dgl-red, 15%) 100%);
   &:hover{
-    background-image: radial-gradient(circle,lighten($dgl-primary,20%) 0%,lighten($dgl-primary, 5%) 100%);
+    background-image: radial-gradient(circle,lighten($dgl-red,20%) 0%,lighten($dgl-red, 5%) 100%);
   }
 }
 .back-color-purple-grad{

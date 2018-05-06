@@ -193,7 +193,7 @@
                 </div>
 
                 <div class="col-11 col-lg-12 my-4">
-                    <div class="card back-color-primary">
+                    <div class="card back-color-red">
                         <div class="card-body">
                             <h6 class="font-primary-700b text-center">NEXT TOURNAMENT</h6>
                             <img class="dgl-card-img" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="Card image cap">
@@ -204,7 +204,7 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
                         </div>
-                        <div class="card-body text-center back-color-primary-grad">
+                        <div class="card-body text-center back-color-red-grad">
                             <a href="#" class="card-link">Go somewhere</a>
                         </div>
                     </div>

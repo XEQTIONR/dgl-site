@@ -72,4 +72,4 @@ Route::resource('/media', 'MediaController');
 Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
 Route::get('/owapi/{battletag}', 'GamerController@getOverwatchInfo');
 
-Route::get('/settings', 'GamerController@settings');
+Route::get('/settings', 'GamerController@settings')->name('settings');

@@ -51,7 +51,7 @@
         <span class="d-none d-lg-inline-block navbar-text ">ĐAGAMELEAGUE</span>
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-2 mr-auto">
           <li class="nav-item active">
             <a href="/news" class="nav-link" href="#">news<span class="sr-only">(current)</span></a>
           </li>
@@ -94,6 +94,12 @@
             </a>
           </span>
         @else
+          <span class="">
+            <a href="{{  route('settings')  }}" class="nav-link">
+              <i class="fas fa-cog"></i>
+              settings
+            </a>
+          </span>
           <span>
           <a href="{{ route('logout') }}" class="nav-link"
              onclick="event.preventDefault();
