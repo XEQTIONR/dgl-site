@@ -431,6 +431,22 @@ body .video-thumbnail-link:hover .middle {
   opacity: 1;
 }
 
+@media screen and (min-width: 992px) {
+  body .sidebar {
+    width: 301px;
+  }
+
+  body .sidebar .list-group {
+    width: 301px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  body .sidebar .list-group {
+    width: 60px;
+  }
+}
+
 body .fixture-table-primary {
   border: 1px solid #51DBB0;
 }
@@ -657,6 +673,11 @@ body .nav-container {
 body .navbar {
   padding: 0 !important;
   background-color: #262625;
+}
+
+body .navbar .dropdown-item:hover {
+  background-color: #6FCDDE;
+  color: #FFF;
 }
 
 body .nav-brand a {

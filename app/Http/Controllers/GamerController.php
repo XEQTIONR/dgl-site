@@ -87,10 +87,13 @@ class GamerController extends Controller
         if($gamer->battlenetid!=$request->battlenetid)
         {
           $gamer->battlenetid = $request->battlenetid;
-          $battnet_meta = new GamerMeta();
-          $battnet_meta->meta_key = 'overwatch_avatar_url';
-          $battnet_meta->meta_value = $request->battleNetAvatarURL;
-          array_push($meta, $battnet_meta);
+          if($request->battlenetid)
+          {
+            $battnet_meta = new GamerMeta();
+            $battnet_meta->meta_key = 'overwatch_avatar_url';
+            $battnet_meta->meta_value = $request->battleNetAvatarURL;
+            array_push($meta, $battnet_meta);
+          }
 
           GamerMeta::where('gamer_id', $gamer->id)
                   ->where('meta_key', 'overwatch_avatar_url')
@@ -100,11 +103,13 @@ class GamerController extends Controller
         if($gamer->steamid!=$request->steamid)
         {
           $gamer->steamid = $request->steamid;
-          $steam_meta = new GamerMeta();
-          $steam_meta->meta_key = 'steam_avatar_url';
-          $steam_meta->meta_value = $request->steamAvatarURL;
-          array_push($meta, $steam_meta);
-
+          if($request->steamid) //if not null
+          {
+            $steam_meta = new GamerMeta();
+            $steam_meta->meta_key = 'steam_avatar_url';
+            $steam_meta->meta_value = $request->steamAvatarURL;
+            array_push($meta, $steam_meta);
+          }
           GamerMeta::where('gamer_id', $gamer->id)
                   ->where('meta_key', 'steam_avatar_url')
                   ->delete();

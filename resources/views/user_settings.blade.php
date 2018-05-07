@@ -3,20 +3,21 @@
 @section('body-section')
 
 <div id="settingsApp" class="row">
-  <div class="back-color-purple" style="width: 301px;">
+  <div class="back-color-purple d-block sidebar">
     <div class="row" style="margin-top: 75px;">
       <div class="col-12">
-      <h6 class="font-white text-uppercase text-center">Settings</h6>
+      <h6 class="d-none d-lg-block font-white text-uppercase text-center">Settings</h6>
+       <h2><i class="fas fa-cog mx-3 d-inline d-lg-none font-white"></i></h2>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="list-group list-group-flush"  style="width: 301px;">
+      <div class="list-group list-group-flush ">
         <a href="#"
            v-on:click="changeActive('myinfo')"
            v-bind:class="{active: panels.myinfo}"
            class="list-group-item">
-          <i class="fas fa-info ml-1 mr-3"></i>
-          My Information
+          <i class="fas fa-info mr-3 ml-1"></i>
+          <span class="d-none d-lg-inline">My Information</span>
         </a>
         {{--there should always be a gamer meta with a  verification code--}}
         {{--@if($gamer->status == 'unverified')--}}
@@ -25,7 +26,7 @@
            v-bind:class="{active: panels.emailverify}"
            class="list-group-item">
           <i class="fas fa-at mr-2"></i>
-          Email Verification
+          <span class="d-none d-lg-inline">Email Verification</span>
         </a>
         {{--@endif--}}
         <a href="#" 
@@ -33,7 +34,7 @@
            v-bind:class="{active: panels.mycheckins}"
            class="list-group-item">
           <i class="fas fa-check mr-2"></i>
-          My Checkins
+          <span class="d-none d-lg-inline">My Checkins</span>
         </a>
         <a href="#" 
            v-on:click="changeActive('mytournamentinvites')"
@@ -41,22 +42,22 @@
            class="list-group-item">
 
           <i class="far fa-envelope-open mr-2"></i>
-          My Tournament Invites
+          <span class="d-none d-lg-inline">My Tournament Invites</span>
         </a>
       </div>
     </div>
   </div>
-  <div class="col-9">
+  <div class="col-9 col-sm-10 col-lg-8">
       <div v-bind:class="[{'visible' : panels.myinfo}, {'hidden' : !panels.myinfo}]" id="myInfo" class="row mt-10">
-        <div v-bind:class="[{'visible' : !gamer.edit}, {'hidden' : gamer.edit}]" class="col-6 offset-1">
+        <div v-bind:class="[{'visible' : !gamer.edit}, {'hidden' : gamer.edit}]" class="col-11 col-md-7 col-lg-8 col-xl-7 offset-1">
           <dl class="row">
             <div class="col-12">
               <div class="row mb-0">
-                <div class="col-11 pl-0">
-                <h5 class="text-uppercase">Basic Information </h5>
+                <div class="col-10 pl-0">
+                  <h5 class="text-uppercase">Basic Information </h5>
                 </div>
-                <div class="col-1">
-                  <span v-on:click="edit()" style="font-size: 20px"><a><i class="fas fa-pencil-alt ml-5 mt-1"></i></a></span>
+                <div class="col-2 col-md-1">
+                  <span v-on:click="edit()" style="font-size: 20px"><a><i class="fas fa-pencil-alt mt-1"></i></a></span>
                 </div>
               </div>
               <div class="row mb-3">
@@ -88,7 +89,8 @@
                 <h5 class="mt-5 mb-2 text-uppercase">Gamer Social</h5>
               </div>
               <div class="row mb-3">
-                <small>Your gaming platform credentials. You will atleast some of these filled in before you can participate in our tournaments..</small>
+                <small>Your gaming platform credentials. These fields become mandatory depending on which tournament
+                you participate in. So make sure your information is updated.</small>
               </div>
             </div>
 
@@ -117,12 +119,9 @@
               <dl>
                 @if($steamflag)
                 <div class="row">
-                  <div class="col-2">
                     <img src="{{$steamavatarURL}}" width="64" height="64">
-                  </div>
-                  <div class="col-9">
-                    <h3>{{$gamer->personaname}}</h3>
-                  </div>
+                    <h3 class="d-none d-lg-inline ml-1">{{$gamer->personaname}}</h3>
+                    <h5 class="d-inline d-lg-none ml-1">{{$gamer->personaname}}</h5>
                 </div>
                 @else
                 <dd>@{{ gamer.steam }}</dd>
@@ -134,17 +133,14 @@
             <dd class="col-sm-9">
               @if($owflag)
                 <div class="row">
-                  <div class="col-2">
                     <img src="{{$owavatarURL}}" width="64" height="64">
-                  </div>
-                  <div class="col-9">
-                    <h3>@{{ gamer.battlenet }}</h3>
-                  </div>
+                    <h3 class="d-none d-lg-inline ml-1">@{{ gamer.battlenet }}</h3>
+                    <h5 class="d-inline d-lg-none ml-1">@{{ gamer.battlenet }}</h5>
                 </div>
               @else
               <dl>
                 <dd>@{{ gamer.battlenet }}</dd>
-                <dd><small><em>You need to provide this to register for DGL tournaments of Battle.Net games.</em></small></dd>
+                <dd><small><em>You need to provide this to register for DGL tournaments of Blizzard games.</em></small></dd>
               </dl>
               @endif
             </dd>
@@ -157,12 +153,12 @@
             </dd>
           </dl>
         </div>
-        <div v-bind:class="[{'visible' : gamer.edit}, {'hidden' : !gamer.edit}]" class="col-6 offset-1">
+        <div v-bind:class="[{'visible' : gamer.edit}, {'hidden' : !gamer.edit}]" class="col-9 col-md-6 offset-1">
         <div class="row mb-0">
-          <div class="col-11 pl-0">
+          <div class="col-10 pl-0">
           <h5 class="text-uppercase">Basic Information</h5>
           </div>
-          <div class="col-1">
+          <div class="col-2 pl-0 pr-2">
             <span v-on:click="cancel()" style="font-size: 25px" class="text-right"><i class="far fa-times-circle  ml-5"></i></span>
           </div>
         </div>
@@ -213,7 +209,11 @@
             {{--<label>Steam64ID</label>--}}
           {{--</div>--}}
           <div v-if="!steamProfileFound" class="form-group row">
-            <label for="inputLname">Steam64 ID</label>
+            <label for="inputLname">Steam64 ID
+              <span class="ml-2" v-bind:class="[{'visible-inline': searchingSteam },{'hidden': !searchingSteam}]">
+                <i class="fa-spin fas fa-circle-notch"></i>
+              </span>
+            </label>
             <input v-model="steamIdInput" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">Required for tournaments with games hosted on Steam.</small>
           </div>
@@ -231,11 +231,15 @@
               <input name="steamAvatarURL" v-model="steamAvatarURL" type="hidden">
             </div>
             <div class="col-1 mr-0 pr-0">
-              <button type="button" class="btn btn-danger">X</button>
+              <button v-on:click="steamProfileFound = false" type="button" class="btn btn-danger">X</button>
             </div>
           </div>
           <div v-if="!owProfileFound" class="form-group row">
-            <label for="inputLname">Battle Tag</label>
+            <label for="inputKname">Battle Tag
+              <span class="ml-2" v-bind:class="[{'visible-inline': searchingBattleTag },{'hidden': !searchingBattleTag}]">
+                <i class="fa-spin fas fa-circle-notch"></i>
+              </span>
+            </label>
             <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">Currently only Battle.Net accounts owning a copy of Overwatch. Required for Overwatch tournaments.</small>
           </div>
@@ -252,7 +256,7 @@
               <input name="battleNetAvatarURL" v-model="owAvatarURL" type="hidden">
             </div>
             <div class="col-1 mr-0 pr-0">
-              <button type="button" class="btn btn-danger">X</button>
+              <button v-on:click="owProfileFound = false" type="button" class="btn btn-danger">X</button>
             </div>
           </div>
 
@@ -262,13 +266,13 @@
             <small id="emailHelp" class="form-text text-muted">Required for all tournaments. No exceptions.</small>
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button v-bind:disabled="searchingSteam || searchingBattleTag" type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
       </div>
 
     <div v-bind:class="[{'visible' : panels.mycheckins}, {'hidden' : !panels.mycheckins}]" class="row mt-10">
-      <div class="col-6 offset-1">
+      <div class="col-11 col-md-8 offset-1">
         <div class="row">
           <h5 class="text-uppercase">My Checkins</h5>
         </div>
@@ -280,15 +284,15 @@
             @foreach($checkin_meta as $record)
             <li class="list-group-item">
               <div class="d-flex w-100 justify-content-around">
-                  {{$record->contendingTeam->name}}
-                  {{$record->contendingTeam->tag}}
+                  <span><strong class="d-none d-md-inline">{{$record->contendingTeam->name}}</strong>
+                  {{$record->contendingTeam->tag}}</span>
                   <span>VS</span>
                   @foreach($record->contendingTeam->matchContestants as $match_container)
                     @if($match_container->contending_team_id == $record->contending_team_id)
                       @foreach($match_container->match->contestants as $rival)
                         @if($rival->contending_team_id != $record->contending_team_id)
-                          {{$rival->contending_team->tag}}
-                          {{$rival->contending_team->name}}
+                        <span>{{$rival->contending_team->tag}}
+                          <strong class="d-none d-md-inline">{{$rival->contending_team->name}}</strong></span>
                         @endif
                       @endforeach
                       <?php $checked_in = false; ?>
@@ -298,7 +302,10 @@
                         @endif
                       @endforeach
                       @if($checked_in)
-                          <span class="font-primary-color"><strong>CHECKED IN</strong></span>
+                          <span class="font-primary-color">
+                            <i class="fas fa-check mr-2">
+                            </i><strong class="d-none d-md-inline">CHECKED IN</strong>
+                          </span>
                       @else
                       <?php
                         //$now = \Carbon\Carbon::now();
@@ -327,7 +334,7 @@
     </div>
 
       <div v-bind:class="[{'visible' : panels.emailverify}, {'hidden' : !panels.emailverify}]" class="row mt-10">
-        <div class="col-6 offset-1">
+        <div class="col-11 col-lg-6 offset-1">
           <div class="row">
               <h5 class="text-uppercase">Email Verification</h5>
           </div>
@@ -379,7 +386,7 @@
       </div>
 
       <div v-bind:class="[{'visible' : panels.mytournamentinvites}, {'hidden' : !panels.mytournamentinvites}]" class="row mt-10">
-        <div class="col-6 offset-1">
+        <div class="col-11 col-lg-8 offset-1">
           <div class="row">
             <h5 class="text-uppercase">Invitations Received</h5>
           </div>
@@ -491,16 +498,17 @@
 <script>
   let data = {
 
+      searchingSteam: false,
       steamProfileFound: false,
       steamIdInput: "{{$gamer->steamid}}",
       steamPersonaName: "",
       steamAvatarURL: "",
 
+      searchingBattleTag: false,
       battleTagInput: "{{$gamer->battlenetid}}",
       owProfileFound: false,
       owAvatarURL: "",
 
-      steamStatus: "",
       panels: {
           'myinfo': true,
           'emailverify': false,
@@ -563,30 +571,37 @@
 
           getSteamInfo: function()//steam64id
           {
-           //   console.log("triggered");
-              axios.get('/steamapi/'+this.steamIdInput).then(function(response){
-                  var steam_profile = response.data;
+              var statuses = ['offline','online','busy','away','snooze','looking to trade', 'looking to play'];
+              if(app.steamIdInput!="") {
+                  app.searchingSteam = true;
+                  axios.get('/steamapi/' + this.steamIdInput).then(function (response) {
+                      var steam_profile = response.data;
 
-                  //console.log(steam_profile.personaname);
-                  //console.log(steam_profile.avatarmedium);
-                  app.steamPersonaName = steam_profile.personaname;
-                  app.steamAvatarURL = steam_profile.avatarmedium;
-                  app.steamStatus = steam_profile.personastate;
-                  if(steam_profile.responseStatus == 'success')
-                    app.steamProfileFound = true;
-                  else
-                    app.steamProfileFound = false;
-            });
+                      app.searchingSteam = false;
+                      app.steamPersonaName = steam_profile.personaname;
+                      app.steamAvatarURL = steam_profile.avatarmedium;
+                      app.steamStatus = statuses[steam_profile.personastate];
+                      if (steam_profile.responseStatus == 'success')
+                          app.steamProfileFound = true;
+                      else
+                          app.steamProfileFound = false;
+                  });
+              }
           },
           getOverwatchInfo: function()
           {
-              axios.get('/owapi/'+this.battleTagInput.replace("#","-")).then(function(response){
-                  var ow_data = response.data;
-                  app.owAvatarURL = ow_data.data;
+               if(app.battleTagInput!="") {
+                  app.searchingBattleTag = true;
+                  axios.get('/owapi/' + this.battleTagInput.replace("#", "-")).then(function (response) {
+                      var ow_data = response.data;
 
-                  if(ow_data.status == 'success')
-                      app.owProfileFound = true;
-              });
+                      app.searchingBattleTag = false;
+                      app.owAvatarURL = ow_data.data;
+
+                      if (ow_data.status == 'success')
+                          app.owProfileFound = true;
+                  });
+               }
           }
       }
   })
@@ -596,6 +611,9 @@
   .visible{
     /**visibility : visible;*/
     display: inherit;
+  }
+  .visible-inline{
+    display: inline;
   }
   .hidden{
     /**visibility: hidden;*/

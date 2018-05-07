@@ -274,6 +274,24 @@ body{
   } // video-thumbnail-link
 
 
+  .sidebar{
+    @media screen and (min-width: 992px) {
+      width: 301px;
+
+      .list-group{
+        width: 301px;
+      }
+    }
+
+    @media screen and (max-width: 991px) {
+      //width: 150px;
+
+      .list-group{
+        width: 60px;
+      }
+    }
+  }
+
   .fixture-table-primary{
     border: 1px solid $dgl-primary;
   }
@@ -457,10 +475,12 @@ body{
       padding: .4em 2em;
     }
   }
+
   .nav{//bootstrap-override - for atournament page
     .nav-link{
       color: #FFF;
     }
+
     .disabled{
       text-decoration: line-through;
     }
@@ -477,6 +497,12 @@ body{
     padding: 0 !important;
     background-color: $dgl-darkergray;
 
+    .dropdown-item{
+      &:hover{
+        background-color: $dgl-blue;
+        color: #FFF;
+      }
+    }
 
   }
   .nav-brand{
