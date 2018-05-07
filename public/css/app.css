@@ -115,10 +115,6 @@
   background-image: radial-gradient(circle, #bfb3e8 0%, #8d78d7 100%);
 }
 
-.back-color-orange {
-  background-color: #51DBB0;
-}
-
 .back-color-primary-hover {
   background-color: #3cd7a6;
   border-top: 1px solid white;
@@ -126,14 +122,6 @@
 
 .back-color-primary-hover:hover {
   background-color: #2bce9b;
-}
-
-.back-color-orange-hover {
-  border-top: 1px solid white;
-}
-
-.back-color-orange-hover:hover {
-  background-color: #2ae8ad;
 }
 
 .font-futura {

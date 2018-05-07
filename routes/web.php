@@ -67,9 +67,14 @@ Route::resource('/media', 'MediaController');
     CRUD::resource('match','MatchCrudController');
     CRUD::resource('match_contestant', 'Match_contestantCrudController'); // for scores
     CRUD::resource('banner','BannerCrudController');
+    CRUD::resource('album', 'AlbumCrudController');
   });
 
 Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
 Route::get('/owapi/{battletag}', 'GamerController@getOverwatchInfo');
 
 Route::get('/settings', 'GamerController@settings')->name('settings');
+
+Route::get('/test', function(){
+  return view('test');
+});

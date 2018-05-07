@@ -121,9 +121,6 @@ $dgl-dark: #1F1D26;
   }
 }
 
-.back-color-orange{
-  background-color: $dgl-primary;
-}
 .back-color-primary-hover{
   background-color: darken($dgl-primary, 5%);
   border-top: 1px solid white;
@@ -132,13 +129,6 @@ $dgl-dark: #1F1D26;
     background-color: darken($dgl-primary, 10%);
   }
 }
-.back-color-orange-hover{
-  border-top: 1px solid white;
-  &:hover{
-    background-color: saturate(darken($dgl-primary, 5%),15%);
-  }
-}
-
 
 // Typography
 $font-primary: "Poppins", sans-serif;
@@ -149,6 +139,7 @@ $font-quicksand: "Quicksand";
   font-family: $font-futura !important;
   font-weight: 600;
 }
+
 h1, h2, h3, h5 {
   font-family: $font-primary;
 }
