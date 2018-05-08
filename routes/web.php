@@ -51,7 +51,7 @@ Route::resource('/news', 'NewsController');
 Route::get('/players', 'GamerController@index');
 
 Route::resource('/media', 'MediaController');
-
+Route::get('/album/{album}','MediaController@listAlbum');
   Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['admin'],

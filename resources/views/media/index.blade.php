@@ -24,41 +24,18 @@
     <div class="col-10">
       <div class="row">
 
+        @foreach($albums as $album)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <div class="card team-logo-300-gray">
-            <img class="card-img-top" src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Card image cap">
-            <div class="card-body back-color-lightergray">
-              <h5 class="card-title text-center font-purple">Overtime Esports</h5>
+          <a href="/album/{{$album->id}}">
+            <div class="card team-logo-300-gray">
+              <img class="card-img-top" src="/uploads/images/albums/cover_images/{{$album->cover_image}}" alt="{{$album->name}} Album">
+              <div class="card-body back-color-lightergray">
+                <h5 class="card-title text-center font-purple">{{$album->name}}</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <div class="card team-logo-300-gray">
-            <img class="card-img-top" src="{{URL::asset('storage/dota-1.png')}}" alt="Card image cap">
-            <div class="card-body back-color-lightergray">
-              <h5 class="card-title text-center font-purple">Rise Clan</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <div class="card team-logo-300-gray">
-            <img class="card-img-top" src="{{URL::asset('storage/bh.jpg')}}" alt="Card image cap">
-            <div class="card-body back-color-lightergray">
-              <h5 class="card-title text-center font-purple">Vaevictis Esports</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <div class="card team-logo-300-gray">
-            <img class="card-img-top" src="{{URL::asset('storage/dd.jpg')}}" alt="Card image cap">
-            <div class="card-body back-color-lightergray">
-              <h5 class="card-title text-center font-purple">Lyon Gaming</h5>
-            </div>
-          </div>
-        </div>
+        @endforeach
 
       </div>
     </div>
