@@ -50,6 +50,19 @@ class AlbumCrudController extends CrudController
         ]
         , 'update/create/both');
 
+      $this->crud->addField([
+          'name' => 'cover_image',
+          'label' => 'Cover Image',
+          'type' => 'image',
+          'crop' => false, // set to true to allow cropping, false to disable
+          'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+          'upload' => true,
+          'disk' => 'uploads',
+          'prefix' => '/images/albums/cover_images'
+        ]
+        , 'update/create/both');
+
+
         $this->crud->addField([
           'name' => 'Type',
           'label' => 'type',
