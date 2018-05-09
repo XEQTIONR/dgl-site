@@ -75,8 +75,8 @@
             <div class="footer-list-div">
               <h5 class="text-uppercase font-purple">Media</h5>
               <ul class="list list-unstyled">
-                <li><a href="">Photos</a></li>
-                <li><a href="">Videos</a></li>
+                <li><a href="/media#photos">Photos</a></li>
+                <li><a href="/media#videos">Videos</a></li>
               </ul>
             </div>
 

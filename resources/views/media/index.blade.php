@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" id="photos">
     <div class="col-10 mt-5">
       <h1 class="font-light-gray">PHOTOS</h1>
     </div>
@@ -40,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" id="videos">
     <div class="col-10 mt-5">
       <h1 class="font-light-gray">VIDEOS</h1>
     </div>
