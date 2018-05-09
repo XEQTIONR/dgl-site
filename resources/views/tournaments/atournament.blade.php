@@ -14,9 +14,9 @@
 @section('body-section')
 
   <div class="row justify-content-center banner-background">
-    <div class="col col-lg-9  px-0 mt-5">
+    <div class="col-12  px-0 mt-5">
       {{--Dynamic background URL--}}
-      <div class="jumbotron-fluid jumbotron-atournament" style="background:linear-gradient(rgba(239,159,60,.4),rgba(239,159,60,.2)),url('/storage/dota-1.png');">
+      <div class="jumbotron-fluid jumbotron-atournament" style="background:linear-gradient(rgba(239,159,60,.4),rgba(239,159,60,.2)),url({{$tournament->banner}});">
         <div class="row tournament-name-row pt-5 justify-content-center" style="">
           <div class="col-12">
             <h1 class="display-4 text-center">{{$tournament->name}}</h1>
@@ -40,7 +40,7 @@
     </div>
   </div>
   <div class="row justify-content-center sub-menu back-color-dark">
-    <div class="col col-lg-9 nav-container" >
+    <div class="col-12 nav-container" >
       <nav class="nav justify-content-center">
         <a class="nav-link active" id="navOverview" href="#overviewRow">Overview</a>
         <a class="nav-link" id="navInfo" href="#infoRow">Information</a>
