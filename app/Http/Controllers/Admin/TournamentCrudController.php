@@ -94,6 +94,18 @@ class TournamentCrudController extends CrudController
           ]
           , 'update/create/both');
 
+      $this->crud->addField([
+          'name' => 'banner',
+          'label' => 'Banner Image',
+          'type' => 'image',
+          'crop' => false, // set to true to allow cropping, false to disable
+          'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+          'upload' => true,
+          'disk' => 'uploads',
+          //'prefix' => 'uploads/images/blog_banners/' //prefix set in model getter
+        ]
+        , 'update/create/both');
+
         $this->crud->addField([
             'name' => 'title',
             'label' => 'Esport',
