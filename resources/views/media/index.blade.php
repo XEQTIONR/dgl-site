@@ -47,8 +47,11 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-10">
-      <div class="row">
 
+      <div class="row justify-content-center">
+        {{--//TODO: populate videos--}}
+        @if(0)
+        @foreach($videos as $video)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
           <a href="/google" class="video-thumbnail-link">
           <div class="row">
@@ -68,67 +71,10 @@
           </div>
           </a>
         </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <a href="/google" class="video-thumbnail-link">
-            <div class="row">
-              <div class="video-thumbnail">
-
-                <img src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Avatar" >
-                <div class="middle">
-                  <div class="icon-container">
-                    <i class="fas fa-play-circle"></i>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="row mt-2">
-              <h5 class="pl-5">Title of the video</h5>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <a class="video-thumbnail-link" href="/google">
-            <div class="row">
-              <div class="video-thumbnail">
-
-                <img src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Avatar" >
-                <div class="middle">
-                  <div class="icon-container">
-                    <i class="fas fa-play-circle"></i>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="row mt-2">
-              <h5 class="pl-5">Title of the video</h5>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
-          <a class="video-thumbnail-link" href="/google">
-            <div class="row">
-              <div class="video-thumbnail">
-
-                <img src="{{URL::asset('storage/overwatch-2.jpg')}}" alt="Avatar" >
-                <div class="middle">
-                  <div class="icon-container">
-                    <i class="fas fa-play-circle"></i>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div class="row mt-2">
-              <h5 class="pl-5">Title of the video</h5>
-            </div>
-          </a>
-        </div>
-
+        @endforeach
+        @else
+          <h4 class="text-center my-5"> No videos yet. They appear here as they are posted.</h4>
+        @endif
       </div>
     </div>
   </div>
