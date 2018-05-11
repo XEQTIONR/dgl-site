@@ -33,4 +33,18 @@ class ContendingTeam extends Model
   {
     return $this->hasMany('App\MatchContestant');
   }
+
+  /*
+  |--------------------------------------------------------------------------
+  | ACCESSORS
+  |--------------------------------------------------------------------------
+  */
+
+  public function getLogoSize1Attribute($value){
+    return "/uploads/images/clan_logos/".$value;
+  }
+
+  public function getLogoSize2Attribute($value){
+    return "/uploads/images/clan_logos/".$value;
+  }
 }
