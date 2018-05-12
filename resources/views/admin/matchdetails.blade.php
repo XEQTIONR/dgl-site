@@ -47,7 +47,7 @@
                   $value = '<td style="color: red">NOT CHECKED IN</td>';
                   foreach($checkins as $checkin)
                   {
-                    if($aroster->gamer->id == $checkin->gamer_id)
+                    if($aroster->id == $checkin->roster_id)
                       $value = '<td style="color: green">CHECKED IN</td>';
                   }
                   echo $value;

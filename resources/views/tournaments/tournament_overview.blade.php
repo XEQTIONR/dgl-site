@@ -8,20 +8,25 @@
     <div class="row">
       <h2>UPCOMING MATCHES</h2>
     </div>
+    <ul class="list-group">
     @foreach($checkingin as $match)
-      <div class="row"><!-- a waiting match-->
-        <div class="col-4">
+    <li class="list-group-item">
+      <div class="d-flex"><!-- a checking in match-->
+        <div class="col-5">
           <div class="row justify-content-center">
-            <span class="mt-3 mr-4 font-white">{{$match->contestants[0]->contending_team->name}}</span>
-            <img  class="align-text-bottom" src="/uploads/images/clan_logos/{{$match->contestants[0]->contending_team->logo_size2}}" width="50" height="50">
-
+            <span>
+              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
+              <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
+              <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
+            </span>
           </div>
-          <div class="row">
+          <div class="row justify-content-end">
             @foreach($match->checkins as $checkin)
               @foreach($match->contestants[0]->contending_team->roster as $roster)
                 @if($roster->id==$checkin->roster_id)
-                  <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
-                    {{$roster->gamer->alias}}
+                  <div class="back-color-primary mx-1">
+                    <img src="{{URL::asset('storage/icons8-ok-16.png')}}"
+                         data-toggle="tooltip" title="{{$roster->gamer->alias}}">
                   </div>
                 @endif
               @endforeach
@@ -38,26 +43,35 @@
                 @endforeach
 
                 @if($needcheckin)
-                    <a href="/checkin/{{$roster->id}}/{{$match->id}}" class=" my-3 btn btn-primary">CHECKIN BUTTON</a>
+                  <div class="row justify-content-end">
+                    <a href="/checkin/{{$roster->id}}/{{$match->id}}" class=" my-3 btn btn-success">
+                      <i class="fas fa-check"></i>
+                      CHECKIN
+                    </a>
+                  </div>
                 @endif
               @endif
             @endforeach
           @endif
         </div>
-        <div class="col-1 mt-3">
-          <span class="font-white">vs</span>
+        <div class="col-2 d-flex justify-content-center">
+          <span class="mt-2">vs</span>
         </div>
-        <div class="col-4">
+        <div class="col-5">
           <div class="row justify-content-center">
-            <img  class="align-text-bottom" src="/uploads/images/clan_logos/{{$match->contestants[1]->contending_team->logo_size2}}" width="50" height="50">
-            <span class="mt-3 ml-4 font-white">{{$match->contestants[1]->contending_team->name}}</span>
+            <span>
+              <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
+              <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
+            <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}">
+            </span>
           </div>
           <div class="row">
             @foreach($match->checkins as $checkin)
               @foreach($match->contestants[1]->contending_team->roster as $roster)
                 @if($roster->id==$checkin->roster_id)
-                  <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
-                    {{$roster->gamer->alias}}
+                  <div class="back-color-primary mx-1">
+                    <img src="{{URL::asset('storage/icons8-ok-16.png')}}"
+                      data-toggle="tooltip" title="{{$roster->gamer->alias}}">
                   </div>
                 @endif
               @endforeach
@@ -74,14 +88,21 @@
                 @endforeach
 
                 @if($needcheckin)
-                  <a href="/checkin/{{$roster->id}}/{{$match->id}}" class="btn btn-primary">CHECKIN BUTTON</a>
+                  <div class="row justify-content-start">
+                    <a href="/checkin/{{$roster->id}}/{{$match->id}}" class="my-3 btn btn-success">
+                      <i class="fas fa-check"></i>
+                      CHECKIN
+                    </a>
+                  </div>
                 @endif
               @endif
             @endforeach
           @endif
         </div>
-      </div><!-- a waiting match end-->
+      </div><!-- a checking in match end-->
+    </li>
     @endforeach
+    </ul>
 
 
     @foreach($waiting as $match)
@@ -125,7 +146,7 @@
     @endforeach
 
     @foreach($future as $match)
-      <div class="row"><!-- a waiting match-->
+      <div class="row"><!-- a future match-->
         <div class="col-4">
           <div class="row">
             {{$match->contestants[0]->contending_team->name}}
@@ -161,50 +182,71 @@
             @endforeach
           </div>
         </div>
-      </div><!-- a waiting match end-->
+      </div><!-- a future match end-->
     @endforeach
 
     <div class="row">
       <h2>RESULTS</h2>
     </div>
+    <ul class="list-group">
     @foreach($past as $match)
-      <div class="row"><!-- a waiting match-->
-        <div class="col-4">
-          <div class="row">
-            {{$match->contestants[0]->contending_team->name}}
+    <li class="list-group-item">
+      <div class="d-flex"><!-- a past match-->
+        <div class="col-5">
+          <div class="row justify-content-center">
+            <span>
+              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
+              <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
+              <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
+            </span>
           </div>
-          <div class="row">
+          <div class="row justify-content-end">
             @foreach($match->checkins as $checkin)
               @foreach($match->contestants[0]->contending_team->roster as $roster)
                 @if($roster->id==$checkin->roster_id)
-                  <div class="back-color-primary mx-1"  style="height: 50px; width: 50px">
-                    {{$roster->gamer->alias}}
+                  <div class="back-color-primary mx-1">
+                    {{--{{$roster->gamer->alias}}--}}
+                    <img src="{{URL::asset('storage/icons8-ok-16.png')}}"
+                    data-toggle="tooltip" title="{{$roster->gamer->alias}}">
                   </div>
                 @endif
               @endforeach
             @endforeach
           </div>
         </div>
-        <div class="col-1">
-          vs
+        <div class="col-2 d-flex justify-content-center">
+            <div class="mt-2">vs</div>
         </div>
-        <div class="col-4">
-          <div class="row">
-            {{$match->contestants[1]->contending_team->name}}
+        <div class="col-5">
+          <div class="row justify-content-center">
+            <span>
+              <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
+              <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
+            <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}">
+            </span>
           </div>
           <div class="row">
             @foreach($match->checkins as $checkin)
               @foreach($match->contestants[1]->contending_team->roster as $roster)
                 @if($roster->id==$checkin->roster_id)
-                  <div class="back-color-primary mx-1" style="height: 50px; width: 50px">
-                    {{$roster->gamer->alias}}
+                  <div class="back-color-primary mx-1">
+                    {{--{{$roster->gamer->alias}}--}}
+                    <img src="{{URL::asset('storage/icons8-ok-16.png')}}"
+                      data-toggle="tooltip" title="{{$roster->gamer->alias}}">
                   </div>
                 @endif
               @endforeach
             @endforeach
           </div>
         </div>
-      </div><!-- a waiting match end-->
+      </div><!-- a past match end-->
+    </li>
     @endforeach
+    </ul>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
   </div>
 </div>

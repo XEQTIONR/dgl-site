@@ -56,4 +56,6 @@ _Fix query for contending teams for each tournament_
 __Second chance email verification (in settings page) depends on always having a _'email_verification_code'_ meta for each gamer.__
 
 __*MUST DO:* Check for existing checkin before adding a new one__
+
+_Fix calendar form inputs for tournaments CRUD_
 ###### XEQTIØNR

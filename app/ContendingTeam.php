@@ -11,6 +11,9 @@ class ContendingTeam extends Model
   //
   use CrudTrait;
 
+  protected $fillable = ['name', 'tag', 'clan_id','tournament_id','status',
+                        'logo_size1', 'logo_size2'];
+
   /*
   |--------------------------------------------------------------------------
   | RELATIONS

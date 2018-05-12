@@ -48,7 +48,7 @@
               <div class="col-4 col-sm-2 col-lg-1">
                 <div class="row">
                 <div class="card team-logo-300-trans">
-                  <img class="card-img-top sm-md-logo" src="{{URL::asset('storage/team-8.png')}}" alt="Card image cap">
+                  <img class="card-img-top sm-md-logo" src="{{$match->contestants[0]->contending_team->logo_size1}}" alt="Card image cap">
 
                 </div>
                 </div>
@@ -66,7 +66,7 @@
               <div class="col-4 col-sm-2 col-lg-1">
                 <div class="row">
                 <div class="card team-logo-300-trans">
-                  <img class="card-img-top sm-md-logo" src="{{URL::asset('storage/team-2.png')}}" alt="Card image cap">
+                  <img class="card-img-top sm-md-logo" src="{{$match->contestants[1]->contending_team->logo_size1}}" alt="Card image cap">
                 </div>
                 </div>
                 <div class="row">
@@ -122,7 +122,7 @@
         <div class="col-4 col-sm-2 col-lg-1">
           <div class="row">
             <div class="card team-logo-300-trans">
-              <img class="card-img-top sm-md-logo" src="{{URL::asset('storage/team-6.png')}}" alt="Card image cap">
+              <img class="card-img-top sm-md-logo" src="{{$match->contestants[0]->contending_team->logo_size1}}" alt="Card image cap">
             </div>
           </div>
           <div class="row">
@@ -137,7 +137,7 @@
         <div class="col-4 col-sm-2 col-lg-1">
           <div class="row">
             <div class="card team-logo-300-trans">
-              <img class="card-img-top sm-md-logo" src="{{URL::asset('storage/team-2.png')}}" alt="Card image cap">
+              <img class="card-img-top sm-md-logo" src="{{$match->contestants[1]->contending_team->logo_size1}}" alt="Card image cap">
             </div>
           </div>
           <div class="row">
