@@ -33,7 +33,7 @@
           });
       });
   </script>
-  <div class="row py-5 border-bottom  back-color-lightgray">
+  <div class="row py-5 border-bottom">
     <div class="col-12">
       <div id="postContainer" class="row">
       <!-- blog rows -->

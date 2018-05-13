@@ -39,7 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center sub-menu back-color-dark">
+  <div class="row justify-content-center sub-menu back-color-lightergray">
     <div class="col-12 nav-container" >
       <nav class="nav justify-content-center">
         <a class="nav-link active" id="navOverview" href="#overviewRow">Overview</a>
@@ -50,7 +50,7 @@
       </nav>
     </div>
   </div>
-  <div class="row justify-content-center back-color-dark">
+  <div class="row justify-content-center back-color-lightergray">
     <div class="col-12 col-lg-9 my-0" style="">
       <div class="row mt-4">
         <div class="col-12 col-md-9 main-slot">

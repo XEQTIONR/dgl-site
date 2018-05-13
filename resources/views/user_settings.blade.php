@@ -272,7 +272,7 @@
       </div>
 
     <div v-bind:class="[{'visible' : panels.mycheckins}, {'hidden' : !panels.mycheckins}]" class="row mt-10">
-      <div class="col-11 col-md-8 offset-1">
+      <div class="col-11 offset-1">
         <div class="row">
           <h5 class="text-uppercase">My Checkins</h5>
         </div>
@@ -280,55 +280,101 @@
           <small>All your match Checkins. You must check-in into a match before playing.</small>
         </div>
         <div class="row mt-4">
-          <ul class="list-group w-100">
-            @foreach($checkin_meta as $record)
-            <li class="list-group-item">
-              <div class="d-flex w-100 justify-content-around">
-                  <span><strong class="d-none d-md-inline">{{$record->contendingTeam->name}}</strong>
-                  {{$record->contendingTeam->tag}}</span>
-                  <span>VS</span>
-                  @foreach($record->contendingTeam->matchContestants as $match_container)
-                    @if($match_container->contending_team_id == $record->contending_team_id)
-                      @foreach($match_container->match->contestants as $rival)
-                        @if($rival->contending_team_id != $record->contending_team_id)
-                        <span>{{$rival->contending_team->tag}}
-                          <strong class="d-none d-md-inline">{{$rival->contending_team->name}}</strong></span>
-                        @endif
-                      @endforeach
-                      <?php $checked_in = false; ?>
-                      @foreach($record->checkin as $acheckin)
-                        @if($match_container->match->id == $acheckin->match_id)
+          @foreach($checkin_meta as $roster)
+            <div class="row">
+              <div class="col">
+        <span>
+          <img class="align-center" src="{{$roster->contendingTeam->logo_size2}}" alt="{{$roster->contendingTeam->tag}} logo">
+          <span class="d-inline d-md-none">{{$roster->contendingTeam->tag}}</span>
+          <span class="d-none d-md-inline">{{$roster->contendingTeam->name}}</span>
+          <span class="ml-3">competing in</span>
+          <span class="ml-3">
+             @foreach($teams_formed as $someteam)
+              @if($someteam->id == $roster->contending_team_id)
+                {{$someteam->tournament->name}}
+              @endif
+            @endforeach
+            @foreach($teams_joined as $someteam)
+              @if($someteam->id == $roster->contending_team_id)
+                {{$someteam->tournament->name}}
+              @endif
+            @endforeach
+          </span>
+        </span>
+              </div>
+            </div>
+            <ul class="list-group w-100 my-5">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-1"></div>
+                  <div class="col"><small class="text-uppercase"><strong>Against</strong></small></div>
+                  <div class="col"><small class="text-uppercase"><strong>Checkin Start</strong></small></div>
+                  <div class="col"><small class="text-uppercase"><strong>Checkin End</strong></small></div>
+                  <div class="col"><small class="text-uppercase"><strong>Match Start</strong></small></div>
+                  <div class="col"><small class="text-uppercase"><strong>Status / Action</strong></small></div>
+                </div>
+              </li>
+              @foreach($roster->contendingTeam->matchContestants as $matchContestantMe)
+                <li class="list-group-item">
+                  @foreach($matchContestantMe->match->contestants as $opponent) {{-- template fails >1 opponent--}}
+                  @if($roster->contending_team_id != $opponent->contending_team_id)
+                    <div class="row">
+                      <div class="col-1">vs</div>
+                      <div class="col">
+                        <span>
+                        <img class="align-center" src="{{$opponent->contending_team->logo_size2}}">
+                        <span class="d-inline d-md-none">{{$opponent->contending_team->tag}}</span>
+                        <span class="d-none d-md-inline">{{$opponent->contending_team->name}}</span>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <?php $time = new \Carbon\Carbon($matchContestantMe->match->checkinstart)?>
+                        <span>{{$time->diffForHumans()}}</span>
+                      </div>
+                      <div class="col">
+                        <?php $time = new \Carbon\Carbon($matchContestantMe->match->checkinend)?>
+                        <span>{{$time->diffForHumans()}}</span>
+                      </div>
+                      <div class="col">
+                        <?php $time = new \Carbon\Carbon($matchContestantMe->match->matchstart)?>
+                        <span>{{$time->diffForHumans()}}</span>
+                      </div>
+                      {{--<div class="col">{{$matchContestantMe->match->checkinend}}</div>--}}
+                      <?php $checked_in = false ?>
+                      @foreach($roster->checkin as $acheckin)
+                        @if($matchContestantMe->match->id == $acheckin->match_id)
                           <?php $checked_in = true ?>
                         @endif
                       @endforeach
-                      @if($checked_in)
+                      <div class="col">
+                        @if($checked_in)
                           <span class="font-primary-color">
-                            <i class="fas fa-check mr-2">
-                            </i><strong class="d-none d-md-inline">CHECKED IN</strong>
-                          </span>
-                      @else
-                      <?php
-                        //$now = \Carbon\Carbon::now();
-                        $now = \Carbon\Carbon::parse("2018-04-28 00:00:05");
-                        //$now = \Carbon\Carbon::parse("2018-04-27 00:00:05");
-                        $c_start = \Carbon\Carbon::parse($match_container->match->checkinstart);
-                        $c_end = \Carbon\Carbon::parse($match_container->match->checkinend);
-                      ?>
-                        @if($now->gte($c_start) && $now->lte($c_end))
-                          <a href="/checkin/{{$record->id}}/{{$match_container->match->id}}" class="btn btn-success btn-sm text-uppercase">
-                            <i class="fas fa-map-marker mr-1"></i>
-                            Checkin
-                          </a>
-                        @elseif($now->gt($c_end))
-                          <span class="font-light-gray text-uppercase"><strong>Checkin Expired</strong></span>
+              <i class="fas fa-check mr-2"></i>
+              <small><strong class="d-none d-md-inline">CHECKED IN</strong></small>
+            </span>
+                        @else
+                          <?php
+                          $now = \Carbon\Carbon::now();
+                          $c_start = \Carbon\Carbon::parse($matchContestantMe->match->checkinstart);
+                          $c_end = \Carbon\Carbon::parse($matchContestantMe->match->checkinend);
+                          ?>
+                          @if($now->gte($c_start) && $now->lte($c_end))
+                            <a href="/checkin/{{$roster->id}}/{{$matchContestantMe->match->id}}" class="btn btn-success btn-sm text-uppercase">
+                              <i class="fas fa-map-marker mr-1"></i>
+                              Checkin
+                            </a>
+                          @elseif($now->gt($c_end))
+                              <span class="font-light-gray text-uppercase"><small><strong>Checkin Expired</strong></small></span>
+                          @endif
                         @endif
-                      @endif
-                    @endif
+                      </div>
+                    </div> <!-- row -->
+                  @endif
                   @endforeach
-              </div>
-            </li>
-            @endforeach
-          </ul>
+                </li>
+              @endforeach
+            </ul>
+          @endforeach
         </div>
       </div>
     </div>

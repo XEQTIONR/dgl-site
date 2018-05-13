@@ -47,7 +47,7 @@
   </div> <!-- active tournament container row-->
   @endif
 
-  <div class="row pb-5 border-bottom  back-color-lightergray">
+  <div class="row pb-5 border-bottom">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">

@@ -193,7 +193,7 @@
     <li class="list-group-item">
       <div class="d-flex"><!-- a past match-->
         <div class="col-5">
-          <div class="row justify-content-center">
+          <div class="row justify-content-end">
             <span>
               <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
@@ -218,7 +218,7 @@
             <div class="mt-2">vs</div>
         </div>
         <div class="col-5">
-          <div class="row justify-content-center">
+          <div class="row justify-content-start">
             <span>
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
