@@ -73,9 +73,9 @@
           <li class="nav-item dropdown">
             <a href="/about" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">about us</a>
             <div class="dropdown-menu back-color-purple mx-md-1" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">About DGL</a>
+              <a class="dropdown-item" href="{{route('about')}}">About DGL</a>
               {{--<div class="dropdown-divider"></div>--}}
-              <a class="dropdown-item" href="#">About DaTeaM</a>
+              <a class="dropdown-item" href="{{route('about-dateam')}}">About DaTeaM</a>
             </div>
           </li>
 

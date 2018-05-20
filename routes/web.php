@@ -19,6 +19,8 @@
 */
 
 Route::get('/', 'MiscController@home');
+Route::get('/about-us','MiscController@aboutus')->name('about');
+Route::get('/about-dateam','MiscController@aboutdateam')->name('about-dateam');
 
 Auth::routes();
 
@@ -74,6 +76,7 @@ Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
 Route::get('/owapi/{battletag}', 'GamerController@getOverwatchInfo');
 
 Route::get('/settings', 'GamerController@settings')->name('settings');
+
 
 Route::get('/test', function(){
   return view('test');

@@ -24,4 +24,14 @@ class MiscController extends Controller
         return view('welcome', compact('posts', 'lastpage', 'banners'));
       }
     }
+
+    public function aboutus()
+    {
+      return view('aboutus');
+    }
+
+    public function aboutdateam()
+    {
+      return view('aboutdateam');
+    }
 }
