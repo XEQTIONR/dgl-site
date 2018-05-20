@@ -40,7 +40,7 @@
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-brand justify-content-center back-color-purple d-none d-lg-block py-2 py-xl-0" >
+      <div class="navbar-brand justify-content-center d-none d-lg-block py-2 py-xl-0" >
       <a class=" mx-auto pl-md-5 pr-5" href="/">
         <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block" alt="">
         <span class="d-none d-xl-inline-block navbar-text align-middle">ĐAGAMELEAGUE</span>
