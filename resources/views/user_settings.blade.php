@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="list-group list-group-flush ">
+      <div class="list-group list-group-flush list-group-settings">
         <a href="#"
            v-on:click="changeActive('myinfo')"
            v-bind:class="{active: panels.myinfo}"

@@ -1,17 +1,3 @@
-@font-face {
-  font-family: 'FuturaMedium';
-  src: url("/fonts/FuturaPT-Medium.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'FuturaLight';
-  src: url("/fonts/FuturaLT-Light.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .white-border {
   border-color: #FFF !important;
 }
@@ -37,7 +23,7 @@
 }
 
 .font-red {
-  color: red;
+  color: #FF697D;
 }
 
 .font-gray {
@@ -53,6 +39,10 @@
 }
 
 .font-white {
+  color: #FFF;
+}
+
+.font-white p {
   color: #FFF;
 }
 
@@ -126,7 +116,7 @@ h1,
 h2,
 h3,
 h5 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
 }
 
 p {
@@ -150,7 +140,7 @@ hr {
 
 .jumbotron-atournament {
   background-size: cover !important;
-  background-position: bottom !important;
+  background-position: center !important;
 }
 
 .jumbotron-atournament .tournament-name-row + div {
@@ -170,6 +160,10 @@ hr {
   font-weight: 900;
 }
 
+.tournament-overview-container span {
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
+}
+
 .card .card-body {
   color: #FFF;
 }
@@ -184,18 +178,18 @@ hr {
 }
 
 .font-primary-700b {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 700;
 }
 
 .font-primary-700bi {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .font-primary-900 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 900;
 }
 
@@ -281,7 +275,7 @@ hr {
 }
 
 .carousel-item h5 {
-  font: "Poppins", sans-serif;
+  font: "Roboto Condensed", "Nunito", sans-serif;
   font-size: 22px;
 }
 
@@ -316,19 +310,14 @@ hr {
 }
 
 .carousel-caption h1 {
-  font-family: "FuturaLight";
+  font-family: "Roboto Condensed";
   font-size: 50px;
 }
 
 body {
-  font-size: 15px;
   font-family: "Nunito", serif, "Arial";
   line-height: 1.618;
   /* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
-}
-
-body p {
-  font-size: 1.15em;
 }
 
 body .dgl-ol li {
@@ -347,7 +336,7 @@ body .dgl-ol li:before {
 }
 
 body .tag {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 700;
   padding: 0px 2px;
 }
@@ -428,12 +417,76 @@ body .video-thumbnail-link:hover .middle {
   }
 }
 
+body .table th {
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
+  text-transform: uppercase;
+}
+
 body .fixture-table-primary {
   border: 1px solid #51DBB0;
 }
 
 body .fixture-table-purple {
   border: 1px solid #7D64D1;
+}
+
+body .pagination {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+body .pagination li {
+  background-color: #B6B9BD;
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  border: 1px solid #FFF;
+  -webkit-transform: skewX(-40deg);
+          transform: skewX(-40deg);
+}
+
+body .pagination li span,
+body .pagination li a {
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
+  -webkit-transform: skewX(40deg);
+          transform: skewX(40deg);
+  display: block;
+  margin: auto;
+  text-align: center;
+  vertical-align: center;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+body .pagination li span {
+  color: #454545;
+}
+
+body .pagination li a {
+  color: #FFF;
+}
+
+body .pagination li a:hover {
+  color: #FF697D;
+}
+
+body .pagination li:first-child,
+body .pagination li:last-child {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #7D64D1;
+}
+
+body .pagination li.active {
+  background-color: #FF697D;
+}
+
+body .pagination li.active span {
+  color: #FFF;
+}
+
+body .pagination li.disabled {
+  display: none;
 }
 
 body .list-group-item-primary {
@@ -446,13 +499,24 @@ body .list-group-item-gray {
   color: #51DBB0 !important;
 }
 
+body .list-group-settings a {
+  color: #7D64D1;
+  background-color: #FFF;
+}
+
+body .list-group-settings a.active {
+  color: #FFF;
+  background-color: #6FCDDE;
+  border-color: #7D64D1;
+}
+
 body #alertBannerTop {
   background-color: #51DBB0;
 }
 
 body #moreButton {
-  font-family: "Poppins", sans-serif;
-  color: #51DBB0;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
+  color: #7D64D1;
   font-size: 1.4em;
   font-weight: 700;
 }
@@ -605,7 +669,7 @@ body .btn-dgl {
   border-width: 0;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: bold;
 }
 
@@ -645,7 +709,7 @@ body .nav .disabled {
 }
 
 body .nav-container {
-  background-color: rgba(125, 100, 209, 0.5);
+  background-color: #7D64D1;
   position: relative;
   top: -40px;
   z-index: 1;
@@ -662,7 +726,7 @@ body .navbar .dropdown-item:hover {
 }
 
 body .nav-brand a {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 900;
   vertical-align: baseline;
 }
@@ -680,13 +744,15 @@ body .navbar-dgl .navbar-toggler-icon {
 }
 
 body .navbar-dgl .navbar-text {
-  font-family: "FuturaMedium", "Helvetica", "Arial" !important;
+  font-family: "Roboto Condensed", "Nunito", sans-serif !important;
+  font-size: 1.1em;
 }
 
 body .navbar-dgl a {
   color: #FFF;
-  font-family: "Quicksand";
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 700;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -737,7 +803,7 @@ body .banner-row .banner-row-background {
 }
 
 body .banner-row h1 {
-  font-family: "FuturaMedium", "FuturaLight";
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   font-weight: 700;
   font-size: 3rem;
   z-index: 2;
@@ -816,17 +882,17 @@ body .post-body-hover:hover .post-title {
 body .footer {
   background-color: #2B2B2A;
   padding-top: 2em;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
 }
 
 body .footer h5 {
-  font-family: "Quicksand";
+  font-family: "Nunito", serif, "Arial";
   font-size: 1rem;
 }
 
 body .footer a {
   color: #454545;
-  font-family: "Quicksand";
+  font-family: "Roboto Condensed", "Nunito", sans-serif;
   text-decoration: none;
 }
 

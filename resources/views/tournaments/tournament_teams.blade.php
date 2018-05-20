@@ -1,7 +1,6 @@
-<div class="row tournament-row  tournament-row-teams mb-5" id="teamsRow"></div>
-<div class="row tournament-row tournament-row-teams">
+<div class="row tournament-row tournament-row-teams mb-5">
   <div class="col-12">
-    <h1 class="font-purple py-3">Contending Teams</h1>
+    <h1 class="font-blue py-3">Contending Teams</h1>
   </div>
   @foreach($contenders as $contender)
   <div class="col-6 col-md-4 mt-4">

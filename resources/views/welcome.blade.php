@@ -63,7 +63,7 @@
             <div class="row main-content">
                 <div class="col-12">
                     <div class="row mt-4 mb-0">
-                        <div class="col-12">
+                        <div class="col-12 ml-1">
                             <h1 class="font-light-gray">LATEST</h1>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                     <a class="post-link" href="/news/{{$post->id}}">
                                         <h3 class="post-title mt-3">{{$post->title}}</h3>
                                     </a>
-                                    <p>{{$post->created_at}}</p>
+                                    <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
                                     <p>{!! $post->excerpt !!}</p>
                                 </div>
                                 <div class="col-12 mt-3">
@@ -125,7 +125,7 @@
                                     <a class="post-link" href="/news/{{$post->id}}">
                                         <h2 class="post-title mt-3">{{$post->title}}</h2>
                                     </a>
-                                    <p>{{$post->created_at}}</p>
+                                    <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
                                     <p>{!! $post->excerpt !!}</p>
                                     <div class="col-12 mt-3">
                                         <div class="btn-dgl-contaianer btn-dgl-container-gray">
@@ -158,7 +158,7 @@
                         <div class="col-2">
                             <a id="moreButton" href="">
                                 <div class="row justify-content-center">
-                                <span id="">More</span>
+                                <span id="moreButton">More</span>
                                 </div>
                                 <div class="row  justify-content-center">
                                     <i class="fas fa-chevron-down"></i>

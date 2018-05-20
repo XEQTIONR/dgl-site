@@ -22,19 +22,19 @@
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
-            <img class="mt-3" src="{{URL::asset('storage/dota-1.png')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
           <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
-            <img class="mt-3" src="{{URL::asset('storage/dota-1.png')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
           <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
-            <img class="mt-3" src="{{URL::asset('dota-1.png')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
             <h1 class="font-white">{{$tournament->name}}</h1>
-            <span class="">{!! $tournament->excerpt !!}</span>
+            <span class="font-white">{!! $tournament->excerpt !!}</span>
           </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer btn-dgl-container-primary">
@@ -60,13 +60,13 @@
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
           <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
           <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-2.jpg')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
@@ -98,13 +98,13 @@
       <div class="row mb-5">
         <div class="col-12 col-md-3 offset-md-1">
           <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
           <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
           <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
-            <img class="mt-3" src="{{URL::asset('storage/overwatch-3.jpg')}}">
+            <img class="mt-3" src="{{$tournament->banner}}">
           </div>
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">

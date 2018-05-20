@@ -26,11 +26,13 @@
         </div>
       </div>
       <div class="row">
+        <div class="col">
         @if($this_tournament == "All")
           <h2>All Teams</h2>
         @else
           <h2>Teams In: {{$this_tournament->name}}</h2>
         @endif
+        </div>
       </div>
       <div class="row">
 

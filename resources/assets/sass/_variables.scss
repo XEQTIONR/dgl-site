@@ -1,16 +1,17 @@
-@font-face {
-  font-family: 'FuturaMedium';
-  src: url('/fonts/FuturaPT-Medium.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'FuturaLight';
-  src: url('/fonts/FuturaLT-Light.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
+//@font-face {
+//  font-family: 'FuturaMedium';
+//  src: url('/fonts/FuturaPT-Medium.otf');
+//  //src: url('/fonts/ParaType-FuturaPTMedium.otf');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+//
+//@font-face {
+//  font-family: 'FuturaLight';
+//  src: url('/fonts/FuturaLT-Light.ttf');
+//  font-weight: normal;
+//  font-style: normal;
+//}
 // Borders
 .white-border{
   border-color: #FFF !important;
@@ -55,7 +56,7 @@ $dgl-dark: #1F1D26;
 }
 
 .font-red{
-  color: red;
+  color: $dgl-red;
 }
 .font-gray{
   color: $dgl-gray;
@@ -70,6 +71,10 @@ $dgl-dark: #1F1D26;
 }
 .font-white{
   color: #FFF;
+
+  p{
+    color: #FFF;
+  }
 }
 
 .font-blue{
@@ -131,7 +136,7 @@ $dgl-dark: #1F1D26;
 }
 
 // Typography
-$font-primary: "Poppins", sans-serif;
+$font-primary: "Roboto Condensed", "Nunito", sans-serif;
 $font-copy: "Nunito", serif , "Arial";
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
 $font-quicksand: "Quicksand";

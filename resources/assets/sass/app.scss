@@ -21,7 +21,8 @@ hr {
 
 .jumbotron-atournament{
   background-size: cover !important;
-  background-position: bottom !important;
+  background-position: center !important;
+
 
   .tournament-name-row + div{
     height: 35vh;
@@ -36,6 +37,13 @@ hr {
   padding-bottom: 3em;
   h1{
     font-weight: 900;
+  }
+}
+
+.tournament-overview-container{
+  span{
+    // for team names in the fixtures/results
+    font-family: $font-primary;
   }
 }
 
@@ -180,7 +188,7 @@ hr {
   //justify-content: center;
 
   h1{
-    font-family: "FuturaLight";
+    font-family: "Roboto Condensed";
     font-size: 50px;
     //text-transform: uppercase;
   }
@@ -189,13 +197,10 @@ hr {
 // Componenets
 body{
 
-  font-size: 15px;
+  //font-size: 15px;
   font-family: $font-copy;
   line-height: 1.618;
 
-  p{
-    font-size: 1.15em;
-  }
   .dgl-ol li {
     counter-increment: list;
     list-style-type: none;
@@ -292,12 +297,79 @@ body{
     }
   }
 
+  .table{
+    th{
+      font-family: $font-primary;
+      text-transform: uppercase;
+    }
+  }
+
   .fixture-table-primary{
     border: 1px solid $dgl-primary;
   }
 
   .fixture-table-purple{
     border: 1px solid $dgl-purple;
+  }
+
+  .pagination{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    li{
+      background-color: $dgl-lightgray;
+      display: block;
+      margin-left: 2px;
+      margin-right: 2px;
+      border: 1px solid #FFF;
+      transform: skewX(-40deg);
+
+
+        span, a{
+          font-family: $font-primary;
+          transform: skewX(40deg);
+          display: block;
+          margin: auto;
+          text-align: center;
+          vertical-align: center;
+          padding : 0 10px;
+          text-decoration: none;
+        }
+      span{
+        color: $dgl-gray;
+      }
+      a{
+        color: #FFF;
+
+        &:hover{
+          color: $dgl-red;
+        }
+      }
+
+
+    }
+
+    li:first-child, li:last-child{
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color: $dgl-purple;
+    }
+
+    li.active{
+      background-color: $dgl-red;
+      span{
+        color: #FFF;
+      }
+    }
+
+    li.disabled{
+      //background-color: #FFF !important;
+      //color: #
+      //
+      //span{
+      //  color: $dgl-lightgray;
+      //}
+      display: none;
+    }
   }
   .list-group-item-primary{
     background-color: $dgl-primary !important;
@@ -308,13 +380,26 @@ body{
     background-color: $dgl-gray !important;
     color: $dgl-primary !important;
   }
+
+  .list-group-settings{
+    a{
+      color: $dgl-purple;
+      background-color: #FFF;
+    }
+
+    a.active{
+      color: #FFF;
+      background-color: $dgl-blue;
+      border-color: $dgl-purple;
+    }
+  }
   #alertBannerTop{
     background-color: $dgl-primary;
   }
 
   #moreButton{
     font-family: $font-primary;
-    color: $dgl-primary;
+    color: $dgl-purple;
     font-size: 1.4em;
     font-weight: 700;
 
@@ -488,7 +573,7 @@ body{
   }
   .nav-container{
     //background: linear-gradient(rgba(239,159,60,.3),rgba(239,159,60,.4));
-    background-color: transparentize($dgl-purple, .5);
+    background-color: $dgl-purple;
     position: relative;
     top: -40px;
     z-index: 1;
@@ -524,14 +609,15 @@ body{
     background-image: url('/storage/hamburger.svg')
     }
     .navbar-text{
-      font-family: $font-futura !important;
+      font-family: $font-primary !important;
+      font-size: 1.1em;
     }
 
     a{
       color: #FFF;
-      font-family: $font-quicksand;
+      font-family: $font-primary;
       font-weight: 700;
-      //text-transform: uppercase;
+      text-transform: uppercase;
       text-decoration: none;
     }
     a.nav-link{
@@ -579,7 +665,7 @@ body{
       width: 100%; z-index: -2; position: relative;
     }
     h1{
-      font-family: "FuturaMedium", "FuturaLight";
+      font-family: $font-primary;
       font-weight: 700;
       font-size: 3rem;
       z-index:2;
@@ -664,12 +750,12 @@ body{
     padding-top: 2em;
     font-family: $font-primary;
     h5{
-      font-family: $font-quicksand;
+      font-family: $font-copy;
       font-size: 1rem;
     }
     a{
       color: $dgl-gray;
-      font-family: $font-quicksand;
+      font-family: $font-primary;
       //font-weight: 700;
       text-decoration: none;
 

@@ -1,17 +1,4 @@
-{{--
- * Copyright 2018 DAGAMELEAGUE
-
- ____    ___  __
-(  _ \  / __)(  )
- )(_) )( (_-. )(__  / _/ _ \ '_/ -_)_/ _/ _ \ '  \
-(____/  \___/(____) \__\___/_| \___(_)__\___/_|_|_|
-
-@author XEQTIONR
-@template register
---}}
-
-<div class="row tournament-row  register-row mb-5" id="registerRow"></div>
-<div class="row tournament-row register-row mt-5" >
+<div class="row tournament-row register-row" >
   <!-- Axios script -- for ajax calls -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <style>
@@ -25,13 +12,13 @@
     }
   </style>
   <div class="col-12" >
-    <h1 class="font-blue py-3">Registration</h1>
+    <h1 class="font-primary-color py-3">Registration</h1>
   </div>
 </div>
 
 
 
-    <div class="row tournament-row register-row justify-content-md-center">
+    <div class="row tournament-row register-row justify-content-md-center mb-5">
       <div class="col-12" >
 
         @if(Auth::check())

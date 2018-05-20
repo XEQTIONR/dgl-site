@@ -16,7 +16,7 @@
   <div class="row justify-content-center banner-background">
     <div class="col-12  px-0 mt-5">
       {{--Dynamic background URL--}}
-      <div class="jumbotron-fluid jumbotron-atournament" style="background:linear-gradient(rgba(239,159,60,.4),rgba(239,159,60,.2)),url({{$tournament->banner}});">
+      <div class="jumbotron-fluid jumbotron-atournament" style="background-image:url({{$tournament->banner}});">
         <div class="row tournament-name-row pt-5 justify-content-center" style="">
           <div class="col-12">
             <h1 class="display-4 text-center">{{$tournament->name}}</h1>
@@ -26,20 +26,10 @@
         <div class="aspacer">
 
         </div>
-        <div class="row">
-          <div class="col">
-            <h2 class="text-center">National First Division DOTA 2 Tournament</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p class="lead text-center"></p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  <div class="row justify-content-center sub-menu back-color-lightergray">
+  <div class="row justify-content-center sub-menu back-color-dark">
     <div class="col-12 nav-container" >
       <nav class="nav justify-content-center">
         <a class="nav-link active" id="navOverview" href="#overviewRow">Overview</a>
@@ -50,7 +40,7 @@
       </nav>
     </div>
   </div>
-  <div class="row justify-content-center back-color-lightergray">
+  <div class="row justify-content-center back-color-dark">
     <div class="col-12 col-lg-9 my-0" style="">
       <div class="row mt-4">
         <div class="col-12 col-md-9 main-slot">

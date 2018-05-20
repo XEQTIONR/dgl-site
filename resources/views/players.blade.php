@@ -14,11 +14,11 @@
     <table class="table table-striped">
       <thead class="">
       <tr>
-        <th>ALIAS</th>
-        <th>FIRST NAME</th>
-        <th>LAST NAME</th>
-        <th>CURRENT/LAST TEAM</th>
-        <th>LATEST APPEARANCE ON</th>
+        <th>Alias</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Current/Last team</th>
+        <th>Latest appearance on</th>
       </tr>
       </thead>
       <tbody>
