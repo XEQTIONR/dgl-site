@@ -10,40 +10,15 @@
   @author XEQTIONR
 
 --}}
-{{--<div class="row justify-content-center top-banner d-none d-lg-block">--}}
- {{--<h6 class="text-center font-primary-700b">Professional Esports Leagues and Tournaments</h6>--}}
-{{--</div>--}}
 
-{{--<div class="row justify-content-center align-items-end no-gutters">--}}
-  {{--<div class="col offset-sm-1 offset-md-1 d-none d-lg-block" style="">--}}
-    {{--<div class="title-banner-img-container">--}}
-      {{--<img class="title-banner-img" src="{{URL::asset('storage/DGLCrownPrimary.svg')}}" />--}}
-    {{--</div>--}}
-  {{--</div>--}}
-  {{--<div class="col-10 mb-4 d-none d-xl-block">--}}
-      {{--<h2 class="font-primary-900 ">ĐAGAMELEAGUE</h2>--}}
-  {{--</div>--}}
-  {{--<div class="col-10 mb-3 d-none d-lg-block d-xl-none">--}}
-    {{--<h2 class="font-primary-700bi">ĐAGAMELEAGUE</h2>--}}
-  {{--</div>--}}
-  {{--<div class="col-12 d-lg-none">--}}
-    {{--<div class="row justify-content-center" id="alertBannerTop">--}}
-      {{--<div class="col-3 col-sm-2 my-3">--}}
-        {{--<img class="title-banner-img" src="{{URL::asset('storage/DGLCrownGray.svg')}}" />--}}
-      {{--</div>--}}
-    {{--</div>--}}
-  {{--</div>--}}
-{{--</div>--}}
-{{--<div class="row justify-content-center">--}}
-  {{--<div class="col-xl-10">--}}
     <nav class="navbar navbar-expand-lg navbar-dgl fixed-top">
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-brand justify-content-center d-none d-lg-block py-2 py-xl-0" >
       <a class=" mx-auto pl-md-5 pr-5" href="/">
-        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block" alt="">
-        <span class="d-none d-xl-inline-block navbar-text align-middle">ĐAGAMELEAGUE</span>
+        <img class="mb-2" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block" alt="">
+        <span class="d-none d-xl-inline-block navbar-text vertical-align-center">ĐAGAMELEAGUE</span>
       </a>
       </div>
       <a class="d-block d-lg-none mx-auto  pr-6" href="/">

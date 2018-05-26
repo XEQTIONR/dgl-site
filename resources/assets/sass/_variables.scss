@@ -6,12 +6,44 @@
 //  font-style: normal;
 //}
 //
-//@font-face {
-//  font-family: 'FuturaLight';
-//  src: url('/fonts/FuturaLT-Light.ttf');
-//  font-weight: normal;
-//  font-style: normal;
-//}
+@font-face {
+  font-family: 'DINNext';
+  src: url('/fonts/DINNextLTPro-HeavyCondensed.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AaronFaces';
+  src : url('/fonts/aaron-webfont.woff');
+}
+@font-face {
+  font-family: 'CircularStd';
+  src : url('/fonts/CircularStd-Book.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src : url('/fonts/CircularStd-BookIalic.otf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src : url('/fonts/CircularStd-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  src : url('/fonts/CircularStd-BoldItalic.otf');
+  font-weight: bold;
+  font-style: italic;
+}
 // Borders
 .white-border{
   border-color: #FFF !important;
@@ -33,22 +65,22 @@
   padding-right: 4rem !important;
 }
 // Brands
-$dgl-primary: #51DBB0;
-$dgl-purple : #7D64D1;
+$dgl-primary: #60F569;
+$dgl-purple : #6677CC;
 $dgl-blue: #6FCDDE;
 $dgl-yellow: #FFED78 ;
 $dgl-red: #FF697D;
 //$dgl-lightestgray: #DBE2EB;
 
-$dgl-lightergray: #EAEAEB;
-$dgl-lightgray: #B6B9BD;
+$dgl-lightergray: #E5E5F0;
+$dgl-lightgray: #BCBDC9;
 $dgl-lightestgray: lighten($dgl-lightgray, 10%);
 $dgl-gray: #454545;
 $dgl-darkish-gray: #363636;
-$dgl-darkgray: #2B2B2A;
+$dgl-darkgray: #1E1F24;
 $dgl-darkergray: #262625;
 
-$dgl-dark: #1F1D26;
+$dgl-dark: #272A38;
 
 //Font Colors Classes
 .font-primary-color{
@@ -90,6 +122,9 @@ $dgl-dark: #1F1D26;
 
 
 //Background Color Classes
+.back-color-white{
+  background-color: #FFF;
+}
 .back-color-dark{
   background-color: $dgl-dark;
 }
@@ -136,8 +171,8 @@ $dgl-dark: #1F1D26;
 }
 
 // Typography
-$font-primary: "Roboto Condensed", "Nunito", sans-serif;
-$font-copy: "Nunito", serif , "Arial";
+$font-primary: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+$font-copy: "CircularStd", serif;
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
 $font-quicksand: "Quicksand";
 .font-futura{
@@ -147,6 +182,8 @@ $font-quicksand: "Quicksand";
 
 h1, h2, h3, h5 {
   font-family: $font-primary;
+  //font-weight: 700;
+  text-transform: uppercase;
 }
 
 p {

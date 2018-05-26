@@ -37,7 +37,7 @@
             <span class="font-white">{!! $tournament->excerpt !!}</span>
           </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
-            <div class="btn-dgl-contaianer btn-dgl-container-primary">
+            <div class="btn-dgl-contaianer btn-dgl-container-primary mt-2 mb-1 my-md-1">
               <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <p class="font-gray">{!! $tournament->excerpt !!}</p>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-overwatch-96.png')}}">
-            <div class="btn-dgl-contaianer-purple">
+            <div class="btn-dgl-contaianer-purple mt-2 mb-1">
               <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>
@@ -113,7 +113,7 @@
             <span class="font-gray">{!! $tournament->excerpt !!}</span>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
-            <div class="btn-dgl-contaianer-purple">
+            <div class="btn-dgl-contaianer-purple mt-2 mb-1">
               <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>

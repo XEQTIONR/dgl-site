@@ -188,7 +188,7 @@ hr {
   //justify-content: center;
 
   h1{
-    font-family: "Roboto Condensed";
+    font-family: $font-primary;
     font-size: 50px;
     //text-transform: uppercase;
   }
@@ -355,7 +355,7 @@ body{
     }
 
     li.active{
-      background-color: $dgl-red;
+      background-color: $dgl-blue;
       span{
         color: #FFF;
       }
@@ -404,7 +404,7 @@ body{
     font-weight: 700;
 
     &:hover{
-      color: $dgl-primary;
+      color: $dgl-blue;
       text-decoration: none;
     }
   }
@@ -527,7 +527,7 @@ body{
       border: 3px solid $dgl-primary;
       background-color: $dgl-primary;
       .btn-dgl{
-        color: #FFF !important;
+        color: $dgl-purple !important;
       }
     }
   }
@@ -564,6 +564,10 @@ body{
   .nav{//bootstrap-override - for atournament page
     .nav-link{
       color: #FFF;
+
+      &:hover{
+        color: $dgl-primary;
+      }
     }
 
     .disabled{
@@ -584,7 +588,7 @@ body{
 
     .dropdown-item{
       &:hover{
-        background-color: $dgl-blue;
+        background-color: $dgl-red;
         color: #FFF;
       }
     }
@@ -610,20 +614,21 @@ body{
     }
     .navbar-text{
       font-family: $font-primary !important;
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
 
     a{
       color: #FFF;
       font-family: $font-primary;
-      font-weight: 700;
+      //font-weight: 700;
       text-transform: uppercase;
       text-decoration: none;
     }
     a.nav-link{
       border-bottom: 5px solid transparent;
+      font-size: 1.1em;
       &:hover{
-        color: $dgl-primary;
+        color: $dgl-blue;
       }
     }
 
@@ -706,7 +711,7 @@ body{
   }
 
   .main{
-    background-color: $dgl-lightergray;
+    background-color: #FFF;
   }
 
   .main-slot{
@@ -734,9 +739,6 @@ body{
       border: 1px solid $dgl-purple;
       cursor: pointer;
 
-      p{
-        color: darken($dgl-purple,10%);
-      }
 
       .post-title{
         color: $dgl-purple;

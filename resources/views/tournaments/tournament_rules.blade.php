@@ -1,6 +1,6 @@
 <div class="row tournament-row tournament-row-rules mb-5">
   <div class="col-12">
-    <h1 class="font-red py-3">Rules & Regulations</h1>
+    <h1 class="font-purple py-3">Rules & Regulations</h1>
   </div>
   <div class="col-12 tournament-rules-container">
 
