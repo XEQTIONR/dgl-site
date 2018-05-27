@@ -109,6 +109,13 @@
     </ul>
   </div>
 </div>
+
+<div class="row" style="margin-top: 50px;">
+  <div class="col-12 px-0">
+    <img src="{{URL::asset('storage/dgl-players3.png')}}" style="width: 100%;">
+  </div>
+</div>
+
 <div class="row mt-5 justify-content-center">
   <div class="col-12 col-md-8">
     <h1 class="text-uppercase">Achievements</h1>
