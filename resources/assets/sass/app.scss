@@ -752,12 +752,13 @@ body{
     padding-top: 2em;
     font-family: $font-primary;
     h5{
-      font-family: $font-copy;
+      //font-family: $font-copy;
+      //font-weight: bold;
       font-size: 1rem;
     }
     a{
       color: $dgl-gray;
-      font-family: $font-primary;
+      font-family: 'FuturaMedium' , $font-copy;
       //font-weight: 700;
       text-decoration: none;
 
@@ -774,7 +775,7 @@ body{
     }
 
     p{
-      font-family: $font-copy;
+      font-family: 'FuturaMedium' , $font-copy;
     }
   }
 

@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'FuturaMedium';
+  src: url("/fonts/FuturaPT-Medium.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'DINNext';
   src: url("/fonts/DINNextLTPro-HeavyCondensed.otf");
   font-weight: normal;
@@ -19,7 +26,7 @@
 
 @font-face {
   font-family: 'CircularStd';
-  src: url("/fonts/CircularStd-BookIalic.otf");
+  src: url("/fonts/CircularStd-BookItalic.otf");
   font-weight: normal;
   font-style: italic;
 }
@@ -931,13 +938,12 @@ body .footer {
 }
 
 body .footer h5 {
-  font-family: "CircularStd", serif;
   font-size: 1rem;
 }
 
 body .footer a {
   color: #454545;
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "FuturaMedium", "CircularStd", serif;
   text-decoration: none;
 }
 
@@ -954,7 +960,7 @@ body .footer .footer-text .footer-list-div {
 }
 
 body .footer p {
-  font-family: "CircularStd", serif;
+  font-family: "FuturaMedium", "CircularStd", serif;
 }
 
 body #footerFlexContainer {
