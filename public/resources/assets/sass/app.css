@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'FuturaMedium';
-  src: url("/fonts/FuturaPT-Medium.otf");
+  src: url("/fonts/FuturaLT-Bold.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -326,14 +326,15 @@ hr {
   z-index: 3;
 }
 
-.carousel-item h5 {
-  font: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
-  font-size: 22px;
+.carousel-item p {
+  font-family: 'FuturaMedium';
+  color: #7082db !important;
+  font-weight: 800;
 }
 
-.carousel-item p {
-  color: #6FCDDE !important;
-  font-weight: 800;
+.carousel-item h1 {
+  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-size: 50px;
 }
 
 .carousel-control-prev,
@@ -359,11 +360,6 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.carousel-caption h1 {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
-  font-size: 50px;
 }
 
 body {
@@ -752,15 +748,7 @@ body .sidebar-header h5 {
   padding: .4em 2em;
 }
 
-body .nav .nav-link {
-  color: #FFF;
-}
-
-body .nav .nav-link:hover {
-  color: #60F569;
-}
-
-body .nav .disabled {
+body .nav-item .disabled {
   text-decoration: line-through;
 }
 
@@ -774,6 +762,11 @@ body .nav-container {
 body .navbar {
   padding: 0 !important;
   background-color: #262625;
+}
+
+body .navbar .dropdown-item {
+  font-family: FuturaMedium, "CircularStd", serif;
+  font-size: .7em;
 }
 
 body .navbar .dropdown-item:hover {
@@ -812,8 +805,9 @@ body .navbar-dgl a {
 }
 
 body .navbar-dgl a.nav-link {
+  font-family: FuturaMedium, "CircularStd", serif;
   border-bottom: 5px solid transparent;
-  font-size: 1.1em;
+  font-size: .8em;
 }
 
 body .navbar-dgl a.nav-link:hover {
@@ -938,12 +932,13 @@ body .footer {
 }
 
 body .footer h5 {
+  font-family: "FuturaMedium", "DINNext", "Titillium Web", "DINOT Cond Black", serif;
   font-size: 1rem;
 }
 
 body .footer a {
   color: #454545;
-  font-family: "FuturaMedium", "CircularStd", serif;
+  font-family: "CircularStd", serif;
   text-decoration: none;
 }
 

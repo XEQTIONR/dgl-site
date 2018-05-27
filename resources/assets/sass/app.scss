@@ -162,13 +162,15 @@ hr {
     left: 0;
     z-index: 3;
   }
-  h5{
-    font: $font-primary;
-    font-size: 22px;
-  }
   p{
-    color: $dgl-blue !important;
+    font-family: 'FuturaMedium';
+    color: lighten(saturate($dgl-purple, 10%),5%) !important;
     font-weight: 800;
+  }
+  h1{
+    font-family: $font-primary;
+    font-size: 50px;
+    //text-transform: uppercase;
   }
 }
 
@@ -187,11 +189,6 @@ hr {
   align-items: center;
   //justify-content: center;
 
-  h1{
-    font-family: $font-primary;
-    font-size: 50px;
-    //text-transform: uppercase;
-  }
 }
 
 // Componenets
@@ -561,15 +558,13 @@ body{
     }
   }
 
+  .nav-item{
+
+
+
   .nav{//bootstrap-override - for atournament page
-    .nav-link{
-      color: #FFF;
 
-      &:hover{
-        color: $dgl-primary;
-      }
     }
-
     .disabled{
       text-decoration: line-through;
     }
@@ -587,6 +582,8 @@ body{
     background-color: $dgl-darkergray;
 
     .dropdown-item{
+      font-family: FuturaMedium, $font-copy;
+      font-size: .7em;
       &:hover{
         background-color: $dgl-red;
         color: #FFF;
@@ -625,8 +622,9 @@ body{
       text-decoration: none;
     }
     a.nav-link{
+      font-family: FuturaMedium, $font-copy;
       border-bottom: 5px solid transparent;
-      font-size: 1.1em;
+      font-size: .8em;
       &:hover{
         color: $dgl-blue;
       }
@@ -752,13 +750,13 @@ body{
     padding-top: 2em;
     font-family: $font-primary;
     h5{
-      //font-family: $font-copy;
+      font-family: 'FuturaMedium', $font-primary;
       //font-weight: bold;
       font-size: 1rem;
     }
     a{
       color: $dgl-gray;
-      font-family: 'FuturaMedium' , $font-copy;
+      font-family: $font-copy;
       //font-weight: 700;
       text-decoration: none;
 
