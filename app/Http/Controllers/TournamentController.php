@@ -123,6 +123,7 @@ class TournamentController extends Controller
     {
         //
       $Parsedown = new \Parsedown();
+      $registration_active = 'true';
       $future = collect();
       $checkingin = collect();
       $waiting = collect();
@@ -166,7 +167,10 @@ class TournamentController extends Controller
       if(!is_null($tournament->rules))
         $tournament->rules = $Parsedown->text($tournament->rules);
 
+      if($now->gte(new Carbon($tournament->registration_end)))
+        $registration_active = 'false';
 
+      $tournament->registration_active = $registration_active;
 
       //return ['waiting' => $waiting, 'checkingin' => $checkingin, 'future' => $future, 'past' => $past];
 

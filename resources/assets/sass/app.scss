@@ -13,6 +13,21 @@ hr {
   padding: 0;
 }
 
+span.scoretag{
+  font-size: .8em;
+  font-weight: bolder;
+
+  border-radius: 7px; max-width: 75px;
+  margin-left: auto; margin-right: auto
+}
+span.scoretag.passive{
+  background-color: #666; color: #DDD;
+}
+
+span.scoretag.active{
+  background-color: $dgl-purple; color: #DDD;
+}
+
 //PAGE SPECIFIC BACKGROUNDS
 .background-a-tournament{
   background-size: cover;
@@ -336,10 +351,10 @@ body{
       }
       a{
         color: #FFF;
-
         &:hover{
-          color: $dgl-red;
+          color: #666;
         }
+
       }
 
 
@@ -348,23 +363,24 @@ body{
     li:first-child, li:last-child{
       margin-left: 10px;
       margin-right: 10px;
-      background-color: $dgl-purple;
+      background-color: #666;
+      &:hover{
+        //background-color: $dgl-purple;
+
+        a{
+          color: $dgl-blue;
+        }
+      }
     }
 
     li.active{
-      background-color: $dgl-blue;
+      background-color: $dgl-purple;
       span{
         color: #FFF;
       }
     }
 
     li.disabled{
-      //background-color: #FFF !important;
-      //color: #
-      //
-      //span{
-      //  color: $dgl-lightgray;
-      //}
       display: none;
     }
   }
@@ -558,15 +574,12 @@ body{
     }
   }
 
-  .nav-item{
-
-
-
   .nav{//bootstrap-override - for atournament page
 
-    }
+
     .disabled{
-      text-decoration: line-through;
+      text-decoration: line-through !important;
+      color: $dgl-gray;
     }
 
   }
@@ -576,6 +589,18 @@ body{
     position: relative;
     top: -40px;
     z-index: 1;
+    //for tournament sub-menu
+    a{
+      color: #FFF;
+
+      &:hover{
+        color: $dgl-blue;
+      }
+    }
+
+    a.active{
+      color: $dgl-primary;
+    }
   }
   .navbar{ // bootstrap override
     padding: 0 !important;

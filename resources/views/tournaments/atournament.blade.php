@@ -51,27 +51,43 @@
                   $('.tournament-row-overview').show();
 
                   $('#navOverview').click(function () {
+                      $('.nav-link').removeClass('active');
+                      $('#navOverview').addClass('active');
                       $('.tournament-row').hide();
                       $('.tournament-row-overview').show();
                   });
 
                   $('#navInfo').click(function () {
+                      $('.nav-link').removeClass('active');
+                      $('#navInfo').addClass('active');
                       $('.tournament-row').hide();
                       $('.info-row').show();
 
                   });
                   $('#navTeams').click(function () {
+                      $('.nav-link').removeClass('active');
+                      $('#navTeams').addClass('active');
                       $('.tournament-row').hide();
                       $('.tournament-row-teams').show();
                   });
                   $('#navRules').click(function () {
+                      $('.nav-link').removeClass('active');
+                      $('#navRules').addClass('active');
                       $('.tournament-row').hide();
                       $('.tournament-row-rules').show();
                   });
-                  $('#navRegistration').click(function () {
-                      $('.tournament-row').hide();
-                      $('.register-row').show();
-                  });
+
+                  if({{$tournament->registration_active}})
+                  {
+                    $('#navRegistration').click(function () {
+                        $('.nav-link').removeClass('active');
+                        $('#navRegistration').addClass('active');
+                        $('.tournament-row').hide();
+                        $('.register-row').show();
+                    });
+                  }
+                  else
+                    $('#navRegistration').addClass("disabled");
               });
           </script>
           @include('tournaments.tournament_overview')

@@ -127,7 +127,7 @@
                                     <p>{!! $post->excerpt !!}</p>
                                     <div class="col-12 mt-3">
                                         <div class="btn-dgl-contaianer btn-dgl-container-gray">
-                                            <a href=/news/{{$post->id}}"" class="btn btn-lg btn-dgl">Read More</a>
+                                            <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read More</a>
                                         </div>
                                     </div>
                                 </div>

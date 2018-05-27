@@ -193,6 +193,25 @@ hr {
   padding: 0;
 }
 
+span.scoretag {
+  font-size: .8em;
+  font-weight: bolder;
+  border-radius: 7px;
+  max-width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span.scoretag.passive {
+  background-color: #666;
+  color: #DDD;
+}
+
+span.scoretag.active {
+  background-color: #6677CC;
+  color: #DDD;
+}
+
 .background-a-tournament {
   background-size: cover;
 }
@@ -522,18 +541,23 @@ body .pagination li a {
 }
 
 body .pagination li a:hover {
-  color: #FF697D;
+  color: #666;
 }
 
 body .pagination li:first-child,
 body .pagination li:last-child {
   margin-left: 10px;
   margin-right: 10px;
-  background-color: #6677CC;
+  background-color: #666;
+}
+
+body .pagination li:first-child:hover a,
+body .pagination li:last-child:hover a {
+  color: #6FCDDE;
 }
 
 body .pagination li.active {
-  background-color: #6FCDDE;
+  background-color: #6677CC;
 }
 
 body .pagination li.active span {
@@ -755,8 +779,9 @@ body .sidebar-header h5 {
   padding: .4em 2em;
 }
 
-body .nav-item .disabled {
-  text-decoration: line-through;
+body .nav .disabled {
+  text-decoration: line-through !important;
+  color: #454545;
 }
 
 body .nav-container {
@@ -764,6 +789,18 @@ body .nav-container {
   position: relative;
   top: -40px;
   z-index: 1;
+}
+
+body .nav-container a {
+  color: #FFF;
+}
+
+body .nav-container a:hover {
+  color: #6FCDDE;
+}
+
+body .nav-container a.active {
+  color: #60F569;
 }
 
 body .navbar {

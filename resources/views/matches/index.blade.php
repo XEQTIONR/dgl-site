@@ -39,7 +39,7 @@
           <!-- A match -->
           <div class="col-12 py-3" style="border-bottom: 1px solid #AAA;">
             <div class="row justify-content-center">
-              <h6 class="text-center small text-uppercase">{{$match->tournament->name}}</h6>
+              <h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6>
             </div>
             <div class="row justify-content-center">
               <div class="col-sm-3 d-none d-sm-inline">
@@ -59,8 +59,8 @@
                 </div>
               </div>
 
-              <div class="col-2 col-lg-1 pt-4">
-                <h6 class="font-primary-color text-center">VS</h6>
+              <div class="col-4 col-sm-2 pt-4 px-md-3 px-lg-4 px-xl-5">
+                <span class="scoretag active font-primary-color text-center py-2 px-0 d-block">VS</span>
               </div>
 
               <div class="col-4 col-sm-2 col-lg-1">
@@ -80,7 +80,7 @@
               </div>
             </div>
             <div class="row justify-content-center">
-              <h6 class="text-center small text-uppercase">{{$match->hrstarttime}}</h6>
+              <h6 class="text-center text-uppercase">{{$match->hrstarttime}}</h6>
             </div>
           </div><!-- match end-->
         @endforeach
@@ -113,7 +113,7 @@
     <!-- A match -->
     <div class="col-12 py-3" style="border-bottom: 1px solid #AAA;">
       <div class="row justify-content-center">
-        <h6 class="text-center small text-uppercase">{{$match->tournament->name}}</h6>
+        <h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6>
       </div>
       <div class="row justify-content-center">
         <div class="col-sm-3 d-none d-sm-inline">
@@ -131,8 +131,8 @@
             </div>
           </div>
         </div>
-        <div class="col-2 col-lg-1 pt-4">
-          <h6 class="font-purple text-center">{{$match->contestants[0]->score}} : {{$match->contestants[1]->score}}</h6>
+        <div class="col-4 col-sm-2 pt-4 px-md-3 px-lg-4 px-xl-5">
+          <span class="scoretag passive font-primary-color text-center py-2 px-0 d-block">{{$match->contestants[0]->score}} : {{$match->contestants[1]->score}}</span>
         </div>
         <div class="col-4 col-sm-2 col-lg-1">
           <div class="row">
@@ -151,7 +151,7 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <h6 class="text-center small text-uppercase">{{$match->hrstarttime}}</h6>
+        <h6 class="text-center text-uppercase">{{$match->hrstarttime}}</h6>
       </div>
     </div><!-- match end -->
   @endforeach
