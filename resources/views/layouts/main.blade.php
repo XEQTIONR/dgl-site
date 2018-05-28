@@ -15,6 +15,11 @@
   <script src="http://code.jquery.com/jquery-3.2.1.min.js" ></script>
   <!--Font Awesome-->
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+  <!--Toastr.js  and css remove this in prod and compile using mix -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
   @yield('header-section')
 
 </head>
