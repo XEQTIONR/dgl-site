@@ -58,4 +58,6 @@ __Second chance email verification (in settings page) depends on always having a
 __*MUST DO:* Check for existing checkin before adding a new one__
 
 _Fix calendar form inputs for tournaments CRUD_
+
+_Files in '/resources/views/error' probably get overridden by Backpack installation. REMEMBER._
 ###### XEQTIØNR
