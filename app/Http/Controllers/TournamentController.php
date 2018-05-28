@@ -221,8 +221,10 @@ class TournamentController extends Controller
    * @param  \App\Tournament  $tournament
    * @return \Illuminate\Http\Response
    */
-    public function loginForTournament($id)
+    public function loginForTournament(Request $request, $id)
     {
+      $notification = "Cool! Now you can register for this tournament.";
+      $request->session()->flash('notification', $notification);
       return redirect('/tournaments/'.$id);
     }
     /**
