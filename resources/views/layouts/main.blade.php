@@ -16,10 +16,6 @@
   <!--Font Awesome-->
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
-  <!--Toastr.js  and css remove this in prod and compile using mix -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
   @yield('header-section')
 
 </head>
@@ -32,6 +28,15 @@
   @include('partials.footer')
   @yield('footer-section')
   <script src="/js/app.js"></script>
+  
+  <script>
+    @if(Session::has('notification'))
+      toastr.success("{{Session::get('notification')}}");
+      @php Session::forget('notification');
+        Session::save();
+      @endphp
+    @endif
+  </script>
 </div> <!--container-fluid-->
 </body>
 </html>
