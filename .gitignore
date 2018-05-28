@@ -14,7 +14,6 @@ yarn-error.log
 
 /routes/backpack/*
 /resources/views/vendor/*
-/resources/views/errors/*
 /resources/lang/vendor/backpack/*
 /public/vendor/*
 /public/packages/*
