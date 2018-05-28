@@ -34,6 +34,8 @@ Route::get('/tournaments/{tournament}/registration','TournamentController@regist
 Route::post('/tournaments/{tournament}/register','TournamentController@register');
 Route::get('/tournament_invites/{invite}', 'Auth\RegisterController@tournamentInvites');
 Route::get('/tournaments/{identifier}/{tournament}', 'TournamentController@verifyGamer');
+Route::get('/tournament/login/{id}', 'TournamentController@loginForTournament')->middleware('auth');
+
 Route::resource('/gamers', 'GamerController');
 
 Route::get('/roster/{alias}/{team}', 'RosterController@confirm');
@@ -75,7 +77,7 @@ Route::get('/album/{album}','MediaController@listAlbum');
 Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
 Route::get('/owapi/{battletag}', 'GamerController@getOverwatchInfo');
 
-Route::get('/settings', 'GamerController@settings')->name('settings');
+Route::get('/settings', 'GamerController@settings')->name('settings')->middleware('auth');
 
 
 Route::get('/test', function(){

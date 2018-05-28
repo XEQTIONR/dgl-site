@@ -173,6 +173,7 @@
           @endif
         @else
           <h3 class="font-gray">You must be logged in in order to view this content.</h3>
+          <a href="/tournament/login/{{$tournament->id}}" class="btn  btn-success btn-large">SIGN IN</a>
         @endif
       </div>  <!-- col -->
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>

@@ -213,6 +213,18 @@ class TournamentController extends Controller
     }
 
     ////CUSTOM FUNCTIONS
+
+  /**
+   * This function just redirects back to the same tournament page
+   * Applies the auth middleware in the routes file.
+   *
+   * @param  \App\Tournament  $tournament
+   * @return \Illuminate\Http\Response
+   */
+    public function loginForTournament($id)
+    {
+      return redirect('/tournaments/'.$id);
+    }
     /**
      * Show registeration form for this tournament.
      *
