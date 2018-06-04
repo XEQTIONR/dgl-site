@@ -162,6 +162,34 @@
     <hr class="w-100">
   </div>
   <div class="row justify-content-center">
+    <img  src="{{URL::asset('storage/Contact.png')}}">
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-12">
+      <h3 class="text-center font-purple">Gamer and team profiles</h3>
+    </div>
+    <div class="col-10">
+      <p class="text-center">Register yourself among the top pro gamers in Bangladesh. You are not the only one, Get social.
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <img  src="{{URL::asset('storage/Sword.png')}}">
+    <img  src="{{URL::asset('storage/Arrow.png')}}">
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-12">
+      <h3 class="text-center font-purple">Different Gamers, different skill-sets</h3>
+    </div>
+    <div class="col-10">
+      <p class="text-center">Browse through our game and team profiles. Maybe you are looking to recruit a Carry for your DOTA 2 clan or maybe a DPS for your Overwatch team.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <hr class="w-100">
+  </div>
+  <div class="row justify-content-center">
     <img  src="{{URL::asset('storage/Vader.png')}}">
   </div>
   <div class="row justify-content-center mt-4">
