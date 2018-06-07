@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
 use App\ContendingTeam;
 use App\Gamer;
 use App\Roster;
@@ -16,7 +17,7 @@ class RosterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function confirm($alias, ContendingTeam $team)
+    public function confirm($alias, ContendingTeam $team, Request $request)
     {
       $gamer = Gamer::where('alias', $alias)->first();
       $user = Auth::user();
@@ -43,14 +44,23 @@ class RosterController extends Controller
             ->where('gamer_id', $gamer->id)->first();
 
           //TODO: return a view or flash message with data
-          return [$alias, $team->name, $roster->status];
+
+          $notification = "Succesfully registered for this tournament.";
+          $type = 'success';
+          $request->session()->flash('notification', $notification);
+          $request->session()->flash('notification_type', $type);
+          return redirect('/tournaments/'.$team->tournament->id);
         }
         //registering user is not logged in
         //this should not happen when we apply the middleware
       }
       else //else deadline expired
       {
-        return view('tournaments.deadline_expired');
+        $notification = "Deadline for registering for this tournament has expired.";
+        $type = 'error';
+        $request->session()->flash('notification', $notification);
+        $request->session()->flash('notification_type', $type);
+        return redirect('/tournaments/'.$team->tournament->id);
       }
 
     }
