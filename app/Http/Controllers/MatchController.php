@@ -228,7 +228,7 @@ class MatchController extends Controller
     }
 
     //CUSTOM FUNCTIONS
-  public function checkin(Roster $roster, Match $match)
+  public function checkin(Roster $roster, Match $match, Request $request)
   {
     $myid = Auth::id();
     // should check whether a checkin already exists to avoid duplicate
@@ -239,6 +239,11 @@ class MatchController extends Controller
       $checkin->roster_id = $roster->id;
 
       $checkin->save();
+
+      $notification = "You are now checked in for this match. Now prepare yourself.";
+      $type = 'success';
+      $request->session()->flash('notification', $notification);
+      $request->session()->flash('notification_type', $type);
 
       return redirect('/tournaments/'. $match->tournament_id);
     }

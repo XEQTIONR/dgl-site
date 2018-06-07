@@ -130,6 +130,11 @@ class RegisterController extends Controller
 
         }
 
+        $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
+        $type = 'success';
+        $request = request();
+        $request->session()->flash('notification', $notification);
+        $request->session()->flash('notification_type', $type);
 
         return $gamer;
 

@@ -28,15 +28,29 @@
   @include('partials.footer')
   @yield('footer-section')
   <script src="/js/app.js"></script>
-  
-  <script>
-    @if(Session::has('notification'))
-      toastr.success("{{Session::get('notification')}}");
-      @php Session::forget('notification');
+
+  @if(Session::has('notification'))
+    <script>
+      toastr.options = {
+          "closeButton" : true,
+          "timeOut": "8000",
+      }
+      @if(Session::get('notification_type') == 'success')
+        toastr.success("{{Session::get('notification')}}");
+      @elseif(Session::get('notification_type') == 'info')
+        toastr.info("{{Session::get('notification')}}");
+      @elseif(Session::get('notification_type') == 'warning')
+        toastr.warning("{{Session::get('notification')}}");
+      @elseif(Session::get('notification_type') == 'error')
+        toastr.error("{{Session::get('notification')}}");
+      @endif
+      @php
+        Session::forget('notification');
+        Session::forget('notification_type');
         Session::save();
       @endphp
-    @endif
-  </script>
+    </script>
+  @endif
 </div> <!--container-fluid-->
 </body>
 </html>

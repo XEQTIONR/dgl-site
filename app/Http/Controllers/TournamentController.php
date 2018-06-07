@@ -224,7 +224,9 @@ class TournamentController extends Controller
     public function loginForTournament(Request $request, $id)
     {
       $notification = "Cool! Now you can register for this tournament.";
+      $type = 'info';
       $request->session()->flash('notification', $notification);
+      $request->session()->flash('notification_type', $type);
       return redirect('/tournaments/'.$id);
     }
     /**
@@ -315,7 +317,15 @@ class TournamentController extends Controller
       }
       $team->roster()->saveMany($rosters);
       $team->invites()->saveMany($invites);
-      return $team->id;
+
+
+      //return $team->id;
+      $notification = "Registration form submitted. Your team registration will complete when all your teammates accept their invitations.";
+      $type = 'warning';
+      $request->session()->flash('notification', $notification);
+      $request->session()->flash('notification_type', $type);
+
+      return redirect('/tournaments/'.$tournament->id);
     }
 
     public function verifyGamer($identifier, Tournament $tournament)
