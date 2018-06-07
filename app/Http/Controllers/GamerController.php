@@ -122,6 +122,11 @@ class GamerController extends Controller
         if(count($meta)>0)
           $gamer->meta()->saveMany($meta);
 
+        $notification = "Your information has been updated.";
+        $type = 'info';
+        $request = request();
+        $request->session()->flash('notification', $notification);
+        $request->session()->flash('notification_type', $type);
         return redirect('/settings');
       }
       abort(404);

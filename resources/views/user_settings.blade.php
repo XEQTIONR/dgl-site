@@ -613,6 +613,12 @@
           cancel: function()
           {
               this.gamer.edit = false;
+              toastr.options = {
+                  "closeButton" : true,
+                  "timeOut": "8000",
+              }
+              toastr.warning("Cancelled.");
+
           },
 
           getSteamInfo: function()//steam64id
@@ -627,10 +633,22 @@
                       app.steamPersonaName = steam_profile.personaname;
                       app.steamAvatarURL = steam_profile.avatarmedium;
                       app.steamStatus = statuses[steam_profile.personastate];
+
+                      toastr.options = {
+                          "closeButton" : true,
+                          "timeOut": "5000",
+                      }
+
                       if (steam_profile.responseStatus == 'success')
+                      {
                           app.steamProfileFound = true;
+                          toastr.success("Steam profile found.");
+                      }
                       else
+                      {
                           app.steamProfileFound = false;
+                          toastr.error("Could not find your profile. :(");
+                      }
                   });
               }
           },
@@ -644,8 +662,20 @@
                       app.searchingBattleTag = false;
                       app.owAvatarURL = ow_data.data;
 
+                      toastr.options = {
+                          "closeButton" : true,
+                          "timeOut": "5000",
+                      }
+
                       if (ow_data.status == 'success')
+                      {
                           app.owProfileFound = true;
+                          toastr.success("BattleNet profile found.");
+                      }
+                      else{
+                          app.owProfileFound = false;
+                          toastr.error("Could not find your profile. :(");
+                      }
                   });
                }
           }
