@@ -6,15 +6,14 @@
       @font-face {
         font-family: 'FuturaMedium';
         src: url('/fonts/FuturaLT-Bold.ttf');
-      //src: url('/fonts/ParaType-FuturaPTMedium.otf');
         font-weight: normal;
         font-style: normal;
       }
       body{
       font-size: 20px;
       display: flex;
-       align-items: center;
-        justify-content: center;
+      align-items: center;
+      justify-content: center;
       }
 
       h1{
@@ -28,6 +27,11 @@
         font-family: FuturaMedium, Helvetica, Arial;
         text-align: center;
       }
+      img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
     </style>
 
@@ -40,8 +44,8 @@
   </div>
   <script type="text/javascript">
       var imageURLs = [
-          "{{URL::asset('storage/wd5.gif')}}"
-          ,"{{URL::asset('storage/wd2.gif')}}"
+          "{{URL::asset('storage/wd5.gif')}}",
+          "{{URL::asset('storage/wd2.gif')}}"
 
       ];
 

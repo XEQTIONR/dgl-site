@@ -58,7 +58,7 @@
             </div>
         </div>
     </div> <!-- row banner-background -->
-    <div class="row justify-content-center mt-5 mt-md-0 back-color-lightgray">
+    <div class="row justify-content-center mt-5 mt-md-0" style="background-color: #f7f7f7">
         <div class="col-11 col-md-10 col-lg-8">
             <div class="row main-content">
                 <div class="col-12">

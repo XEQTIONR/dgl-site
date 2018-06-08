@@ -87,16 +87,18 @@
                     });
                   }
                   else
-                    $('#navRegistration').addClass("disabled");
-                    $('#navRegistration').click(function(){
+                  {
+                      $('#navRegistration').addClass("disabled");
+                      $('#navRegistration').click(function () {
 
-                        toastr.options = {
-                            "closeButton" : true,
-                            "timeOut": "8000",
-                            "preventDuplicates": true
-                        }
-                        toastr.error("Too Late. Registration window has closed.");
-                    })
+                          toastr.options = {
+                              "closeButton": true,
+                              "timeOut": "8000",
+                              "preventDuplicates": true
+                          }
+                          toastr.error("Too Late. Registration window has closed.");
+                      })
+                  }
               });
           </script>
           @include('tournaments.tournament_overview')

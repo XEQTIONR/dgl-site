@@ -83,3 +83,7 @@ Route::get('/settings', 'GamerController@settings')->name('settings')->middlewar
 Route::get('/test', function(){
   return view('test');
 });
+
+Route::post('/testform', function(Illuminate\Http\Request $request){
+  dd($request);
+});
