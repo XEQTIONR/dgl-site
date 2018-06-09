@@ -72,6 +72,7 @@ Route::get('/album/{album}','MediaController@listAlbum');
     CRUD::resource('match_contestant', 'Match_contestantCrudController'); // for scores
     CRUD::resource('banner','BannerCrudController');
     CRUD::resource('album', 'AlbumCrudController');
+    CRUD::resource('widget', 'WidgetCrudController');
   });
 
 Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
