@@ -8,8 +8,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
     <script>
         $('#dob').datepicker({
-            format: 'dd/mm/yyyy'
-            //startDate: '-3d'
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            startDate: '-90y',
+            endDate: '-12y'
         });
 
         $('#dob-btn').click(function(){

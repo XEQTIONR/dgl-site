@@ -65,7 +65,7 @@ class RegisterController extends Controller
             'alias' => 'required|string|min:1|max:25|unique:gamers',
             'fname' =>  'required|alpha_dash|min:1|max:25',
             'lname' =>  'required|alpha_dash|min:1|max:25',
-            'dob' =>  'required|date',
+            'dob' =>  'required',
         ]);
     }
 
@@ -77,6 +77,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $date = explode("/",$data['dob']);
+
+        $formatted = $date[2]."-".$date[1]."-".$date[0];
+
         $gamer =  Gamer::create([
 
             'email' => $data['email'],
@@ -85,7 +89,7 @@ class RegisterController extends Controller
             'alias' =>  $data['alias'],
             'fname' =>  $data['fname'],
             'lname' =>  $data['lname'],
-            'dob'   =>  $data['dob'],
+            'dob'   =>  $formatted,
             'status'=>  'unverified',
 
             'steamid'     =>  $data['steamid'],
