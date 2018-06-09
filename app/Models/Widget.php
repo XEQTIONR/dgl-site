@@ -72,5 +72,10 @@ class Widget extends Model
       // 5. Save the path to the database
       $this->attributes['image'] = $filename;
     }
+    else
+    {
+      \Storage::disk($disk)->delete($destination_path.'/'.$this->attributes['image'] );
+      $this->attributes['image'] = null;
+    }
   }
 }

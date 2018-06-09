@@ -177,10 +177,12 @@ class WidgetCrudController extends CrudController
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
+        //dd($request);
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
-        return $redirect_location;
+        //return $redirect_location;
+        return redirect(backpack_url('widget'));
     }
 
     public function update(UpdateRequest $request)
