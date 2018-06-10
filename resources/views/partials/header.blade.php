@@ -15,15 +15,15 @@
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-brand justify-content-center d-none d-lg-block py-2 py-xl-0" >
+      <div class="navbar-brand justify-content-center d-none d-lg-block py-2" >
       <a class=" mx-auto pl-md-5 pr-5" href="/">
-        <img class="mb-2" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block" alt="">
-        <span class="d-none d-xl-inline-block navbar-text vertical-align-center">ĐAGAMELEAGUE</span>
+        <img class="mb-2 pt-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block" alt="">
+        <span class="d-none d-xl-inline-block navbar-text vertical-align-center dagameleague-small">ĐAGAMELEAGUE</span>
       </a>
       </div>
       <a class="d-block d-lg-none mx-auto  pr-6" href="/">
         <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block align-text-bottom" alt="">
-        <span class="d-none d-lg-inline-block navbar-text align-bottom">ĐAGAMELEAGUE</span>
+
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-2 mr-auto">

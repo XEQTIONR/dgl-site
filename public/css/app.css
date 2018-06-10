@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'DINNext';
-  src: url("/fonts/DINNextLTPro-HeavyCondensed.otf");
+  src: url("/fonts/FuturaLT-Bold.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -86,7 +86,7 @@
 }
 
 .font-light-gray {
-  color: #BCBDC9;
+  color: #696b83;
 }
 
 .font-lighter-gray {
@@ -134,19 +134,19 @@
 }
 
 .back-color-lightgray {
-  background-color: #BCBDC9;
+  background-color: #696b83;
 }
 
 .back-color-lightergray {
   background-color: #E5E5F0;
 }
 
-.back-color-red-grad {
-  background-image: radial-gradient(circle, #FF697D 0%, #ff1d3b 100%);
+.back-color-gray-grad {
+  background-image: radial-gradient(circle, #474958 0%, #696b83 100%);
 }
 
-.back-color-red-grad:hover {
-  background-image: radial-gradient(circle, #ffcfd5 0%, #ff8393 100%);
+.back-color-gray-grad:hover {
+  background-image: radial-gradient(circle, #a0a1b2 0%, #757790 100%);
 }
 
 .back-color-purple-grad {
@@ -175,7 +175,8 @@ h1,
 h2,
 h3,
 h5 {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
@@ -240,7 +241,17 @@ span.scoretag.active {
 }
 
 .tournament-overview-container span {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
+}
+
+.dagameleague-small {
+  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  font-size: 20px !important;
+}
+
+.dagameleague-med {
+  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  font-weight: normal;
 }
 
 .card .card-body {
@@ -253,23 +264,12 @@ span.scoretag.active {
 }
 
 .card .card-text {
-  color: #FFF;
+  color: #FFF !important;
 }
 
-.font-primary-700b {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
-  font-weight: 700;
-}
-
-.font-primary-700bi {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.font-primary-900 {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
-  font-weight: 900;
+.font-primary {
+  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-weight: normal;
 }
 
 .faded {
@@ -353,15 +353,8 @@ span.scoretag.active {
   z-index: 3;
 }
 
-.carousel-item p {
-  font-family: 'FuturaMedium';
-  color: #7082db !important;
-  font-weight: 800;
-}
-
-.carousel-item h1 {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
-  font-size: 50px;
+.carousel-item .slide-text {
+  color: #6FCDDE;
 }
 
 .carousel-control-prev,
@@ -374,6 +367,10 @@ span.scoretag.active {
           transform: skewX(-20deg);
   margin-bottom: 0;
   padding-bottom: 7px;
+}
+
+.carousel-indicators .active {
+  background-color: #6FCDDE !important;
 }
 
 .carousel-caption {
@@ -392,26 +389,10 @@ span.scoretag.active {
 body {
   font-family: "CircularStd", serif;
   line-height: 1.618;
-  /* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
-}
-
-body .dgl-ol li {
-  counter-increment: list;
-  list-style-type: none;
-  position: relative;
-}
-
-body .dgl-ol li:before {
-  color: #60F569;
-  content: counter(list) ".";
-  left: -32px;
-  position: absolute;
-  text-align: right;
-  width: 26px;
 }
 
 body .tag {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   font-weight: 700;
   padding: 0px 2px;
 }
@@ -493,7 +474,7 @@ body .video-thumbnail-link:hover .middle {
 }
 
 body .table th {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   text-transform: uppercase;
 }
 
@@ -511,7 +492,7 @@ body .pagination {
 }
 
 body .pagination li {
-  background-color: #BCBDC9;
+  background-color: #696b83;
   display: block;
   margin-left: 2px;
   margin-right: 2px;
@@ -522,7 +503,7 @@ body .pagination li {
 
 body .pagination li span,
 body .pagination li a {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   -webkit-transform: skewX(40deg);
           transform: skewX(40deg);
   display: block;
@@ -595,7 +576,7 @@ body #alertBannerTop {
 }
 
 body #moreButton {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   color: #6677CC;
   font-size: 1.4em;
   font-weight: 700;
@@ -608,7 +589,7 @@ body #moreButton:hover {
 
 body .team-logo-300-gray {
   width: 100%;
-  background-color: #BCBDC9;
+  background-color: #696b83;
 }
 
 body .team-logo-300 {
@@ -749,7 +730,7 @@ body .btn-dgl {
   border-width: 0;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   font-weight: bold;
 }
 
@@ -820,7 +801,7 @@ body .navbar .dropdown-item:hover {
 }
 
 body .nav-brand a {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   font-weight: 900;
   vertical-align: baseline;
 }
@@ -838,13 +819,13 @@ body .navbar-dgl .navbar-toggler-icon {
 }
 
 body .navbar-dgl .navbar-text {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif !important;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   font-size: 1.2em;
 }
 
 body .navbar-dgl a {
   color: #FFF;
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -861,7 +842,7 @@ body .navbar-dgl a.nav-link:hover {
 
 body .navbar-dgl button {
   color: #FFF;
-  border-color: #BCBDC9 !important;
+  border-color: #696b83 !important;
   background-color: #6677CC;
   margin-left: 2vw;
 }
@@ -877,7 +858,7 @@ body .jumbotron-fluid h1 {
 }
 
 body .jumbotron-fluid p {
-  color: #BCBDC9;
+  color: #696b83;
 }
 
 body .top-banner {
@@ -898,7 +879,7 @@ body .banner-row .banner-row-background {
 }
 
 body .banner-row h1 {
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
   font-weight: 700;
   font-size: 3rem;
   z-index: 2;
@@ -973,11 +954,11 @@ body .post-body-hover:hover .post-title {
 body .footer {
   background-color: #1E1F24;
   padding-top: 2em;
-  font-family: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "Barlow Condensed", "Titillium Web", serif;
 }
 
 body .footer h5 {
-  font-family: "FuturaMedium", "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+  font-family: "FuturaMedium", "Barlow Condensed", "Titillium Web", serif;
   font-size: 1rem;
 }
 

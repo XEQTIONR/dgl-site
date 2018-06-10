@@ -7,7 +7,7 @@
       <img class="" src="{{URL::asset('storage/DGLCrownGray.svg')}}" />
     </div>
     <div class="col-12 my-5">
-      <h1 class="text-center" style="color: #686a70; font-size: 60px">ĐAGAMELEAGUE</h1>
+      <h1 class="text-center dagameleague-med" style="color: #686a70;">ĐAGAMELEAGUE</h1>
     </div>
   </div>
   <div class="row justify-content-center">

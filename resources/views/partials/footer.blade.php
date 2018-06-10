@@ -2,8 +2,8 @@
   <div class="col-md-6">
     <div class="row justify-content-center d-block d-sm-block d-md-none mt-4">
       <div class="col-12 mb-4">
-        <h2 class="font-purple text-center">ĐAGAMELEAGUE</h2>
-        <h2 class="faded font-purple text-center"><em>ĐGLcore.com</em></h2>
+        <h2 class="font-purple text-center dagameleague">ĐAGAMELEAGUE</h2>
+        <h2 class="faded font-purple text-center dagameleague"><em>ĐGLcore.com</em></h2>
       </div>
       <div class="col-12">
         <h5 class="text-uppercase text-center font-purple">News</h5>
@@ -41,8 +41,8 @@
     </div>
     <div class="row footer-text d-none d-md-block mt-4">
       <div class="col-12 mb-4">
-        <h2 class="font-purple">ĐAGAMELEAGUE</h2>
-        <h2 class="faded font-purple"><em>ĐGLcore.com</em></h2>
+        <h2 class="font-purple  dagameleague-med">ĐAGAMELEAGUE</h2>
+        <h2 class="faded font-purple  dagameleague-med"><em>ĐGLcore.com</em></h2>
       </div>
       <div class="col-12" >
         <div id="footerFlexContainer">

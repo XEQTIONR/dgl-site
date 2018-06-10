@@ -3,7 +3,7 @@
     <div class="row justify-content-center d-none d-md-block">
         <div class="col-12 no-horizontal-padding">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators" id="buggyElement">
                     <?php $i = 0 ?>
                     @foreach($banners as $banner)
                     <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="<?php if($i==0) echo 'active'?>"></li>
@@ -21,7 +21,7 @@
 
                         <div class="carousel-caption" style="height: 60%">
                             <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
-                            <p class="d-none d-sm-block text-center slide-text carousel-text-subheader">{{$banner->subtitle}}</p>
+                            <h6 class="d-none d-sm-block text-center slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
                         </div>
                     </a>
                     @endforeach
@@ -34,13 +34,10 @@
                                 $(".carousel-caption").css('opacity','1');
                             });
                             $(".carousel-item").hover(function(){
-                                //".carousel-control-next, " +
-                                //".carousel-control-prev, " +
-
                                 $(".carousel-caption").fadeTo(300, 1);
                                 $(".banner-layer").fadeTo(300, .8);
                             },function(){
-                                if(!$(".carousel-indicators").is(":hover"))
+                               if(!$("#buggyElement").is(":hover"))
                                 {$(".banner-layer").fadeTo(300, 0);
                                 $(".carousel-caption").fadeTo(300, 0)};
                             });
@@ -170,38 +167,85 @@
         </div>
         <div class="col-12 col-lg-3 col-xl-2">
             <div class="row main-sidebar justify-content-center my-1">
-                <div class="col-11 col-lg-12 my-4">
-                    <div class="card back-color-purple">
-                        <div class="card-body">
-                            <h5 class="font-primary-700b text-center">NEXT TOURNAMENT</h5>
+
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-12 my-4">
+                  <div class="card back-color-purple">
+                      <div id="carouselExampleIndicatorX" data-interval="false" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicatorX" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicatorX" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicatorX" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner mt-0 mb-5">
+                          <div class="carousel-item active">
+                            <div class="card-body">
+                              <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
+                            </div>
+                            <img class="dgl-card-img my-auto" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title text-center">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-body text-center back-color-purple-grad">
+                              <a href="#" class="card-link">Go somewhere</a>
+                            </div>
+                          </div>
+                          <div class="carousel-item" >
+                            <div class="card-body">
+                              <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
+                            </div>
+                            <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title text-center">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-body text-center back-color-purple-grad">
+                              <a href="#" class="card-link">Go somewhere</a>
+                            </div>
+                          </div>
+                          <div class="carousel-item" >
+                            <div class="card-body">
+                              <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
+                            </div>
+                            <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title text-center">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-body text-center back-color-purple-grad">
+                              <a href="#" class="card-link">Go somewhere</a>
+                            </div>
+                          </div>
                         </div>
-                        <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <div class="card-body text-center back-color-purple-grad">
-                            <a href="#" class="card-link">Go somewhere</a>
-                        </div>
+                        {{--<a class="carousel-control-prev" href="#carouselExampleIndicatorX" role="button" data-slide="prev">--}}
+                          {{--<span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+                          {{--<span class="sr-only">Previous</span>--}}
+                        {{--</a>--}}
+                        {{--<a class="carousel-control-next" href="#carouselExampleIndicatorX" role="button" data-slide="next">--}}
+                          {{--<span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+                          {{--<span class="sr-only">Next</span>--}}
+                        {{--</a>--}}
+                      </div>
                     </div>
                 </div>
 
-                <div class="col-11 col-lg-12 my-4">
-                    <div class="card back-color-red">
-                        <div class="card-body">
-                            <h6 class="font-primary-700b text-center">NEXT TOURNAMENT</h6>
-                            <img class="dgl-card-img" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="Card image cap">
-                        </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-12 my-4">
 
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                        </div>
-                        <div class="card-body text-center back-color-red-grad">
-                            <a href="#" class="card-link">Go somewhere</a>
-                        </div>
+                  <div class="card back-color-lightgray">
+                    <div class="card-body">
+                      <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
                     </div>
+                    <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-body text-center back-color-gray-grad">
+                      <a href="#" class="card-link">Go somewhere</a>
+                    </div>
+                  </div>
+
                 </div>
             </div>
         </div>

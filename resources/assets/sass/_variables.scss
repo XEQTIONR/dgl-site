@@ -8,7 +8,7 @@
 //
 @font-face {
   font-family: 'DINNext';
-  src: url('/fonts/DINNextLTPro-HeavyCondensed.otf');
+  src: url('/fonts/FuturaLT-Bold.ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +73,7 @@ $dgl-red: #FF697D;
 //$dgl-lightestgray: #DBE2EB;
 
 $dgl-lightergray: #E5E5F0;
-$dgl-lightgray: #BCBDC9;
+$dgl-lightgray: darken(#BCBDC9, 30%);
 $dgl-lightestgray: lighten($dgl-lightgray, 10%);
 $dgl-gray: #454545;
 $dgl-darkish-gray: #363636;
@@ -148,10 +148,10 @@ $dgl-dark: #272A38;
   background-color: $dgl-lightergray;
 }
 
-.back-color-red-grad{
-  background-image: radial-gradient(circle,$dgl-red 0%,darken($dgl-red, 15%) 100%);
+.back-color-gray-grad{
+  background-image: radial-gradient(circle, darken($dgl-lightgray, 15%) 0%, $dgl-lightgray 100%);
   &:hover{
-    background-image: radial-gradient(circle,lighten($dgl-red,20%) 0%,lighten($dgl-red, 5%) 100%);
+    background-image: radial-gradient(circle,lighten($dgl-lightgray,20%) 0%,lighten($dgl-lightgray, 5%) 100%);
   }
 }
 .back-color-purple-grad{
@@ -171,7 +171,7 @@ $dgl-dark: #272A38;
 }
 
 // Typography
-$font-primary: "DINNext", "Titillium Web", "DINOT Cond Black", serif;
+$font-primary:  "Barlow Condensed", "Titillium Web", serif;
 $font-copy: "CircularStd", serif;
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
 $font-quicksand: "Quicksand";
@@ -182,7 +182,7 @@ $font-quicksand: "Quicksand";
 
 h1, h2, h3, h5 {
   font-family: $font-primary;
-  //font-weight: 700;
+  font-weight: 700;
   text-transform: uppercase;
 }
 

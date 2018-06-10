@@ -61,9 +61,17 @@ span.scoretag.active{
     font-family: $font-primary;
   }
 }
-
+.dagameleague-small{
+  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  font-size: 20px !important;
+}
+.dagameleague-med{
+  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  //font-size: 45px;
+  font-weight: normal;
+}
 .card { //set a back color
-
+  //max-width: 225px;
   .card-body{
     color: #FFF;
   }
@@ -72,24 +80,13 @@ span.scoretag.active{
     font-weight: 700;
   }
   .card-text{
-    color: #FFF;
+    color: #FFF !important;
   }
 }
 
-.font-primary-700b{
+.font-primary{
   font-family: $font-primary;
-  font-weight: 700;
-}
-.font-primary-700bi{
-  font-family: $font-primary;
-  font-weight: 700;
-  font-style: italic;
-  //padding-bottom: 5px;
-}
-
-.font-primary-900{
-  font-family: $font-primary;
-  font-weight: 900;
+  font-weight: normal;
 }
 
 
@@ -177,16 +174,20 @@ span.scoretag.active{
     left: 0;
     z-index: 3;
   }
-  p{
-    font-family: 'FuturaMedium';
-    color: lighten(saturate($dgl-purple, 10%),5%) !important;
-    font-weight: 800;
+  .slide-text{
+    color: $dgl-blue;
   }
-  h1{
-    font-family: $font-primary;
-    font-size: 50px;
-    //text-transform: uppercase;
-  }
+  //h5,h6{
+  //  font-family: 'FuturaMedium';
+  //  color: lighten(saturate($dgl-purple, 10%),5%) !important;
+  //  font-weight: 800;
+  //  text-transform: none !important;
+  //}
+  //h1{
+  //  font-family: $font-primary;
+  //  font-size: 50px;
+  //  //text-transform: uppercase;
+  //}
 }
 
 .carousel-control-prev, .carousel-control-next{
@@ -196,6 +197,9 @@ span.scoretag.active{
   transform: skewX(-20deg);
   margin-bottom: 0;
   padding-bottom: 7px;
+}
+.carousel-indicators .active{
+  background-color: $dgl-blue !important;
 }
 
 .carousel-caption{
@@ -213,21 +217,21 @@ body{
   font-family: $font-copy;
   line-height: 1.618;
 
-  .dgl-ol li {
-    counter-increment: list;
-    list-style-type: none;
-    position: relative;
-  }
-
-  /* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
-  .dgl-ol li:before {
-    color: $dgl-primary;
-    content: counter(list) ".";
-    left: -32px;
-    position: absolute;
-    text-align: right;
-    width: 26px;
-  }
+  //.dgl-ol li {
+  //  counter-increment: list;
+  //  list-style-type: none;
+  //  position: relative;
+  //}
+  //
+  ///* Output the numbers using the counter() function, but use a custom color, and position the numbers how we want */
+  //.dgl-ol li:before {
+  //  color: $dgl-primary;
+  //  content: counter(list) ".";
+  //  left: -32px;
+  //  position: absolute;
+  //  text-align: right;
+  //  width: 26px;
+  //}
   .tag{
     font-family: $font-primary;
     font-weight: 700;
@@ -635,7 +639,7 @@ body{
     background-image: url('/storage/hamburger.svg')
     }
     .navbar-text{
-      font-family: $font-primary !important;
+      font-family: $font-primary;
       font-size: 1.2em;
     }
 

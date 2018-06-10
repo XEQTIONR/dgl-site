@@ -38,7 +38,7 @@
         <a href="/about-us" class="nav-link font-futura font-light-gray">about us</a>
       </li>
     </ul>
-    <h3 class="text-center mt-5 font-light-gray">DAGAMELEAGUE</h3>
+    <h3 class="text-center mt-5 font-light-gray dagameleague-med">ĐAGAMELEAGUE</h3>
   </div>
 </div>
 @yield('footer-scripts')
