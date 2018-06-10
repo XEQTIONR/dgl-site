@@ -32,7 +32,7 @@
                             $(".carousel-indicators").hover(function(){
                                 $(".banner-layer").css('opacity', '.8');
                                 $(".carousel-caption").css('opacity','1');
-                            })
+                            });
                             $(".carousel-item").hover(function(){
                                 //".carousel-control-next, " +
                                 //".carousel-control-prev, " +
