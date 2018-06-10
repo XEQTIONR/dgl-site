@@ -90,7 +90,7 @@
 }
 
 .font-lighter-gray {
-  color: #E5E5F0;
+  color: #d5d5e7;
 }
 
 .font-white {
@@ -138,7 +138,7 @@
 }
 
 .back-color-lightergray {
-  background-color: #E5E5F0;
+  background-color: #d5d5e7;
 }
 
 .back-color-gray-grad {
@@ -206,12 +206,12 @@ span.scoretag {
 
 span.scoretag.passive {
   background-color: #666;
-  color: #DDD;
+  color: #FFF;
 }
 
 span.scoretag.active {
   background-color: #6677CC;
-  color: #DDD;
+  color: #d5d5e7;
 }
 
 .background-a-tournament {
@@ -254,6 +254,11 @@ span.scoretag.active {
   font-weight: normal;
 }
 
+.card-widget {
+  min-width: 225px;
+  max-width: 250px;
+}
+
 .card .card-body {
   color: #FFF;
 }
@@ -265,6 +270,10 @@ span.scoretag.active {
 
 .card .card-text {
   color: #FFF !important;
+}
+
+.card .card-title {
+  font-family: "FuturaMedium", "Helvetica", "Arial";
 }
 
 .font-primary {
@@ -492,7 +501,7 @@ body .pagination {
 }
 
 body .pagination li {
-  background-color: #696b83;
+  background-color: #aeafbe;
   display: block;
   margin-left: 2px;
   margin-right: 2px;
@@ -523,19 +532,24 @@ body .pagination li a {
 }
 
 body .pagination li a:hover {
-  color: #666;
+  color: #6677CC;
 }
 
 body .pagination li:first-child,
 body .pagination li:last-child {
   margin-left: 10px;
   margin-right: 10px;
-  background-color: #666;
+  background-color: #d5d5e7;
+}
+
+body .pagination li:first-child:hover,
+body .pagination li:last-child:hover {
+  background-color: #FF697D;
 }
 
 body .pagination li:first-child:hover a,
 body .pagination li:last-child:hover a {
-  color: #6FCDDE;
+  color: #FFF;
 }
 
 body .pagination li.active {
@@ -589,7 +603,7 @@ body #moreButton:hover {
 
 body .team-logo-300-gray {
   width: 100%;
-  background-color: #696b83;
+  background-color: #d5d5e7;
 }
 
 body .team-logo-300 {

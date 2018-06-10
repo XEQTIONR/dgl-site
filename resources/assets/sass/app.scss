@@ -21,11 +21,12 @@ span.scoretag{
   margin-left: auto; margin-right: auto
 }
 span.scoretag.passive{
-  background-color: #666; color: #DDD;
+  background-color: #666;
+  color: #FFF;
 }
 
 span.scoretag.active{
-  background-color: $dgl-purple; color: #DDD;
+  background-color: $dgl-purple; color: $dgl-lightergray;
 }
 
 //PAGE SPECIFIC BACKGROUNDS
@@ -70,6 +71,11 @@ span.scoretag.active{
   //font-size: 45px;
   font-weight: normal;
 }
+
+.card-widget{
+  min-width: 225px;
+  max-width: 250px;
+}
 .card { //set a back color
   //max-width: 225px;
   .card-body{
@@ -81,6 +87,9 @@ span.scoretag.active{
   }
   .card-text{
     color: #FFF !important;
+  }
+  .card-title{
+    font-family: $font-futura;
   }
 }
 
@@ -332,7 +341,7 @@ body{
     margin-top: 50px;
     margin-bottom: 50px;
     li{
-      background-color: $dgl-lightgray;
+      background-color: lighten($dgl-lightgray, 25%);
       display: block;
       margin-left: 2px;
       margin-right: 2px;
@@ -340,7 +349,7 @@ body{
       transform: skewX(-40deg);
 
 
-        span, a{
+      span, a{
           font-family: $font-primary;
           transform: skewX(40deg);
           display: block;
@@ -356,7 +365,7 @@ body{
       a{
         color: #FFF;
         &:hover{
-          color: #666;
+          color: $dgl-purple;
         }
 
       }
@@ -367,12 +376,12 @@ body{
     li:first-child, li:last-child{
       margin-left: 10px;
       margin-right: 10px;
-      background-color: #666;
+      background-color: $dgl-lightergray;
       &:hover{
-        //background-color: $dgl-purple;
+        background-color: $dgl-red;
 
         a{
-          color: $dgl-blue;
+          color: #FFF;
         }
       }
     }
@@ -428,7 +437,7 @@ body{
 
   .team-logo-300-gray{
     width: 100%;
-    background-color: $dgl-lightgray;
+    background-color: $dgl-lightergray;
   }
 
   .team-logo-300{

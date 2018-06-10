@@ -21,7 +21,7 @@
 
                         <div class="carousel-caption" style="height: 60%">
                             <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
-                            <h6 class="d-none d-sm-block text-center slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
+                            <h6 class="font-futura d-none d-sm-block text-center slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
                         </div>
                     </a>
                     @endforeach
@@ -56,7 +56,7 @@
         </div>
     </div> <!-- row banner-background -->
     <div class="row justify-content-center mt-5 mt-md-0" style="background-color: #f7f7f7">
-        <div class="col-11 col-md-10 col-lg-8">
+        <div class="col-11 col-md-10 col-lg-9">
             <div class="row main-content">
                 <div class="col-12">
                     <div class="row mt-4 mb-0 ">
@@ -169,54 +169,51 @@
             <div class="row main-sidebar justify-content-center my-1">
 
 
-                <div class="col-6 col-sm-4 col-md-3 col-lg-12 my-4">
-                  <div class="card back-color-purple">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
+                  <div class="card card-widget back-color-purple mx-auto ">
                       <div id="carouselExampleIndicatorX" data-interval="false" class="carousel slide" data-ride="carousel">
+                        @if(count($tournaments)>1)
                         <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicatorX" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicatorX" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicatorX" data-slide-to="2"></li>
+                          @php $i=0; @endphp
+                          @foreach($tournaments as $tournament)
+                          <li data-target="#carouselExampleIndicatorX" data-slide-to="{{$i}}"
+                              @php
+                                if($i==0)
+                                  echo 'class="active"';
+                              @endphp
+                          ></li>
+
+                          @php $i++; @endphp
+                          @endforeach
                         </ol>
+                        @endif
+                        @php $i=0 @endphp
+
                         <div class="carousel-inner mt-0 mb-5">
-                          <div class="carousel-item active">
+                          @foreach($tournaments as $tournament)
+                          <div class="carousel-item @php if($i==0) echo ' active' @endphp">
                             <div class="card-body">
-                              <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
+                              <h5 class="font-primary text-center">
+                                @if($tournament->status=='current')
+                                  CURRENT TOURNAMENT
+                                @elseif($i==1)
+                                  NEXT TOURNAMENT
+                                @else
+                                  UPCOMING TOURNAMENT
+                                @endif
+                              </h5>
                             </div>
                             <img class="dgl-card-img my-auto" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="Card image cap">
                             <div class="card-body">
-                              <h4 class="card-title text-center">Card title</h4>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <h6 class="card-title text-center">{{$tournament->name}}</h6>
+                              <p class="card-text text-center">{{$tournament->caption}}</p>
                             </div>
                             <div class="card-body text-center back-color-purple-grad">
-                              <a href="#" class="card-link">Go somewhere</a>
+                              <a href="#" class="card-link">Go to Tournament</a>
                             </div>
                           </div>
-                          <div class="carousel-item" >
-                            <div class="card-body">
-                              <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
-                            </div>
-                            <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
-                            <div class="card-body">
-                              <h4 class="card-title text-center">Card title</h4>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <div class="card-body text-center back-color-purple-grad">
-                              <a href="#" class="card-link">Go somewhere</a>
-                            </div>
-                          </div>
-                          <div class="carousel-item" >
-                            <div class="card-body">
-                              <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
-                            </div>
-                            <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <div class="card-body text-center back-color-purple-grad">
-                              <a href="#" class="card-link">Go somewhere</a>
-                            </div>
-                          </div>
+                            @php $i++ @endphp
+                          @endforeach
                         </div>
                         {{--<a class="carousel-control-prev" href="#carouselExampleIndicatorX" role="button" data-slide="prev">--}}
                           {{--<span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
@@ -230,11 +227,11 @@
                     </div>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-3 col-lg-12 my-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
 
-                  <div class="card back-color-lightgray">
+                  <div class="card card-widget back-color-lightgray mx-auto">
                     <div class="card-body">
-                      <h4 class="font-primary text-center">NEXT TOURNAMENT</h4>
+                      <h5 class="font-primary text-center">NEXT TOURNAMENT</h5>
                     </div>
                     <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
                     <div class="card-body">

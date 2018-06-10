@@ -31,7 +31,7 @@
           <div class="fixture-table-purple row justify-content-center mb-5">
             <div class="col-12 pt-2 back-color-purple">
               <h5 class="text-uppercase text-center font-white">
-                <span class="font-light-gray mr-2">{{$match->hrdow}}</span> {{$match->hrdate}}
+                <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span> {{$match->hrdate}}
           @endif
               </h5>
             </div>
@@ -105,7 +105,7 @@
     <div class="fixture-table-purple row justify-content-center mb-5">
       <div class="col-12 pt-2 back-color-purple">
         <h5 class="text-uppercase text-center font-white">
-          <span class="font-light-gray mr-2">{{$match->hrdow}}</span>
+          <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span>
           {{$match->hrdate}}
         </h5>
       </div>

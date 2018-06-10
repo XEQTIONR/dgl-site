@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MiscController extends Controller
@@ -20,8 +21,23 @@ class MiscController extends Controller
         $banners = Banner::orderBy('lft')->get();
         $posts=\App\Blog_post::paginate(1);
         $lastpage = $posts->lastPage();
-        
-        return view('welcome', compact('posts', 'lastpage', 'banners'));
+
+        $tournaments = \App\Tournament::whereDate('enddate', '>', Carbon::now())
+                                      ->orderBy('startdate','asc')->get();
+
+        foreach ($tournaments as $tournament) {
+
+          //$regend = new Carbon($tournament->registration_end);
+          $start = new Carbon($tournament->startdate);
+          $now = Carbon::now();
+          if($start->gt($now))
+            $tournament->status = 'upcoming';
+          else
+            $tournament->status = 'current';
+//          if($start)
+
+        }
+        return view('welcome', compact('posts', 'lastpage', 'banners','tournaments'));
       }
     }
 

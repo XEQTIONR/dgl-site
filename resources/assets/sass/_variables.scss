@@ -72,7 +72,7 @@ $dgl-yellow: #FFED78 ;
 $dgl-red: #FF697D;
 //$dgl-lightestgray: #DBE2EB;
 
-$dgl-lightergray: #E5E5F0;
+$dgl-lightergray: darken(#E5E5F0, 5%);
 $dgl-lightgray: darken(#BCBDC9, 30%);
 $dgl-lightestgray: lighten($dgl-lightgray, 10%);
 $dgl-gray: #454545;
