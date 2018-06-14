@@ -227,6 +227,19 @@ span.scoretag.active {
   height: 35vh;
 }
 
+.jumbotron-atournament::after {
+  content: "";
+  background-size: cover !important;
+  background-position: center !important;
+  opacity: 0.20;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .jumbotron-fluid {
   position: relative;
   overflow: hidden;
@@ -261,6 +274,10 @@ span.scoretag.active {
 
 .card .card-body {
   color: #FFF;
+}
+
+.card .card-body p {
+  font-size: .9em;
 }
 
 .card .card-link {

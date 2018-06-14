@@ -59,8 +59,8 @@
           <div class="row justify-content-center mt-3">
             {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
           </div>
-          <div class="row justify-content-center mt-2">
-            <small class="text-center text-uppercase">teams checking in</small>
+          <div class="row justify-content-center">
+            <span class="text-center text-uppercase mt-1" style="font-size: 12px">teams checking in</span>
           </div>
         </div>
         <div class="col-5">
@@ -143,8 +143,8 @@
               <div class="row justify-content-center mt-3">
                 {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
               </div>
-              <div class="row justify-content-center mt-2">
-                <small class="text-center text-uppercase">waiting to start</small>
+              <div class="row justify-content-center">
+                <span class="text-center text-uppercase mt-1" style="font-size: 12px">waiting to start</span>
               </div>
             </div>
             <div class="col-5">
@@ -201,8 +201,8 @@
               </div>
             </div>
             <div class="col-2">
-              <div class="row justify-content-center mt-3">
-                vs
+              <div class="row justify-content-center">
+                <span class="text-center text-uppercase mt-1" style="font-size: 12px">vs</span>
               </div>
               <div class="row justify-content-center mt-3">
                 {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
@@ -282,6 +282,9 @@
                 @else
                   -
                 @endif
+              </div>
+              <div class="row justify-content-center">
+                <span class="text-center text-uppercase mt-1" style="font-size: 12px">Roster</span>
               </div>
               <div class="row justify-content-center mt-3">
                 {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}

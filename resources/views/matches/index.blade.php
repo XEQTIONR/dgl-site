@@ -39,7 +39,7 @@
           <!-- A match -->
           <div class="col-12 py-3" style="border-bottom: 1px solid #AAA;">
             <div class="row justify-content-center">
-              <h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6>
+              <a style="text-decoration: none" href="/tournaments/{{$match->tournament->id}}"><h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6></a>
             </div>
             <div class="row justify-content-center">
               <div class="col-sm-3 d-none d-sm-inline">
@@ -80,7 +80,7 @@
               </div>
             </div>
             <div class="row justify-content-center">
-              <h6 class="text-center text-uppercase">{{$match->hrstarttime}}</h6>
+              <h5 class="text-center text-uppercase">{{$match->hrstarttime}}</h5>
             </div>
           </div><!-- match end-->
         @endforeach
@@ -113,7 +113,7 @@
     <!-- A match -->
     <div class="col-12 py-3" style="border-bottom: 1px solid #AAA;">
       <div class="row justify-content-center">
-        <h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6>
+        <a style="text-decoration: none" href="/tournaments/{{$match->tournament->id}}"><h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6></a>
       </div>
       <div class="row justify-content-center">
         <div class="col-sm-3 d-none d-sm-inline">

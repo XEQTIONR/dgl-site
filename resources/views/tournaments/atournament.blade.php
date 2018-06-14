@@ -16,7 +16,12 @@
   <div class="row justify-content-center banner-background">
     <div class="col-12  px-0 mt-5">
       {{--Dynamic background URL--}}
-      <div class="jumbotron-fluid jumbotron-atournament" style="background-image:url({{$tournament->banner}});">
+      <style>
+        .jumbotron-atournament::after {
+          background: url({{$tournament->banner}});
+        }
+      </style>
+      <div class="jumbotron-fluid jumbotron-atournament" style="">
         <div class="row tournament-name-row pt-5 justify-content-center" style="">
           <div class="col-12">
             <h1 class="display-4 text-center">{{$tournament->name}}</h1>
