@@ -158,24 +158,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>5</td>
-                  <td>15</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>5</td>
-                  <td>12</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>5</td>
-                  <td>10</td>
-                </tr>
+                @php $i=0; @endphp
+                @foreach($tournament->standings as $record)
+                  @php $i++; @endphp
+                  <tr>
+                    <th scope="row">{{$i}}</th>
+                    <td>{{$record->team_name}}</td>
+                    <td>{{$record->mp}}</td>
+                    <td>{{$record->points}}</td>
+                  </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>

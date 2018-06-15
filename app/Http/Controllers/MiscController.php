@@ -33,9 +33,12 @@ class MiscController extends Controller
           if($start->gt($now))
             $tournament->status = 'upcoming';
           else
-            $tournament->status = 'current';
-//          if($start)
-
+          {
+            $tournament->status='current';
+//
+            $standings = json_decode($tournament->standings_json);
+            $tournament->standings = $standings;
+          }
         }
         return view('welcome', compact('posts', 'lastpage', 'banners','tournaments'));
       }

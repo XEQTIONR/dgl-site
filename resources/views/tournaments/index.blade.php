@@ -34,8 +34,10 @@
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
             <h1 class="font-white">{{$tournament->name}}</h1>
-            <span class="font-white">{!! $tournament->excerpt !!}</span>
-          </div>
+            <div class="col-12 pl-0">
+              <span class="font-white">{!! $tournament->excerpt !!}</span>
+            </div>
+            </div>
             <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer btn-dgl-container-primary mt-2 mb-1 my-md-1">
               <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
@@ -72,7 +74,9 @@
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
             <h1 class="font-gray">{{$tournament->name}}</h1>
+            <div class="col-12 pl-0">
             <p class="font-gray">{!! $tournament->excerpt !!}</p>
+            </div>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-overwatch-96.png')}}">
             <div class="btn-dgl-contaianer-purple mt-2 mb-1">
@@ -110,7 +114,9 @@
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
             <h1 class="font-light-gray">{{$tournament->name}}</h1>
+            <div class="col-12 pl-0">
             <span class="font-lighter-gray">{!! $tournament->excerpt !!}</span>
+            </div>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">
             <div class="btn-dgl-contaianer-purple mt-2 mb-1">

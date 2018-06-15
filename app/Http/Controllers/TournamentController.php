@@ -172,8 +172,10 @@ class TournamentController extends Controller
 
       $tournament->registration_active = $registration_active;
 
-      //return ['waiting' => $waiting, 'checkingin' => $checkingin, 'future' => $future, 'past' => $past];
+      $standings = json_decode($tournament->standings_json);
 
+      $tournament->standings = $standings;
+      
       return view('tournaments.atournament',
         compact('tournament', 'waiting','checkingin','future', 'past','contenders'));
     }

@@ -94,6 +94,11 @@ span.scoretag.active{
   .card-body{
     color: #FFF;
 
+    table{
+      th, td{
+        padding:0;
+      }
+    }
     p{
       font-size: .9em;
     }

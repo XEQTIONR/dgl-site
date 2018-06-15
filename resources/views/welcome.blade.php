@@ -187,7 +187,10 @@
                           @endforeach
                         </ol>
                         @endif
-                        @php $i=0 @endphp
+                        @php
+                          $i=0;
+                          $current = false;
+                        @endphp
 
                         <div class="carousel-inner mt-0 mb-5">
                           @foreach($tournaments as $tournament)
@@ -195,8 +198,9 @@
                             <div class="card-body">
                               <h5 class="text-center">
                                 @if($tournament->status=='current')
+                                  @php $current = true; @endphp
                                   CURRENT TOURNAMENT
-                                @elseif($i==1)
+                                @elseif(($i==0 && !$current)||($i==1 && $current))
                                   NEXT TOURNAMENT
                                 @else
                                   UPCOMING TOURNAMENT
@@ -227,23 +231,47 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
+                @foreach($tournaments as $tournament)
+                  @if($tournament->status == 'current')
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
 
-                  <div class="card card-widget back-color-lightgray mx-auto">
-                    <div class="card-body">
-                      <h5 class="font-primary text-center">NEXT TOURNAMENT</h5>
-                    </div>
-                    <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <div class="card-body text-center back-color-gray-grad">
-                      <a href="#" class="card-link">Go somewhere</a>
+                    <div class="card card-widget back-color-lightgray mx-auto">
+                      <div class="card-body">
+                        <h5 class="font-primary text-center">STANDINGS</h5>
+                      </div>
+                      <img class="card-img" src="{{URL::asset('storage/overwatch-3.jpg')}}" alt="Card image cap">
+                      <div class="card-body">
+                        <h6 class="card-title text-center">{{$tournament->name}}</h6>
+                        <table class="table">
+                          <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Team</th>
+                            <th scope="col">PLD</th>
+                            <th scope="col">Pts</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                            @php $i=0; @endphp
+                            @foreach($tournament->standings as $record)
+                              @php $i++; @endphp
+                              <tr>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$record->team_name}}</td>
+                                <td>{{$record->mp}}</td>
+                                <td>{{$record->points}}</td>
+                              </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="card-body text-center back-color-gray-grad">
+                        <a href="/tournaments/{{$tournament->id}}" class="card-link">Go to tournament</a>
+                      </div>
                     </div>
                   </div>
-
-                </div>
+                  @endif
+                @endforeach
             </div>
         </div>
     </div><!-- row main -->

@@ -276,6 +276,11 @@ span.scoretag.active {
   color: #FFF;
 }
 
+.card .card-body table th,
+.card .card-body table td {
+  padding: 0;
+}
+
 .card .card-body p {
   font-size: .9em;
 }
