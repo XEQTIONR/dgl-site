@@ -39,6 +39,13 @@ class EsportCrudController extends CrudController
         , 'update/create/both');
 
         $this->crud->addField([
+          'name' => 'slug',
+          'label' => 'Slug',
+          'type' => 'text'
+        ]
+        , 'update/create/both');
+
+        $this->crud->addField([
             'name' => 'icon',
             'label' => 'Esport Icon',
             'type' => 'image',
@@ -86,6 +93,12 @@ class EsportCrudController extends CrudController
           'name' => 'name',
           'type' => 'text',
           'label' => 'Name',
+        ]);
+
+        $this->crud->addColumn([
+          'name' => 'slug',
+          'type' => 'text',
+          'label' => 'Slug',
         ]);
 
         $this->crud->addColumn([

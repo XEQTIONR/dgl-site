@@ -7,10 +7,8 @@ use Backpack\CRUD\CrudTrait;
 
 class Esport extends Model
 {
-    //
 
-
-  protected $fillable = ['id','name','icon','description','teamsize'];
+  protected $fillable = ['id','name','slug','icon','description','teamsize'];
   // protected $hidden = [];
   // protected $dates = [];
     use CrudTrait;
