@@ -69,6 +69,8 @@ class Tournament extends Model
 
   public function getBannerAttribute($value)
   {
+    if($value == null)
+      return null;
     $prefix = "/uploads/images/tournament_banners/";
     $link = $prefix.$value;
 

@@ -207,7 +207,13 @@
                                 @endif
                               </h5>
                             </div>
-                            <img class="dgl-card-img my-auto" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="Card image cap">
+                            @if($tournament->logo)
+                              <img class="dgl-card-img my-auto" src="{{$tournament->logo}}" alt="{{$tournament->name}} tournament logo">
+                            @elseif($tournament->banner)
+                              <img class="card-img" src="{{$tournament->banner}}" alt="{{$tournament->name}} tournament logo">
+                            @else
+                              <img class="dgl-card-img my-auto" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="{{$tournament->name}} tournament logo">
+                            @endif
                             <div class="card-body">
                               <h6 class="card-title text-center">{{$tournament->name}}</h6>
                               <p class="card-text text-center">{{$tournament->caption}}</p>
