@@ -29,13 +29,12 @@
 
           </div>
         </div>
-        @if($tournament->logo)
-        <div class="row justify-content-center">
-          <img src="{{$tournament->logo}}"}} style="width: 28vw; height: 28vw; max-width: 250px; max-height: 250px; min-width: 150px; min-height: 150px;">
-        </div>
-          @else
+        @if($tournament->logo && $tournament->logo_visibility == 'visible')
+          <div class="row justify-content-center">
+            <img src="{{$tournament->logo}}"}} style="width: 28vw; height: 28vw; max-width: 250px; max-height: 250px; min-width: 150px; min-height: 150px;">
+          </div>
+        @else
           <div class="aspacer">
-
           </div>
         @endif
       </div>

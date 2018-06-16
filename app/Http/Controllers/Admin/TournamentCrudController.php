@@ -38,6 +38,13 @@ class TournamentCrudController extends CrudController
           ]
           , 'update/create/both');
 
+      $this->crud->addField([
+          'name' => 'caption',
+          'label' => 'Caption (For widget)',
+          'type' => 'text'
+        ]
+        , 'update/create/both');
+
         $this->crud->addField([
             'name' => 'description',
             'label' => 'Description',
@@ -117,6 +124,13 @@ class TournamentCrudController extends CrudController
           //'prefix' => 'uploads/images/blog_banners/' //prefix set in model getter
         ]
         , 'update/create/both');
+
+      $this->crud->addField([
+        'name' => 'logo_visibility',
+        'label' => 'Logo Visibility',
+        'type'  =>  'enum'
+      ]
+      , 'update/create/both');
 
         $this->crud->addField([
             'name' => 'title',
