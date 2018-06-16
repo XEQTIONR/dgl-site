@@ -115,7 +115,7 @@
           <div class="row">
             <h1 class="font-light-gray">{{$tournament->name}}</h1>
             <div class="col-12 pl-0">
-            <span class="font-lighter-gray">{!! $tournament->excerpt !!}</span>
+            <span class="">{!! $tournament->excerpt !!}</span>
             </div>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{URL::asset('storage/icons8-dota-2-96.png')}}">

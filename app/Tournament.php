@@ -58,11 +58,11 @@ class Tournament extends Model
   {
     $body = $this->description;
     $words = explode(" ", $body);
-    $words20 = array_slice($words,0,30);
+    $words30 = array_slice($words,0,30);
 
-    $excerpt = implode(' ', $words20);
+    $excerpt = implode(' ', $words30);
 
-    return $excerpt;
+    return strip_tags($excerpt);
   }
 
   public function getBannerAttribute($value)
