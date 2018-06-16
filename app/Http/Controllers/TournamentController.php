@@ -50,6 +50,7 @@ class TournamentController extends Controller
       //return $now;
       $active_tournaments = Tournament::whereDate('startdate', '<=', $nowstr)
                                       ->whereDate('enddate','>=', $nowstr)
+                                      ->with('esport')
                                       ->get();
       foreach ($active_tournaments as $active_tournament)
       {
@@ -59,6 +60,7 @@ class TournamentController extends Controller
       $tournaments = Tournament::whereNotIn('id', $ids)
                                 ->orderBy('startdate','DESC')
                                 ->orderBy('enddate','DESC')
+                                ->with('esport')
                                 ->get();
       foreach ($tournaments as $tournament)
       {

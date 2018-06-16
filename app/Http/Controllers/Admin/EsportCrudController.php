@@ -39,6 +39,18 @@ class EsportCrudController extends CrudController
         , 'update/create/both');
 
         $this->crud->addField([
+            'name' => 'icon',
+            'label' => 'Esport Icon',
+            'type' => 'image',
+            'crop' => false, // set to true to allow cropping, false to disable
+            'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+            'upload' => true,
+            'disk' => 'uploads',
+            //'prefix' => 'uploads/images/blog_banners/'
+        ]
+        , 'update/create/both');
+
+        $this->crud->addField([
           'name' => 'description',
           'label' => 'Description',
           'type' => 'simplemde'
@@ -49,6 +61,18 @@ class EsportCrudController extends CrudController
           'name' => 'teamsize',
           'label' => 'Team Size',
           'type' => 'number'
+        ]
+        , 'update/create/both');
+
+        $this->crud->addField([
+          'name' => 'icon',
+          'label' => 'Esports Icon',
+          'type' => 'image',
+          'crop' => true, // set to true to allow cropping, false to disable
+          'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
+          'upload' => true,
+          'disk' => 'uploads',
+          //'prefix' => 'uploads/images/blog_banners/'
         ]
         , 'update/create/both');
         // $this->crud->addField($options, 'update/create/both');
@@ -68,6 +92,14 @@ class EsportCrudController extends CrudController
           'name' => 'teamsize',
           'type' => 'number',
           'label' => 'Team Size',
+        ]);
+
+        $this->crud->addColumn([
+          'name' => 'icon',
+          'type' => 'image',
+          //'width' => '50px',
+          'height' => '100px',
+          'label' => 'Esports Icon',
         ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
