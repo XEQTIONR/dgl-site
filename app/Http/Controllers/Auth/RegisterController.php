@@ -119,6 +119,7 @@ class RegisterController extends Controller
           $tournament_invite->status = 'used';
           $tournament_invite->save();
           // Send an email confirming entry into tournament
+          $notification = "You have successfully registered to DaGameLeague and for the tournament";
         }
         else
         {
@@ -131,10 +132,10 @@ class RegisterController extends Controller
           $email = new VerifyEmailAddress($data['email'], $metaVerify->meta_value);
 
           Mail::to($data['email'])->send($email);
-
+          $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
         }
 
-        $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
+
         $type = 'success';
         $request = request();
         $request->session()->flash('notification', $notification);

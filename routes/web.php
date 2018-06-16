@@ -38,7 +38,7 @@ Route::get('/tournament/login/{id}', 'TournamentController@loginForTournament')-
 
 Route::resource('/gamers', 'GamerController');
 
-Route::get('/roster/{alias}/{team}', 'RosterController@confirm');
+Route::get('/roster/{alias}/{team}', 'RosterController@confirm')->middleware('auth');
 
 Route::resource('/matches', 'MatchController');
 Route::get('/checkin/{roster}/{match}', 'MatchController@checkin');

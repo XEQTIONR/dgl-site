@@ -29,30 +29,38 @@ class RosterController extends Controller
       {
         if($gamer->id == $user->id)
         {
-        //Following block of code does not work because roster does not have an atomic primary key.
-//      $roster = Roster::where('contending_team_id', $team->id)
-//                      ->where('gamer_id', $gamer->id)
-//                      ->first();
-//
-//      $roster->status = 'ok';
-//      $roster->save();
-          Roster::where('contending_team_id', $team->id)
-            ->where('gamer_id', $gamer->id)
-            ->update(['status'=>'ok']);
 
           $roster=Roster:: where('contending_team_id', $team->id)
             ->where('gamer_id', $gamer->id)->first();
 
-          //TODO: return a view or flash message with data
+          if($roster->status == 'ok')
+          {
+            $notification = "You are already registered in this tournament.";
+            $type = 'warning';
+            $request->session()->flash('notification', $notification);
+            $request->session()->flash('notification_type', $type);
 
-          $notification = "Succesfully registered for this tournament.";
-          $type = 'success';
+          }
+          else
+          {
+            Roster::where('contending_team_id', $team->id)
+              ->where('gamer_id', $gamer->id)
+              ->update(['status'=>'ok']);
+
+            $notification = "Succesfully registered for this tournament for team ". $team->name.".";
+            $type = 'success';
+            $request->session()->flash('notification', $notification);
+            $request->session()->flash('notification_type', $type);
+          }
+        }
+        else
+        {
+          $notification = "This invite is not for you.";
+          $type = 'error';
           $request->session()->flash('notification', $notification);
           $request->session()->flash('notification_type', $type);
-          return redirect('/tournaments/'.$team->tournament->id);
+
         }
-        //registering user is not logged in
-        //this should not happen when we apply the middleware
       }
       else //else deadline expired
       {
@@ -60,8 +68,7 @@ class RosterController extends Controller
         $type = 'error';
         $request->session()->flash('notification', $notification);
         $request->session()->flash('notification_type', $type);
-        return redirect('/tournaments/'.$team->tournament->id);
       }
-
+      return redirect('/tournaments/'.$team->tournament->id);
     }
 }
