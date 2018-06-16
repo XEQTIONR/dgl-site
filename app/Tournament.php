@@ -76,6 +76,8 @@ class Tournament extends Model
 
   public function getLogoAttribute($value)
   {
+    if($value == null)
+      return null;
     $prefix = "/uploads/images/tournament_logos/";
     $link = $prefix.$value;
 

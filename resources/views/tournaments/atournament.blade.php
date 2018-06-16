@@ -17,20 +17,27 @@
     <div class="col-12  px-0 mt-5">
       {{--Dynamic background URL--}}
       <style>
-        .jumbotron-atournament::after {
-          background: url({{$tournament->banner}});
-        }
+        {{--.jumbotron-atournament::after {--}}
+          {{--background: url({{$tournament->banner}});--}}
+        {{--}--}}
       </style>
-      <div class="jumbotron-fluid jumbotron-atournament" style="">
+      <div class="jumbotron-fluid jumbotron-atournament" style="background-image: url('{{$tournament->banner}}');
+                                                                background-position: center">
         <div class="row tournament-name-row pt-5 justify-content-center" style="">
           <div class="col-12">
             <h1 class="display-4 text-center">{{$tournament->name}}</h1>
-          </div>
-          <hr class="my-4">
-        </div>
-        <div class="aspacer">
 
+          </div>
         </div>
+        @if($tournament->logo)
+        <div class="row justify-content-center">
+          <img src="{{$tournament->logo}}"}} style="width: 28vw; height: 28vw; max-width: 250px; max-height: 250px; min-width: 150px; min-height: 150px;">
+        </div>
+          @else
+          <div class="aspacer">
+
+          </div>
+        @endif
       </div>
     </div>
   </div>
