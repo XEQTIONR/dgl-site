@@ -52,6 +52,13 @@ class TournamentCrudController extends CrudController
           ]
           , 'update/create/both');
 
+      $this->crud->addField([
+          'name' => 'overview',
+          'label' => 'Overview',
+          'type' => 'simplemde'
+        ]
+        , 'update/create/both');
+
         $this->crud->addField([
             'name' => 'rules',
             'label' => 'Rules',
