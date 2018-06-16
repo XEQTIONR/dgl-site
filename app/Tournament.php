@@ -25,7 +25,8 @@ class Tournament extends Model
     public $timestamps = true;
     //protected $guarded = ['id'];
     protected $fillable = ['name', 'description', 'rules', 'registration_end',
-                          'startdate', 'enddate', 'squadsize', 'title','standings_json', 'banner'];
+                          'startdate', 'enddate', 'squadsize', 'title',
+                          'standings_json', 'banner', 'logo'];
     // protected $hidden = [];
     // protected $dates = [];
     //protected $hidden = [];
@@ -73,6 +74,14 @@ class Tournament extends Model
     return $link;
   }
 
+  public function getLogoAttribute($value)
+  {
+    $prefix = "/uploads/images/tournament_logos/";
+    $link = $prefix.$value;
+
+    return $link;
+  }
+
   /*
   |--------------------------------------------------------------------------
   | MUTATORS
@@ -97,6 +106,26 @@ class Tournament extends Model
 
       // 5. Save the path to the database
       $this->attributes['banner'] = $filename;
+    }
+  }
+
+  public function  setLogoAttribute($value)
+  {
+    $disk = "uploads";
+    $destination_path = "images/tournament_logos";
+
+    if (starts_with($value, 'data:image'))
+    {
+      // 1. Make the image
+      $image = \Image::make($value);
+      // 2. Generate a filename.
+      $filename = md5($value.time()).'.png';
+      // 3. Store the image on disk.
+      \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream()); //***
+      // 4. Delete existing image
+
+      // 5. Save the path to the database
+      $this->attributes['logo'] = $filename;
     }
   }
 }
