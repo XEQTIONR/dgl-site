@@ -149,7 +149,8 @@ class RegisterController extends Controller
     {
       $inviteId = $invite->id;
       $toEmail = $invite->email;
-
-      return view('auth.register_with_tournament', compact('inviteId', 'toEmail'));
+      $esport = $invite->contendingTeam->tournament->esport;
+      
+      return view('auth.register_with_tournament', compact('inviteId', 'toEmail','esport'));
     }
 }
