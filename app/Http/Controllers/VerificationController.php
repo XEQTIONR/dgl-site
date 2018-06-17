@@ -15,18 +15,21 @@ use DB;
 class VerificationController extends Controller
 {
     //
-    public function verifyEmail($code)
+    public function verifyEmail($code, Request $request)
     {
-        $meta = GamerMeta::where(['meta_key'=> 'email_verification_code'],
-                                 ['meta_value'=> $code])->first();
-
+        $meta = GamerMeta::where('meta_key', 'email_verification_code')
+                          ->where('meta_value', $code)->first();
         $gamer = $meta->gamer;
         $gamer->status = 'normal';
         $gamer->save();
 
         $meta->delete();
 
-        echo "YOU HAVE BEEN VERIFIED";
+        $notification = "Email address verified. Well done!";
+        $type = 'success';
+        $request->session()->flash('notification', $notification);
+        $request->session()->flash('notification_type', $type);
+        return redirect('/');
     }
 
     public function resendVerificationEmail(Gamer $gamer)
