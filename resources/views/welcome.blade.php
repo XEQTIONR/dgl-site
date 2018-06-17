@@ -259,6 +259,7 @@
                           </thead>
                           <tbody>
                             @php $i=0; @endphp
+                            @if($tournament->standings)
                             @foreach($tournament->standings as $record)
                               @php $i++; @endphp
                               <tr>
@@ -268,6 +269,7 @@
                                 <td>{{$record->points}}</td>
                               </tr>
                             @endforeach
+                            @endif
                           </tbody>
                         </table>
                       </div>
