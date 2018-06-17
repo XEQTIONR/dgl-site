@@ -213,7 +213,7 @@ class Contending_teamCrudController extends CrudController
     {
       $team->status = 'ok';
       $team->save();
-
+      \Alert::success('Approved team '.$team->name.' for '.$team->tournament->name.'.')->flash();
       //Send email to captain that their team has been approved by DGL
 
       return redirect(config('backpack.base.route_prefix').'/contending_team');
