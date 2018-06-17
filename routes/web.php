@@ -62,6 +62,7 @@ Route::get('/album/{album}','MediaController@listAlbum');
     'namespace' => 'Admin'
   ], function() {
     // your CRUD resources and other admin routes here
+    Route::get('/approve/{team}', 'Contending_teamCrudController@approve');
     CRUD::resource('tournament', 'TournamentCrudController');
     CRUD::resource('gamer', 'GamerCrudController');
     CRUD::resource('blog_post', 'Blog_postCrudController');

@@ -37,6 +37,15 @@ class ContendingTeam extends Model
     return $this->hasMany('App\MatchContestant');
   }
 
+  public function approveButton()
+  {
+    // if not verified by admin yet.
+    if($this->status=='unverified')
+      return "<a href='/".config('backpack.base.route_prefix')."/approve/".$this->id."' class='btn btn-xs btn-success'><i class='fa fa-check'></i> Approve</a>";
+    else
+      return null;
+  }
+
   /*
   |--------------------------------------------------------------------------
   | ACCESSORS

@@ -41,11 +41,29 @@ class RosterController extends Controller
             $request->session()->flash('notification_type', $type);
 
           }
-          else
+          else if($roster->status == 'confirmation_required')
           {
-            Roster::where('contending_team_id', $team->id)
-              ->where('gamer_id', $gamer->id)
-              ->update(['status'=>'ok']);
+//            Roster::where('contending_team_id', $team->id)
+//              ->where('gamer_id', $gamer->id)
+//              ->update(['status'=>'ok']);
+            $roster->status = 'ok';
+            $roster->save();
+
+            $verified_rosters = Roster::where('contending_team_id', $team->id)
+                              ->where('status', 'ok')
+                              ->get();
+
+            $teamsize = $team->tournament->esport->teamsize;
+
+            if(count($verified_rosters)>=$teamsize)
+            {
+              if($team->status == 'registration_incomplete')
+              {
+                $team->status = 'unverified';
+                $team->save();
+              }
+            }
+
 
             $notification = "Succesfully registered for this tournament for team ". $team->name.".";
             $type = 'success';
