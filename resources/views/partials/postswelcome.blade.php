@@ -11,7 +11,7 @@
         <a class="post-link" href="/news/{{$post->id}}s">
           <h2 class="post-title mt-3">{{$post->title}}</h2>
         </a>
-        <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+        <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
         <span>{!! $post->excerpt !!}</span>
       </div>
       <div class="col-12 mt-3 px-4 px-sm-5">
@@ -31,7 +31,7 @@
         <a class="post-link" href="/news/{{$post->id}}">
           <h2 class="post-title mt-3">{{$post->title}}</h2>
         </a>
-        <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+        <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
         <span>{!! $post->excerpt !!}</span>
         <div class="col-12 mt-3">
           <div class="btn-dgl-contaianer btn-dgl-container-gray">
@@ -51,7 +51,7 @@
         <a class="post-link" href="/news/{{$post->id}}">
           <h2 class="post-title mt-3">{{$post->title}}</h2>
         </a>
-        <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+        <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
         <span>{!! $post->excerpt !!}</span>
       </div>
     </div>

@@ -66,19 +66,37 @@
 }
 // Brands
 $dgl-primary: #60F569;
-$dgl-purple : #6677CC;
+
 $dgl-blue: #6FCDDE;
 $dgl-yellow: #FFED78 ;
-$dgl-red: #FF697D;
+
 //$dgl-lightestgray: #DBE2EB;
 
-$dgl-lightergray: darken(#E5E5F0, 5%);
-$dgl-lightgray: darken(#BCBDC9, 30%);
-$dgl-lightestgray: lighten($dgl-lightgray, 10%);
-$dgl-gray: #454545;
-$dgl-darkish-gray: #363636;
-$dgl-darkgray: #1E1F24;
-$dgl-darkergray: #262625;
+
+//$dgl-lightgray: darken(#BCBDC9, 30%);
+
+//Purples
+$dgl-purple : #7272D7;
+$dgl-darkpurple: #565C97;
+
+//Grays
+$dgl-gray: #3E464C;
+
+$dgl-darkish-gray: #2F3541;
+$dgl-darkgray: #2B303B;
+$dgl-darkergray: #272C38;
+$dgl-darkestgray: #1F232D;
+
+
+$dgl-lightgray: #3E464C;
+$dgl-lightergray: #585F68;
+$dgl-lightestgray: #9EA3AC;
+$dgl-almostwhite : #d7dde8;
+//Red
+$dgl-red: #D9553C;
+
+//Orange
+$dgl-orange: #ff7324;
 
 $dgl-dark: #272A38;
 
@@ -140,6 +158,49 @@ $dgl-dark: #272A38;
   background-color: $dgl-darkgray;
 }
 
+.bg-darkgray{
+  background-color: $dgl-darkgray;
+}
+
+.bg-darkergray{
+  background-color: $dgl-darkergray;
+}
+
+.bg-darkestgray{
+  background-color: $dgl-darkestgray;
+}
+
+.bg-lightgray{
+  background-color: $dgl-lightgray;
+}
+
+.bg-lightergray{
+  background-color: $dgl-lightergray;
+}
+
+.bg-lightestgray{
+  background-color: $dgl-lightestgray;
+}
+
+.bg-purple{
+  background-color: $dgl-purple;
+}
+
+.bg-darkpurple{
+  background-color: desaturate(darken(adjust_hue($dgl-purple, 15%),10%),10%);//desaturate(lighten($dgl-purple, 10%), 10%);
+}
+
+.bg-red{
+  background-color: $dgl-red;
+}
+
+.bg-orange{
+  background-color: $dgl-orange;
+}
+
+.bg-blue{
+  background-color: $dgl-blue;
+}
 .back-color-lightgray{
   background-color: $dgl-lightgray;
 }
@@ -158,6 +219,20 @@ $dgl-dark: #272A38;
   background-image: radial-gradient(circle,$dgl-purple 0%,darken($dgl-purple, 15%) 100%);
   &:hover{
     background-image: radial-gradient(circle,lighten($dgl-purple,20%) 0%,lighten($dgl-purple, 5%) 100%);
+  }
+}
+
+.back-color-red-grad{
+  background-image: radial-gradient(circle,$dgl-red 0%,darken($dgl-red, 15%) 100%);
+  &:hover{
+    background-image: radial-gradient(circle,lighten($dgl-red,20%) 0%,lighten($dgl-red, 5%) 100%);
+  }
+}
+
+.back-color-orange-grad{
+  background-image: radial-gradient(circle,$dgl-orange 0%,darken($dgl-orange, 15%) 100%);
+  &:hover{
+    background-image: radial-gradient(circle,lighten($dgl-orange,20%) 0%,lighten($dgl-orange, 5%) 100%);
   }
 }
 

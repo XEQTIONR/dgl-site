@@ -29,6 +29,12 @@ span.scoretag.active{
   background-color: $dgl-purple; color: $dgl-lightergray;
 }
 
+span{
+  p, h1,h2,h3,h4,h5,h6{
+    color: $dgl-lightestgray  ;
+  }
+}
+
 //PAGE SPECIFIC BACKGROUNDS
 .background-a-tournament{
   background-size: cover;
@@ -777,13 +783,15 @@ body{
   }
   .post-body{
     padding-bottom: 1em;
-
+    .time{
+      color: $dgl-purple;
+    }
     background-color: transparent;
     .post-link {
       text-decoration: none;
       .post-title {
 
-        color: $dgl-gray;
+        color: $dgl-lightestgray;
         text-decoration: none;
         margin-top : 5px;
       }
@@ -792,21 +800,31 @@ body{
 
   .post-body-hover{
     &:hover{
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      background-color: #FFF;
-      border: 1px solid $dgl-purple;
+      //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      //background-color: $dgl-purple;
+      //border: 1px solid $dgl-purple;
       cursor: pointer;
+      //border: 1px solid $dgl-purple;
+      span{
+        p, h1,h2,h3,h4,h5,h6{
+          //color: lighten($dgl-lightestgray,25%);
+          color: $dgl-almostwhite;
+        }
+      }
 
+      .time{
+        color: $dgl-blue;
+      }
 
       .post-title{
-        color: $dgl-purple;
+        color: #FFF;
       }
     }
   }
 
   //Footer
   .footer {
-    background-color: $dgl-darkgray;
+    background-color: $dgl-darkestgray;
     padding-top: 2em;
     font-family: $font-primary;
     h5{

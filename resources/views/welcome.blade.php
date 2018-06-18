@@ -17,7 +17,7 @@
                     <a href="{{$banner->link}}" class="carousel-item <?php if($i==1) echo 'active'?>">
                         <img class="d-block w-100" src="{{$banner->image}}" alt="First slide">
 
-                        <div class="w-100 h-100 back-color-dark banner-layer"></div>
+                        <div class="w-100 h-100 bg-purple banner-layer"></div>
 
                         <div class="carousel-caption" style="height: 60%">
                             <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
@@ -30,12 +30,12 @@
                             $(".banner-layer").css('opacity', '0');
                             $(".carousel-caption").css('opacity','0');
                             $(".carousel-indicators").hover(function(){
-                                $(".banner-layer").css('opacity', '.8');
+                                $(".banner-layer").css('opacity', '.85');
                                 $(".carousel-caption").css('opacity','1');
                             });
                             $(".carousel-item").hover(function(){
                                 $(".carousel-caption").fadeTo(300, 1);
-                                $(".banner-layer").fadeTo(300, .8);
+                                $(".banner-layer").fadeTo(300, .85);
                             },function(){
                                if(!$("#buggyElement").is(":hover"))
                                 {$(".banner-layer").fadeTo(300, 0);
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div> <!-- row banner-background -->
-    <div class="row justify-content-center mt-5 mt-md-0" style="background-color: #f7f7f7">
+    <div class="row justify-content-center mt-5 mt-md-0 bg-darkgray">
         <div class="col-11 col-md-10 col-lg-8">
             <div class="row main-content">
                 <div class="col-12">
@@ -85,7 +85,7 @@
                             });
                         });
                     </script>
-                    <div class="row main-content-posts back-color-white p-xl-3" id="postContainer">
+                    <div class="row main-content-posts p-xl-3 bg-darkgray" id="postContainer">
 
                         @foreach($posts as $post)
                         <div class="col-12">
@@ -100,8 +100,8 @@
                                     <a class="post-link" href="/news/{{$post->id}}">
                                         <h2 class="post-title mt-3">{{$post->title}}</h2>
                                     </a>
-                                    <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
-                                    <p>{!! $post->excerpt !!}</p>
+                                    <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+                                    <span>{!! $post->excerpt !!}</span>
                                 </div>
                                 <div class="col-12 mt-3 px-4 px-sm-5">
                                     <div class="btn-dgl-contaianer btn-dgl-container-gray">
@@ -120,8 +120,8 @@
                                     <a class="post-link" href="/news/{{$post->id}}">
                                         <h2 class="post-title mt-3">{{$post->title}}</h2>
                                     </a>
-                                    <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
-                                    <p>{!! $post->excerpt !!}</p>
+                                    <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+                                    <span>{!! $post->excerpt !!}</span>
                                     <div class="col-12 mt-3">
                                         <div class="btn-dgl-contaianer btn-dgl-container-gray">
                                             <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read More</a>
@@ -140,8 +140,8 @@
                                     <a class="post-link" href="/news/{{$post->id}}">
                                         <h2 class="post-title mt-3">{{$post->title}}</h2>
                                     </a>
-                                    <p>{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
-                                    {!! $post->excerpt !!}
+                                    <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
+                                    <span>{!! $post->excerpt !!}</span>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
 
                     </div> <!-- row main-content-posts-->
                     @if($lastpage>1)
-                    <div class="row justify-content-center back-color-white mb-4 pb-4 ">
+                    <div class="row justify-content-center mb-4 pb-4 ">
                         <div class="col-2">
                             <a id="moreButton" href="">
                                 <div class="row justify-content-center">
@@ -170,7 +170,7 @@
 
 
                 <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
-                  <div class="card card-widget back-color-purple mx-auto ">
+                  <div class="card card-widget bg-orange mx-auto ">
                       <div id="carouselExampleIndicatorX" data-interval="false" class="carousel slide" data-ride="carousel">
                         @if(count($tournaments)>1)
                         <ol class="carousel-indicators">
@@ -218,7 +218,7 @@
                               <h6 class="card-title text-center">{{$tournament->name}}</h6>
                               <p class="card-text text-center">{{$tournament->caption}}</p>
                             </div>
-                            <div class="card-body text-center back-color-purple-grad">
+                            <div class="card-body text-center back-color-orange-grad">
                               <a href="#" class="card-link">Go to Tournament</a>
                             </div>
                           </div>
@@ -241,7 +241,7 @@
                   @if($tournament->status == 'current')
                   <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
 
-                    <div class="card card-widget back-color-lightgray mx-auto">
+                    <div class="card card-widget bg-purple mx-auto">
                       <div class="card-body">
                         <h5 class="font-primary text-center">STANDINGS</h5>
                       </div>
@@ -273,7 +273,7 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="card-body text-center back-color-gray-grad">
+                      <div class="card-body text-center back-color-purple-grad">
                         <a href="/tournaments/{{$tournament->id}}" class="card-link">Go to tournament</a>
                       </div>
                     </div>
