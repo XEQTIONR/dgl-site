@@ -14,32 +14,32 @@
                     <?php $i = 0 ?>
                     @foreach($banners as $banner)
                     <?php $i++ ?>
-                    <a href="{{$banner->link}}" class="carousel-item <?php if($i==1) echo 'active'?>">
+                    <a href="{{$banner->link}}" class="carousel-item carousel-item-main <?php if($i==1) echo 'active'?>">
                         <img class="d-block w-100" src="{{$banner->image}}" alt="First slide">
 
-                        <div class="w-100 h-100 bg-purple banner-layer"></div>
+                        <div class="w-100 h-100 bg-darkpurple banner-layer"></div>
 
-                        <div class="carousel-caption" style="height: 60%">
+                        <div class="carousel-caption mb-lg-5">
                             <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
-                            <h6 class="font-futura d-none d-sm-block text-center slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
+                            <h6 class="font-futura d-none d-sm-block slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
                         </div>
                     </a>
                     @endforeach
                     <script>
                         $(document).ready(function(){
-                            $(".banner-layer").css('opacity', '0');
-                            $(".carousel-caption").css('opacity','0');
+                            $(".banner-layer").css('opacity', '.55');
+                            $(".carousel-caption").css('opacity','1');
                             $(".carousel-indicators").hover(function(){
-                                $(".banner-layer").css('opacity', '.85');
-                                $(".carousel-caption").css('opacity','1');
+                                $(".banner-layer").css('opacity', '0');
+                                $(".carousel-caption").css('opacity','0');
                             });
-                            $(".carousel-item").hover(function(){
-                                $(".carousel-caption").fadeTo(300, 1);
-                                $(".banner-layer").fadeTo(300, .85);
+                            $(".carousel-item-main").hover(function(){
+                                $(".carousel-caption").fadeTo(300, 0);
+                                $(".banner-layer").fadeTo(300, 0);
                             },function(){
                                if(!$("#buggyElement").is(":hover"))
-                                {$(".banner-layer").fadeTo(300, 0);
-                                $(".carousel-caption").fadeTo(300, 0)};
+                                {$(".banner-layer").fadeTo(300, .55);
+                                $(".carousel-caption").fadeTo(300, 1)};
                             });
                         });
                     </script>
@@ -59,8 +59,8 @@
         <div class="col-11 col-md-10 col-lg-8">
             <div class="row main-content">
                 <div class="col-12">
-                    <div class="row mt-4 mb-0 ">
-                            <h1 class="font-purple">LATEST</h1>
+                    <div class="row mt-4 mb-0 px-xl-3">
+                            <h1 class="font-purple ml-3">LATEST</h1>
                     </div>
                     <script>
                         $(document).ready(function(){

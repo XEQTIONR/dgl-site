@@ -187,7 +187,7 @@ $dgl-dark: #272A38;
 }
 
 .bg-darkpurple{
-  background-color: desaturate(darken(adjust_hue($dgl-purple, 15%),10%),10%);//desaturate(lighten($dgl-purple, 10%), 10%);
+  background-color: adjust_hue($dgl-purple,10%);//desaturate(lighten($dgl-purple, 10%), 10%);
 }
 
 .bg-red{

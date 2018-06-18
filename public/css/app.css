@@ -162,7 +162,7 @@
 }
 
 .bg-darkpurple {
-  background-color: #7056c0;
+  background-color: #8372d7;
 }
 
 .bg-red {
@@ -458,6 +458,15 @@ span h6 {
   color: #6FCDDE;
 }
 
+.carousel-caption {
+  text-align: start;
+}
+
+.carousel-text-header {
+  font-size: 3.5em;
+  text-align: start;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 10;
@@ -482,9 +491,9 @@ span h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 body {
@@ -683,7 +692,7 @@ body #alertBannerTop {
 
 body #moreButton {
   font-family: "Barlow Condensed", "Titillium Web", serif;
-  color: #7272D7;
+  color: #d7dde8;
   font-size: 1.4em;
   font-weight: 700;
 }
@@ -902,7 +911,7 @@ body .navbar .dropdown-item {
 }
 
 body .navbar .dropdown-item:hover {
-  background-color: #D9553C;
+  background-color: #ff9457;
   color: #FFF;
 }
 
@@ -943,7 +952,7 @@ body .navbar-dgl a.nav-link {
 }
 
 body .navbar-dgl a.nav-link:hover {
-  color: #6FCDDE;
+  color: #ff9457;
 }
 
 body .navbar-dgl button {

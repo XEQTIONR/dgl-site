@@ -227,6 +227,14 @@ span{
   //}
 }
 
+.carousel-caption{
+  text-align: start;
+}
+.carousel-text-header{
+  font-size: 3.5em;
+  text-align: start;
+}
+
 .carousel-control-prev, .carousel-control-next{
   z-index: 10;
 }
@@ -242,7 +250,7 @@ span{
 .carousel-caption{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   //justify-content: center;
 
 }
@@ -453,7 +461,7 @@ body{
 
   #moreButton{
     font-family: $font-primary;
-    color: $dgl-purple;
+    color: $dgl-almostwhite;
     font-size: 1.4em;
     font-weight: 700;
 
@@ -651,7 +659,7 @@ body{
       font-family: FuturaMedium, $font-copy;
       font-size: .7em;
       &:hover{
-        background-color: $dgl-red;
+        background-color: lighten($dgl-orange, 10%);
         color: #FFF;
       }
     }
@@ -692,7 +700,7 @@ body{
       border-bottom: 5px solid transparent;
       font-size: .8em;
       &:hover{
-        color: $dgl-blue;
+        color: lighten($dgl-orange, 10%);
       }
     }
 
