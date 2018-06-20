@@ -17,7 +17,7 @@
                     <a href="{{$banner->link}}" class="carousel-item carousel-item-main <?php if($i==1) echo 'active'?>">
                         <img class="d-block w-100" src="{{$banner->image}}" alt="First slide">
 
-                        <div class="w-100 h-100 bg-darkpurple banner-layer"></div>
+                        <div class="w-100 h-100 bg-darkgray banner-layer"></div>
 
                         <div class="carousel-caption mb-lg-5">
                             <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
@@ -27,7 +27,7 @@
                     @endforeach
                     <script>
                         $(document).ready(function(){
-                            $(".banner-layer").css('opacity', '.55');
+                            $(".banner-layer").css('opacity', '.75');
                             $(".carousel-caption").css('opacity','1');
                             $(".carousel-indicators").hover(function(){
                                 $(".banner-layer").css('opacity', '0');
@@ -38,7 +38,7 @@
                                 $(".banner-layer").fadeTo(300, 0);
                             },function(){
                                if(!$("#buggyElement").is(":hover"))
-                                {$(".banner-layer").fadeTo(300, .55);
+                                {$(".banner-layer").fadeTo(300, .75);
                                 $(".carousel-caption").fadeTo(300, 1)};
                             });
                         });

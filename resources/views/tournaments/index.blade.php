@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/Banner1.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>Tournaments</h1>
       <img src="{{URL::asset('storage/icons8-trophy-64.png')}}" class="banner-icon">
@@ -10,7 +10,7 @@
   </div>
   <!-- if an active tournament currently -->
   @if(count($active_tournaments)>0)
-  <div class="row pb-5 border-bottom back-color-purple" style="z-index: 2;">
+  <div class="row pb-5 border-bottom background-active-tournament" style="z-index: 2;">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">
@@ -49,7 +49,7 @@
   </div> <!-- active tournament container row-->
   @endif
 
-  <div class="row pb-5 border-bottom">
+  <div class="row pb-5 border-bottom background-upcoming-tournament">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">
@@ -89,11 +89,11 @@
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->
 
-  <div class="row pb-5 border-bottom back-color-lightergray">
+  <div class="row pb-5 border-bottom background-past-tournament">
     <div class="col-12">
       <div class="row my-5  justify-content-center">
         <div class="col-10 pl-0">
-          <h1 class="font-white">PAST TOURNAMENTS</h1>
+          <h1 class="font-lighter-gray">PAST TOURNAMENTS</h1>
         </div>
       </div>
       @foreach($tournaments as $tournament)
@@ -119,7 +119,7 @@
             </div>
           </div>
           <img class="d-inline-block mr-4" width="48" src="{{$tournament->esport->icon}}">
-            <div class="btn-dgl-contaianer-purple mt-2 mb-1">
+            <div class="btn-dgl-container-gray mt-2 mb-1">
               <a href="/tournaments/{{$tournament->id}}" class="btn btn-lg btn-dgl">Go to Tournament Page</a>
             </div>
         </div>

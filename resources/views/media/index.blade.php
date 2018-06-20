@@ -3,7 +3,7 @@
 
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/Banner1.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>Media</h1>
       <img src="{{URL::asset('storage/icons8-tv-show-64.png')}}" class="banner-icon">
@@ -29,7 +29,7 @@
           <a href="/album/{{$album->id}}">
             <div class="card team-logo-300-gray">
               <img class="card-img-top" src="/uploads/images/albums/cover_images/{{$album->cover_image}}" alt="{{$album->name}} Album">
-              <div class="card-body back-color-lightergray">
+              <div class="card-body bg-lightestgray">
                 <h5 class="card-title text-center font-purple">{{$album->name}}</h5>
               </div>
             </div>

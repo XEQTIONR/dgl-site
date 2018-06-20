@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/Banner1.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>Teams</h1>
       <img src="{{URL::asset('storage/icons8-conference-64.png')}}" class="banner-icon">
@@ -42,7 +42,7 @@
             <div class="card p-4 team-logo-300-gray">
               <img class="card-img-top" src="{{$team->logo_size1}}" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title text-center font-purple">{{$team->name}}</h5>
+                <h5 class="card-title text-center">{{$team->name}}</h5>
               </div>
             </div>
           </div>

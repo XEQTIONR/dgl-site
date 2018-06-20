@@ -15,7 +15,7 @@
   @yield('content')
   <div class="row justify-content-center mt-5">
   <div class="d-flex flex-column justify-content-center">
-    <ul class="nav justify-content-center">
+    <ul class="nav nav-simple justify-content-center">
       <li class="">
         <a href="/news" class="nav-link font-futura font-light-gray" href="#">news<span class="sr-only">(current)</span></a>
       </li>

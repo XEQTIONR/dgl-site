@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/Banner1.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>News</h1>
       <img src="{{URL::asset('storage/icons8-news-64.png')}}" class="banner-icon">
@@ -39,7 +39,7 @@
       <!-- blog rows -->
       @foreach($posts as $post)
       <!--post row -->
-        <div class="row mb-5">
+        <div class="row mb-5 post-body">
           <div class="col-12 col-md-3 offset-md-1">
             <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
               <img class="mt-3" src="{{$post->banner}}">
@@ -71,7 +71,7 @@
                 <span class="tag">1st Division</span>
               </div>
 
-              <span class="font-gray">{!! $post->excerpt !!}</span>
+              <span class="">{!! $post->excerpt !!}</span>
             </div>
             <div class="btn-dgl-contaianer-purple">
               <a href="/news/{{$post->id}}" class="btn btn-lg btn-dgl">Read On</a>

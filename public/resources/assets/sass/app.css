@@ -82,7 +82,7 @@
 }
 
 .font-lighter-gray {
-  color: #585F68;
+  color: #b9bdc4;
 }
 
 .font-white {
@@ -263,7 +263,7 @@ span.scoretag.passive {
 
 span.scoretag.active {
   background-color: #7272D7;
-  color: #585F68;
+  color: #b9bdc4;
 }
 
 span p,
@@ -278,6 +278,25 @@ span h6 {
 
 .background-a-tournament {
   background-size: cover;
+}
+
+.background-active-tournament {
+  background-image: url("/storage/hearthstone2.jpg");
+  background-size: cover;
+  background-position: top;
+}
+
+.background-upcoming-tournament {
+  background-image: url("/storage/hanzogenji.png");
+  background-size: cover;
+  background-position: top;
+}
+
+.background-past-tournament {
+  background-image: url("/storage/lc.png");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .jumbotron-atournament {
@@ -444,6 +463,7 @@ span h6 {
   top: 0;
   left: 0;
   z-index: 3;
+  background: linear-gradient(315deg, #7272D7, #7272D7, rgba(20, 8, 5, 0.6), rgba(20, 8, 5, 0.75));
 }
 
 .carousel-item .slide-text {
@@ -625,7 +645,7 @@ body .pagination li a {
 }
 
 body .pagination li a:hover {
-  color: #7272D7;
+  color: #60F569;
 }
 
 body .pagination li:first-child,
@@ -637,7 +657,7 @@ body .pagination li:last-child {
 
 body .pagination li:first-child:hover,
 body .pagination li:last-child:hover {
-  background-color: #D9553C;
+  background-color: #ff7324;
 }
 
 body .pagination li:first-child:hover a,
@@ -690,13 +710,13 @@ body #moreButton {
 }
 
 body #moreButton:hover {
-  color: #6FCDDE;
+  color: #ff7324;
   text-decoration: none;
 }
 
 body .team-logo-300-gray {
   width: 100%;
-  background-color: #585F68;
+  background-color: #c7cacf;
 }
 
 body .team-logo-300 {
@@ -791,7 +811,7 @@ body .btn-dgl-contaianer-purple .btn-dgl {
 
 body .btn-dgl-contaianer-purple:hover {
   background-color: #7272D7;
-  border-color: #7272D7;
+  border-color: #60F569;
 }
 
 body .btn-dgl-contaianer-purple:hover .btn-dgl {
@@ -799,16 +819,17 @@ body .btn-dgl-contaianer-purple:hover .btn-dgl {
 }
 
 body .btn-dgl-container-gray {
+  padding: 0;
+  background-color: transparent;
+  display: inline-block;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
   border: 3px solid #3E464C;
 }
 
 body .btn-dgl-container-gray:hover {
   border: 3px solid #3E464C;
-  background-color: #3E464C;
-}
-
-body .btn-dgl-container-gray:hover .btn-dgl {
-  color: #FFF !important;
+  background-color: #9EA3AC;
 }
 
 body .btn-dgl-container-gray .btn-dgl {
@@ -816,7 +837,7 @@ body .btn-dgl-container-gray .btn-dgl {
 }
 
 body .btn-dgl-container-primary {
-  border: 3px solid #60F569;
+  border: 3px solid #ff7324;
 }
 
 body .btn-dgl-container-primary .btn-dgl {
@@ -825,11 +846,7 @@ body .btn-dgl-container-primary .btn-dgl {
 
 body .btn-dgl-container-primary:hover {
   border: 3px solid #60F569;
-  background-color: #60F569;
-}
-
-body .btn-dgl-container-primary:hover .btn-dgl {
-  color: #7272D7 !important;
+  background-color: #ff7324;
 }
 
 body .btn-dgl {
@@ -866,6 +883,10 @@ body .sidebar-header h5 {
   -webkit-transform: skewX(15deg);
           transform: skewX(15deg);
   padding: .4em 2em;
+}
+
+body .nav-simple li a:hover {
+  color: #7272D7;
 }
 
 body .nav .disabled {
@@ -1050,17 +1071,20 @@ body .post-body .post-link .post-title {
   margin-top: 5px;
 }
 
+body .post-body span h1,
+body .post-body span h2,
+body .post-body span h3,
+body .post-body span h4,
+body .post-body span h5,
+body .post-body span h6 {
+  color: #ff7324;
+}
+
 body .post-body-hover:hover {
   cursor: pointer;
 }
 
-body .post-body-hover:hover span p,
-body .post-body-hover:hover span h1,
-body .post-body-hover:hover span h2,
-body .post-body-hover:hover span h3,
-body .post-body-hover:hover span h4,
-body .post-body-hover:hover span h5,
-body .post-body-hover:hover span h6 {
+body .post-body-hover:hover span p {
   color: #d7dde8;
 }
 

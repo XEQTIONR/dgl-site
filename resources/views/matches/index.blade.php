@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/Banner1.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>Matches</h1>
       <img src="{{URL::asset('storage/icons8-whistle-64.png')}}" class="banner-icon">

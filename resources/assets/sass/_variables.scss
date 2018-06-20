@@ -117,7 +117,7 @@ $dgl-dark: #272A38;
 }
 
 .font-lighter-gray{
-  color: $dgl-lightergray;
+  color: lighten($dgl-lightestgray, 10%);
 }
 .font-white{
   color: #FFF;
