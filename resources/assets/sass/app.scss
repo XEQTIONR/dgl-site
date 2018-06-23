@@ -31,8 +31,11 @@ span.scoretag.active{
 }
 
 span{
-  p, h1,h2,h3,h4,h5,h6{
-    color: $dgl-lightestgray  ;
+  h1,h2,h3,h4,h5,h6{
+    color: #FFF;
+  }
+  p{
+    color: $dgl-lightestgray;
   }
 }
 
@@ -144,7 +147,10 @@ span{
   font-family: $font-primary;
   font-weight: normal;
 }
-
+.font-copy{
+  font-family: $font-copy;
+  text-transform: none;
+}
 
 .faded{
   opacity: .3;
@@ -359,6 +365,16 @@ body{
     } //video-thumbnail
   } // video-thumbnail-link
 
+  .list-group-tournament-match{
+    .list-group-item{
+      background-color: $dgl-darkestgray;
+      color: #FFF;
+      span, small{
+        color: #FFF;
+      }
+    }
+
+  }
 
   .sidebar{
     @media screen and (min-width: 992px) {
@@ -900,7 +916,8 @@ body{
     }
 
     p{
-      font-family: 'FuturaMedium' , $font-copy;
+      font-family:  $font-copy;
+      color: $dgl-blue;
     }
   }
 

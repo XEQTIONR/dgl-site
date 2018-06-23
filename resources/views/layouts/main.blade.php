@@ -7,7 +7,7 @@
   <title>DaGameLeague - DGLcore.com</title>
 
   <!--Fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400|Barlow+Condensed:700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400|Barlow+Condensed:700|Lato:400,400i,700,700i" rel="stylesheet">
   {{--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">--}}
   <!--Stylesheet-->
   <link rel="stylesheet" href="/css/app.css">

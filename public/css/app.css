@@ -14,43 +14,8 @@
 }
 
 @font-face {
-  font-family: 'DINNext';
-  src: url("/fonts/FuturaLT-Bold.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'AaronFaces';
   src: url("/fonts/aaron-webfont.woff");
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src: url("/fonts/CircularStd-Book.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src: url("/fonts/CircularStd-BookItalic.otf");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src: url("/fonts/CircularStd-Bold.otf");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src: url("/fonts/CircularStd-BoldItalic.otf");
-  font-weight: bold;
-  font-style: italic;
 }
 
 .white-border {
@@ -241,7 +206,7 @@ h5 {
 }
 
 p {
-  font-family: "CircularStd", serif;
+  font-family: "Lato", "CircularStd", serif;
   font-size: 1em;
   color: #272A38;
 }
@@ -274,13 +239,16 @@ span.scoretag.active {
   color: #b9bdc4;
 }
 
-span p,
 span h1,
 span h2,
 span h3,
 span h4,
 span h5,
 span h6 {
+  color: #FFF;
+}
+
+span p {
   color: #9EA3AC;
 }
 
@@ -390,6 +358,11 @@ span h6 {
 .font-primary {
   font-family: "Barlow Condensed", "Titillium Web", serif;
   font-weight: normal;
+}
+
+.font-copy {
+  font-family: "Lato", "CircularStd", serif;
+  text-transform: none;
 }
 
 .faded {
@@ -517,7 +490,7 @@ span h6 {
 }
 
 body {
-  font-family: "CircularStd", serif;
+  font-family: "Lato", "CircularStd", serif;
   line-height: 1.618;
 }
 
@@ -585,6 +558,16 @@ body .video-thumbnail-link:hover img {
 
 body .video-thumbnail-link:hover .middle {
   opacity: 1;
+}
+
+body .list-group-tournament-match .list-group-item {
+  background-color: #1F232D;
+  color: #FFF;
+}
+
+body .list-group-tournament-match .list-group-item span,
+body .list-group-tournament-match .list-group-item small {
+  color: #FFF;
 }
 
 @media screen and (min-width: 992px) {
@@ -927,7 +910,7 @@ body .navbar {
 }
 
 body .navbar .dropdown-item {
-  font-family: FuturaMedium, "CircularStd", serif;
+  font-family: FuturaMedium, "Lato", "CircularStd", serif;
   font-size: .7em;
 }
 
@@ -967,7 +950,7 @@ body .navbar-dgl a {
 }
 
 body .navbar-dgl a.nav-link {
-  font-family: FuturaMedium, "CircularStd", serif;
+  font-family: FuturaMedium, "Lato", "CircularStd", serif;
   border-bottom: 5px solid transparent;
   font-size: .8em;
 }
@@ -1117,7 +1100,7 @@ body .footer h5 {
 
 body .footer a {
   color: #3E464C;
-  font-family: "CircularStd", serif;
+  font-family: "Lato", "CircularStd", serif;
   text-decoration: none;
 }
 
@@ -1134,7 +1117,8 @@ body .footer .footer-text .footer-list-div {
 }
 
 body .footer p {
-  font-family: "FuturaMedium", "CircularStd", serif;
+  font-family: "Lato", "CircularStd", serif;
+  color: #6FCDDE;
 }
 
 body #footerFlexContainer {

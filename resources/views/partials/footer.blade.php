@@ -91,14 +91,14 @@
       </div>
       <hr>
     </div>
-    <div class="row justify-content-start mt-10 d-none d-md-block">
-        <p class="font-blue">2018 &copy; DAGAMELEAGUE INC. All rights reserved</p>
+    <div class="row justify-content-start mt-10 mb-5 d-none d-md-block">
+        <p class="">2018 &copy; DAGAMELEAGUE INC. All rights reserved</p>
     </div>
   </div>
   <div class="col-12 col-md-4">
-    <div class="row d-md-none">
+    <div class="row mt-5 d-md-none">
       <div class="col-12" style="border-bottom: 1px solid #363636;">
-        <p class="text-center font-blue">2018 &copy; DAGAMELEAGUE INC. All rights reserved</p>
+        <p class="text-center">2018 &copy; DAGAMELEAGUE INC. All rights reserved</p>
       </div>
     </div>
     <div class="row justify-content-center footer-img">

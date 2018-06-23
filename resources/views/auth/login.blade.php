@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <div class="col">
                                 <button type="submit" class="btn btn-lg btn-block back-color-purple font-white">
-                                    Login
+                                    Sign in
                                 </button>
                             </div>
                         </div>

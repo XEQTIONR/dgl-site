@@ -75,12 +75,12 @@
               settings
             </a>
           </span>
-          <span>
+          <span class="mr-4">
           <a href="{{ route('logout') }}" class="nav-link"
              onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
             <i class="fas fa-sign-out-alt"></i>
-            logout
+            sign out
           </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}

@@ -171,7 +171,7 @@
                         <div class="form-group my-5">
                             <div class="col">
                                 <button type="submit" class="btn btn-lg btn-block btn btn-outline-success">
-                                    Register
+                                    Sign Up
                                 </button>
                             </div>
                         </div>

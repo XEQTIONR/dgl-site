@@ -7,42 +7,8 @@
 }
 //
 @font-face {
-  font-family: 'DINNext';
-  src: url('/fonts/FuturaLT-Bold.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'AaronFaces';
   src : url('/fonts/aaron-webfont.woff');
-}
-@font-face {
-  font-family: 'CircularStd';
-  src : url('/fonts/CircularStd-Book.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src : url('/fonts/CircularStd-BookItalic.otf');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src : url('/fonts/CircularStd-Bold.otf');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'CircularStd';
-  src : url('/fonts/CircularStd-BoldItalic.otf');
-  font-weight: bold;
-  font-style: italic;
 }
 // Borders
 .white-border{
@@ -247,7 +213,7 @@ $dgl-dark: #272A38;
 
 // Typography
 $font-primary:  "Barlow Condensed", "Titillium Web", serif;
-$font-copy: "CircularStd", serif;
+$font-copy: "Lato","CircularStd", serif;
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
 $font-quicksand: "Quicksand";
 .font-futura{

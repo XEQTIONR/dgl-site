@@ -21,7 +21,7 @@
 
                         <div class="carousel-caption mb-lg-5">
                             <h1 class="d-none d-md-block text-center carousel-text-header">{{$banner->title}}</h1>
-                            <h6 class="font-futura d-none d-sm-block slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
+                            <h6 class="font-copy d-none d-sm-block slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
                         </div>
                     </a>
                     @endforeach

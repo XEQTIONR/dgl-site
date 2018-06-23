@@ -35,7 +35,7 @@ class LoginController extends Controller
      */
     public function authenticated(Request $request, $user)
     {
-      $notification = "You are logged in.";
+      $notification = "You are signed in.";
       $type = 'success';
       $request->session()->flash('notification', $notification);
       $request->session()->flash('notification_type', $type);

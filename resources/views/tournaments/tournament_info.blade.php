@@ -4,7 +4,8 @@
   </div>
   <div class="col-12 tournament-info-container">
 
-    <p class="font-white lead">{!! $tournament->description !!}</p>
-
+    <div class="bg-darkestgray p-3">
+    <span class="">{!! $tournament->description !!}</span>
+    </div>
   </div>
 </div>

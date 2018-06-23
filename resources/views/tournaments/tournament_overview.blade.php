@@ -6,7 +6,7 @@
 
     <h2 class="text-uppercase font-white">Upcoming matches</h2>
 
-    <ul class="list-group">
+    <ul class="list-group list-group-tournament-match">
     @foreach($checkingin as $match)
     <li class="list-group-item">
       <div class="d-flex"><!-- a checking in match-->
@@ -241,7 +241,7 @@
 
     <h2 class="text-uppercase font-light-gray mt-5">Results</h2>
 
-    <ul class="list-group">
+    <ul class="list-group  list-group-tournament-match">
     @foreach($past as $match)
     <li class="list-group-item">
       <div class="d-flex"><!-- a past match-->
