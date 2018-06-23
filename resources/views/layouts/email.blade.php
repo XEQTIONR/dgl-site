@@ -1,0 +1,64 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+  body
+  {
+    font-family: "Titillium Web";
+    font-size: 20px;
+  }
+  .row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .col{
+    width: 60%;
+    min-width: 950px !important;
+    /*padding-left: 5px;*/
+    /*padding-right: 5px;*/
+    /*border: 1px dashed blueviolet;*/
+    /*background-color: #EFEFEF;*/
+
+  }
+
+  .col-main
+  {
+    /*padding-left: 40px;*/
+    /*padding-right: 40px;*/
+  }
+  .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+  }
+
+  .logo + h2{
+    color: white;
+  }
+
+  .text-center{
+    text-align: center;
+  }
+
+  .button{
+    display: block;
+    margin: 20px auto;
+    width: 30%;
+    min-width: 200px;
+    text-align: center;
+    padding: 6px 0px;
+    background-color: #6677CC;
+    text-decoration: none;
+    color: white;
+  }
+</style>
+<div class="row">
+  <div class="col" style="background: url('{{URL::asset('storage/banner-email.png')}}')">
+    <img class="logo" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="100" alt="">
+    {{--<img src="{{URL::asset('storage/banner-email.png')}}" width="100%">--}}
+    <h2 class="text-center">ĐAGAMELEAGUE</h2>
+  </div>
+  {{--<hr>--}}
+</div>
+@yield('content')

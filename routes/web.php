@@ -81,11 +81,45 @@ Route::get('/owapi/{battletag}', 'GamerController@getOverwatchInfo');
 
 Route::get('/settings', 'GamerController@settings')->name('settings')->middleware('auth');
 
-
 Route::get('/test', function(){
-  return view('test');
+
+  //return view('test');
+  $address = 'test@test.com';
+  $code = '321j3u1j3o1';
+  return new App\Mail\VerifyEmailAddress($address, $code);
 });
 
+Route::get('/test2', function(){
+
+
+  //return view('test');
+  $tournament = App\Tournament::first();
+  $team = App\ContendingTeam::first();
+  //dd($tournament, $team);
+  $alias = 'gamertag1';
+//    $tournament->name = 'DA* League 2018';
+//    $team->name = 'DaTeaM Prime';
+//    $team->id = 1;
+  return new App\Mail\RegisterforTournament($alias, $team, $tournament);
+});
+Route::get('/test3', function(){
+
+
+  //return view('test');
+  $tournamentId = \App\Tournament::first();
+  $tournamentName = "DA* League 2018";
+  $teamId = \App\ContendingTeam::first();
+  $teamName = 'DaTeaM Prime';
+  $teamTag = 'DtM`';
+  $inviteId = 1;
+  $email = 'x.e.q.tionrz@gmail.com';
+  //dd($tournament, $team);
+  //$alias = 'gamertag1';
+//    $tournament->name = 'DA* League 2018';
+//    $team->name = 'DaTeaM Prime';
+//    $team->id = 1;
+  return new App\Mail\SignUpAndRegister($email, $inviteId, $teamId, $tournamentId);
+});
 Route::post('/testform', function(Illuminate\Http\Request $request){
   dd($request);
 });

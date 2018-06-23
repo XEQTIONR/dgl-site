@@ -1,17 +1,24 @@
-<!--
- * Copyright 2018 DAGAMELEAGUE
+@extends('layouts.email')
+@section('content')
+  <div class="row" style="min-height: 600px">
+    <div class="col">
+      <div style="margin: 10px">
+        <h2>Hey {{$alias}}</h2>
+        <p>You have been invited to participate in tournament </p>
+        <h5>{{$tournament->name}}</h5>
+        <p>for team</p>
+        <h5> {{$team->name}} </h5>
+        <p>Please go to the following link to confirm your registration. You are considered officially not on the roster until you have confirmed your spot.
+          {{$team->name}} will be disqualified if all teammates have not signed up and confirmed by the time registration closes.</p>
 
- ____    ___  __
-(  _ \  / __)(  )
- )(_) )( (_-. )(__  / _/ _ \ '_/ -_)_/ _/ _ \ '  \
-(____/  \___/(____) \__\___/_| \___(_)__\___/_|_|_|
+        <a class="button" href="{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">Join {{$team->name}}</a>
 
-@author XEQTIONR
-@template register
--->
-Hey {{$alias}} <br>
-You have been invited to participate in tournament {{$tournament->name}} <br>
-for team {{$team->name}} <br>
-Please go to the following link to confirm your registration.
-You are considered officially not on the roster until you have confirmed your spot. <br>
-<a href="{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">ROSTER CONFIRMATION LINK</a>
+        <p>If you cannot see the button visit the following link </p>
+
+        <a href="{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}</a>
+        <p>Happy Gaming</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+@endsection
