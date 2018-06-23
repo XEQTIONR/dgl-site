@@ -120,7 +120,7 @@
 
         </div>
         <div class="col-12 col-md-3">
-          <div class="sidebar-header mt-4">
+          <div class="sidebar-header active mt-4">
             <h5>Next Match</h5>
           </div>
           <div class="row justify-content-center mt-4">

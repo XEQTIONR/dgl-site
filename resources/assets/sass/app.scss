@@ -32,10 +32,22 @@ span.scoretag.active{
 
 span{
   h1,h2,h3,h4,h5,h6{
-    color: #FFF;
+    color: desaturate($dgl-orange,20%);
   }
+  li{
+    color: $dgl-blue;
+  }
+
   p{
     color: $dgl-lightestgray;
+  }
+  table,th, td {
+    border: 1px solid $dgl-orange;
+    color: #FFF;
+    padding: 5px;
+  }
+  th{
+    background-color: $dgl-orange;
   }
 }
 
@@ -663,6 +675,10 @@ body{
     }
   }
 
+  .sidebar-header.active{
+    background-color: desaturate($dgl-orange,20%) !important;
+  }
+
   .nav-simple{
     li{
       a{
@@ -725,7 +741,7 @@ body{
 
 
   .navbar-dgl{
-    background-color: $dgl-darkgray !important;
+    //background-color: $dgl-darkgray !important;
 
     .navbar-brand{
       margin: 0;
@@ -854,12 +870,12 @@ body{
         margin-top : 5px;
       }
     }
-    span{
-      h1,h2,h3,h4,h5,h6{
-        //color: lighten($dgl-lightestgray,25%);
-        color: $dgl-orange;
-      }
-    }
+    //span{
+    //  h1,h2,h3,h4,h5,h6{
+    //    //color: lighten($dgl-lightestgray,25%);
+    //    color: $dgl-orange;
+    //  }
+    //}
   }
 
   .post-body-hover{

@@ -245,11 +245,27 @@ span h3,
 span h4,
 span h5,
 span h6 {
-  color: #FFF;
+  color: #e9793a;
+}
+
+span li {
+  color: #6FCDDE;
 }
 
 span p {
   color: #9EA3AC;
+}
+
+span table,
+span th,
+span td {
+  border: 1px solid #ff7324;
+  color: #FFF;
+  padding: 5px;
+}
+
+span th {
+  background-color: #ff7324;
 }
 
 .background-a-tournament {
@@ -876,6 +892,10 @@ body .sidebar-header h5 {
   padding: .4em 2em;
 }
 
+body .sidebar-header.active {
+  background-color: #e9793a !important;
+}
+
 body .nav-simple li a:hover {
   color: #7272D7;
 }
@@ -923,10 +943,6 @@ body .nav-brand a {
   font-family: "Barlow Condensed", "Titillium Web", serif;
   font-weight: 900;
   vertical-align: baseline;
-}
-
-body .navbar-dgl {
-  background-color: #2B303B !important;
 }
 
 body .navbar-dgl .navbar-brand {
@@ -1060,15 +1076,6 @@ body .post-body .post-link .post-title {
   color: #9EA3AC;
   text-decoration: none;
   margin-top: 5px;
-}
-
-body .post-body span h1,
-body .post-body span h2,
-body .post-body span h3,
-body .post-body span h4,
-body .post-body span h5,
-body .post-body span h6 {
-  color: #ff7324;
 }
 
 body .post-body-hover:hover {

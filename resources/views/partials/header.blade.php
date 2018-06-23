@@ -11,7 +11,7 @@
 
 --}}
 
-    <nav class="navbar navbar-expand-lg navbar-dgl fixed-top">
+    <nav class="navbar navbar-dgl navbar-expand-lg fixed-top">
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -88,6 +88,25 @@
           </span>
         @endif
       </div>
+      <script>
+            var scroll = 0;
+            $(window).scroll(function(){
+                if((0.00001 *$(window).scrollTop())<0.0025)
+                {
+                    console.log("scrolled: " + 0.00001 * $(window).scrollTop());
+                    $(".navbar").css('background-color', 'rgba(39,44,56,' + 1 / (0.01 * $(window).scrollTop()) + ')');
+                }
+                // else{
+                //     $(".navbar").css('background-color', 'rgba(39,44,56,1)');
+                // }
+                // scroll = $(window).scrollTop();
+            });
+
+            $(".navbar-toggler-icon").click(function(){
+                $(".navbar-dgl").css('background-color', 'rgba(39,44,56,1)');
+            });
+
+      </script>
     </nav>
   {{--</div>--}}
 {{--</div>--}}

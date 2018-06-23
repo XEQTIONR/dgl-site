@@ -4,7 +4,7 @@
   </div>
   <div class="col-12 tournament-info-container">
 
-    <div class="bg-darkestgray p-3">
+    <div class="bg-darkestgray p-3 mb-5">
     <span class="">{!! $tournament->description !!}</span>
     </div>
   </div>
