@@ -8,7 +8,6 @@
     </div>
     <div class="row justify-content-center px-1 px-md-5">
         <div class="col-12">
-            {{--<div class="panel panel-default">--}}
                 <div class="row">
                     <form class="w-100 mt-3" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -67,7 +66,7 @@
                         </div>
                         <div class="form-group mb-5">
                             <div class="col">
-                                <a href="/register" class="btn btn-lg btn-block btn-outline-success">
+                                <a href="/register" class="btn btn-block btn-outline-success">
                                     Or, Sign Up Now.
                                 </a>
                             </div>

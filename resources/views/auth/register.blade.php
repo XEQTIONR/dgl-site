@@ -26,6 +26,7 @@
             <div class="row mt-4 justify-content-center">
                 <img src="{{URL::asset('storage/DGLCrownLightGray.svg')}}" width="125" />
             </div>
+            <div class="row justify-content-center"><h6>Sign up for DaGameLeague</h6></div>
             <div class="row mt-4 justify-content-center px-1 px-md-5">
                 <div class="col-12">
                     <form class="form-horizontal w-100" method="POST" action="{{ route('register') }}">
