@@ -120,6 +120,20 @@ Route::get('/test3', function(){
 //    $team->id = 1;
   return new App\Mail\SignUpAndRegister($email, $inviteId, $teamId, $tournamentId);
 });
+Route::get('/test4', function(){
+
+  $to = 'x.e.q.tionrz@gmail.com';
+  $al = 'XEQTIONR';
+  $tn = 'DaTeaM';
+  $tt = 'DtM`';
+  $tourney = 'DA* League 2018';
+
+  return new App\Mail\TeamApproved($to, $al, $tn, $tt, $tourney);
+});
+
+
+
+
 Route::post('/testform', function(Illuminate\Http\Request $request){
   dd($request);
 });
