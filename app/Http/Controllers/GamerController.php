@@ -215,14 +215,14 @@ class GamerController extends Controller
     }
     public function getSteamInfo($steam64id)
     {
-      $url = env('STEAM_USERINFO_URL');
-      $key = env('STEAM_API_KEY');
+      $url = config('social.steam_url');
+      $key = config('social.steam_api_key');
       $endpoint = $url.$key."&steamids=".$steam64id;
 
       $contents = file_get_contents($endpoint);
 
       $data = json_decode($contents);
-
+      return $data;
       $info = $data->response->players[0];
       $info->responseStatus = 'success';
 
@@ -232,8 +232,8 @@ class GamerController extends Controller
     public function getOverwatchInfo($battletag)
     {
       $btag = str_replace("#", "-", $battletag);
-      $url = env('OW_API_URL');
-      $url_suffix = env('OW_API_SUFFIX');
+      $url = config('social.owapi_url');
+      $url_suffix = config('social.owapi_suffix');
 
       $endpoint = $url.$btag.$url_suffix;
 
