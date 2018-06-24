@@ -44,8 +44,8 @@ class MatchController extends Controller
       foreach ($matches as $match)
       {
         $count = count($results);
-        $now = Carbon::now();
-        $date = Carbon::parse($match->matchstart);
+        $now = Carbon::now(config('app.user_timezone'));
+        $date = Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'));
         $match->hrdow = $date->format('l');
         $match->hrdate = $date->format('jS F');
         $match->hrstarttime = $date->format('g:i A');

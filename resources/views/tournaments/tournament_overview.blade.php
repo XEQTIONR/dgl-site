@@ -57,7 +57,7 @@
             vs
           </div>
           <div class="row justify-content-center mt-3">
-            {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
+            {{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('g:i A')}}
           </div>
           <div class="row justify-content-center">
             <span class="text-center text-uppercase mt-1" style="font-size: 12px">teams checking in</span>
@@ -141,7 +141,7 @@
                 vs
               </div>
               <div class="row justify-content-center mt-3">
-                {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
+                {{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('g:i A')}}
               </div>
               <div class="row justify-content-center">
                 <span class="text-center text-uppercase mt-1" style="font-size: 12px">waiting to start</span>
@@ -205,10 +205,10 @@
                 <span class="text-center text-uppercase mt-1" style="font-size: 12px">vs</span>
               </div>
               <div class="row justify-content-center mt-3">
-                {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
+                {{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('g:i A')}}
               </div>
               <div class="row justify-content-center mt-2">
-                <small class="text-center text-uppercase">{{\Carbon\Carbon::parse($match->matchstart)->format('l jS F')}}</small>
+                <small class="text-center text-uppercase">{{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('l jS F')}}</small>
               </div>
             </div>
             <div class="col-5">
@@ -287,10 +287,10 @@
                 <span class="text-center text-uppercase mt-1" style="font-size: 12px">Roster</span>
               </div>
               <div class="row justify-content-center mt-3">
-                {{\Carbon\Carbon::parse($match->matchstart)->format('g:i A')}}
+                {{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('g:i A')}}
               </div>
               <div class="row justify-content-center mt-2">
-                <small class="text-center text-uppercase">{{\Carbon\Carbon::parse($match->matchstart)->format('l jS F')}}</small>
+                <small class="text-center text-uppercase">{{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('l jS F')}}</small>
               </div>
             </div>
         </div>

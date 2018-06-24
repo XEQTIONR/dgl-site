@@ -80,7 +80,7 @@
               </div>
             </div>
             <div class="row justify-content-center">
-              <h5 class="text-center text-uppercase">{{$match->hrstarttime}}</h5>
+              <h6 class="text-center text-uppercase">{{$match->hrstarttime}}</h6>
             </div>
           </div><!-- match end-->
         @endforeach
