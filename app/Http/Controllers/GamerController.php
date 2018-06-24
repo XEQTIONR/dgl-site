@@ -222,7 +222,7 @@ class GamerController extends Controller
       $contents = file_get_contents($endpoint);
 
       $data = json_decode($contents);
-      return $data;
+      
       $info = $data->response->players[0];
       $info->responseStatus = 'success';
 

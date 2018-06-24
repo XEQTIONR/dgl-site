@@ -192,7 +192,7 @@
                  data-date-start-date="01/01/1950" {{--some reasonable lower bound--}}
             >
               <input id="inputDob" v-model="gamer.dob" type="text"  name="dob"  class="form-control" readonly />
-              <label class="input-group-addon btn mb-0 back-color-lightergray" for="date">
+              <label class="input-group-addon btn mb-0 bg-lightestgray" for="date">
                 <span class="fa fa-calendar-alt open-datetimepicker"></span>
               </label>
             </div>
@@ -214,7 +214,12 @@
                 <i class="fa-spin fas fa-circle-notch"></i>
               </span>
             </label>
-            <input v-model="steamIdInput" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <div class="input-group">
+              <input v-model="steamIdInput" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <label class="input-group-addon btn mb-0 bg-lightestgray" for="date">
+                <span class="fas fa-search"></span>
+              </label>
+            </div>
             <small id="emailHelp" class="form-text text-muted">Required for tournaments with games hosted on Steam.</small>
           </div>
           <div v-else class="form-group row">
@@ -240,7 +245,12 @@
                 <i class="fa-spin fas fa-circle-notch"></i>
               </span>
             </label>
-            <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <div class="input-group">
+              <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <label class="input-group-addon btn mb-0 bg-lightestgray" for="date">
+                <span class="fas fa-search"></span>
+              </label>
+            </div>
             <small id="emailHelp" class="form-text text-muted">Currently only Battle.Net accounts owning a copy of Overwatch. Required for Overwatch tournaments.</small>
           </div>
           <div v-else class="form-group row">
