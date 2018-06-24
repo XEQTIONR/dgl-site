@@ -4,7 +4,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\CRUD\CrudTrait;
-
+use App\Notifications\MailResetPasswordNotification as MailNotification;
 
 class Gamer extends Authenticatable
 {
@@ -46,6 +46,11 @@ class Gamer extends Authenticatable
     public function lastteam()
     {
 
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+      $this->notify(new MailNotification($token));
     }
     /*
     |--------------------------------------------------------------------------
