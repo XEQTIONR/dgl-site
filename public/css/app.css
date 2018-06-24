@@ -239,6 +239,10 @@ span.scoretag.active {
   color: #b9bdc4;
 }
 
+span {
+  color: #FFF;
+}
+
 span h1,
 span h2,
 span h3,
@@ -246,6 +250,7 @@ span h4,
 span h5,
 span h6 {
   color: #e9793a;
+  font-weight: bold;
 }
 
 span li {
@@ -266,6 +271,19 @@ span td {
 
 span th {
   background-color: #ff7324;
+}
+
+span.light p {
+  color: #000;
+}
+
+span.light h1,
+span.light h2,
+span.light h3,
+span.light h4,
+span.light h5,
+span.light h6 {
+  color: #ff7324;
 }
 
 .background-a-tournament {
@@ -518,6 +536,7 @@ body .tag {
 
 body .tag:hover {
   background-color: #7272D7;
+  color: #FFF;
 }
 
 body .video-thumbnail-link {
@@ -716,9 +735,17 @@ body #moreButton {
   font-weight: 700;
 }
 
+body #moreButton span {
+  color: #d7dde8;
+}
+
 body #moreButton:hover {
   color: #ff7324;
   text-decoration: none;
+}
+
+body #moreButton:hover span {
+  color: #ff7324;
 }
 
 body .team-logo-300-gray {

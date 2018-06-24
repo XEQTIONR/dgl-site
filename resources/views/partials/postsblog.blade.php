@@ -18,17 +18,17 @@
     <div class="row">
       <div class="mt-1 mb-3 pr-4">
         <i class="fas fa-calendar-alt font-gray"></i>
-        <span class="">
+        <span class="font-light-gray">
                 {{ $post->created_at->format('j F Y') }}
                 </span>
       </div>
       <div class="mt-1 mb-3 mr-3">
         <i class="fas fa-tags font-purple"></i>
-        <span class="tag">Tournament</span>,
-        <span class="tag">Overwatch</span>,
-        <span class="tag">1st Division</span>
-        <span class="tag">Overwatch</span>,
-        <span class="tag">1st Division</span>
+        <span class="tag font-light-gray">Tournament</span>,
+        <span class="tag font-light-gray">Overwatch</span>,
+        <span class="tag font-light-gray">1st Division</span>
+        <span class="tag font-light-gray">Overwatch</span>,
+        <span class="tag font-light-gray">1st Division</span>
       </div>
 
       <span class="font-gray">{!! $post->excerpt !!}</span>

@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('body-section')
-  <div class="row justify-content-center mt-10">
-    <img style="height: 500px; width: auto" src="{{$post->banner}}">
+  <div class="row justify-content-center" style=" margin-top: 60px; height: 500px; background-repeat: no-repeat; background-position: center; background-image:url('{{$post->banner}}')">
+    {{--<img class="img-fluid" src="{{$post->banner}}">--}}
   </div>
   <div class="row justify-content-center mt-4">
   <div class="col-10">
@@ -13,10 +13,17 @@
     <h2>{{$post->subtitle}}</h2>
   </div>
   <div class="row">
-    {{$post->created_at}}
+    <div class="mt-1 mb-3 pr-4">
+      <i class="fas fa-calendar-alt font-gray"></i>
+      <span class="ml-1 font-gray">
+                  {{ $post->created_at->format('j F Y') }}
+                  </span>
+    </div>
   </div>
   <div class="row">
-    {!! $post->body !!}
+    <span class="light">
+      {!! $post->body !!}
+    </span>
   </div>
 
   <div class="row">

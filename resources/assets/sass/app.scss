@@ -31,8 +31,10 @@ span.scoretag.active{
 }
 
 span{
+  color: #FFF;
   h1,h2,h3,h4,h5,h6{
     color: desaturate($dgl-orange,20%);
+    font-weight: bold;
   }
   li{
     color: $dgl-blue;
@@ -48,6 +50,14 @@ span{
   }
   th{
     background-color: $dgl-orange;
+  }
+}
+span.light{
+  p{
+    color: #000;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: $dgl-orange;
   }
 }
 
@@ -321,7 +331,7 @@ body{
     padding: 0px 2px;
     &:hover{
       background-color: $dgl-purple;
-      //color: $dgl-purple;
+      color: #FFF;
 
     }
   }
@@ -512,8 +522,13 @@ body{
     color: $dgl-almostwhite;
     font-size: 1.4em;
     font-weight: 700;
-
+    span{
+      color: $dgl-almostwhite;
+    }
     &:hover{
+      span{
+        color: $dgl-orange;
+      }
       color: $dgl-orange;
       text-decoration: none;
     }

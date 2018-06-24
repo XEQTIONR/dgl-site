@@ -34,7 +34,7 @@
       $words20 = array_slice($words,0,30);
 
       $excerpt = implode(' ', $words20);
-
+      $excerpt = $excerpt." ...";
       $Parsedown = new \Parsedown();
       $excerpt = $Parsedown->text($excerpt);
 
