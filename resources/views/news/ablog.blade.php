@@ -16,7 +16,9 @@
     <div class="mt-1 mb-3 pr-4">
       <i class="fas fa-calendar-alt font-gray"></i>
       <span class="ml-1 font-gray">
-                  {{ $post->created_at->format('j F Y') }}
+                  {{--{{ $post->created_at->format('j F Y') }}--}}
+                  {{--{{ $post->created_at }}--}}
+                  {{\Carbon\Carbon::parse($post->created_at,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('j F Y')}}
                   </span>
     </div>
   </div>
