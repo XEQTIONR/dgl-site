@@ -174,12 +174,12 @@
           </div>
           <div class="form-group row">
             <label for="inputFname">First Name</label>
-            <input v-model="gamer.fname" type="text" name="fname" class="form-control" id="inputFname" placeholder="Your first name">
+            <input v-model="fnameInput" v-on:change="verifyNames()" v-on:blur="submitEnable()" v-on:focus="submitDisable()" type="text" name="fname" class="form-control" id="inputFname" placeholder="Your first name">
             {{--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
           </div>
           <div class="form-group row">
             <label for="inputLname">Last Name</label>
-            <input v-model="gamer.lname" type="text" name="lname" class="form-control" id="inputLname" placeholder="Your last name">
+            <input v-model="lnameInput" v-on:change="verifyNames()" v-on:blur="submitEnable()" v-on:focus="submitDisable()" type="text" name="lname" class="form-control" id="inputLname" placeholder="Your last name">
             {{--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
           </div>
 
@@ -215,7 +215,7 @@
               </span>
             </label>
             <div class="input-group">
-              <input v-model="steamIdInput" v-on:blur="submitEnable()" v-on:focus="submitDisable()" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input v-model="steamIdInput" v-on:blur="submitEnable()" v-on:focus="submitDisable()" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your SteamID64. (All numeric. About 13 digits).">
               <label class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getSteamInfo()" for="date">
                 <span class="fas fa-search"></span>
               </label>
@@ -249,7 +249,7 @@
               </span>
             </label>
             <div class="input-group">
-              <input v-model="battleTagInput" v-on:blur="submitEnable()" v-on:focus="submitDisable()" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input v-model="battleTagInput" v-on:blur="submitEnable()" v-on:focus="submitDisable()" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter BattleTag">
               <label class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getOverwatchInfo()" for="date">
                 <span class="fas fa-search"></span>
               </label>
@@ -275,11 +275,11 @@
 
           <div class="form-group row">
             <label for="inputLname">Discord ID</label>
-            <input {{--name="inputDiscord"--}} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input {{--name="inputDiscord"--}} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Discord ID">
             <small id="emailHelp" class="form-text text-muted">Required for all tournaments. No exceptions.</small>
           </div>
 
-          <button v-bind:disabled="searchingSteam || searchingBattleTag || submit_disabled || searchingAlias" type="submit" class="btn btn-primary">Submit</button>
+          <button v-bind:disabled="searchingSteam || searchingBattleTag || submit_disabled || searchingAlias || fnameInput == '' || lnameInput == '' || verifyingNames" type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
       </div>
@@ -558,6 +558,11 @@
 <script>
   let data = {
 
+      verifyingNames: false,
+
+      fnameInput: "{{$gamer->fname}}",
+      lnameInput: "{{$gamer->lname}}",
+
       searchingAlias : false,
       aliasInput: "{{$gamer->alias}}",
 
@@ -679,6 +684,25 @@
           submitEnable: function () {
             if(!app.searchingBattleTag || !app.searchingSteam)
                 app.submit_disabled = false;
+          },
+          verifyNames: function()
+          {
+              app.verifyingNames = true;
+              if(app.fnameInput == "")
+              {
+                  app.fnameInput = "" + app.gamer.fname;
+                  toastr.warning("First name cannot be blank.");
+                  document.querySelector("#inputFname").focus();
+                  //app.submit_disabled = true;
+              }
+              if(app.lnameInput == "")
+              {
+                  app.lnameInput = "" + app.gamer.lname;
+                  toastr.warning("Last name cannot be blank.");
+                  document.querySelector("#inputLname").focus();
+                  //app.submit_disabled = true;
+              }
+              app.verifyingNames = false;
           },
 
           findGamer: function() //find game by alias
