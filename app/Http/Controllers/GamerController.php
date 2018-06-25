@@ -141,7 +141,7 @@ class GamerController extends Controller
         $meta=$gamer->meta;
 
         $steamid=$gamer->steamid;
-
+        $battletag = $gamer->battlenetid;
         if (!is_null($steamid))
         {
           $data=$this->getSteamInfo($steamid);
@@ -149,6 +149,14 @@ class GamerController extends Controller
           //$personaname=$info->personaname;
           $gamer->personaname=$info->personaname;
           $gamer->steamavatar=$info->avatarmedium;
+        }
+        if(!is_null($battletag))
+        {
+          $data = $this->getOverwatchInfo($battletag);
+          $info=json_decode($data);
+
+          $gamer->battletag = $battletag;
+          $gamer->owavatar = $info->data;
         }
 
         $rosters = Roster::where('gamer_id', $gamer->id)

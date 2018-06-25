@@ -105,18 +105,10 @@
                 $steamflag = true;
                 $steamavatarURL = $gamer->steamavatar;
               }
-              foreach ($meta as $ameta)
+              if(isset($gamer->battletag))
               {
-//                if($ameta->meta_key == 'steam_avatar_url')
-//                {
-//                  $steamflag = true;
-//                  $steamavatarURL = $ameta->meta_value;
-//                }
-                if($ameta->meta_key == 'overwatch_avatar_url')
-                {
-                  $owflag = true;
-                  $owavatarURL = $ameta->meta_value;
-                }
+                $owflag = true;
+                $owavatarURL = $gamer->owavatar;
               }
             ?>
             <dt class="col-sm-3">Steam ID</dt>
@@ -138,7 +130,7 @@
             <dd class="col-sm-9">
               @if($owflag)
                 <div class="row">
-                    <img src="{{$owavatarURL}}" width="64" height="64">
+                    <img v-bind:src="gamer.owavatar" width="64" height="64">
                     <h3 class="d-none d-lg-inline ml-1">@{{ gamer.battlenet }}</h3>
                     <h5 class="d-inline d-lg-none ml-1">@{{ gamer.battlenet }}</h5>
                 </div>
@@ -236,7 +228,7 @@
             </div>
             <div class="col-9">
               <h3>@{{ steamPersonaName }}</h3>
-              <span>@{{ steamStatus }}</span>
+              {{--<span>@{{ steamStatus }}</span>--}}
 
               {{-- hidden inputs for those which get replaced in DOM--}}
               <input name="steamid" v-model="steamIdInput" type="hidden">
@@ -274,7 +266,7 @@
               <input name="battleNetAvatarURL" v-model="owAvatarURL" type="hidden">
             </div>
             <div class="col-1 mr-0 pr-0">
-              <button v-on:click="owProfileFound = false" type="button" class="btn btn-danger">X</button>
+              <button v-on:click="owProfileFound = false; battleTagInput = '';" type="button" class="btn btn-danger">X</button>
             </div>
           </div>
 
@@ -576,8 +568,13 @@
       @endif
       searchingBattleTag: false,
       battleTagInput: "{{$gamer->battlenetid}}",
+      @if($gamer->battletag)
+      owProfileFound: true,
+      owAvatarURL: "{{$gamer->owavatar}}",
+      @else
       owProfileFound: false,
       owAvatarURL: "",
+      @endif
 
       submit_disabled: false,
 
@@ -607,6 +604,8 @@
           'steamavatar': '{{$gamer->steamavatar ? $gamer->steamavatar : null}}',
           'personaname': '{{$gamer->personaname ? $gamer->personaname : null}}',
           'battlenet': '{{ ($gamer->battlenetid) ? $gamer->battlenetid : "-none-" }}',
+          'battletag': '{{ ($gamer->battletag) ? $gamer->battletag : null }}',
+          'owavatar': '{{$gamer->owavatar ? $gamer->owavatar : null}}',
           'discord': '{{ ($gamer->discordid) ? $gamer->discordid : "-none-" }}'
       }
   };
@@ -640,10 +639,17 @@
               this.steamAvatarURL = ""+this.gamer.steamavatar;
               this.steamPersonaName = ""+this.gamer.personaname;
 
+              this.battleTagInput = ""+this.gamer.battletag;
+              this.owAvatarURL = ""+this.gamer.owavatar;
+
               if(this.steamIdInput!='-none-')
                   this.steamProfileFound = true;
               else
                   this.steamIdInput=""; // reset it. because it has been set to string -none-
+
+              if(this.battleTagInput != "")
+                  this.owProfileFound = true;
+
           },
           cancel: function()
           {
@@ -689,7 +695,7 @@
                           // app.steamid = "" + app.steamIdInput;
                           app.steamPersonaName = steam_profile.personaname;
                           app.steamAvatarURL = steam_profile.avatarmedium;
-                          app.steamStatus = statuses[steam_profile.personastate];
+                          // app.steamStatus = statuses[steam_profile.personastate];
                           toastr.success("Steam profile found.");
                       }
                       else
