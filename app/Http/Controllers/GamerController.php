@@ -146,8 +146,9 @@ class GamerController extends Controller
         {
           $data=$this->getSteamInfo($steamid);
           $info=json_decode($data);
-          $personaname=$info->personaname;
-          $gamer->personaname=$personaname;
+          //$personaname=$info->personaname;
+          $gamer->personaname=$info->personaname;
+          $gamer->steamavatar=$info->avatarmedium;
         }
 
         $rosters = Roster::where('gamer_id', $gamer->id)

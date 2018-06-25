@@ -100,13 +100,18 @@
               $owflag = false;
               $owavatarURL = "";
 
+              if(isset($gamer->personaname))
+              {
+                $steamflag = true;
+                $steamavatarURL = $gamer->steamavatar;
+              }
               foreach ($meta as $ameta)
               {
-                if($ameta->meta_key == 'steam_avatar_url')
-                {
-                  $steamflag = true;
-                  $steamavatarURL = $ameta->meta_value;
-                }
+//                if($ameta->meta_key == 'steam_avatar_url')
+//                {
+//                  $steamflag = true;
+//                  $steamavatarURL = $ameta->meta_value;
+//                }
                 if($ameta->meta_key == 'overwatch_avatar_url')
                 {
                   $owflag = true;
@@ -119,9 +124,9 @@
               <dl>
                 @if($steamflag)
                 <div class="row">
-                    <img src="{{$steamavatarURL}}" width="64" height="64">
-                    <h3 class="d-none d-lg-inline ml-1">{{$gamer->personaname}}</h3>
-                    <h5 class="d-inline d-lg-none ml-1">{{$gamer->personaname}}</h5>
+                    <img v-bind:src="gamer.steamavatar" width="64" height="64">
+                    <h3 class="d-none d-lg-inline ml-1">@{{gamer.personaname}}</h3>
+                    <h5 class="d-inline d-lg-none ml-1">@{{gamer.personaname}}</h5>
                 </div>
                 @else
                 <dd>@{{ gamer.steam }}</dd>
@@ -232,11 +237,14 @@
             <div class="col-9">
               <h3>@{{ steamPersonaName }}</h3>
               <span>@{{ steamStatus }}</span>
+
+              {{-- hidden inputs for those which get replaced in DOM--}}
               <input name="steamid" v-model="steamIdInput" type="hidden">
               <input name="steamAvatarURL" v-model="steamAvatarURL" type="hidden">
+
             </div>
             <div class="col-1 mr-0 pr-0">
-              <button v-on:click="steamProfileFound = false" type="button" class="btn btn-danger">X</button>
+              <button v-on:click="steamProfileFound = false; steamIdInput = '';" type="button" class="btn btn-danger">X</button>
             </div>
           </div>
           <div v-if="!owProfileFound" class="form-group row">
@@ -555,11 +563,17 @@
   let data = {
 
       searchingSteam: false,
-      steamProfileFound: false,
       steamIdInput: "{{$gamer->steamid}}",
+
+      @if($gamer->personaname)
+      steamProfileFound: true,
+      steamPersonaName: "{{$gamer->personaname}}",
+      steamAvatarURL: "{{$gamer->steamavatar}}",
+      @else
+      steamProfileFound: false,
       steamPersonaName: "",
       steamAvatarURL: "",
-
+      @endif
       searchingBattleTag: false,
       battleTagInput: "{{$gamer->battlenetid}}",
       owProfileFound: false,
@@ -590,6 +604,8 @@
 
           'dob' : '{{$gamer->dob}}'.split('-').reverse().join('-').replace(/-/g,'/'), //format mm-dd-yyyy -> dd/mm/yyyy
           'steam': '{{ ($gamer->steamid) ? $gamer->steamid : "-none-" }}',
+          'steamavatar': '{{$gamer->steamavatar ? $gamer->steamavatar : null}}',
+          'personaname': '{{$gamer->personaname ? $gamer->personaname : null}}',
           'battlenet': '{{ ($gamer->battlenetid) ? $gamer->battlenetid : "-none-" }}',
           'discord': '{{ ($gamer->discordid) ? $gamer->discordid : "-none-" }}'
       }
@@ -620,6 +636,14 @@
           edit: function()
           {
               this.gamer.edit = true;
+              this.steamIdInput = ""+this.gamer.steam;
+              this.steamAvatarURL = ""+this.gamer.steamavatar;
+              this.steamPersonaName = ""+this.gamer.personaname;
+
+              if(this.steamIdInput!='-none-')
+                  this.steamProfileFound = true;
+              else
+                  this.steamIdInput=""; // reset it. because it has been set to string -none-
           },
           cancel: function()
           {
@@ -662,6 +686,7 @@
                       {
 
                           app.steamProfileFound = true;
+                          // app.steamid = "" + app.steamIdInput;
                           app.steamPersonaName = steam_profile.personaname;
                           app.steamAvatarURL = steam_profile.avatarmedium;
                           app.steamStatus = statuses[steam_profile.personastate];
