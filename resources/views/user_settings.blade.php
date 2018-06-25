@@ -215,8 +215,8 @@
               </span>
             </label>
             <div class="input-group">
-              <input v-model="steamIdInput" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <label class="input-group-addon btn mb-0 bg-lightestgray" for="date">
+              <input v-model="steamIdInput" v-on:blur="submitEnable()" v-on:focus="submitDisable()" v-on:change="getSteamInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <label class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getSteamInfo()" for="date">
                 <span class="fas fa-search"></span>
               </label>
             </div>
@@ -246,8 +246,8 @@
               </span>
             </label>
             <div class="input-group">
-              <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <label class="input-group-addon btn mb-0 bg-lightestgray" for="date">
+              <input v-model="battleTagInput" v-on:blur="submitEnable()" v-on:focus="submitDisable()" v-on:change="getOverwatchInfo()" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <label class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getOverwatchInfo()" for="date">
                 <span class="fas fa-search"></span>
               </label>
             </div>
@@ -276,7 +276,7 @@
             <small id="emailHelp" class="form-text text-muted">Required for all tournaments. No exceptions.</small>
           </div>
 
-          <button v-bind:disabled="searchingSteam || searchingBattleTag" type="submit" class="btn btn-primary">Submit</button>
+          <button v-bind:disabled="searchingSteam || searchingBattleTag || submit_disabled" type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
       </div>
@@ -565,6 +565,8 @@
       owProfileFound: false,
       owAvatarURL: "",
 
+      submit_disabled: false,
+
       panels: {
           'myinfo': true,
           'emailverify': false,
@@ -617,7 +619,6 @@
           },
           edit: function()
           {
-              //alert("HI");
               this.gamer.edit = true;
           },
           cancel: function()
@@ -631,32 +632,45 @@
 
           },
 
+          submitDisable: function(){
+              // if(app.steamIdInput!="" || app.battleTagInput!="")
+              // {
+                  app.submit_disabled = true;
+              // }
+          },
+          submitEnable: function () {
+            if(!app.searchingBattleTag || !app.searchingSteam)
+                app.submit_disabled = false;
+          },
+
           getSteamInfo: function()//steam64id
           {
               var statuses = ['offline','online','busy','away','snooze','looking to trade', 'looking to play'];
-              if(app.steamIdInput!="") {
+              if(app.steamIdInput!="" && !app.searchingSteam) {
                   app.searchingSteam = true;
                   axios.get('/steamapi/' + this.steamIdInput).then(function (response) {
                       var steam_profile = response.data;
 
                       app.searchingSteam = false;
-                      app.steamPersonaName = steam_profile.personaname;
-                      app.steamAvatarURL = steam_profile.avatarmedium;
-                      app.steamStatus = statuses[steam_profile.personastate];
-
+                      app.submit_disabled = false;
                       toastr.options = {
                           "closeButton" : true,
                           "timeOut": "5000",
-                      }
+                      };
 
                       if (steam_profile.responseStatus == 'success')
                       {
+
                           app.steamProfileFound = true;
+                          app.steamPersonaName = steam_profile.personaname;
+                          app.steamAvatarURL = steam_profile.avatarmedium;
+                          app.steamStatus = statuses[steam_profile.personastate];
                           toastr.success("Steam profile found.");
                       }
                       else
                       {
                           app.steamProfileFound = false;
+                          app.steamIdInput="";
                           toastr.error("Could not find your profile. :(");
                       }
                   });
@@ -664,26 +678,31 @@
           },
           getOverwatchInfo: function()
           {
-               if(app.battleTagInput!="") {
+               if(app.battleTagInput!="" && !app.searchingBattleTag) {
                   app.searchingBattleTag = true;
+                  app.submit_disabled = false;
                   axios.get('/owapi/' + this.battleTagInput.replace("#", "-")).then(function (response) {
                       var ow_data = response.data;
 
                       app.searchingBattleTag = false;
-                      app.owAvatarURL = ow_data.data;
+
 
                       toastr.options = {
                           "closeButton" : true,
                           "timeOut": "5000",
-                      }
+                      };
 
-                      if (ow_data.status == 'success')
+                      if (ow_data.responseStatus == 'success')
                       {
                           app.owProfileFound = true;
+                          app.owAvatarURL = ow_data.data;
                           toastr.success("BattleNet profile found.");
+
                       }
                       else{
+                          console.log('response status: '+ ow_data.responseStatus);
                           app.owProfileFound = false;
+                          app.battleTagInput="";
                           toastr.error("Could not find your profile. :(");
                       }
                   });

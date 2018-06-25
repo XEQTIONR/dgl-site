@@ -222,9 +222,17 @@ class GamerController extends Controller
       $contents = file_get_contents($endpoint);
 
       $data = json_decode($contents);
-      
-      $info = $data->response->players[0];
-      $info->responseStatus = 'success';
+
+      if(count($data->response->players) == 1)
+      {
+        $info = $data->response->players[0];
+        $info->responseStatus = 'success';
+      }
+      else{
+        $info = new InfoResponse();
+        $info->responseStatus = 'failed';
+      }
+
 
       return json_encode($info); //consumed by javascript. dot notation
     }
@@ -245,12 +253,18 @@ class GamerController extends Controller
       curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:dgl-site/beta'));
 
       $contents = curl_exec($ch);
+      //return $contents;
       $data = json_decode($contents);
       $response = new InfoResponse();
-
-      $response->data = $data->us->stats->quickplay->overall_stats->avatar;
-      $response->status = 'success';
-
+      if(isset($data->us))
+      {
+        $response->data=$data->us->stats->quickplay->overall_stats->avatar;
+        $response->responseStatus='success';
+      }
+      else
+      {
+        $response->responseStatus='failed';
+      }
       return json_encode($response);
     }
 }
