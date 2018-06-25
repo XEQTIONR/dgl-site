@@ -166,7 +166,10 @@
           </div>
           <div class="form-group row">
             <label for="inputAlias">Alias</label>
-            <input v-model="gamer.alias" type="text" name="alias" class="form-control" id="inputAlias" aria-describedby="aliasHelp" placeholder="Enter alias">
+            <span class="ml-2" v-bind:class="[{'visible-inline': searchingAlias },{'hidden': !searchingAlias}]">
+                <i class="fa-spin fas fa-circle-notch"></i>
+              </span>
+            <input v-model="aliasInput" v-on:change="findGamer()" v-on:blur="submitEnable()" v-on:focus="submitDisable()" type="text" name="alias" class="form-control" id="inputAlias" aria-describedby="aliasHelp" placeholder="Enter alias">
             <small id="emailHelp" class="form-text text-muted">Must be unique</small>
           </div>
           <div class="form-group row">
@@ -276,7 +279,7 @@
             <small id="emailHelp" class="form-text text-muted">Required for all tournaments. No exceptions.</small>
           </div>
 
-          <button v-bind:disabled="searchingSteam || searchingBattleTag || submit_disabled" type="submit" class="btn btn-primary">Submit</button>
+          <button v-bind:disabled="searchingSteam || searchingBattleTag || submit_disabled || searchingAlias" type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
       </div>
@@ -555,9 +558,12 @@
 <script>
   let data = {
 
+      searchingAlias : false,
+      aliasInput: "{{$gamer->alias}}",
+
+
       searchingSteam: false,
       steamIdInput: "{{$gamer->steamid}}",
-
       @if($gamer->personaname)
       steamProfileFound: true,
       steamPersonaName: "{{$gamer->personaname}}",
@@ -567,6 +573,7 @@
       steamPersonaName: "",
       steamAvatarURL: "",
       @endif
+
       searchingBattleTag: false,
       battleTagInput: "{{$gamer->battlenetid}}",
       @if($gamer->battletag)
@@ -672,6 +679,52 @@
           submitEnable: function () {
             if(!app.searchingBattleTag || !app.searchingSteam)
                 app.submit_disabled = false;
+          },
+
+          findGamer: function() //find game by alias
+          {
+
+              if(app.aliasInput=="")
+              {
+                  app.aliasInput = app.gamer.alias;
+                  toastr.warning('Alias cannot be blank.');
+                  document.querySelector("#inputAlias").focus();
+              }
+              else
+              {
+                app.searchingAlias = true;
+                axios.get('/findgamer/'+ app.aliasInput).then(function(response)
+                {
+                   app.searchingAlias = false;
+                   var alias = response.data;
+                   console.log("alias: "+ alias);
+                    toastr.options = {
+                        "closeButton" : true,
+                        "timeOut": "3000",
+                    };
+                   if(alias == "")
+                   {
+                       toastr.success(app.aliasInput+ " is available.");
+                   }
+                   else
+                   {
+                       if(app.aliasInput == app.gamer.alias)
+                       {
+
+                       }
+                       else
+                       {
+                           if(app.aliasInput.toLowerCase() != app.gamer.alias.toLowerCase())
+                           {
+                               toastr.error(app.aliasInput+" is taken.");
+                               app.aliasInput=""+app.gamer.alias;
+                           }
+
+                       }
+                   }
+                });
+              }
+              app.searchingAlias = false;
           },
 
           getSteamInfo: function()//steam64id

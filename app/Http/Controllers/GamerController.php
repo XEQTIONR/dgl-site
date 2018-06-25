@@ -132,6 +132,16 @@ class GamerController extends Controller
       abort(404);
     }
 
+// Functions
+
+    public function findByAlias($alias)
+    {
+      $gamer = Gamer::where('alias', $alias)->first();
+
+      //returns null if one is not found
+      return $gamer;
+    }
+
     public function settings()
     {
       if(Auth::check())

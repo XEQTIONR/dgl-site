@@ -93,7 +93,7 @@
             $(window).scroll(function(){
                 if((0.00001 *$(window).scrollTop())<0.0025)
                 {
-                    console.log("scrolled: " + 0.00001 * $(window).scrollTop());
+                    // console.log("scrolled: " + 0.00001 * $(window).scrollTop());
                     $(".navbar").css('background-color', 'rgba(39,44,56,' + 1 / (0.01 * $(window).scrollTop()) + ')');
                 }
                 // else{

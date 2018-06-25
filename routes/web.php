@@ -133,6 +133,7 @@ Route::get('/test4', function(){
 
 
 
+  Route::get('/findgamer/{alias}', 'GamerController@findByAlias');
 
 Route::post('/testform', function(Illuminate\Http\Request $request){
   dd($request);
