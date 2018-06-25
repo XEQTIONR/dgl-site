@@ -20,15 +20,15 @@
           <span class="d-none d-lg-inline">My Information</span>
         </a>
         {{--there should always be a gamer meta with a  verification code--}}
-        {{--@if($gamer->status == 'unverified')--}}
-        <a href="#" 
+        @if($gamer->status == 'unverified')
+        <a href="#"
            v-on:click="changeActive('emailverify')"
            v-bind:class="{active: panels.emailverify}"
            class="list-group-item">
           <i class="fas fa-at mr-2"></i>
           <span class="d-none d-lg-inline">Email Verification</span>
         </a>
-        {{--@endif--}}
+        @endif
         <a href="#" 
            v-on:click="changeActive('mycheckins')"
            v-bind:class="{active: panels.mycheckins}"
@@ -388,7 +388,7 @@
         </div>
       </div>
     </div>
-
+      @if($gamer->status=='unverified')
       <div v-bind:class="[{'visible' : panels.emailverify}, {'hidden' : !panels.emailverify}]" class="row mt-10">
         <div class="col-11 col-lg-6 offset-1">
           <div class="row">
@@ -440,6 +440,7 @@
           @endif
         </div>
       </div>
+      @endif
 
       <div v-bind:class="[{'visible' : panels.mytournamentinvites}, {'hidden' : !panels.mytournamentinvites}]" class="row mt-10">
         <div class="col-11 col-lg-8 offset-1">

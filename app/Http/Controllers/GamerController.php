@@ -87,40 +87,40 @@ class GamerController extends Controller
         if($gamer->battlenetid!=$request->battlenetid)
         {
           $gamer->battlenetid = $request->battlenetid;
-          if($request->battlenetid)
-          {
-            $battnet_meta = new GamerMeta();
-            $battnet_meta->meta_key = 'overwatch_avatar_url';
-            $battnet_meta->meta_value = $request->battleNetAvatarURL;
-            array_push($meta, $battnet_meta);
-          }
-
-          GamerMeta::where('gamer_id', $gamer->id)
-                  ->where('meta_key', 'overwatch_avatar_url')
-                  ->delete();
+//          if($request->battlenetid)
+//          {
+//            $battnet_meta = new GamerMeta();
+//            $battnet_meta->meta_key = 'overwatch_avatar_url';
+//            $battnet_meta->meta_value = $request->battleNetAvatarURL;
+//            array_push($meta, $battnet_meta);
+//          }
+//
+//          GamerMeta::where('gamer_id', $gamer->id)
+//                  ->where('meta_key', 'overwatch_avatar_url')
+//                  ->delete();
           $changed = true;
         }
         if($gamer->steamid!=$request->steamid)
         {
           $gamer->steamid = $request->steamid;
-          if($request->steamid) //if not null
-          {
-            $steam_meta = new GamerMeta();
-            $steam_meta->meta_key = 'steam_avatar_url';
-            $steam_meta->meta_value = $request->steamAvatarURL;
-            array_push($meta, $steam_meta);
-          }
-          GamerMeta::where('gamer_id', $gamer->id)
-                  ->where('meta_key', 'steam_avatar_url')
-                  ->delete();
+//          if($request->steamid) //if not null
+//          {
+//            $steam_meta = new GamerMeta();
+//            $steam_meta->meta_key = 'steam_avatar_url';
+//            $steam_meta->meta_value = $request->steamAvatarURL;
+//            array_push($meta, $steam_meta);
+//          }
+//          GamerMeta::where('gamer_id', $gamer->id)
+//                  ->where('meta_key', 'steam_avatar_url')
+//                  ->delete();
           $changed = true;
         }
 
         if($changed)
           $gamer->save();
 
-        if(count($meta)>0)
-          $gamer->meta()->saveMany($meta);
+//        if(count($meta)>0)
+//          $gamer->meta()->saveMany($meta);
 
         $notification = "Your information has been updated.";
         $type = 'info';
@@ -136,7 +136,7 @@ class GamerController extends Controller
     {
       if(Auth::check())
       {
-        //$id = Auth::id()
+
         $gamer=Auth::user();
         $meta=$gamer->meta;
 
@@ -146,7 +146,7 @@ class GamerController extends Controller
         {
           $data=$this->getSteamInfo($steamid);
           $info=json_decode($data);
-          //$personaname=$info->personaname;
+
           $gamer->personaname=$info->personaname;
           $gamer->steamavatar=$info->avatarmedium;
         }
@@ -212,10 +212,7 @@ class GamerController extends Controller
                           'checkin'])
                     ->where('gamer_id', $gamer->id)
                     ->get();
-        //dd($checkin_meta);
-       // return($checkin_meta);
-        //return compact('checkin_meta');
-        //return compact('teams_formed','teams_joined');
+
         return view ('user_settings',
                           compact('gamer','meta','teams_formed', 'teams_joined', 'checkin_meta'));
       }
