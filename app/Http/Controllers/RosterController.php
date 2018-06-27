@@ -9,6 +9,7 @@ use App\Gamer;
 use App\Roster;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class RosterController extends Controller
 {
@@ -19,9 +20,10 @@ class RosterController extends Controller
      */
     public function confirm($alias, ContendingTeam $team, Request $request)
     {
+      $tournament = $team->tournament;
       $gamer = Gamer::where('alias', $alias)->first();
       $user = Auth::user();
-      $reg_end = $team->tournament->registration_end;
+      $reg_end = $tournament->registration_end;
       $now = Carbon::now();
       $deadline = Carbon::createFromTimestamp(strtotime($reg_end));
 
@@ -30,6 +32,7 @@ class RosterController extends Controller
         if($gamer->id == $user->id)
         {
 
+          //only one match
           $roster=Roster:: where('contending_team_id', $team->id)
             ->where('gamer_id', $gamer->id)->first();
 
@@ -43,17 +46,15 @@ class RosterController extends Controller
           }
           else if($roster->status == 'confirmation_required')
           {
-//            Roster::where('contending_team_id', $team->id)
-//              ->where('gamer_id', $gamer->id)
-//              ->update(['status'=>'ok']);
             $roster->status = 'ok';
             $roster->save();
 
+            //change status of team in enough members are registered.
             $verified_rosters = Roster::where('contending_team_id', $team->id)
                               ->where('status', 'ok')
                               ->get();
 
-            $teamsize = $team->tournament->esport->teamsize;
+            $teamsize = $tournament->esport->teamsize;
 
             if(count($verified_rosters)>=$teamsize)
             {
@@ -64,9 +65,41 @@ class RosterController extends Controller
               }
             }
 
+            $other_rosters = DB::table('rosters')
+              ->join('contending_teams', function($join) use($tournament){
+                $join->on('rosters.contending_team_id', '=', 'contending_teams.id')
+                  ->where('contending_teams.tournament_id', '=', $tournament->id);
+              })
+              ->where('gamer_id', $gamer->id)
+              ->where('contending_team_id', '!=', $team->id)
+              ->select('rosters.id')//, 'rosters.gamer_id' , 'rosters.contending_team_id', 'contending_teams.tournament_id')
+              ->get();
+
+            //Loop over them if you want to send email to each captain
+//            foreach($other_rosters as $aroster)
+
+            //Otherwise update all other roster request to rejected
+            DB::table('rosters')
+              ->whereNotIn('id', $other_rosters)
+              ->update(['status' => 'ineligible']);
+
 
             $notification = "Succesfully registered for this tournament for team ". $team->name.".";
             $type = 'success';
+            $request->session()->flash('notification', $notification);
+            $request->session()->flash('notification_type', $type);
+          }
+          else if($roster->status == 'ineligible')
+          {
+            $notification = "You are ineligible to join this team";
+            $type = 'error';
+            $request->session()->flash('notification', $notification);
+            $request->session()->flash('notification_type', $type);
+          }
+          else if($roster->status == 'rejected')
+          {
+            $notification = "You already rejected this invitation. You cannot accept it again.";
+            $type = 'error';
             $request->session()->flash('notification', $notification);
             $request->session()->flash('notification_type', $type);
           }
@@ -87,6 +120,6 @@ class RosterController extends Controller
         $request->session()->flash('notification', $notification);
         $request->session()->flash('notification_type', $type);
       }
-      return redirect('/tournaments/'.$team->tournament->id);
+      return redirect('/tournaments/'.$tournament->id);
     }
 }

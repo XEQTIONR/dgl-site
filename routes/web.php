@@ -33,7 +33,7 @@ Route::resource('/tournaments', 'TournamentController');
 Route::get('/tournaments/{tournament}/registration','TournamentController@registration');
 Route::post('/tournaments/{tournament}/register','TournamentController@register');
 Route::get('/tournament_invites/{invite}', 'Auth\RegisterController@tournamentInvites');
-Route::get('/tournaments/{identifier}/{tournament}', 'TournamentController@verifyGamer');
+Route::get('/tournaments/{identifier}/{tournament}', 'TournamentController@verifyGamer'); // not used anymore
 Route::get('/tournament/login/{id}', 'TournamentController@loginForTournament')->middleware('auth');
 
 Route::resource('/gamers', 'GamerController');
