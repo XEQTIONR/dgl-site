@@ -165,8 +165,10 @@ class GamerController extends Controller
           $data = $this->getOverwatchInfo($battletag);
           $info=json_decode($data);
 
-          $gamer->battletag = $battletag;
-          $gamer->owavatar = $info->data;
+          if($info->responseStatus == 'success') {
+            $gamer->battletag=$battletag;
+            $gamer->owavatar=$info->data;
+          }
         }
 
         $rosters = Roster::where('gamer_id', $gamer->id)
@@ -271,6 +273,7 @@ class GamerController extends Controller
       $contents = curl_exec($ch);
       //return $contents;
       $data = json_decode($contents);
+
       $response = new InfoResponse();
       if(isset($data->us))
       {

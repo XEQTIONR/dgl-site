@@ -136,7 +136,7 @@
                 </div>
               @else
               <dl>
-                <dd>@{{ gamer.battlenet }}</dd>
+                <dd>@{{ gamer.battlenet }} <br>  <small>Your account may have changed or Overwatch profile may be set to private.</small></dd>
                 <dd><small><em>You need to provide this to register for DGL tournaments of Blizzard games.</em></small></dd>
               </dl>
               @endif
