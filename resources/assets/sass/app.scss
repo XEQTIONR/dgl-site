@@ -61,6 +61,8 @@ span.light{
   }
 }
 
+
+
 //PAGE SPECIFIC BACKGROUNDS
 .background-a-tournament{
   background-size: cover;
@@ -734,7 +736,7 @@ body{
   }
   .navbar{ // bootstrap override
     padding: 0 !important;
-    background-color: $dgl-darkergray;
+    background-color: $dgl-purple;
 
     .dropdown-item{
       font-family: FuturaMedium, $font-copy;
@@ -743,6 +745,10 @@ body{
         background-color: lighten($dgl-orange, 10%);
         color: #FFF;
       }
+    }
+    .nav-item{
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
   }
@@ -754,12 +760,54 @@ body{
     }
   }
 
+  .dgl-nav-title{
+    background-color: $dgl-purple;
+    //height: 400px;
+    .title{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      //border-left: 1px solid $dgl-gray;
+      width: 20vw;
 
+    }
+    .logo{
+      border-left: 1px solid $dgl-gray;
+      border-right: 1px solid $dgl-gray;
+      //padding: auto 20vw;
+      padding-left: 10vw;
+      padding-right: 10vw;
+    }
+    .title-right{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 20vw;
+      //border-right: 1px solid $dgl-gray;
+
+    }
+  }
+  .navbar-dgl.fixed-top{
+    margin-top: 0px;
+
+
+  }
   .navbar-dgl{
     //background-color: $dgl-darkgray !important;
-
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    border: 1px solid $dgl-gray;
     .navbar-brand{
       margin: 0;
+    }
+    .nav-item{
+      margin-left: auto;
+      margin-right: auto;
     }
     .navbar-toggler-icon{
     background-image: url('/storage/hamburger.svg')

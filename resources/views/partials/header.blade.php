@@ -10,23 +10,40 @@
   @author XEQTIONR
 
 --}}
+    {{--<nav class="navbar">--}}
+      {{--<h1>What what</h1>--}}
+    {{--</nav>--}}
+    <div class="row dgl-nav-title justify-content-center">
+      {{--<div class="col title">--}}
+        {{--<span class="">ĐAGAMELEAGUE </span>--}}
+      {{--</div>--}}
+      <div class="title d-none d-md-flex">
+        <h6 class="d-inline-block font-white text-center">DAGAMELEAGUE</h6>
+      </div>
 
-    <nav class="navbar navbar-dgl navbar-expand-lg fixed-top">
+      <div class="logo py-3 my-0">
+          <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="90px">
+      </div>
+      <div class="title-right  d-none d-md-flex">
+          {{--<h1 class="d-inline-block font-white text-center">DGL</h1>--}}
+      </div>
+    </div>
+    <nav class="navbar navbar-dgl navbar-expand-lg">
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-brand justify-content-center d-none d-lg-block py-2" >
+      <div class="justify-content-center d-none d-lg-inline-block ml-5 py-2"  style="min-width: 100px;">
       <a class=" mx-auto pl-md-5 pr-5" href="/">
-        <img class="mb-2 pt-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block" alt="">
-        <span class="d-none d-xl-inline-block navbar-text vertical-align-center dagameleague-small">ĐAGAMELEAGUE</span>
+        <img class="small-logo mb-1 pb-0 py-xl-0 ml-auto mr-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="35" class="d-block" alt="">
+        {{--<span class="d-none d-xl-inline-block navbar-text vertical-align-center dagameleague-small">ĐAGAMELEAGUE</span>--}}
       </a>
       </div>
-      <a class="d-block d-lg-none mx-auto  pr-6" href="/">
-        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="50" class="d-block d-md-inline-block align-text-bottom" alt="">
+      <a class="small-logo d-lg-none mx-auto  pr-6" href="/">
+        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="35" class="d-block d-md-inline-block align-text-bottom" alt="">
 
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-2 mr-auto">
+        <ul class="navbar-nav py-2 mx-auto" style="width: 70%;">
           <li class="nav-item active">
             <a href="/news" class="nav-link" href="#">news<span class="sr-only">(current)</span></a>
           </li>
@@ -62,7 +79,7 @@
               sign in
             </a>
           </span>
-          <span class="mr-4">
+          <span class="">
             <a href="{{  route('register')  }}" class="nav-link">
               <i class="fas fa-user-plus"></i>
               register
@@ -75,7 +92,7 @@
               settings
             </a>
           </span>
-          <span class="mr-4">
+          <span class="nav-link">
           <a href="{{ route('logout') }}" class="nav-link"
              onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -89,24 +106,47 @@
         @endif
       </div>
       <script>
-            var scroll = 0;
+        $(document).ready(function(){
+            var margin = parseFloat($(".dgl-nav-title").height());
+            $(".navbar-dgl").css("margin-top", margin - $(window).scrollTop());
             $(window).scroll(function(){
-                if((0.00001 *$(window).scrollTop())<0.0025)
-                {
-                    // console.log("scrolled: " + 0.00001 * $(window).scrollTop());
-                    $(".navbar").css('background-color', 'rgba(39,44,56,' + 1 / (0.01 * $(window).scrollTop()) + ')');
-                }
-                // else{
-                //     $(".navbar").css('background-color', 'rgba(39,44,56,1)');
-                // }
-                // scroll = $(window).scrollTop();
+                    var scroll = $(window).scrollTop();
+                    if(scroll>=0)
+                      // console.log("scroll: " + scroll);
+                    if(scroll>=0 && scroll<200)
+                    {
+                        $(".navbar-dgl").css("margin-top", margin - scroll);
+                        $(".small-logo").slideUp();
+                        // console.log('sideup');
+                    }
+                    else {
+                        $(".navbar-dgl").css("margin-top", "0");
+                        $(".small-logo").slideDown();
+                        // console.log('slidedown');
+                    }
             });
-
-            $(".navbar-toggler-icon").click(function(){
-                $(".navbar-dgl").css('background-color', 'rgba(39,44,56,1)');
-            });
+        });
 
       </script>
+      {{--<script>--}}
+            {{--var scroll = 0;--}}
+            {{--$(window).scroll(function(){--}}
+                {{--if((0.00001 *$(window).scrollTop())<0.0025)--}}
+                {{--{--}}
+                    {{--// console.log("scrolled: " + 0.00001 * $(window).scrollTop());--}}
+                    {{--$(".navbar").css('background-color', 'rgba(39,44,56,' + 1 / (0.01 * $(window).scrollTop()) + ')');--}}
+                {{--}--}}
+                {{--// else{--}}
+                {{--//     $(".navbar").css('background-color', 'rgba(39,44,56,1)');--}}
+                {{--// }--}}
+                {{--// scroll = $(window).scrollTop();--}}
+            {{--});--}}
+
+            {{--$(".navbar-toggler-icon").click(function(){--}}
+                {{--$(".navbar-dgl").css('background-color', 'rgba(39,44,56,1)');--}}
+            {{--});--}}
+
+      {{--</script>--}}
     </nav>
   {{--</div>--}}
 {{--</div>--}}

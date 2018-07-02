@@ -33,7 +33,7 @@
 // Brands
 $dgl-primary: #60F569;
 
-$dgl-blue: #6FCDDE;
+
 $dgl-yellow: #FFED78 ;
 
 //$dgl-lightestgray: #DBE2EB;
@@ -42,11 +42,25 @@ $dgl-yellow: #FFED78 ;
 //$dgl-lightgray: darken(#BCBDC9, 30%);
 
 //Purples
-$dgl-purple : #7272D7;
-$dgl-darkpurple: #565C97;
+$dgl-purple : rgba(77,59,146,1.0);
+$dgl-darkpurple: rgba(51,38,98,1.0);
 
+//Turquiose
+$dgl-turquiose : rgba(0,238,255,1.0);
+$dgl-darktuquise : rgba(66,191,225,1.0);
+
+//Blue
+$dgl-blue: rgba(0,125,187,1.0);
+$dgl-darkblue : rgba(0,42,84,1.0);
 //Grays
-$dgl-gray: #3E464C;
+$dgl-gray: rgba(135,135,135,1.0);
+$dgl-lightgray: rgba(244,244,244,1.0);
+
+//Red
+$dgl-red: rgba(255,76,56,1.0);
+//Green
+$dgl-green: rgba(118,204,96,1.0);
+
 
 $dgl-darkish-gray: #2F3541;
 $dgl-darkgray: #2B303B;
@@ -54,12 +68,11 @@ $dgl-darkergray: #272C38;
 $dgl-darkestgray: #1F232D;
 
 
-$dgl-lightgray: #3E464C;
+
 $dgl-lightergray: #585F68;
 $dgl-lightestgray: #9EA3AC;
 $dgl-almostwhite : #d7dde8;
-//Red
-$dgl-red: #D9553C;
+
 
 //Orange
 $dgl-orange: #ff7324;
