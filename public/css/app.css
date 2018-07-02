@@ -1066,8 +1066,38 @@ body .navbar-dgl a.nav-link:hover {
   color: #ff9457;
 }
 
-body .navbar-dgl button {
+body .navbar-dgl .user-button {
+  margin-right: 2vw;
+  border: 1px solid #00eeff;
+}
+
+body .navbar-dgl .user-button a {
+  margin: 5px 5px;
+  font-family: "Lato", "CircularStd", serif;
+  color: #42bfe1;
+}
+
+body .navbar-dgl .user-button:hover {
+  background-color: #42bfe1;
+}
+
+body .navbar-dgl .user-button:hover a {
   color: #FFF;
+}
+
+body .navbar-dgl .user-button:hover:before {
+  background-color: #00eeff;
+}
+
+body .navbar-dgl .user-button::before {
+  content: ">";
+  color: #FFF;
+  background-color: #42bfe1;
+  padding: 3.5px 7px;
+}
+
+body .navbar-dgl button {
+  color: red;
   border-color: #f4f4f4 !important;
   background-color: #4d3b92;
   margin-left: 2vw;

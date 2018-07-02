@@ -10,13 +10,7 @@
   @author XEQTIONR
 
 --}}
-    {{--<nav class="navbar">--}}
-      {{--<h1>What what</h1>--}}
-    {{--</nav>--}}
     <div class="row dgl-nav-title justify-content-center">
-      {{--<div class="col title">--}}
-        {{--<span class="">ĐAGAMELEAGUE </span>--}}
-      {{--</div>--}}
       <div class="title d-none d-md-flex">
         <h6 class="d-inline-block font-white text-center">DAGAMELEAGUE</h6>
       </div>
@@ -71,32 +65,65 @@
             </div>
           </li>
 
+          @if(Auth::guest())
+            <li class="nav-item d-inline d-lg-none">
+            <a href="{{  route('login')  }}" class="">
+              {{--<i class="fas fa-sign-in-alt"></i>--}}
+              sign in
+            </a>
+          </li>
+            <li class="nav-item  d-inline d-lg-none">
+            <a href="{{  route('register')  }}" class="">
+              {{--<i class="fas fa-user-plus"></i>--}}
+              register
+            </a>
+          </li>
+          @else
+            <li class="nav-item  d-inline d-lg-none">
+            <a href="{{  route('settings')  }}" class="">
+              {{--<i class="fas fa-cog"></i>--}}
+              settings
+            </a>
+          </li>
+            <li class="nav-item  d-inline d-lg-none">
+          <a href="{{ route('logout') }}" class=""
+             onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+            {{--<i class="fas fa-sign-out-alt"></i>--}}
+            sign out
+          </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
+          </li>
+          @endif
+
         </ul>
         @if(Auth::guest())
-          <span class="">
-            <a href="{{  route('login')  }}" class="nav-link">
-              <i class="fas fa-sign-in-alt"></i>
+          <span class="user-button d-none d-lg-inline">
+            <a href="{{  route('login')  }}" class="">
+              {{--<i class="fas fa-sign-in-alt"></i>--}}
               sign in
             </a>
           </span>
-          <span class="">
-            <a href="{{  route('register')  }}" class="nav-link">
-              <i class="fas fa-user-plus"></i>
+          <span class="user-button  d-none d-lg-inline">
+            <a href="{{  route('register')  }}" class="">
+              {{--<i class="fas fa-user-plus"></i>--}}
               register
             </a>
           </span>
         @else
-          <span class="">
-            <a href="{{  route('settings')  }}" class="nav-link">
-              <i class="fas fa-cog"></i>
+          <span class="user-button d-none d-lg-inline">
+            <a href="{{  route('settings')  }}" class="">
+              {{--<i class="fas fa-cog"></i>--}}
               settings
             </a>
           </span>
-          <span class="nav-link">
-          <a href="{{ route('logout') }}" class="nav-link"
+          <span class="user-button d-none d-lg-inline">
+          <a href="{{ route('logout') }}" class=""
              onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-            <i class="fas fa-sign-out-alt"></i>
+            {{--<i class="fas fa-sign-out-alt"></i>--}}
             sign out
           </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -128,25 +155,4 @@
         });
 
       </script>
-      {{--<script>--}}
-            {{--var scroll = 0;--}}
-            {{--$(window).scroll(function(){--}}
-                {{--if((0.00001 *$(window).scrollTop())<0.0025)--}}
-                {{--{--}}
-                    {{--// console.log("scrolled: " + 0.00001 * $(window).scrollTop());--}}
-                    {{--$(".navbar").css('background-color', 'rgba(39,44,56,' + 1 / (0.01 * $(window).scrollTop()) + ')');--}}
-                {{--}--}}
-                {{--// else{--}}
-                {{--//     $(".navbar").css('background-color', 'rgba(39,44,56,1)');--}}
-                {{--// }--}}
-                {{--// scroll = $(window).scrollTop();--}}
-            {{--});--}}
-
-            {{--$(".navbar-toggler-icon").click(function(){--}}
-                {{--$(".navbar-dgl").css('background-color', 'rgba(39,44,56,1)');--}}
-            {{--});--}}
-
-      {{--</script>--}}
     </nav>
-  {{--</div>--}}
-{{--</div>--}}
