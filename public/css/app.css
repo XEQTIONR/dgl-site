@@ -282,6 +282,35 @@ span.light h6 {
   color: #ff7324;
 }
 
+.main-banner {
+  background-color: #42bfe1;
+}
+
+.main-banner .left {
+  max-width: 450px;
+}
+
+.main-banner .left span {
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  font-family: "Lato", "CircularStd", serif;
+}
+
+.main-banner .left span.first::before {
+  content: ">";
+  color: #FFF;
+  background-color: #4d3b92;
+  padding: 0px .50em 0px .50em;
+  margin-bottom: 10px;
+  margin-right: .25em;
+  display: inline-block;
+}
+
+.main-banner .right h1 {
+  color: #4d3b92;
+}
+
 .background-a-tournament {
   background-size: cover;
 }
