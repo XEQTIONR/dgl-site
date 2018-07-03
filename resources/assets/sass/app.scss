@@ -41,7 +41,7 @@ span{
   }
 
   p{
-    color: $dgl-lightestgray;
+    color: $dgl-darkblue;
   }
   table,th, td {
     border: 1px solid $dgl-orange;
@@ -60,9 +60,11 @@ span.light{
     color: $dgl-orange;
   }
 }
-
 .main-banner{
   background-color: $dgl-darktuquise;
+  box-shadow: 0px 0px 250px 25px $dgl-darkgray;
+  position: relative;
+  z-index: 2;
   .left{
     max-width: 450px;
     span{
@@ -287,7 +289,11 @@ span.light{
     top: 0;
     left: 0;
     z-index: 3;
-    background: linear-gradient(315deg, $dgl-purple, $dgl-purple, rgba(20,8,5,0.6), rgba(20,8,5,0.75));
+    //box-shadow:         inset 0px 0px 150px 4px #000000;
+
+    //background: linear-gradient(315deg, $dgl-purple, $dgl-purple, rgba(20,8,5,0.6), rgba(20,8,5,0.75));
+    background: radial-gradient(circle farthest-side at 65% 10%,  transparentize($dgl-turquiose,.25) 0%, transparentize($dgl-blue,.25) 70%);
+    //background: radial-gradient(closest-side at 60% 55%, blue, green, yellow, black);
   }
   .slide-text{
     color: $dgl-blue;
@@ -750,6 +756,11 @@ body{
     .nav-item{
       margin-left: 10px;
       margin-right: 10px;
+      padding-bottom: .5rem;
+      padding-top: .5rem;
+      &:hover{
+        background-color: $dgl-darktuquise;
+      }
     }
 
   }
@@ -802,7 +813,9 @@ body{
     right: 0;
     left: 0;
     z-index: 1030;
-    border: 1px solid $dgl-gray;
+    border-top: 1px solid $dgl-gray;
+    //border-left: 1px solid $dgl-gray;
+    //border-right: 1px solid $dgl-gray;
     .navbar-brand{
       margin: 0;
     }
@@ -829,9 +842,9 @@ body{
       font-family: FuturaMedium, $font-copy;
       border-bottom: 5px solid transparent;
       font-size: .8em;
-      &:hover{
-        color: lighten($dgl-orange, 10%);
-      }
+      //&:hover{
+      //  color: lighten($dgl-orange, 10%);
+      //}
     }
 
     .user-button{
@@ -963,7 +976,7 @@ body{
       text-decoration: none;
       .post-title {
 
-        color: $dgl-lightestgray;
+        color: $dgl-darkblue;
         text-decoration: none;
         margin-top : 5px;
       }
@@ -987,7 +1000,7 @@ body{
         p//, h1,h2,h3,h4,h5,h6{
         {
           //color: lighten($dgl-lightestgray,25%);
-          color: $dgl-almostwhite;
+          //color: $dgl-almostwhite;
         }
       }
 
@@ -996,7 +1009,7 @@ body{
       }
 
       .post-title{
-        color: #FFF;
+        //color: #FFF;
       }
     }
   }

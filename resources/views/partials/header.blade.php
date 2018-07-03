@@ -37,7 +37,7 @@
 
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav py-2 mx-auto" style="width: 70%;">
+        <ul class="navbar-nav mx-auto" style="width: 70%;">
           <li class="nav-item active">
             <a href="/news" class="nav-link" href="#">news<span class="sr-only">(current)</span></a>
           </li>

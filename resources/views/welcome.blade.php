@@ -37,7 +37,7 @@
                     @endforeach
                     <script>
                         $(document).ready(function(){
-                            $(".banner-layer").css('opacity', '.75');
+                            $(".banner-layer").css('opacity', '1');
                             $(".carousel-caption").css('opacity','1');
                             $(".carousel-indicators").hover(function(){
                                 $(".banner-layer").css('opacity', '0');
@@ -48,7 +48,7 @@
                                 $(".banner-layer").fadeTo(300, 0);
                             },function(){
                                if(!$("#buggyElement").is(":hover"))
-                                {$(".banner-layer").fadeTo(300, .75);
+                                {$(".banner-layer").fadeTo(300, 1);
                                 $(".carousel-caption").fadeTo(300, 1)};
                             });
                         });
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div> <!-- row banner-background -->
-    <div class="row justify-content-center mt-5 mt-md-0 bg-darkgray">
+    <div class="row justify-content-center mt-5 mt-md-0">
         <div class="col-11 col-md-10 col-lg-8">
             <div class="row main-content">
                 <div class="col-12">
@@ -95,12 +95,12 @@
                             });
                         });
                     </script>
-                    <div class="row main-content-posts p-xl-3 bg-darkgray" id="postContainer">
+                    <div class="row main-content-posts p-xl-3" id="postContainer">
 
                         @foreach($posts as $post)
                         <div class="col-12">
                             <!-- div for small screens -->
-                            <div class="row post-body my-1 d-block d-sm-block d-md-none"  onclick="window.location.href='/news/{{$post->id}}'">
+                            <div class="row post-body mb-5 bg-lightgray d-block d-sm-block d-md-none"  onclick="window.location.href='/news/{{$post->id}}'">
                                 <div class="col-12">
                                     <div class="thumbnail thumbnail-rect-smscreen">
                                     <img class="mt-3" src="{{$post->banner}}">
@@ -120,7 +120,7 @@
                                 </div>
                             </div>
                             <!-- div for medium screens -->
-                            <div class="row post-body mb-1 d-none d-md-flex d-lg-none" onclick="window.location.href='/news/{{$post->id}}'">
+                            <div class="row post-body bg-lightgray mb-5 d-none d-md-flex d-lg-none" onclick="window.location.href='/news/{{$post->id}}'">
                                 <div class="col-4">
                                     <div class="thumbnail thumbnail-sq-lg">
                                         <img class="mt-3" src="{{$post->banner}}">
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
                             <!-- div for large screens -->
-                            <div class="row post-body post-body-hover mb-1 d-none d-lg-flex" onclick="window.location.href='/news/{{$post->id}}'">
+                            <div class="row post-body bg-lightgray post-body-hover mb-5 d-none d-lg-flex" onclick="window.location.href='/news/{{$post->id}}'">
                                 <div class="col-4">
                                     <div class="thumbnail thumbnail-rect">
                                         <img class="mt-3" src="{{$post->banner}}">
