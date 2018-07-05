@@ -4,6 +4,27 @@
 @import "variables";
 // Generic
 
+#Header{
+  min-height: 95px;
+
+  h6,span{
+    font-size: 12px;
+  }
+  h6{
+    font-family: $font-futura;
+  }
+}
+
+.user-control{
+  position: relative;
+  top: 12px;
+}
+.mw{
+  //min-width: 100%;
+  max-width: 1175px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 hr {
   display: block;
   height: 1px;
@@ -333,7 +354,7 @@ body{
   //font-size: 15px;
   font-family: $font-copy;
   line-height: 1.618;
-
+  background-color: $dgl-purple4;
   .tag{
     font-family: $font-primary;
     font-weight: 700;
@@ -773,30 +794,39 @@ body{
   }
 
   .dgl-nav-title{
-    background-color: $dgl-purple;
     //height: 400px;
-    .title{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      //border-left: 1px solid $dgl-gray;
-      width: 20vw;
-
+    color : $dgl-gray;
+    a{
+      margin: auto 5px auto 10px;
+      color: #FFF;
+      text-transform: uppercase;
+      text-decoration: none;
     }
     .logo{
-      border-left: 1px solid $dgl-gray;
-      border-right: 1px solid $dgl-gray;
+      //border-left: 1px solid $dgl-gray;
+      //border-right: 1px solid $dgl-gray;
+      //height: 100px;
+      overflow: visible;
+      z-index: 1050;
       //padding: auto 20vw;
-      padding-left: 10vw;
-      padding-right: 10vw;
+      //padding-left: 5vw;
+      padding-right: 25px;
+      //padding-top: 15px;
+      img{
+        position: relative;
+        //bottom: 20px;
+        margin-top: 15px;
+        //margin-bottom: 5px;
+      }
     }
     .title-right{
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-end;
+      align-items: end;
       width: 20vw;
+      min-height: 50px;
+      //background-color: $dgl-purple3;
       //border-right: 1px solid $dgl-gray;
 
     }
@@ -807,15 +837,13 @@ body{
 
   }
   .navbar-dgl{
-    //background-color: $dgl-darkgray !important;
+    background-color: $dgl-purple3 !important;
+    color: $dgl-gray;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1030;
-    border-top: 1px solid $dgl-gray;
-    //border-left: 1px solid $dgl-gray;
-    //border-right: 1px solid $dgl-gray;
     .navbar-brand{
       margin: 0;
     }
@@ -833,10 +861,16 @@ body{
 
     a{
       color: #FFF;
-      font-family: $font-primary;
+      font-family: $font-copy;
       //font-weight: 700;
       text-transform: uppercase;
       text-decoration: none;
+      //margin-left: 10px;
+      //margin-right: 7px;
+      //margin: 0 7px 7px 10px;
+      padding-left: 13px;
+      padding-right: 10px;
+      //padding-bottom: 10px;
     }
     a.nav-link{
       font-family: FuturaMedium, $font-copy;
@@ -847,40 +881,6 @@ body{
       //}
     }
 
-    .user-button{
-      //background-color: ;
-      //margin-left: vw;
-      margin-right: 2vw;
-      //display: inline;
-      //padding-left: 5px;
-      //padding-right: 5px;
-      border: 1px solid $dgl-turquiose;
-      a{
-        margin: 5px 5px;
-        font-family: $font-copy;
-        color: $dgl-darktuquise;
-      }
-      &:hover{
-        //border-color: red;
-        background-color: $dgl-darktuquise;
-        a{
-          color: #FFF;
-        }
-      }
-      &:hover:before {
-        background-color: $dgl-turquiose;
-      }
-
-    }
-    .user-button::before{
-      content: ">";
-      color: #FFF;
-      background-color: $dgl-darktuquise;
-      //display: inline;
-      //margin: 0;
-      padding: 3.5px 7px;
-    }
-
     button{ //bootstrap override
       color: red;
       border-color: $dgl-lightgray !important;
@@ -889,8 +889,8 @@ body{
     }
     li{
       a{
-        padding-right: 1vw !important;
-        padding-left: 1vw !important;
+        padding-right: 20px !important;
+        padding-left: 20px !important;
       }
     }
   }

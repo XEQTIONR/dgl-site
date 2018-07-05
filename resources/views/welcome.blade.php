@@ -1,15 +1,15 @@
 @extends('layouts.main')
 @section('body-section')
 
-    <div class="row mt-5 justify-content-center main-banner">
-      <div class="left col-xs-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 py-5 my-5">
-        <span class="first text-left">NEXT</span>
-        <span class="ml-5 pl-3">TOURNAMENT</span>
-      </div>
-      <div class="right col-xs-12 col-sm-6 col-md-4 col-lg-3 py-5 my-5" style="border-left: 1px solid #FFF">
-        <h1>DOTA2 ALL-STARS League 2018</h1>
-      </div>
-    </div>
+    {{--<div class="row mt-5 justify-content-center main-banner">--}}
+      {{--<div class="left col-xs-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 py-5 my-5">--}}
+        {{--<span class="first text-left">NEXT</span>--}}
+        {{--<span class="ml-5 pl-3">TOURNAMENT</span>--}}
+      {{--</div>--}}
+      {{--<div class="right col-xs-12 col-sm-6 col-md-4 col-lg-3 py-5 my-5" style="border-left: 1px solid #FFF">--}}
+        {{--<h1>DOTA2 ALL-STARS League 2018</h1>--}}
+      {{--</div>--}}
+    {{--</div>--}}
     <div class="row justify-content-center d-none d-md-block">
         <div class="col-12 no-horizontal-padding">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
