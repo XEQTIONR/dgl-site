@@ -126,8 +126,20 @@
   background-color: #3d3b5b;
 }
 
+.bg-purple2 {
+  background-color: #373959 !important;
+}
+
 .bg-purple3 {
   background-color: #323150 !important;
+}
+
+.bg-purple4 {
+  background-color: #282840 !important;
+}
+
+.bg-purple5 {
+  background-color: #1e202f !important;
 }
 
 .bg-darkpurple {
@@ -204,19 +216,19 @@ h1,
 h2,
 h3,
 h5 {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
-  font-weight: 700;
+  font-family: "Russo One", Helvetica, serif;
   text-transform: uppercase;
 }
 
 p {
-  font-family: "Lato", "CircularStd", serif;
+  font-family: Nunito, Helvetica, serif;
   font-size: 1em;
   color: #272A38;
 }
 
 #Header {
   min-height: 95px;
+  max-height: 100px;
 }
 
 #Header h6,
@@ -225,7 +237,11 @@ p {
 }
 
 #Header h6 {
-  font-family: "FuturaMedium", "Helvetica", "Arial";
+  font-family: "Russo One", Helvetica, serif;
+}
+
+a.btn {
+  font-weight: bold;
 }
 
 .user-control {
@@ -282,7 +298,7 @@ span li {
 }
 
 span p {
-  color: #002a54;
+  color: #9e9caa;
 }
 
 span table,
@@ -326,7 +342,7 @@ span.light h6 {
   color: white;
   font-size: 35px;
   font-weight: bold;
-  font-family: "Lato", "CircularStd", serif;
+  font-family: Nunito, Helvetica, serif;
 }
 
 .main-banner .left span.first::before {
@@ -361,6 +377,7 @@ span.light h6 {
 
 .background-past-tournament {
   background-image: url("/storage/lc.png");
+  background-color: #fff;
   background-size: contain;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -402,7 +419,7 @@ span.light h6 {
 }
 
 .tournament-overview-container span {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
 }
 
 .dagameleague-small {
@@ -415,44 +432,13 @@ span.light h6 {
   font-weight: normal;
 }
 
-.card-widget {
-  min-width: 225px;
-  max-width: 250px;
-}
-
-.card .card-body {
-  color: #FFF;
-}
-
-.card .card-body table th,
-.card .card-body table td {
-  padding: 0;
-}
-
-.card .card-body p {
-  font-size: .9em;
-}
-
-.card .card-link {
-  color: #FFF;
-  font-weight: 700;
-}
-
-.card .card-text {
-  color: #FFF !important;
-}
-
-.card .card-title {
-  font-family: "FuturaMedium", "Helvetica", "Arial";
-}
-
 .font-primary {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   font-weight: normal;
 }
 
 .font-copy {
-  font-family: "Lato", "CircularStd", serif;
+  font-family: Nunito, Helvetica, serif;
   text-transform: none;
 }
 
@@ -468,6 +454,8 @@ span.light h6 {
 .thumbnail {
   position: relative;
   overflow: hidden;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .thumbnail img {
@@ -480,31 +468,14 @@ span.light h6 {
   transform: translate(-50%, -50%);
 }
 
-.thumbnail-x {
-  position: relative;
-  overflow: hidden;
+.thumbnail-new {
+  width: 40%;
+  height: 15em;
 }
 
-.thumbnail-x img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+.thumbnail-rect {
   width: 100%;
-  height: auto;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.thumbnail-sq {
-  width: 12vw;
-  height: 12vw;
-  min-width: 100px;
-  min-height: 100px;
-}
-
-.thumbnail-rect-lg {
-  width: 100vw;
-  height: 24vw;
+  height: 15vw;
   min-width: 100px;
   min-height: 24px;
 }
@@ -517,8 +488,6 @@ span.light h6 {
 }
 
 .thumbnail-rect {
-  width: 20vw;
-  height: 15vw;
   max-width: 300px;
   max-height: 225px;
 }
@@ -530,25 +499,40 @@ span.light h6 {
   margin-right: auto;
 }
 
+.carousel-item .banner-div {
+  display: block;
+  height: 80vh;
+  background-position: center;
+  overflow: hidden;
+  background-size: cover;
+}
+
 .carousel-item .banner-layer {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
-  background: radial-gradient(circle farthest-side at 65% 10%, rgba(0, 238, 255, 0.75) 0%, rgba(77, 108, 171, 0.75) 70%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#1e202f), to(transparent));
+  background: linear-gradient(0deg, #1e202f, transparent);
 }
 
 .carousel-item .slide-text {
   color: #4D6CAB;
+  font-family: "Russo One", Helvetica, serif;
+  text-transform: none;
+  font-weight: normal;
 }
 
 .carousel-caption {
-  text-align: start;
+  margin-bottom: 20vh;
+}
+
+.carousel-caption h1 {
+  font-weight: bolder;
 }
 
 .carousel-text-header {
-  font-size: 3.5em;
-  text-align: start;
+  font-size: 3em;
 }
 
 .carousel-control-prev,
@@ -581,13 +565,12 @@ span.light h6 {
 }
 
 body {
-  font-family: "Lato", "CircularStd", serif;
-  line-height: 1.618;
+  font-family: Nunito, Helvetica, serif;
   background-color: #282840;
 }
 
 body .tag {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   font-weight: 700;
   padding: 0px 2px;
 }
@@ -680,7 +663,7 @@ body .list-group-tournament-match .list-group-item small {
 }
 
 body .table th {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   text-transform: uppercase;
 }
 
@@ -709,7 +692,7 @@ body .pagination li {
 
 body .pagination li span,
 body .pagination li a {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   -webkit-transform: skewX(40deg);
           transform: skewX(40deg);
   display: block;
@@ -787,7 +770,7 @@ body #alertBannerTop {
 }
 
 body #moreButton {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   color: #d7dde8;
   font-size: 1.4em;
   font-weight: 700;
@@ -946,7 +929,7 @@ body .btn-dgl {
   border-width: 0;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   font-weight: bold;
 }
 
@@ -1015,7 +998,7 @@ body .navbar {
 }
 
 body .navbar .dropdown-item {
-  font-family: FuturaMedium, "Lato", "CircularStd", serif;
+  font-family: FuturaMedium, Nunito, Helvetica, serif;
   font-size: .7em;
 }
 
@@ -1025,18 +1008,29 @@ body .navbar .dropdown-item:hover {
 }
 
 body .navbar .nav-item {
-  margin-left: 10px;
-  margin-right: 10px;
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
   padding-bottom: .5rem;
   padding-top: .5rem;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 
 body .navbar .nav-item:hover {
-  background-color: #42bfe1;
+  background-color: #282840;
+  border-top: 5px solid #EE2C54;
+}
+
+body .navbar .nav-item.lined {
+  border-left: 1px solid #3d3b5b;
+}
+
+body .navbar .nav-item.lined.last {
+  border-right: 1px solid #3d3b5b;
 }
 
 body .nav-brand a {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   font-weight: 900;
   vertical-align: baseline;
 }
@@ -1046,6 +1040,8 @@ body .dgl-nav-title {
 }
 
 body .dgl-nav-title a {
+  font-size: 12px;
+  font-weight: bold;
   margin: auto 5px auto 10px;
   color: #FFF;
   text-transform: uppercase;
@@ -1060,7 +1056,7 @@ body .dgl-nav-title .logo {
 
 body .dgl-nav-title .logo img {
   position: relative;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 body .dgl-nav-title .title-right {
@@ -1086,6 +1082,7 @@ body .navbar-dgl.fixed-top {
 }
 
 body .navbar-dgl {
+  border-bottom: 1px solid #3d3b5b;
   background-color: #323150 !important;
   color: #9e9caa;
   position: fixed;
@@ -1109,13 +1106,12 @@ body .navbar-dgl .navbar-toggler-icon {
 }
 
 body .navbar-dgl .navbar-text {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
-  font-size: 1.2em;
+  font-family: "Russo One", Helvetica, serif;
 }
 
 body .navbar-dgl a {
   color: #FFF;
-  font-family: "Lato", "CircularStd", serif;
+  font-family: Nunito, Helvetica, serif;
   text-transform: uppercase;
   text-decoration: none;
   padding-left: 13px;
@@ -1123,9 +1119,8 @@ body .navbar-dgl a {
 }
 
 body .navbar-dgl a.nav-link {
-  font-family: FuturaMedium, "Lato", "CircularStd", serif;
-  border-bottom: 5px solid transparent;
-  font-size: .8em;
+  font-family: "Russo One", Helvetica, serif, Nunito, Helvetica, serif;
+  font-size: .7em;
 }
 
 body .navbar-dgl button {
@@ -1167,7 +1162,7 @@ body .banner-row .banner-row-background {
 }
 
 body .banner-row h1 {
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
   font-weight: 700;
   font-size: 3rem;
   z-index: 2;
@@ -1202,23 +1197,53 @@ body .banner-background {
   background-color: #272C38;
 }
 
+body .card-body .table thead {
+  border: 0px !important;
+}
+
+body .card-body.card-title {
+  border-top-left-radius: 3px;
+  border-left: 5px solid #EE2C54;
+  background-color: #373959;
+}
+
 body .dgl-card-img {
   width: 50%;
   display: block;
   margin: 2em auto 0 auto;
 }
 
-body .main {
-  background-color: #FFF;
+body .dgl-card-img-small {
+  width: 25%;
+  display: block;
+  margin: 2em auto 0 auto;
+}
+
+body .main-content .section-title {
+  padding: 5px;
+  border-left: 5px solid #EE2C54;
+  border-radius: 2px;
 }
 
 body .post-body {
-  padding-bottom: 1em;
+  background-color: #323150 !important;
+  border: 1px solid #3d3b5b;
   background-color: transparent;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 body .post-body .time {
-  color: #3d3b5b;
+  color: #42bfe1;
 }
 
 body .post-body .post-link {
@@ -1226,33 +1251,49 @@ body .post-body .post-link {
 }
 
 body .post-body .post-link .post-title {
-  color: #002a54;
+  font-weight: normal;
+  color: #FFF;
   text-decoration: none;
   margin-top: 5px;
 }
 
-body .post-body-hover:hover {
+body .post-body .post-text {
+  width: 55%;
+  margin-left: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .post-body-hover {
   cursor: pointer;
 }
 
-body .post-body-hover:hover .time {
-  color: #4D6CAB;
+body .post-body-hover:hover .post-title {
+  color: #EE2C54;
 }
 
 body .footer {
-  background-color: #1F232D;
+  background-color: rgba(40, 40, 64, 0.3);
   padding-top: 2em;
-  font-family: "Barlow Condensed", "Titillium Web", serif;
+  font-family: "Russo One", Helvetica, serif;
 }
 
 body .footer h5 {
-  font-family: "FuturaMedium", "Barlow Condensed", "Titillium Web", serif;
+  font-family: "FuturaMedium", "Russo One", Helvetica, serif;
   font-size: 1rem;
 }
 
 body .footer a {
   color: #9e9caa;
-  font-family: "Lato", "CircularStd", serif;
+  font-family: Nunito, Helvetica, serif;
   text-decoration: none;
 }
 
@@ -1269,7 +1310,7 @@ body .footer .footer-text .footer-list-div {
 }
 
 body .footer p {
-  font-family: "Lato", "CircularStd", serif;
+  font-family: Nunito, Helvetica, serif;
   color: #4D6CAB;
 }
 

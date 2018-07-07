@@ -46,7 +46,7 @@ $dgl-purple : rgba(61,59,91,1.0);;
 $dgl-purple2 : rgba(55,57,89,1.0);
 $dgl-purple3 : rgba(50,49,80,1.0);
 $dgl-purple4 : rgba(40,40,64,1.0);
-$dgl-purple5 : rgba(30,31,47,1.0);
+$dgl-purple5 : rgba(30,32,47,1.0);
 
 $dgl-darkpurple: rgba(51,38,98,1.0);
 
@@ -184,9 +184,17 @@ $dgl-dark: #272A38;
 .bg-purple{
   background-color: $dgl-purple;
 }
-
+.bg-purple2{
+  background-color: $dgl-purple2 !important;
+}
 .bg-purple3{
   background-color: $dgl-purple3 !important;
+}
+.bg-purple4{
+  background-color: $dgl-purple4 !important;
+}
+.bg-purple5{
+  background-color: $dgl-purple5 !important;
 }
 
 .bg-darkpurple{
@@ -249,8 +257,8 @@ $dgl-dark: #272A38;
 }
 
 // Typography
-$font-primary:  "Barlow Condensed", "Titillium Web", serif;
-$font-copy: "Lato","CircularStd", serif;
+$font-primary:  "Russo One", Helvetica, serif;
+$font-copy: Nunito, Helvetica, serif;
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
 $font-quicksand: "Quicksand";
 .font-futura{
@@ -260,7 +268,7 @@ $font-quicksand: "Quicksand";
 
 h1, h2, h3, h5 {
   font-family: $font-primary;
-  font-weight: 700;
+  //font-weight: 700;
   text-transform: uppercase;
 }
 

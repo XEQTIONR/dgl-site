@@ -103,7 +103,7 @@
     </div>
     <div class="row justify-content-center footer-img">
       <div class="col-12 mt-5 ml-md-5">
-      <img class="" src="{{URL::asset('storage/DGLCrownPrimary.svg')}}" />
+      <img class="" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" />
       </div>
     </div>
   </div>

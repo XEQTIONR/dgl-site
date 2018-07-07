@@ -53,7 +53,7 @@
           </div>
           <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
             <div class="row">
-              <h3 class="font-purple">{{$post->title}}</h3>
+              <h3 class="font-white font-futura">{{$post->title}}</h3>
             </div>
             <div class="row">
               <div class="mt-1 mb-3 pr-4">
