@@ -5,13 +5,13 @@
       <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>Matches</h1>
-      <img src="{{URL::asset('storage/icons8-whistle-64.png')}}" class="banner-icon">
+      {{--<img src="{{URL::asset('storage/icons8-whistle-64.png')}}" class="banner-icon">--}}
     </div>
   </div>
 
-  <div class="row justify-content-center"> <!-- the content row -->
-    <div class="col-10">
-      <h3 class="font-purple my-5">FIXTURES</h3>
+  <div class="row justify-content-center bg-purple4 "> <!-- the content row -->
+    <div class="col-10 col-xl-12 mw">
+      <h3 class="font-white my-5">FIXTURES</h3>
       <?php $i = 0 ?>
       @foreach($fixtures as $match)
       <!--A FIXTURE TABLE-->
@@ -37,13 +37,13 @@
             </div>
         @endif
           <!-- A match -->
-          <div class="col-12 py-3" style="border-bottom: 1px solid #AAA;">
+          <div class="col-12 py-3" style="">
             <div class="row justify-content-center">
               <a style="text-decoration: none" href="/tournaments/{{$match->tournament->id}}"><h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6></a>
             </div>
             <div class="row justify-content-center">
               <div class="col-sm-3 d-none d-sm-inline">
-                <h5 class=" mt-4 text-right">{{$match->contestants[0]->contending_team->name}}</h5>
+                <h5 class=" mt-4 text-right font-white">{{$match->contestants[0]->contending_team->name}}</h5>
               </div>
               <div class="col-4 col-sm-2 col-lg-1">
                 <div class="row">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="row">
                   <div class="card-body d-sm-none">
-                    <h5 class="card-title font-purple text-center">{{$match->contestants[0]->contending_team->tag}}</h5>
+                    <h5 class="card-title font-white text-center">{{$match->contestants[0]->contending_team->tag}}</h5>
                   </div>
                 </div>
               </div>
@@ -71,12 +71,12 @@
                 </div>
                 <div class="row">
                   <div class="card-body d-sm-none">
-                    <h5 class="card-title font-purple text-center">{{$match->contestants[1]->contending_team->tag}}</h5>
+                    <h5 class="card-title font-white text-center">{{$match->contestants[1]->contending_team->tag}}</h5>
                   </div>
                 </div>
               </div>
               <div class="col-sm-3 d-none d-sm-inline">
-                <h5 class=" mt-4 text-left">{{$match->contestants[1]->contending_team->name}}</h5>
+                <h5 class=" mt-4 text-left font-white">{{$match->contestants[1]->contending_team->name}}</h5>
               </div>
             </div>
             <div class="row justify-content-center">
@@ -89,8 +89,8 @@
     </div> <!-- content row-->
 
 
-  <div class="row justify-content-center"> <!-- the content row -->
-    <div class="col-10">
+  <div class="row justify-content-center bg-purple5 "> <!-- the content row -->
+    <div class="col-10 col-xl-12 mw">
       <h3 class="font-light-gray my-5">RESULTS</h3>
   <?php $i = 0 ?>
   @foreach($results as $match)
@@ -111,13 +111,13 @@
       </div>
     @endif
     <!-- A match -->
-    <div class="col-12 py-3" style="border-bottom: 1px solid #AAA;">
+    <div class="col-12 py-3">
       <div class="row justify-content-center">
         <a style="text-decoration: none" href="/tournaments/{{$match->tournament->id}}"><h6 class="text-center small text-uppercase"><strong>{{$match->tournament->name}}</strong></h6></a>
       </div>
       <div class="row justify-content-center">
         <div class="col-sm-3 d-none d-sm-inline">
-          <h5 class=" mt-4 text-right">{{$match->contestants[0]->contending_team->name}}</h5>
+          <h5 class=" mt-4 text-right font-white">{{$match->contestants[0]->contending_team->name}}</h5>
         </div>
         <div class="col-4 col-sm-2 col-lg-1">
           <div class="row">
@@ -127,7 +127,7 @@
           </div>
           <div class="row">
             <div class="card-body d-sm-none">
-              <h5 class="card-title font-purple text-center">{{$match->contestants[0]->contending_team->tag}}</h5>
+              <h5 class="card-title text-center font-white">{{$match->contestants[0]->contending_team->tag}}</h5>
             </div>
           </div>
         </div>
@@ -142,12 +142,12 @@
           </div>
           <div class="row">
             <div class="card-body d-sm-none">
-              <h5 class="card-title font-purple text-center">{{$match->contestants[1]->contending_team->tag}}</h5>
+              <h5 class="card-title text-center font-white">{{$match->contestants[1]->contending_team->tag}}</h5>
             </div>
           </div>
         </div>
         <div class="col-sm-3 d-none d-sm-inline">
-          <h5 class=" mt-4 text-left">{{$match->contestants[1]->contending_team->name}}</h5>
+          <h5 class=" mt-4 text-left font-white">{{$match->contestants[1]->contending_team->name}}</h5>
         </div>
       </div>
       <div class="row justify-content-center">

@@ -3,10 +3,10 @@
 
 <div class="row justify-content-center banner-row">
   <div class="col-12 mx-0 px-0">
-    <img src="{{URL::asset('storage/head-banner.png')}}"
+    <img src="{{URL::asset('storage/commonbanner2.png')}}"
          class="banner-row-background">
     <h1>Players</h1>
-    <img src="{{URL::asset('storage/icons8-technical-support-64.png')}}" class="banner-icon">
+    {{--<img src="{{URL::asset('storage/icons8-technical-support-64.png')}}" class="banner-icon">--}}
   </div>
 </div>
 <div class="row justify-content-center">

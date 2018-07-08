@@ -226,6 +226,11 @@ p {
   color: #272A38;
 }
 
+.generic-section-title {
+  border-left: 5px solid #EE2C54;
+  border-radius: 2px;
+}
+
 #Header {
   min-height: 95px;
   max-height: 100px;
@@ -361,26 +366,6 @@ span.light h6 {
 
 .background-a-tournament {
   background-size: cover;
-}
-
-.background-active-tournament {
-  background-image: url("/storage/hearthstone2.jpg");
-  background-size: cover;
-  background-position: top;
-}
-
-.background-upcoming-tournament {
-  background-image: url("/storage/hanzogenji.png");
-  background-size: cover;
-  background-position: top;
-}
-
-.background-past-tournament {
-  background-image: url("/storage/lc.png");
-  background-color: #fff;
-  background-size: contain;
-  background-position: bottom;
-  background-repeat: no-repeat;
 }
 
 .jumbotron-atournament {

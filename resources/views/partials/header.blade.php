@@ -80,7 +80,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="justify-content-center d-none d-lg-inline-block py-2">
-      <a class="ml-0 pl-0 ml-xl-5 pl-xl-5 pr-5" href="/">
+      <a class="ml-0 pl-5 ml-xl-5 pr-5" href="/">
         <img class=" small-logo mb-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="35" class="d-block" alt="">
         {{--<span class="d-none d-xl-inline-block navbar-text vertical-align-center dagameleague-small">ĐAGAMELEAGUE</span>--}}
       </a>

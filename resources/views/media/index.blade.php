@@ -6,7 +6,7 @@
       <img src="{{URL::asset('storage/head-banner.png')}}"
            class="banner-row-background">
       <h1>Media</h1>
-      <img src="{{URL::asset('storage/icons8-tv-show-64.png')}}" class="banner-icon">
+      {{--<img src="{{URL::asset('storage/icons8-tv-show-64.png')}}" class="banner-icon">--}}
     </div>
   </div>
 
