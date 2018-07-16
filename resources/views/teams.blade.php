@@ -39,7 +39,7 @@
         @if(count($teams)>0)
           @foreach($teams as $team)
           <div class="col-6 col-md-4 col-lg-3  my-3">
-            <div class="card p-4 bg-purple3">
+            <div class="card p-4 bg-purple4">
               <img class="card-img-top" src="{{$team->logo_size1}}" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title text-center font-white">{{$team->name}}</h5>

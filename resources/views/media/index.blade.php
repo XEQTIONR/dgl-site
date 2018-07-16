@@ -10,17 +10,17 @@
     </div>
   </div>
 
-  <div class="row justify-content-center" id="photos">
+  <div class="row justify-content-center bg-purple5 " id="photos">
     <div class="col-10 mt-5">
       <h1 class="font-light-gray">PHOTOS</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-purple5">
     <div class="col-10 mt-5">
       <h2 class="font-purple">ALBUMS</h2>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-purple5">
     <div class="col-10">
       <div class="row">
 
@@ -40,12 +40,12 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center" id="videos">
+  <div class="row justify-content-center bg-purple5" id="videos">
     <div class="col-10 mt-5">
       <h1 class="font-light-gray">VIDEOS</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-purple5">
     <div class="col-10">
 
       <div class="row justify-content-center">
@@ -73,7 +73,7 @@
         </div>
         @endforeach
         @else
-          <h4 class="text-center my-5"> No videos yet. They appear here as they are posted.</h4>
+          <h4 class="text-center my-5 font-white"> No videos yet. They appear here as they are posted.</h4>
         @endif
       </div>
     </div>

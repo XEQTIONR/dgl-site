@@ -2,42 +2,21 @@
 
 @section('body-section')
 
-  <div class="d-flex flex-column w-100 justify-content-center" style="height: 90vh;">
+  <div class="row d-flex flex-column justify-content-center bg-lightgray" style="height: 90vh;">
       <h1 class="text-center" style="font-family: 'AaronFaces'; font-size: 150px; font-weight: normal">L</h1>
       <h1 class="text-center">DateaM</h1>
       <p class="text-center">Dhaka, Bangladesh</p>
-      <h5 class="text-uppercase text-center">estd: 2004</h5>
-  </div>
-  <div class="d-flex flex-column w-100 justify-content-center" style="height: 9vh">
-    <a id="more" style="text-decoration: none" class="font-gray">
-      <div class="row justify-content-center" >
-        <span class="text-center">LEARN MORE</span>
-      </div>
-      <div class="row justify-content-center">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-    </a>
-
-    <script>
-      $('#more').click(function () {
-          // alert($("#more").offset().top);
-          $("html, body").animate({
-              scrollTop: $("#more").offset().top
-          }, 1000);
-      })
-    </script>
+      <h6 class="text-uppercase text-center">estd: 2004</h6>
   </div>
 
-
-
-<div id="about" class="row mt-2">
+<div id="about" class="row">
   <div class="col-12 px-0">
     <img src="{{URL::asset('storage/dtm-banner.png')}}" style="width: 100%;">
   </div>
 </div>
-<div class="row mt-5 justify-content-center">
+<div class="row justify-content-center bg-lightgray">
   <div class="col-12 col-md-8">
-  <h1>WHAT IS DATEAM?</h1>
+  <h1 class="mt-5">WHAT IS DATEAM?</h1>
 
   <h5 style= "border-left: 5px solid orange;" class="pl-3 my-5">Dateam is a Brotherhood, a Covenant,
     a Clan. It is an esports team (group of teams) sponsored by DGL for national and international esports competitions formed under our first ClanLord - DtM’DefCon13.
@@ -52,14 +31,14 @@
   </div>
 </div>
 
-<div class="row" style="margin-top: 50px;">
+<div class="row bg-lightgray">
   <div class="col-12 px-0">
     <img src="{{URL::asset('storage/dgl-players.png')}}" style="width: 100%;">
   </div>
 </div>
-<div class="row mt-5 justify-content-center">
+<div class="row justify-content-center bg-lightgray">
   <div class="col-12 col-md-8">
-    <h1 class="text-uppercase">Who's in dateam?</h1>
+    <h1 class="text-uppercase mt-5">Who's in dateam?</h1>
     <p>Historically, DtM has had two divisions under its brand - DateaM - or DateaM prime (DtM') and DateaM alpha (DtMα or DTA). The following is the final roster list for all divisions of dateam.</p>
 
     <h2>Dateam (<span style="color: orange">Prime</span>)</h2>
@@ -110,15 +89,15 @@
   </div>
 </div>
 
-<div class="row" style="margin-top: 50px;">
+<div class="row bg-lightgray">
   <div class="col-12 px-0">
     <img src="{{URL::asset('storage/dgl-players3.png')}}" style="width: 100%;">
   </div>
 </div>
 
-<div class="row mt-5 justify-content-center">
+<div class="row justify-content-center bg-lightgray">
   <div class="col-12 col-md-8">
-    <h1 class="text-uppercase">Achievements</h1>
+    <h1 class="text-uppercase mt-5">Achievements</h1>
     <p>DateaM is one of the most successfull Bangladeshi clans in history, having participated and won in national and
       international tournaments in multiple e-sport divisions. Down below are notable achievements in reverse chronological order. </p>
 

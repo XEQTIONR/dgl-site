@@ -9,12 +9,12 @@
     {{--<img src="{{URL::asset('storage/icons8-technical-support-64.png')}}" class="banner-icon">--}}
   </div>
 </div>
-<div class="row justify-content-center">
+<div class="row justify-content-center bg-purple5">
   <div class="col-10 mt-5">
-    <table class="table table-striped">
+    <table class="table">
       <thead class="">
       <tr>
-        <th>Alias</th>
+        <th class="font-turquoise">Alias</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Current/Last team</th>
@@ -25,7 +25,7 @@
       @if(count($players)>0)
       @foreach($players as $gamer)
         <tr>
-          <td>{{$gamer->alias}}</td>
+          <td class="font-turquoise">{{$gamer->alias}}</td>
           <td>{{$gamer->fname}}</td>
           <td>{{$gamer->lname}}</td>
           <td>{{$gamer->name}}</td>
@@ -44,7 +44,7 @@
     </table>
   </div>
 </div>
-<div class="row justify-content-center">
+<div class="row justify-content-center bg-purple5">
 {{$players->links()}}
 </div>
 

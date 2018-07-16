@@ -4,19 +4,89 @@
 @import "variables";
 // Generic
 
+.table{
+  background-color: transparent !important;
+  //thead,tbody,tr
+  th{
+    //border-color: transparent !important;
+    border-bottom: 2px solid $dgl-purple !important;
+    border-top: 0px;
+    color: $dgl-gray;
+    font-weight: normal;
+    font-size: .8rem;
+
+  }
+  td{
+    border-bottom: 1px solid $dgl-purple;
+    border-top: 0px;
+    color: #FFF;
+  }
+}
+
+
+.match-time{
+  border: 1px solid $dgl-lightestgray;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: .8em;
+  color: $dgl-lightestgray;
+
+  &:hover{
+    border: 1px solid $dgl-turquiose;
+  }
+}
+
+.match-tournament-link{
+  text-decoration: none !important;
+  color: $dgl-darktuquise;
+  text-transform: uppercase;
+
+  &:hover{
+    color: $dgl-turquiose;
+  }
+}
+.font-logo{
+  font-family: $font-logo;
+}
+
+.font-logo2{
+  font-family: $font-logo2;
+}
+
+.logo{
+  //position: relative;
+  //top: -10px;
+  font-family: Dimitri Swank, Dimitri !important;
+  font-size: 28px !important;
+  font-weight: normal;
+}
+
+.logo.small{
+  font-size: 18px !important;
+}
 .generic-section-title{
   border-left: 5px solid $dgl-red;
   border-radius: 2px;
 }
+
+#preHeader{
+  a{
+    font-family: $font-primary;
+    //font-weight: bold;
+    font-size: .7rem;
+  }
+}
 #Header{
-  min-height: 95px;
-  max-height: 100px;
+
   h6,span{
     font-size: 12px;
   }
   h6{
     font-family: $font-primary;
     //font-weight: bold;
+  }
+  span.logo{
+    font-size: 40px !important;
   }
 }
 
@@ -43,20 +113,16 @@ hr {
 }
 
 span.scoretag{
-  font-size: .8em;
-  font-weight: bolder;
 
-  border-radius: 7px; max-width: 75px;
+  //font-size: .8em;
+  font-weight: bolder;
+  color: $dgl-turquiose;
+  //border-radius: 7px; max-width: 75px;
   margin-left: auto; margin-right: auto
 }
-span.scoretag.passive{
-  background-color: #666;
-  color: #FFF;
-}
 
-span.scoretag.active{
-  background-color: $dgl-purple;
-  color: lighten($dgl-lightestgray, 10%);
+span.scoretag-divider{
+  color: $dgl-gray;
 }
 
 span{
@@ -64,6 +130,7 @@ span{
   h1,h2,h3,h4,h5,h6{
     color: desaturate($dgl-orange,20%);
     font-weight: bold;
+    text-transform: none !important;
   }
   li{
     color: $dgl-blue;
@@ -187,17 +254,17 @@ span.light{
   }
 }
 .dagameleague-small{
-  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  font-family: $font-logo2;
   font-size: 20px !important;
 }
 .dagameleague-med{
-  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
-  //font-size: 45px;
+  font-family: $font-logo2;
+  font-size: 90px;
   font-weight: normal;
 }
 
 .font-primary{
-  font-family: $font-primary;
+  font-family: $font-primary !important;
   font-weight: normal;
 }
 .font-copy{
@@ -234,7 +301,7 @@ span.light{
 }
 
 .thumbnail-new {
-  width: 40%;
+  width: 38%;
   height: 15em;
   //min-width: 100px;
   //min-height: 100px;
@@ -337,9 +404,12 @@ span.light{
 }
 // Componenets
 body{
-
+  h1,h2,h3,h4,h5,h6 {
+    //text-transform: uppercase;
+  }
   font-family: $font-copy;
   background-color: $dgl-purple4;
+  font-size: 16px;
   .tag{
     font-family: $font-primary;
     font-weight: 700;
@@ -440,21 +510,28 @@ body{
 
   .fixture-table-primary{
     border: 1px solid $dgl-primary;
+
+    .match{
+      border-bottom: 1px solid $dgl-purple;
+    }
   }
 
   .fixture-table-purple{
     border: 1px solid $dgl-purple;
+    .match{
+      border-bottom: 1px solid $dgl-purple;
+    }
   }
 
   .pagination{
     margin-top: 50px;
     margin-bottom: 50px;
     li{
-      background-color: lighten($dgl-lightgray, 25%);
+      background-color: darken($dgl-lightgray, 25%);
       display: block;
-      margin-left: 2px;
-      margin-right: 2px;
-      border: 1px solid #FFF;
+      margin-left: 3px;
+      margin-right: 3px;
+      //border: 1px solid darken($dgl-lightgray, 25%);
       transform: skewX(-40deg);
 
 
@@ -474,7 +551,7 @@ body{
       a{
         color: #FFF;
         &:hover{
-          color: $dgl-primary;
+          color: $dgl-green;
         }
 
       }
@@ -487,7 +564,7 @@ body{
       margin-right: 10px;
       background-color: $dgl-lightergray;
       &:hover{
-        background-color: $dgl-orange;
+        background-color: $dgl-turquiose;
 
         a{
           color: #FFF;
@@ -496,7 +573,7 @@ body{
     }
 
     li.active{
-      background-color: $dgl-purple;
+      background-color: $dgl-darktuquise;
       span{
         color: #FFF;
       }
@@ -533,6 +610,7 @@ body{
   }
 
   #moreButton{
+    margin-top: 5px;
     font-family: $font-primary;
     color: $dgl-almostwhite;
     font-size: 1.4em;
@@ -558,20 +636,20 @@ body{
     width: 100%;
     background-color: darken(desaturate($dgl-purple, 25%),20%);
   }
-  .team-logo-300-trans{
-    width: 100%;
-    background-color: transparent;
-    border: none;
+  //.team-logo-300-trans{
+  //  width: 100%;
+  //  background-color: transparent;
+  //  border: none;
 
 
     .sm-md-logo{
-      min-width: 50px;
-      max-width:  75px;
+      //min-width: 50px;
+      width:  70px;
       display: block;
       margin-left: auto;
       margin-right: auto;
     }
-  }
+  //}
   .team-registration{
     padding: 1em;
     //background-color: white;
@@ -752,7 +830,7 @@ body{
     background-color: $dgl-purple;
 
     .dropdown-item{
-      font-family: FuturaMedium, $font-copy;
+      font-family: $font-primary;
       font-size: .7em;
       &:hover{
         background-color: lighten($dgl-orange, 10%);
@@ -799,24 +877,6 @@ body{
       color: #FFF;
       text-transform: uppercase;
       text-decoration: none;
-    }
-    .logo{
-      //border-left: 1px solid $dgl-gray;
-      //border-right: 1px solid $dgl-gray;
-      //height: 100px;
-      overflow: visible;
-      z-index: 1050;
-      //padding: auto 20vw;
-      //padding-left: 5vw;
-      padding-right: 25px;
-      //padding-top: 15px;
-      img{
-        position: relative;
-        //bottom: 50px;
-        //box-shadow: 10px 10px black;
-        margin-top: 5px;
-        //margin-bottom: 5px;
-      }
     }
     .title-right{
       display: flex;
@@ -978,7 +1038,7 @@ body{
 
   }
 
-  .main-content{
+  //.main-content{
     .section-title{
       padding: 5px;
       border-left: 5px solid $dgl-red;
@@ -987,7 +1047,16 @@ body{
       //border-bottom: 1px solid $dgl-purple;
       border-radius: 2px;
     }
+  //}
+  .post-body.alternate{
+    background-color: #F9F9F9 !important;
+    border: 0px !important;
+
+    .post-title{
+      color: $dgl-gray !important;
+    }
   }
+
   .post-body{
     background-color: $dgl-purple3 !important;
     border: 1px solid $dgl-purple;
@@ -996,7 +1065,6 @@ body{
       color: $dgl-darktuquise;
       //font-weight: bolder;
     }
-    background-color: transparent;
     .post-link {
       text-decoration: none;
       .post-title {
@@ -1010,7 +1078,8 @@ body{
     .post-text{
       //flex-grow: 2;
       width: 55%;
-      margin-left: 3%;
+      margin-left: 1.5%;
+      margin-right: 1.5%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1034,9 +1103,11 @@ body{
 
   //Footer
   .footer {
-    background-color: transparentize($dgl-purple4, .7);
-    padding-top: 2em;
+    //background-color: $dgl-purple4;
+    //padding-top: 2em;
     font-family: $font-primary;
+    //border-top: 1px solid $dgl-purple;
+
     h5{
       font-family: 'FuturaMedium', $font-primary;
       //font-weight: bold;
@@ -1049,31 +1120,26 @@ body{
       text-decoration: none;
 
       &:hover{
-        color: #FFF;
+        span {
+          color: #FFF;
       }
+        }
     }
 
-    .footer-text {
-      height: 25vw;
-      .footer-list-div{
-        min-width : 175px;
-      }
-    }
 
-    p{
-      font-family:  $font-copy;
-      color: $dgl-blue;
+
+    h6{
+      position: relative;
+      top: -40px;
     }
   }
 
-  #footerFlexContainer{
-    display : flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    max-height : 300px;
-
-  }
-  .footer-banner-img{
-    opacity: .7;
+  .footer-text {
+    //height: 25vw;
+    span{
+      font-family: $font-primary;
+      font-size: .8em;
+      //font-weight: bold;
+    }
   }
 }

@@ -10,6 +10,21 @@
   src: url("/fonts/aaron-webfont.woff");
 }
 
+@font-face {
+  font-family: 'Areo';
+  src: url("/fonts/AREO.ttf");
+}
+
+@font-face {
+  font-family: 'Dimitri Swank';
+  src: url("/fonts/DIMIS.TTF");
+}
+
+@font-face {
+  font-family: 'Dimitri';
+  src: url("/fonts/DIMITRI.TTF");
+}
+
 .white-border {
   border-color: #FFF !important;
 }
@@ -32,6 +47,10 @@
 
 .font-primary-color {
   color: #60F569;
+}
+
+.font-turquoise {
+  color: #00eeff !important;
 }
 
 .font-red {
@@ -68,6 +87,10 @@
 
 .font-alternate-color {
   color: #89ff90;
+}
+
+.bdr-btm {
+  border-bottom: 1px solid;
 }
 
 .back-color-white {
@@ -208,14 +231,71 @@ h1,
 h2,
 h3,
 h5 {
-  font-family: "Russo One", Helvetica, serif;
-  text-transform: uppercase;
+  font-family: "Montserrat", Helvetica, serif;
 }
 
 p {
-  font-family: Nunito, Helvetica, serif;
+  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
   font-size: 1em;
   color: #272A38;
+}
+
+.table {
+  background-color: transparent !important;
+}
+
+.table th {
+  border-bottom: 2px solid #3d3b5b !important;
+  border-top: 0px;
+  color: #9e9caa;
+  font-weight: normal;
+  font-size: .8rem;
+}
+
+.table td {
+  border-bottom: 1px solid #3d3b5b;
+  border-top: 0px;
+  color: #FFF;
+}
+
+.match-time {
+  border: 1px solid #9EA3AC;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: .8em;
+  color: #9EA3AC;
+}
+
+.match-time:hover {
+  border: 1px solid #00eeff;
+}
+
+.match-tournament-link {
+  text-decoration: none !important;
+  color: #42bfe1;
+  text-transform: uppercase;
+}
+
+.match-tournament-link:hover {
+  color: #00eeff;
+}
+
+.font-logo {
+  font-family: Dimitri !important;
+}
+
+.font-logo2 {
+  font-family: Dimitri Swank !important;
+}
+
+.logo {
+  font-family: Dimitri Swank, Dimitri !important;
+  font-size: 28px !important;
+  font-weight: normal;
+}
+
+.logo.small {
+  font-size: 18px !important;
 }
 
 .generic-section-title {
@@ -223,9 +303,9 @@ p {
   border-radius: 2px;
 }
 
-#Header {
-  min-height: 95px;
-  max-height: 100px;
+#preHeader a {
+  font-family: "Montserrat", Helvetica, serif;
+  font-size: .7rem;
 }
 
 #Header h6,
@@ -234,7 +314,11 @@ p {
 }
 
 #Header h6 {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
+}
+
+#Header span.logo {
+  font-size: 40px !important;
 }
 
 a.btn {
@@ -262,22 +346,14 @@ hr {
 }
 
 span.scoretag {
-  font-size: .8em;
   font-weight: bolder;
-  border-radius: 7px;
-  max-width: 75px;
+  color: #00eeff;
   margin-left: auto;
   margin-right: auto;
 }
 
-span.scoretag.passive {
-  background-color: #666;
-  color: #FFF;
-}
-
-span.scoretag.active {
-  background-color: #3d3b5b;
-  color: #b9bdc4;
+span.scoretag-divider {
+  color: #9e9caa;
 }
 
 span h1,
@@ -288,6 +364,7 @@ span h5,
 span h6 {
   color: #e9793a;
   font-weight: bold;
+  text-transform: none !important;
 }
 
 span li {
@@ -339,7 +416,7 @@ span.light h6 {
   color: white;
   font-size: 35px;
   font-weight: bold;
-  font-family: Nunito, Helvetica, serif;
+  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
 }
 
 .main-banner .left span.first::before {
@@ -396,26 +473,27 @@ span.light h6 {
 }
 
 .tournament-overview-container span {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
 }
 
 .dagameleague-small {
-  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  font-family: Dimitri Swank !important;
   font-size: 20px !important;
 }
 
 .dagameleague-med {
-  font-family: "Titillium Web", Helvetica, Sans-Serif !important;
+  font-family: Dimitri Swank !important;
+  font-size: 90px;
   font-weight: normal;
 }
 
 .font-primary {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif !important;
   font-weight: normal;
 }
 
 .font-copy {
-  font-family: Nunito, Helvetica, serif;
+  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
   text-transform: none;
 }
 
@@ -446,7 +524,7 @@ span.light h6 {
 }
 
 .thumbnail-new {
-  width: 40%;
+  width: 38%;
   height: 15em;
 }
 
@@ -495,7 +573,7 @@ span.light h6 {
 
 .carousel-item .slide-text {
   color: #4D6CAB;
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   text-transform: none;
   font-weight: normal;
 }
@@ -542,12 +620,13 @@ span.light h6 {
 }
 
 body {
-  font-family: Nunito, Helvetica, serif;
+  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
   background-color: #282840;
+  font-size: 16px;
 }
 
 body .tag {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   font-weight: 700;
   padding: 0px 2px;
 }
@@ -640,7 +719,7 @@ body .list-group-tournament-match .list-group-item small {
 }
 
 body .table th {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   text-transform: uppercase;
 }
 
@@ -648,8 +727,16 @@ body .fixture-table-primary {
   border: 1px solid #60F569;
 }
 
+body .fixture-table-primary .match {
+  border-bottom: 1px solid #3d3b5b;
+}
+
 body .fixture-table-purple {
   border: 1px solid #3d3b5b;
+}
+
+body .fixture-table-purple .match {
+  border-bottom: 1px solid #3d3b5b;
 }
 
 body .pagination {
@@ -658,18 +745,17 @@ body .pagination {
 }
 
 body .pagination li {
-  background-color: white;
+  background-color: #b4b4b4;
   display: block;
-  margin-left: 2px;
-  margin-right: 2px;
-  border: 1px solid #FFF;
+  margin-left: 3px;
+  margin-right: 3px;
   -webkit-transform: skewX(-40deg);
           transform: skewX(-40deg);
 }
 
 body .pagination li span,
 body .pagination li a {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   -webkit-transform: skewX(40deg);
           transform: skewX(40deg);
   display: block;
@@ -689,7 +775,7 @@ body .pagination li a {
 }
 
 body .pagination li a:hover {
-  color: #60F569;
+  color: #3FFECA;
 }
 
 body .pagination li:first-child,
@@ -701,7 +787,7 @@ body .pagination li:last-child {
 
 body .pagination li:first-child:hover,
 body .pagination li:last-child:hover {
-  background-color: #ff7324;
+  background-color: #00eeff;
 }
 
 body .pagination li:first-child:hover a,
@@ -710,7 +796,7 @@ body .pagination li:last-child:hover a {
 }
 
 body .pagination li.active {
-  background-color: #3d3b5b;
+  background-color: #42bfe1;
 }
 
 body .pagination li.active span {
@@ -747,7 +833,8 @@ body #alertBannerTop {
 }
 
 body #moreButton {
-  font-family: "Russo One", Helvetica, serif;
+  margin-top: 5px;
+  font-family: "Montserrat", Helvetica, serif;
   color: #d7dde8;
   font-size: 1.4em;
   font-weight: 700;
@@ -776,15 +863,8 @@ body .team-logo-300 {
   background-color: #181818;
 }
 
-body .team-logo-300-trans {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-}
-
-body .team-logo-300-trans .sm-md-logo {
-  min-width: 50px;
-  max-width: 75px;
+body .sm-md-logo {
+  width: 70px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -906,7 +986,7 @@ body .btn-dgl {
   border-width: 0;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   font-weight: bold;
 }
 
@@ -975,7 +1055,7 @@ body .navbar {
 }
 
 body .navbar .dropdown-item {
-  font-family: FuturaMedium, Nunito, Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   font-size: .7em;
 }
 
@@ -1007,7 +1087,7 @@ body .navbar .nav-item.lined.last {
 }
 
 body .nav-brand a {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   font-weight: 900;
   vertical-align: baseline;
 }
@@ -1023,17 +1103,6 @@ body .dgl-nav-title a {
   color: #FFF;
   text-transform: uppercase;
   text-decoration: none;
-}
-
-body .dgl-nav-title .logo {
-  overflow: visible;
-  z-index: 1050;
-  padding-right: 25px;
-}
-
-body .dgl-nav-title .logo img {
-  position: relative;
-  margin-top: 5px;
 }
 
 body .dgl-nav-title .title-right {
@@ -1083,12 +1152,12 @@ body .navbar-dgl .navbar-toggler-icon {
 }
 
 body .navbar-dgl .navbar-text {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
 }
 
 body .navbar-dgl a {
   color: #FFF;
-  font-family: Nunito, Helvetica, serif;
+  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   padding-left: 13px;
@@ -1096,7 +1165,7 @@ body .navbar-dgl a {
 }
 
 body .navbar-dgl a.nav-link {
-  font-family: "Russo One", Helvetica, serif, Nunito, Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif, Open Sans, Libre Franklin, Helvetica, sans-serif;
   font-size: .7em;
 }
 
@@ -1139,7 +1208,7 @@ body .banner-row .banner-row-background {
 }
 
 body .banner-row h1 {
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
   font-weight: 700;
   font-size: 3rem;
   z-index: 2;
@@ -1196,16 +1265,24 @@ body .dgl-card-img-small {
   margin: 2em auto 0 auto;
 }
 
-body .main-content .section-title {
+body .section-title {
   padding: 5px;
   border-left: 5px solid #EE2C54;
   border-radius: 2px;
 }
 
+body .post-body.alternate {
+  background-color: #F9F9F9 !important;
+  border: 0px !important;
+}
+
+body .post-body.alternate .post-title {
+  color: #9e9caa !important;
+}
+
 body .post-body {
   background-color: #323150 !important;
   border: 1px solid #3d3b5b;
-  background-color: transparent;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -1236,7 +1313,8 @@ body .post-body .post-link .post-title {
 
 body .post-body .post-text {
   width: 55%;
-  margin-left: 3%;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1258,53 +1336,31 @@ body .post-body-hover:hover .post-title {
 }
 
 body .footer {
-  background-color: rgba(40, 40, 64, 0.3);
-  padding-top: 2em;
-  font-family: "Russo One", Helvetica, serif;
+  font-family: "Montserrat", Helvetica, serif;
 }
 
 body .footer h5 {
-  font-family: "FuturaMedium", "Russo One", Helvetica, serif;
+  font-family: "FuturaMedium", "Montserrat", Helvetica, serif;
   font-size: 1rem;
 }
 
 body .footer a {
   color: #9e9caa;
-  font-family: Nunito, Helvetica, serif;
+  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
   text-decoration: none;
 }
 
-body .footer a:hover {
+body .footer a:hover span {
   color: #FFF;
 }
 
-body .footer .footer-text {
-  height: 25vw;
+body .footer h6 {
+  position: relative;
+  top: -40px;
 }
 
-body .footer .footer-text .footer-list-div {
-  min-width: 175px;
-}
-
-body .footer p {
-  font-family: Nunito, Helvetica, serif;
-  color: #4D6CAB;
-}
-
-body #footerFlexContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  max-height: 300px;
-}
-
-body .footer-banner-img {
-  opacity: .7;
+body .footer-text span {
+  font-family: "Montserrat", Helvetica, serif;
+  font-size: .8em;
 }
 

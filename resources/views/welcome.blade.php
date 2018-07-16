@@ -65,7 +65,7 @@
             <div class="row main-content mb-4">
                 <div class="col-12">
                     <div class="row bg-purple3 my-3 section-title">
-                      <h5 class="font-white m-3">LATEST</h5>
+                      <span class="font-white font-primary m-3">LATEST</span>
                     </div>
                     <script>
                         $(document).ready(function(){
@@ -116,7 +116,7 @@
                             </div>
                             {{--<!-- div for large screens -->--}}
                             <div class="row post-body post-body-hover d-none d-md-flex" onclick="window.location.href='/news/{{$post->id}}'">
-                              <div class="thumbnail thumbnail-new my-3 ml-2">
+                              <div class="thumbnail thumbnail-new my-3 mx-2">
                                   <img class="" src="{{$post->banner}}">
                               </div>
                               <div class="post-text">
@@ -179,8 +179,8 @@
                           @foreach($tournaments as $tournament)
                           <div class="carousel-item @php if($i==0) echo ' active' @endphp">
 
-                            <div class="card-body card-title p-1">
-                              <h5 class="font-white m-3">
+                            <div class="card-body card-title px-1 py-3">
+                              <span class="font-white font-primary mx-3">
                                 @if($tournament->status=='current')
                                   @php $current = true; @endphp
                                   CURRENT TOURNAMENT
@@ -189,7 +189,7 @@
                                 @else
                                   UPCOMING TOURNAMENT
                                 @endif
-                              </h5>
+                              </span>
                             </div>
                             <div class="card-body">
                           @if($tournament->logo)
@@ -220,8 +220,8 @@
                   <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
 
                     <div class="card bg-purple3 mx-auto">
-                        <div class="card-body card-title p-1">
-                        <h5 class="font-primary font-white m-3">STANDINGS</h5>
+                        <div class="card-body card-title px-1 py-3">
+                        <span class="font-primary font-white mx-3">STANDINGS</span>
                         </div>
                       <div class="card-body">
                         @if($tournament->logo)

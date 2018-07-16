@@ -22,7 +22,7 @@
     </div>
     <!-- div for large screens -->
     <div class="row post-body post-body-hover d-none d-md-flex" onclick="window.location.href='/news/{{$post->id}}'">
-      <div class="thumbnail thumbnail-new my-3 ml-2">
+      <div class="thumbnail thumbnail-new my-3 mx-2">
         <img class="" src="{{$post->banner}}">
       </div>
       <div class="post-text">

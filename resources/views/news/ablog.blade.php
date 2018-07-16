@@ -4,8 +4,8 @@
   <div class="row justify-content-center" style=" margin-top: 60px; height: 500px; background-repeat: no-repeat; background-position: center; background-image:url('{{$post->banner}}')">
     {{--<img class="img-fluid" src="{{$post->banner}}">--}}
   </div>
-  <div class="row justify-content-center mt-4">
-  <div class="col-10">
+  <div class="row justify-content-center bg-white mt-4 mw">
+  <div class="col-10 my-5">
   <div class="row">
     <h1>{{$post->title}}</h1>
   </div>

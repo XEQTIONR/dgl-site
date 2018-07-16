@@ -2,29 +2,29 @@
 
 @section('body-section')
 
-  <div class="row justify-content-center mt-10">
-    <div class="col-4">
-      <img class="" src="{{URL::asset('storage/DGLCrownGray.svg')}}" />
-    </div>
+  <div class="row justify-content-center mt-5 bg-lightgray">
+    {{--<div class="col-4">--}}
+      {{--<img class="" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" />--}}
+    {{--</div>--}}
     <div class="col-12 my-5">
-      <h1 class="text-center dagameleague-med" style="color: #686a70;">ĐAGAMELEAGUE</h1>
+      <h1 class="text-center dagameleague-med">DAGAMELEAGUE</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <h1 class="text-center">Who we are</h1>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-10">
     <p class="text-center">DGL is short for Da Game League. DGL was Bangladesh's first ever multiplayer gaming community.
       We say 'was' because we have been inactive due to the instability of the evolving nature of
       e-sports in the country.</p>
     </div>
   </div>
-  <div class="row justify-content-center mt-5">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/WiredNetwork.png')}}">
     <img src="{{URL::asset('storage/Network.png')}}" width="128" height="128">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12 mt-5">
       <h1 class="text-center">Who we were and why we are back</h1>
     </div>
@@ -52,15 +52,15 @@
     </div>
 
   </div>
-  <div class="row justify-content-center  mt-5">
+  <div class="row justify-content-center  bg-lightgray">
     <div class="col-12 mt-5">
       <h1 class="text-center">What to expect</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/Router.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center  bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">We go fully online</h3>
     </div>
@@ -70,11 +70,11 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center  bg-lightgray">
     <img  src="{{URL::asset('storage/Cup.png')}}">
     <img src="{{URL::asset('storage/Tree.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center  bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">More tournaments, More competition, more gaming, less everything else.</h3>
     </div>
@@ -84,13 +84,13 @@
         </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row  bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center  bg-lightgray">
     <img  src="{{URL::asset('storage/calendarstar.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center  bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Real-time tournament schedules</h3>
     </div>
@@ -100,12 +100,12 @@
       </p>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center  bg-lightgray">
     <img  src="{{URL::asset('storage/calendarThu.png')}}">
     <img  src="{{URL::asset('storage/calendarFri.png')}}">
     <img  src="{{URL::asset('storage/calendarSat.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Match Days.</h3>
     </div>
@@ -114,13 +114,13 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row  bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/iconMic.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Match broadcasts and commentary</h3>
     </div>
@@ -129,10 +129,10 @@
       </p>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/iconRewind.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Replays and more</h3>
     </div>
@@ -141,14 +141,14 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/iconSteam.png')}}">
     <img  src="{{URL::asset('storage/iconBattleNet.png')}}" width="128" height="128">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Official game servers, and rooms.</h3>
     </div>
@@ -158,13 +158,13 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/Contact.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Gamer and team profiles</h3>
     </div>
@@ -173,11 +173,11 @@
       </p>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/Sword.png')}}">
     <img  src="{{URL::asset('storage/Arrow.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Different Gamers, different skill-sets</h3>
     </div>
@@ -186,13 +186,13 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/Vader.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Clan Wars</h3>
     </div>
@@ -201,11 +201,11 @@
       </p>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/Twitch.png')}}">
     <img  src="{{URL::asset('storage/Discord.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">Every sport needs spectators.</h3>
     </div>
@@ -215,15 +215,15 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/Idea.png')}}">
     <img  src="{{URL::asset('storage/Dumbbell.png')}}">
     <img  src="{{URL::asset('storage/Strategy.png')}}">
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center bg-lightgray">
     <div class="col-12">
       <h3 class="text-center font-purple">ALTAS - Always Learn Train And Strategize.</h3>
     </div>
@@ -234,13 +234,13 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row bg-lightgray">
     <hr class="w-100">
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-lightgray">
     <img  src="{{URL::asset('storage/heartmouse.png')}}">
   </div>
-  <div class="row justify-content-center mt-4 mb-5">
+  <div class="row justify-content-center  bg-lightgray mb-5">
     <div class="col-12">
       <h3 class="text-center font-purple">We care for e-sports.</h3>
     </div>

@@ -10,17 +10,17 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-purple5">
     <div class="col-10 mt-5">
       <h1 class="font-light-gray">PHOTOS</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-purple5">
     <div class="col-10 mt-5">
       <h2 class="font-purple">{{$album->name}}</h2>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center bg-purple5">
     <div class="col-10">
       <div class="row">
 

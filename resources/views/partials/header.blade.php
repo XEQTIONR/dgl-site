@@ -16,7 +16,7 @@
         <a href="{{  route('login')  }}" class="">
           {{--<i class="fas fa-sign-in-alt"></i>--}}
           sign in
-        </a>/
+        </a><span class="mx-3">/</span>
       </span>
           <span class="my-auto d-none d-lg-inline">
         <a href="{{  route('register')  }}" class="">
@@ -46,10 +46,15 @@
       </div>
     </div>
     <div id="Header" class="row dgl-nav-title justify-content-center justify-content-md-start mw">
-      <div class="logo ml-5 mb-0 mt-2 d-none d-lg-block">
-        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="60px">
+      <div class="ml-5 mt-4 mr-5 d-none d-lg-block">
+
+        {{--<img class="d-block mt-4 mx-auto mb-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="60" alt="">--}}
+        <span class="logo d-block mt-3 pt-1 text-center font-white">DAGAMELEAGUE</span>
       </div>
-      <div class="d-flex">
+      <div class="ml-5 mt-4 mr-5 d-none d-md-block d-lg-none">
+        <span class="logo d-block mt-3 pt-1 text-center font-white">DGL</span>
+      </div>
+      <div class="d-flex my-5">
           <div class=" my-auto mr-0 d-flex align-center">
             <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-trophy-cup-100.png')}}" height="40px">
           </div>
@@ -67,7 +72,7 @@
           <div class="my-auto mr-0 d-flex align-center">
             <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-microphone-100.png')}}" height="40px">
           </div>
-          <div class="my-auto mr-sm-5 d-none d-sm-inline">
+          <div class="my-auto d-none d-sm-inline">
             <h6 class="font-white my-0">BROADCASTS</h6>
             <span class="font-gray">REPLAYS AND VODS</span>
           </div>
@@ -79,15 +84,16 @@
       <button class="navbar-toggler lightgray-border my-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="justify-content-center d-none d-lg-inline-block py-2">
-      <a class="ml-0 pl-5 ml-xl-5 pr-5" href="/">
-        <img class=" small-logo mb-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="35" class="d-block" alt="">
+      <div class="justify-content-center d-none d-lg-inline-block mx-auto">
+      <a class=" small-logo pl-5 ml-xl-5 pr-5" href="/">
+        <img class="mt-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="65" alt="">
+        {{--<span class="logo small">DAGAMELEAGUE</span>--}}
         {{--<span class="d-none d-xl-inline-block navbar-text vertical-align-center dagameleague-small">ĐAGAMELEAGUE</span>--}}
       </a>
       </div>
-      <a class="small-logo d-lg-none mx-auto pl-0 pr-6" href="/">
-        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="35" class="d-block d-md-inline-block align-text-bottom" alt="">
-
+      <a class="logo d-lg-none mx-auto pl-0 pr-6 " href="/">
+        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="65" class="mt-1 d-block d-md-inline-block align-text-bottom" alt="">
+        {{--<span class="logo small">DAGAMELEAGUE</span>--}}
       </a>
       <div class="collapse navbar-collapse mw" id="navbarSupportedContent">
 

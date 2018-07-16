@@ -33,12 +33,12 @@
           });
       });
   </script>
-  <div class="row py-5 border-bottom">
+  <div class="row bg-purple5 py-5">
     <div class="col-12">
       <div id="postContainer" class="row mw">
       <!-- blog rows -->
         @foreach($posts as $post)
-          <div class="col-12 ">
+          <div class="col-12">
             <!-- div for small screens -->
             <div class="row post-body mb-5 d-block d-md-none"  onclick="window.location.href='/news/{{$post->id}}'">
               <div class="col-12">
@@ -50,7 +50,7 @@
                 <a class="post-link" href="/news/{{$post->id}}">
                   <h3 class="post-title mt-3">{{$post->title}}</h3>
                 </a>
-                <p class="time">{{\Carbon\Carbon::parse($post->created_at,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('j F Y')}}</p>
+                <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
                 <span>{!! $post->excerpt !!}</span>
               </div>
               <div class="col-12 mt-3 px-4 px-sm-5">
@@ -59,7 +59,7 @@
                 </div>
               </div>
             </div>
-            <!-- div for large screens -->
+            {{--<!-- div for large screens -->--}}
             <div class="row post-body post-body-hover d-none d-md-flex" onclick="window.location.href='/news/{{$post->id}}'">
               <div class="thumbnail thumbnail-new my-3 ml-2">
                 <img class="" src="{{$post->banner}}">
@@ -68,10 +68,7 @@
                 <a class="post-link" href="/news/{{$post->id}}">
                   <h3 class="post-title">{{$post->title}}</h3>
                 </a>
-                <p class="time">
-                  <i class="fas fa-calendar-alt"></i>
-                  {{\Carbon\Carbon::parse($post->created_at,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('j F Y')}}
-                </p>
+                <p class="time">{{$post->created_at->diffForHumans(Carbon\Carbon::now(), true)}} ago</p>
                 <span>{!! $post->excerpt !!}</span>
               </div>
             </div>

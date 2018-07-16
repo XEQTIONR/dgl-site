@@ -10,6 +10,21 @@
   font-family: 'AaronFaces';
   src : url('/fonts/aaron-webfont.woff');
 }
+
+@font-face {
+  font-family: 'Areo';
+  src : url('/fonts/AREO.ttf');
+}
+
+@font-face {
+  font-family: 'Dimitri Swank';
+  src : url('/fonts/DIMIS.TTF');
+}
+
+@font-face {
+  font-family: 'Dimitri';
+  src : url('/fonts/DIMITRI.TTF');
+}
 // Borders
 .white-border{
   border-color: #FFF !important;
@@ -104,6 +119,9 @@ $dgl-dark: #272A38;
   color: $dgl-primary;
 }
 
+.font-turquoise{
+  color: $dgl-turquiose !important;
+}
 .font-red{
   color: $dgl-red;
 }
@@ -137,7 +155,10 @@ $dgl-dark: #272A38;
   color: saturate(lighten($dgl-primary, 10%),50%);
 }
 
-
+//borders
+.bdr-btm{
+  border-bottom: 1px solid ;
+}
 //Background Color Classes
 .back-color-white{
   background-color: #FFF;
@@ -257,10 +278,11 @@ $dgl-dark: #272A38;
 }
 
 // Typography
-$font-primary:  "Russo One", Helvetica, serif;
-$font-copy: Nunito, Helvetica, serif;
+$font-primary:  "Montserrat", Helvetica, serif;
+$font-copy: Open Sans, Libre Franklin, Helvetica, sans-serif;
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
-$font-quicksand: "Quicksand";
+$font-logo: Dimitri !important;
+$font-logo2: Dimitri Swank !important;
 .font-futura{
   font-family: $font-futura !important;
   font-weight: 600;
@@ -269,7 +291,7 @@ $font-quicksand: "Quicksand";
 h1, h2, h3, h5 {
   font-family: $font-primary;
   //font-weight: 700;
-  text-transform: uppercase;
+  //text-transform: uppercase;
 }
 
 p {
