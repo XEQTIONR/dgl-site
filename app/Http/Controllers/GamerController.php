@@ -163,6 +163,7 @@ class GamerController extends Controller
         if(!is_null($battletag))
         {
           $data = $this->getOverwatchInfo($battletag);
+          //dd($data);
           $info=json_decode($data);
 
           if($info->responseStatus == 'success') {
@@ -261,7 +262,7 @@ class GamerController extends Controller
       $url = config('social.owapi_url');
       $url_suffix = config('social.owapi_suffix');
 
-      $endpoint = $url.$btag.$url_suffix;
+      $endpoint = $url.$btag;//.$url_suffix;
 
       $ch = curl_init();
 
@@ -275,9 +276,9 @@ class GamerController extends Controller
       $data = json_decode($contents);
 
       $response = new InfoResponse();
-      if(isset($data->us))
+      if(isset($data->portrait))
       {
-        $response->data=$data->us->stats->quickplay->overall_stats->avatar;
+        $response->data=$data->portrait;
         $response->responseStatus='success';
       }
       else

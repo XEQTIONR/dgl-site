@@ -362,7 +362,7 @@ span h3,
 span h4,
 span h5,
 span h6 {
-  color: #e9793a;
+  color: #EE2C54;
   font-weight: bold;
   text-transform: none !important;
 }
@@ -397,7 +397,7 @@ span.light h3,
 span.light h4,
 span.light h5,
 span.light h6 {
-  color: #ff7324;
+  color: #EE2C54;
 }
 
 .main-banner {

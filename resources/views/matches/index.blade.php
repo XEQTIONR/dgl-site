@@ -37,14 +37,19 @@
             </div>
         @endif
           <!-- A match -->
-          <div class="match col-12 py-3 bg-purple3" style="">
-            <div class="row">
-              <div class="col-3 d-flex justify-content-center align-items-center">
+          <div class="match col-12 py-3 bg-purple4" style="">
+            <div class="row justify-content-center d-flex d-sm-none">
+              <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
+                {{$match->tournament->name}}
+              </a>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-3 justify-content-center align-items-center d-none d-sm-flex">
                 <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
                   {{$match->tournament->name}}
                 </a>
               </div>
-              <div class="col-6">
+              <div class="col-sm-6">
                 <div class="row">
                   <div class="col">
 
@@ -54,7 +59,7 @@
                   </div>
                   <div class="col">
                     <div class="d-flex justify-content-center align-items-center w-100 h-100 m-0">
-                      <span class="font-white">vs</span>
+                      <span class="font-red"><strong>vs</strong></span>
                     </div>
                   </div>
                   <div class="col">
@@ -74,7 +79,7 @@
     </div> <!-- content row-->
 
 
-  <div class="row justify-content-center bg-purple5"> <!-- the content row -->
+  <div class="row fixture-table-purple justify-content-center bg-purple5"> <!-- the content row -->
     <div class="col-10 col-xl-12 mw">
       <h3 class="font-gray my-5">RESULTS</h3>
   <?php $i = 0 ?>
@@ -87,7 +92,7 @@
         </div>
       @endif
 
-    <div class="row justify-content-center mb-5">
+    <div class="row fixture-table-purple justify-content-center mb-5">
       <div class="col-12 pt-2 back-color-purple section-title">
         <span class="d-block mx-auto my-3 text-uppercase text-center font-white">
           <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span>
@@ -99,15 +104,20 @@
 
 
 
-      <div class="match col-12 py-3 bg-purple3" style="">
+      <div class="match col-12 py-3 bg-purple4" style="">
+        <div class="row justify-content-center d-flex d-sm-none">
+          <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
+            {{$match->tournament->name}}
+          </a>
+        </div>
         <div class="row">
 
-          <div class="col-3 d-flex justify-content-center align-items-center">
+          <div class="col-3 justify-content-center align-items-center d-none d-sm-flex">
             <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
               {{$match->tournament->name}}
             </a>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <div class="row">
               <div class="col">
 
@@ -126,9 +136,12 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex justify-content-center align-items-center">
+          <div class="col-3 justify-content-center align-items-center d-none d-sm-flex">
             <span class="match-time">{{$match->hrstarttime}}</span>
           </div>
+        </div>
+        <div class="row justify-content-center d-flex d-sm-none">
+          <span class="match-time">{{$match->hrstarttime}}</span>
         </div>
       </div>
       {{--<div class="col-12 py-3 bg-purple3">--}}

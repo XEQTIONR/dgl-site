@@ -128,7 +128,7 @@ span.scoretag-divider{
 span{
 
   h1,h2,h3,h4,h5,h6{
-    color: desaturate($dgl-orange,20%);
+    color: $dgl-red;
     font-weight: bold;
     text-transform: none !important;
   }
@@ -153,7 +153,7 @@ span.light{
     color: #000;
   }
   h1,h2,h3,h4,h5,h6{
-    color: $dgl-orange;
+    color: $dgl-red;
   }
 }
 .main-banner{

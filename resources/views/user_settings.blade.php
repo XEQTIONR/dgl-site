@@ -2,7 +2,7 @@
 
 @section('body-section')
 
-<div id="settingsApp" class="row">
+<div id="settingsApp" class="row bg-white">
   <div class="back-color-purple d-block sidebar">
     <div class="row" style="margin-top: 75px;">
       <div class="col-12">

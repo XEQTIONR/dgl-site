@@ -230,7 +230,7 @@
 
                             <div class="col">
                               <div class="input-group">
-                                <input v-model="steamIdInput" v-on:change="getSteamInfo()" id="steamid" type="text" class="form-control" value="{{ old('steamid') }}" placeholder="SteamID"  autofocus>
+                                <input v-model="steamIdInput" v-on:change="getSteamInfo()" id="steamid" name="steamid" type="text" class="form-control" value="{{ old('steamid') }}" placeholder="SteamID"  autofocus>
                                 <label v-show="!searchingSteam" class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getSteamInfo()" for="date">
                                   <span class="fas fa-search"></span>
                                   {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
@@ -267,7 +267,7 @@
                             {{--<label for="fname" class="col-md-4 control-label">Battle.Net ID:</label>--}}
                             <div class="col">
                               <div class="input-group">
-                                <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" id="battlenetid" type="text" class="form-control"  value="{{ old('battlenetid') }}"  placeholder="BattleNet Account"  autofocus>
+                                <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" name="battlenetid" id="battlenetid" type="text" class="form-control"  value="{{ old('battlenetid') }}"  placeholder="BattleNet Account"  autofocus>
                                 <label v-show="!searchingBattleTag" class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getOverwatchInfo()" for="date">
                                   <span class="fas fa-search"></span>
                                   {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
