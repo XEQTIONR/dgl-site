@@ -1,6 +1,8 @@
 <div class="row tournament-row tournament-row-rules mb-5">
-    <h1 class="font-purple py-3">Rules & Regulations</h1>
-  <div class="col-12 p-3 tournament-rules-container bg-darkestgray">
+    <div class="col-12">
+      <h1 class="font-white py-3">Rules & Regulations</h1>
+    </div>
+  <div class="col-12 p-3 tournament-rules-container">
 
     <span>{!! $tournament->rules !!}</span>
     {{--<ol class="dgl-ol">--}}

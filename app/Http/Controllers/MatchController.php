@@ -32,7 +32,7 @@ class MatchController extends Controller
     public function index()
     {
         //
-      $matches = Match::orderBy('matchstart', 'ASC')
+      $matches = Match::orderBy('matchstart', 'asc')
                       ->with('contestants.contending_team')
                       ->with('tournament')
                       ->paginate(10);
@@ -96,12 +96,14 @@ class MatchController extends Controller
           }
           else //($fixtures[$i]->matchstart != $date) // NEW TABLE
           {
-            $date = $fixtures[$i]->matchstart;
+            $date = $fixtures[$i]->hrdate;
             $fixtures[$i]->newtable = true;
             //$fixtures[$i]->DDATE = $date;
           }
         }
       }
+
+      $results = array_reverse($results);
 
       for($i=0; $i<count($results); $i++)
       {
@@ -120,13 +122,13 @@ class MatchController extends Controller
           }
           else //($fixtures[$i]->matchstart != $date) // NEW TABLE
           {
-            $date = $results[$i]->matchstart;
+            $date = $results[$i]->hrdate;
             $results[$i]->newtable = true;
             //$fixtures[$i]->DDATE = $date;
           }
         }
       }
-      //dd($fixtures, $results, $now);
+      //return compact('fixtures', 'results', 'now');
       return view('matches.index', compact('fixtures', 'results', 'today'));
     }
 

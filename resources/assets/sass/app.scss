@@ -23,7 +23,9 @@
   }
 }
 
-
+.tournament-row{
+  background-color: $dgl-darkgray;
+}
 .match-time{
   border: 1px solid $dgl-lightestgray;
   border-radius: 3px;
@@ -194,25 +196,6 @@ span.light{
   background-size: cover;
 }
 
-//.background-active-tournament{
-//  background-image: url('/storage/hearthstone2.jpg');
-//  background-size: cover;
-//  background-position: top;
-//}
-//
-//.background-upcoming-tournament{
-//  //background-image: url('/storage/hanzogenji.png');
-//  background-size: cover;
-//  background-position: top;
-//}
-//
-//.background-past-tournament{
-//  //background-image: url('/storage/lc.png');
-//  background-color: #fff;
-//  background-size: contain;
-//  background-position: bottom;
-//  background-repeat: no-repeat;
-//}
 .jumbotron-atournament{
   background-size: cover !important;
   background-position: center !important;
@@ -474,11 +457,15 @@ body{
 
   .list-group-tournament-match{
     .list-group-item{
-      background-color: $dgl-darkestgray;
+      background-color: $dgl-gray3;
       color: #FFF;
       span, small{
         color: #FFF;
       }
+    }
+
+    .list-group-item.upcoming{
+      background-color: $dgl-purple3 !important;
     }
 
   }
@@ -527,17 +514,20 @@ body{
     margin-top: 50px;
     margin-bottom: 50px;
     li{
-      background-color: darken($dgl-lightgray, 25%);
+      background-color: $dgl-purple2;
       display: block;
-      margin-left: 3px;
-      margin-right: 3px;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 14px 10px;
+      border-radius: 3px;
       //border: 1px solid darken($dgl-lightgray, 25%);
-      transform: skewX(-40deg);
+      //transform: skewX(-40deg);
 
 
       span, a{
           font-family: $font-primary;
-          transform: skewX(40deg);
+          //transform: skewX(40deg);
+          font-size: 12px;
           display: block;
           margin: auto;
           text-align: center;
@@ -551,7 +541,7 @@ body{
       a{
         color: #FFF;
         &:hover{
-          color: $dgl-green;
+          color: $dgl-red;
         }
 
       }
@@ -562,18 +552,18 @@ body{
     li:first-child, li:last-child{
       margin-left: 10px;
       margin-right: 10px;
-      background-color: $dgl-lightergray;
+      background-color: $dgl-purple3;
       &:hover{
-        background-color: $dgl-turquiose;
+        //background-color: $dgl-turquiose;
 
         a{
-          color: #FFF;
+          color: $dgl-green;
         }
       }
     }
 
     li.active{
-      background-color: $dgl-darktuquise;
+      background-color: $dgl-red;
       span{
         color: #FFF;
       }
@@ -808,7 +798,7 @@ body{
   }
   .nav-container{
     //background: linear-gradient(rgba(239,159,60,.3),rgba(239,159,60,.4));
-    background-color: $dgl-purple;
+    background-color: $dgl-purple2;
     position: relative;
     top: -40px;
     z-index: 1;

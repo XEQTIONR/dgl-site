@@ -162,6 +162,7 @@ class TournamentController extends Controller
           $past->push($match);
         }
       }
+      $past = $past->reverse();
 
       if(!is_null($tournament->description))
         $tournament->description = $Parsedown->text($tournament->description);

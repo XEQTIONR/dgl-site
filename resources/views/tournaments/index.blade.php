@@ -13,8 +13,8 @@
   <div class="row pb-5 bg-purple5" style="z-index: 2;">
     <div class="col-12 mt-5 mw">
       <div class="row mt-5 mb-3 mx-md-5 justify-content-center">
-        <div class="col-12 generic-section-title pt-3 pb-2 bg-purple3">
-          <h5 class="font-primary-color">ACTIVE TOURNAMENTS</h5>
+        <div class="col-12 generic-section-title py-4 bg-purple3">
+          <span class="font-primary-color font-primary">ACTIVE TOURNAMENTS</span>
         </div>
       </div>
       <!-- active tournaments rows -->
@@ -52,8 +52,8 @@
   <div class="row pb-5 bg-purple5">
     <div class="col-12 mt-5 mw">
       <div class="row mb-3  mx-md-5 justify-content-center">
-        <div class="col-12 generic-section-title pt-3 pb-2  bg-purple3">
-          <h5 class="font-purple">UPCOMING TOURNAMENTS</h5>
+        <div class="col-12 generic-section-title py-4  bg-purple3">
+          <span class="font-white font-primary">UPCOMING TOURNAMENTS</span>
         </div>
       </div>
       @foreach($tournaments as $tournament)
@@ -92,8 +92,8 @@
   <div class="row pb-5 bg-purple5">
     <div class="col-12 mt-5 mw">
       <div class="row mb-3  mx-md-5 justify-content-center">
-        <div class="col-12 generic-section-title pt-3 pb-2  bg-purple3">
-          <h5 class="font-purple">PAST TOURNAMENTS</h5>
+        <div class="col-12 generic-section-title py-4  bg-purple3">
+          <span class="font-purple font-primary">PAST TOURNAMENTS</span>
         </div>
       </div>
       @foreach($tournaments as $tournament)

@@ -63,6 +63,8 @@ $dgl-purple3 : rgba(50,49,80,1.0);
 $dgl-purple4 : rgba(40,40,64,1.0);
 $dgl-purple5 : rgba(30,32,47,1.0);
 
+$dgl-lightpurple: #7371d7;
+
 $dgl-darkpurple: rgba(51,38,98,1.0);
 
 //Turquiose
@@ -71,9 +73,12 @@ $dgl-darktuquise : rgba(66,191,225,1.0);
 
 $dgl-darkblue : rgba(0,42,84,1.0);
 //Grays
-$dgl-gray: rgba(158,156,170,1.0);
-$dgl-gray2: rgba(147,143,164,1.0);
-$dgl-gray3: rgba(128,126,140,1.0);
+$dgl-gray: rgba(161,168,167,1.0);
+$dgl-gray2: rgba(88,95,104,1.0);
+$dgl-gray3: rgba(62,70,77,1.0);
+
+$dgl-gray4: rgba(46,53,64,1.0);
+$dgl-gray5: rgba(29,31,42,1.0);
 
 $dgl-lightgray: rgba(244,244,244,1.0);
 
@@ -106,7 +111,7 @@ $dgl-darkestgray: #1F232D;
 
 $dgl-lightergray: #585F68;
 $dgl-lightestgray: #9EA3AC;
-$dgl-almostwhite : #d7dde8;
+$dgl-almostwhite : #FDFEFD;
 
 
 //Orange
@@ -177,6 +182,25 @@ $dgl-dark: #272A38;
 .back-color-darkgray{
   background-color: $dgl-darkgray;
 }
+
+
+.bg-gray{
+  background-color: $dgl-gray;
+}
+.bg-gray2{
+  background-color: $dgl-gray2;
+}
+.bg-gray3{
+  background-color: $dgl-gray3;
+}
+.bg-gray4{
+  background-color: $dgl-gray;
+}
+.bg-gray5{
+  background-color: $dgl-gray5;
+}
+
+
 
 .bg-darkgray{
   background-color: $dgl-darkgray;
