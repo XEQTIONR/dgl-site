@@ -137,6 +137,7 @@ class TournamentController extends Controller
             $query->where('status','ok');
             $query->with('gamer');
           },'checkins'])
+        ->orderBy('matchstart', 'desc')
         ->get();
 
       foreach ($matches as $match)

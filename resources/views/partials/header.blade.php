@@ -26,7 +26,7 @@
       </span>
         @else
           <span class="my-auto d-none d-lg-inline">
-        <a href="{{  route('settings')  }}" class="">
+        <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="">
           {{--<i class="fas fa-cog"></i>--}}
           settings
         </a>/

@@ -288,6 +288,7 @@ p {
 
 .tournament-row {
   background-color: #2B303B;
+  border-radius: 5px;
 }
 
 .match-time {
@@ -735,6 +736,10 @@ body .list-group-tournament-match .list-group-item small {
 }
 
 body .list-group-tournament-match .list-group-item.upcoming {
+  background-color: #323150 !important;
+}
+
+body .list-group-tournament-match .list-group-item.waiting {
   background-color: #323150 !important;
 }
 

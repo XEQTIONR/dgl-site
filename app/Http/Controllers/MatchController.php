@@ -32,7 +32,7 @@ class MatchController extends Controller
     public function index()
     {
         //
-      $matches = Match::orderBy('matchstart', 'asc')
+      $matches = Match::orderBy('matchstart', 'desc')
                       ->with('contestants.contending_team')
                       ->with('tournament')
                       ->paginate(10);
@@ -79,6 +79,7 @@ class MatchController extends Controller
           array_push($fixtures, $match);
       }
       $date = "";
+      $fixtures = array_reverse($fixtures);
       for($i=0; $i<count($fixtures); $i++)
       {
         if($i==0) // IF FIRST ITEM
@@ -103,8 +104,7 @@ class MatchController extends Controller
         }
       }
 
-      $results = array_reverse($results);
-
+      //$results = array_reverse($results);
       for($i=0; $i<count($results); $i++)
       {
         if($i==0) // IF FIRST ITEM
@@ -129,7 +129,7 @@ class MatchController extends Controller
         }
       }
       //return compact('fixtures', 'results', 'now');
-      return view('matches.index', compact('fixtures', 'results', 'today'));
+      return view('matches.index', compact('matches','fixtures', 'results', 'today'));
     }
 
     /**

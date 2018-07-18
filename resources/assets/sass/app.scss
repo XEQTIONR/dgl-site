@@ -25,6 +25,7 @@
 
 .tournament-row{
   background-color: $dgl-darkgray;
+  border-radius: 5px;
 }
 .match-time{
   border: 1px solid $dgl-lightestgray;
@@ -465,6 +466,10 @@ body{
     }
 
     .list-group-item.upcoming{
+      background-color: $dgl-purple3 !important;
+    }
+
+    .list-group-item.waiting{
       background-color: $dgl-purple3 !important;
     }
 

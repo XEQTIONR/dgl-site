@@ -156,7 +156,7 @@
 
 
     @foreach($waiting as $match)
-        <li class="list-group-item">
+        <li class="list-group-item waiting">
           <div class="row"><!-- a waiting match-->
             <div class="col-4">
               <div class="row justify-content-end">
@@ -223,39 +223,41 @@
 
               </button>
             </div>
-            <div class="col-10 mt-3 collapse" id="{{$match->id}}" data-parent="#checkinInAccordion">
-              <div class="row justify-content-center">
-                <h6 class="text-center">ROSTER</h6>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="row justify-content-start">
-                    @foreach($match->checkins as $checkin)
-                      @foreach($match->contestants[0]->contending_team->roster as $roster)
-                        @if($roster->id==$checkin->roster_id)
-                          <div class="col-12">
-                            <h6 class="text-center">{{$roster->gamer->alias}}</h6>
-                            {{--<img src="{{URL::asset('storage/icons8-ok-16.png')}}"--}}
-                            {{--data-toggle="tooltip" title="{{$roster->gamer->alias}}">--}}
-                          </div>
-                        @endif
-                      @endforeach
-                    @endforeach
-                  </div>
+            <div class="row w-100 mx-auto mt-3 p-3 collapse bg-purple4" id="{{$match->id}}" data-parent="#checkInAccordion">
+              <div class="col-10 ">
+                <div class="row justify-content-center">
+                  <h6 class="text-center">ROSTER</h6>
                 </div>
-                <div class="col-6">
-                  <div class="row justify-content-end">
-                    @foreach($match->checkins as $checkin)
-                      @foreach($match->contestants[1]->contending_team->roster as $roster)
-                        @if($roster->id==$checkin->roster_id)
-                          <div class="col-12">
-                            <h6 class="text-center">{{$roster->gamer->alias}}</h6>
-                            {{--<img src="{{URL::asset('storage/icons8-ok-16.png')}}"--}}
-                            {{--data-toggle="tooltip" title="{{$roster->gamer->alias}}">--}}
-                          </div>
-                        @endif
+                <div class="row">
+                  <div class="col-6">
+                    <div class="row justify-content-start">
+                      @foreach($match->checkins as $checkin)
+                        @foreach($match->contestants[0]->contending_team->roster as $roster)
+                          @if($roster->id==$checkin->roster_id)
+                            <div class="col-12">
+                              <h6 class="text-center">{{$roster->gamer->alias}}</h6>
+                              {{--<img src="{{URL::asset('storage/icons8-ok-16.png')}}"--}}
+                              {{--data-toggle="tooltip" title="{{$roster->gamer->alias}}">--}}
+                            </div>
+                          @endif
+                        @endforeach
                       @endforeach
-                    @endforeach
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="row justify-content-end">
+                      @foreach($match->checkins as $checkin)
+                        @foreach($match->contestants[1]->contending_team->roster as $roster)
+                          @if($roster->id==$checkin->roster_id)
+                            <div class="col-12">
+                              <h6 class="text-center">{{$roster->gamer->alias}}</h6>
+                              {{--<img src="{{URL::asset('storage/icons8-ok-16.png')}}"--}}
+                              {{--data-toggle="tooltip" title="{{$roster->gamer->alias}}">--}}
+                            </div>
+                          @endif
+                        @endforeach
+                      @endforeach
+                    </div>
                   </div>
                 </div>
               </div>
@@ -415,7 +417,7 @@
 
           </button>
         </div>
-        <div class="row w-100 mx-auto mt-3 p-3 collapse bg-gray5" id="{{$match->id}}" data-parent="#pastAccordion">
+        <div class="row w-100 mx-auto mt-3 p-3 collapse bg-darkgray" id="{{$match->id}}" data-parent="#pastAccordion">
           <div class="col-10 ">
             <div class="row justify-content-center">
               <h6 class="text-center">ROSTER</h6>

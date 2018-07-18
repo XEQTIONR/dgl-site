@@ -149,4 +149,7 @@
     </div></div>
 
   </div>
+  <div class="row justify-content-center bg-purple5">
+    {{$matches->links()}}
+  </div>
 @endsection
