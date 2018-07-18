@@ -113,6 +113,7 @@
 
           </button>
         </div>
+        <div class="row w-100  mt-3 mx-auto bg-purple4">
         <div class="col-10 mt-3 collapse" id="{{$match->id}}" data-parent="#checkingInAccordion">
           <div class="row justify-content-center">
             <h6 class="text-center">ROSTER</h6>
@@ -149,6 +150,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div><!-- a checking in match end-->
     </li>
@@ -498,8 +500,6 @@
                 $(this).find('.fa-chevron-up').removeClass('d-inline');
                 $(this).find('.fa-chevron-up').addClass('d-none');
             }
-
-            // $(this).html('<i class="fas fa-chevron-down"></i>');
         });
 
     </script>

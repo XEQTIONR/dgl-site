@@ -140,6 +140,12 @@ class TournamentController extends Controller
         ->orderBy('matchstart', 'desc')
         ->get();
 
+      $nextmatch = $tournament->matches()
+                              ->with('contestants.contending_team.roster')
+                              ->where('matchstart', '>',$now)
+                              ->orderBy('matchstart', 'asc')
+                              ->first();
+
       foreach ($matches as $match)
       {
         $start = new Carbon($match->matchstart);
@@ -179,9 +185,10 @@ class TournamentController extends Controller
       $standings = json_decode($tournament->standings_json);
 
       $tournament->standings = $standings;
-      
+
+      //return $nextmatch;
       return view('tournaments.atournament',
-        compact('tournament', 'waiting','checkingin','future', 'past','contenders'));
+        compact('tournament', 'waiting','checkingin','future', 'past','contenders', 'nextmatch'));
     }
 
     /**

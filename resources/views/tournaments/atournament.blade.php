@@ -120,6 +120,7 @@
 
         </div>
         <div class="col-12 col-md-3">
+          @if($nextmatch)
           <div class="sidebar-header active mt-4">
             <h5>Next Match</h5>
           </div>
@@ -127,7 +128,7 @@
 
             <div class="col-5">
               <div class="card team-logo-300-trans">
-                <img class="card-img-top" src="{{URL::asset('storage/team-8.png')}}" alt="Card image cap">
+                <img class="card-img-top" src="{{$nextmatch->contestants[0]->contending_team->logo_size1}}" alt="Card image cap">
               </div>
             </div>
             <div class="col-2 pt-4">
@@ -135,20 +136,21 @@
             </div>
             <div class="col-5">
               <div class="card team-logo-300-trans">
-                <img class="card-img-top" src="{{URL::asset('storage/team-2.png')}}" alt="Card image cap">
+                <img class="card-img-top" src="{{$nextmatch->contestants[1]->contending_team->logo_size1}}" alt="Card image cap">
               </div>
             </div>
           </div>
           <div class="row justify-content-center mt-3">
             <div class="col-5" style="">
-              <h5 class="text-center font-white">OT</h5>
+              <h5 class="text-center font-white">{{$nextmatch->contestants[0]->contending_team->tag}}</h5>
             </div>
             <div class="col-2" style="border: 1px dashed white;">
             </div>
             <div class="col-5" style="">
-              <h5 class="text-center font-white">RC</h5>
+              <h5 class="text-center font-white">{{$nextmatch->contestants[1]->contending_team->tag}}</h5>
             </div>
           </div>
+          @endif
           <div class="sidebar-header mt-4">
             <h5>Standings</h5>
           </div>
