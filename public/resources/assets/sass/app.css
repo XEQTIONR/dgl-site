@@ -1035,23 +1035,6 @@ body .btn-dgl:active {
   background-color: #42ff4d;
 }
 
-body .sidebar-header {
-  background-color: #3d3b5b;
-  -webkit-transform: skewX(-15deg);
-          transform: skewX(-15deg);
-}
-
-body .sidebar-header h5 {
-  color: #FFF;
-  -webkit-transform: skewX(15deg);
-          transform: skewX(15deg);
-  padding: .4em 2em;
-}
-
-body .sidebar-header.active {
-  background-color: #e9793a !important;
-}
-
 body .nav-simple li a:hover {
   color: #3d3b5b;
 }

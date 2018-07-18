@@ -770,21 +770,6 @@ body{
     }
   }
 
-  .sidebar-header{
-    background-color: $dgl-purple;
-    transform: skewX(-15deg);
-
-    h5{
-      color: #FFF;
-      transform: skewX(15deg);
-      padding: .4em 2em;
-    }
-  }
-
-  .sidebar-header.active{
-    background-color: desaturate($dgl-orange,20%) !important;
-  }
-
   .nav-simple{
     li{
       a{

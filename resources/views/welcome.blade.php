@@ -133,7 +133,7 @@
                     </div> <!-- row main-content-posts-->
                     @if($lastpage>1)
                     <div class="row justify-content-center mb-4 pb-4 ">
-                        <div class="col-2">
+                        <div class="col-2 mt-4">
                             <a id="moreButton" href="">
                                 <div class="row justify-content-center">
                                     <span id="">More</span>

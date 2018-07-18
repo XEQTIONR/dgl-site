@@ -54,7 +54,7 @@
   <div class="row justify-content-center bg-gray5">
     <div class="col-12  px-4 px-md-5 my-0" style="">
       <div class="row mt-4 mw">
-        <div class="col-12 col-md-9 main-slot p-4">
+        <div class="col-12 col-md-8 main-slot p-4">
 
           <script>
               $( document ).ready(function(){
@@ -119,10 +119,10 @@
           @include('tournaments.register')
 
         </div>
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-4">
           @if($nextmatch)
-          <div class="sidebar-header active mt-4">
-            <h5>Next Match</h5>
+          <div class="mt-4 card-body card-title">
+            <span class="font-primary font-white text-uppercase">Next Match</span>
           </div>
           <div class="row justify-content-center mt-4">
 
@@ -140,19 +140,19 @@
               </div>
             </div>
           </div>
-          <div class="row justify-content-center mt-3">
+          <div class="row justify-content-center mt-3 mb-5">
             <div class="col-5" style="">
               <h5 class="text-center font-white">{{$nextmatch->contestants[0]->contending_team->tag}}</h5>
             </div>
-            <div class="col-2" style="border: 1px dashed white;">
+            <div class="col-2">
             </div>
             <div class="col-5" style="">
               <h5 class="text-center font-white">{{$nextmatch->contestants[1]->contending_team->tag}}</h5>
             </div>
           </div>
           @endif
-          <div class="sidebar-header mt-4">
-            <h5>Standings</h5>
+          <div class="mt-4 card-body card-title">
+            <span class="font-white font-primary text-uppercase">Standings</span>
           </div>
           <div class="row justify-content-center mt-4">
             <div class="col-11">
