@@ -115,6 +115,11 @@ class GamerController extends Controller
 //                  ->delete();
           $changed = true;
         }
+        if($gamer->discordid != $request->inputDiscord)
+        {
+          $gamer->discordid = $request->inputDiscord;
+          $changed = true;
+        }
 
         if($changed)
           $gamer->save();

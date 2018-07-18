@@ -165,6 +165,7 @@ $dgl-dark: #272A38;
   border-bottom: 1px solid ;
 }
 //Background Color Classes
+
 .back-color-white{
   background-color: #FFF;
 }
@@ -183,7 +184,9 @@ $dgl-dark: #272A38;
   background-color: $dgl-darkgray;
 }
 
-
+.bg-transparent{
+  background-color: transparent !important;
+}
 .bg-gray{
   background-color: $dgl-gray;
 }

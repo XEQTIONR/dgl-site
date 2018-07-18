@@ -145,7 +145,7 @@
             <dd class="col-sm-9">
               <dl>
                 <dd>@{{ gamer.discord }}</dd>
-                <dd><small><em>You need to provide this to register for ANY DGL tournaments.</em></small></dd>
+                <dd v-if="gamer.discord=='-none-'"><small><em>You need to provide this to register for ANY DGL tournaments.</em></small></dd>
               </dl>
             </dd>
           </dl>
@@ -275,7 +275,7 @@
 
           <div class="form-group row">
             <label for="inputLname">Discord ID</label>
-            <input {{--name="inputDiscord"--}} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Discord ID">
+            <input name="inputDiscord" v-model="discordInput" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Discord ID">
             <small id="emailHelp" class="form-text text-muted">Required for all tournaments. No exceptions.</small>
           </div>
 
@@ -589,6 +589,8 @@
       owAvatarURL: "",
       @endif
 
+      discordInput: "{{$gamer->discordid}}",
+
       submit_disabled: false,
 
       panels: {
@@ -667,6 +669,7 @@
           cancel: function()
           {
               this.gamer.edit = false;
+              this.discordInput = "{{$gamer->discordid}}";
               toastr.options = {
                   "closeButton" : true,
                   "timeOut": "8000",

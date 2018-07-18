@@ -113,6 +113,10 @@
   background-color: #2B303B;
 }
 
+.bg-transparent {
+  background-color: transparent !important;
+}
+
 .bg-gray {
   background-color: #a1a8a7;
 }
@@ -258,10 +262,6 @@ p {
   font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
   font-size: 1em;
   color: #272A38;
-}
-
-.card {
-  background-color: transparent !important;
 }
 
 .table {

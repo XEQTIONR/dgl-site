@@ -127,7 +127,7 @@
           <div class="row justify-content-center mt-4">
 
             <div class="col-5">
-              <div class="card team-logo-300-trans">
+              <div class="card bg-transparent team-logo-300-trans">
                 <img class="card-img-top" src="{{$nextmatch->contestants[0]->contending_team->logo_size1}}" alt="Card image cap">
               </div>
             </div>
@@ -135,7 +135,7 @@
               <h6 class="font-primary-color text-center">vs</h6>
             </div>
             <div class="col-5">
-              <div class="card team-logo-300-trans">
+              <div class="card bg-transparent team-logo-300-trans">
                 <img class="card-img-top" src="{{$nextmatch->contestants[1]->contending_team->logo_size1}}" alt="Card image cap">
               </div>
             </div>
