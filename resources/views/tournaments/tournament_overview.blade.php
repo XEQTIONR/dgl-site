@@ -107,7 +107,7 @@
         </div>
         <div class="col-2 d-flex justify-content-center align-items-center">
           <button data-state="B" type="button"  data-toggle="collapse" data-target="#{{$match->id}}"
-                  class="btn btn-primary btn-sm d-block m-auto btn-collapse" >
+                  class="btn btn-outline-success btn-sm d-block m-auto btn-collapse" >
             <i class="fas fa-chevron-down d-inline"></i>
             <i class="fas fa-chevron-up d-none"></i>
 
@@ -219,7 +219,7 @@
             </div>
             <div class="col-2 d-flex justify-content-center align-items-center">
               <button data-state="W" type="button"  data-toggle="collapse" data-target="#{{$match->id}}"
-                      class="btn btn-primary btn-sm d-block m-auto btn-collapse" >
+                      class="btn btn-success btn-sm d-block m-auto btn-collapse" >
                 <i class="fas fa-chevron-down d-inline"></i>
                 <i class="fas fa-chevron-up d-none"></i>
 
@@ -413,7 +413,7 @@
         </div>
         <div class="col-2 d-flex justify-content-center align-items-center">
           <button data-state="C" type="button"  data-toggle="collapse" data-target="#{{$match->id}}"
-                  class="btn btn-primary btn-sm d-block m-auto btn-collapse" >
+                  class="btn btn-outline-light btn-sm d-block m-auto btn-collapse" >
             <i class="fas fa-chevron-down d-inline"></i>
             <i class="fas fa-chevron-up d-none"></i>
 
@@ -469,39 +469,64 @@
         })
     </script>
     <script>
-        $('.btn-collapse').click(function(){
-            var flag = false;
-            var state = $(this).data('state');
+      $('.btn-collapse').click(function(){
+          var state = $(this).data('state');
 
-            if($(this).find('.fa-chevron-down').hasClass('d-inline'))
-             flag = true;
+          var allbuttons = $('.btn-collapse');
+          $.each(allbuttons, function(){
 
-            var allbuttons = $('.btn-collapse');
-            $.each(allbuttons, function(index, value){
-                if(allbuttons[index].data('state')==state)
-                {
-                    value.find('.fa-chevron-down').addClass('d-inline');
-                    value.find('.fa-chevron-down').removeClass('d-none');
-                    value.find('.fa-chevron-down').addClass('d-none');
-                    value.find('.fa-chevron-down').removeClass('d-inline');
-                }
-            });
-
-            if(flag)
-            {
-                $(this).find('.fa-chevron-down').addClass('d-none');
-                $(this).find('.fa-chevron-down').removeClass('d-inline');
-                $(this).find('.fa-chevron-up').addClass('d-inline');
-                $(this).find('.fa-chevron-up').removeClass('d-none');
-            }
-            else{
-                $(this).find('.fa-chevron-down').removeClass('d-none');
-                $(this).find('.fa-chevron-down').addClass('d-inline');
-                $(this).find('.fa-chevron-up').removeClass('d-inline');
-                $(this).find('.fa-chevron-up').addClass('d-none');
-            }
-        });
-
+              if($(this).attr('data-state') == state)
+              {
+                  $(this).find('.fa-chevron-up').removeClass('d-inline');
+                  $(this).find('.fa-chevron-down').removeClass('d-none');
+                  $(this).find('.fa-chevron-up').addClass('d-none');
+                  $(this).find('.fa-chevron-down').addClass('d-inline');
+              }
+          });
+          if($(this).attr('aria-expanded')!="true")
+          {
+              $(this).find('.fa-chevron-up').removeClass('d-none');
+              $(this).find('.fa-chevron-down').removeClass('d-inline');
+              $(this).find('.fa-chevron-up').addClass('d-inline');
+              $(this).find('.fa-chevron-down').addClass('d-none');
+          }
+      })
     </script>
+    {{--<script>--}}
+        {{--$('.btn-collapse').click(function(){--}}
+            {{--var flag = false;--}}
+            {{--var state = $(this).data('state');--}}
+
+            {{--if($(this).find('.fa-chevron-down').hasClass('d-inline'))--}}
+             {{--flag = true;--}}
+
+            {{--var allbuttons = $('.btn-collapse');--}}
+            {{--$.each(allbuttons, function(index, value){--}}
+                {{--console.log($(this).data('state'));--}}
+                {{--if($(this).data('state')==state)--}}
+                {{--{--}}
+                    {{--$(this).find('.fa-chevron-down').addClass('d-inline');--}}
+                    {{--$(this).find('.fa-chevron-down').removeClass('d-none');--}}
+                    {{--$(this).find('.fa-chevron-down').addClass('d-none');--}}
+                    {{--$(this).find('.fa-chevron-down').removeClass('d-inline');--}}
+                {{--}--}}
+            {{--});--}}
+
+            {{--if(flag)--}}
+            {{--{--}}
+                {{--$(this).find('.fa-chevron-down').addClass('d-none');--}}
+                {{--$(this).find('.fa-chevron-down').removeClass('d-inline');--}}
+                {{--$(this).find('.fa-chevron-up').addClass('d-inline');--}}
+                {{--$(this).find('.fa-chevron-up').removeClass('d-none');--}}
+            {{--}--}}
+            {{--else{--}}
+                {{--$(this).find('.fa-chevron-down').removeClass('d-none');--}}
+                {{--$(this).find('.fa-chevron-down').addClass('d-inline');--}}
+                {{--$(this).find('.fa-chevron-up').removeClass('d-inline');--}}
+                {{--$(this).find('.fa-chevron-up').addClass('d-none');--}}
+            {{--}--}}
+        {{--});--}}
+
+    {{--</script>--}}
   </div>
 </div>
