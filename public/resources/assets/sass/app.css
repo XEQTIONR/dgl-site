@@ -264,6 +264,13 @@ p {
   color: #272A38;
 }
 
+form .list-group-item {
+  border-color: transparent !important;
+  border-radius: 0px !important;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
 .table {
   background-color: transparent !important;
 }
@@ -839,13 +846,18 @@ body .pagination li.disabled {
 }
 
 body .list-group-item-primary {
-  background-color: #60F569 !important;
-  color: #2B303B !important;
+  background-color: #2e3540 !important;
+  color: #FFF !important;
+}
+
+body .list-group-item-captain {
+  background-color: #585f68 !important;
+  color: #FFF !important;
 }
 
 body .list-group-item-gray {
-  background-color: #a1a8a7 !important;
-  color: #60F569 !important;
+  background-color: #2e3540 !important;
+  color: #FFF !important;
 }
 
 body .list-group-settings a {
@@ -894,6 +906,11 @@ body .team-logo-300 {
   background-color: #181818;
 }
 
+body .team-logo-300-trans {
+  background-color: transparent;
+  border: none;
+}
+
 body .sm-md-logo {
   width: 70px;
   display: block;
@@ -906,17 +923,21 @@ body .team-registration {
 }
 
 body .team-registration label {
+  color: #a1a8a7;
+}
+
+body .team-registration input[type=file] {
   color: #4D6CAB;
 }
 
-body .team-registration input {
-  border-color: #4D6CAB;
-  background-color: transparent;
+body .team-registration input[type=text] {
+  border-color: #3e464d;
+  background-color: #1d1f2a;
   color: #4D6CAB;
 }
 
-body .team-registration input:focus {
-  background-color: #4D6CAB;
+body .team-registration input[type=text]:focus {
+  background-color: #a1a8a7;
   border-color: #3d3b5b;
   color: #272A38;
 }

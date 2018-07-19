@@ -7,6 +7,14 @@
 //  background-color: transparent !important;
 //}
 
+form{
+  .list-group-item{
+    border-color: transparent !important;
+    border-radius: 0px !important;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+}
 .table{
   background-color: transparent !important;
   //thead,tbody,tr
@@ -582,13 +590,18 @@ body{
     }
   }
   .list-group-item-primary{
-    background-color: $dgl-primary !important;
-    color: $dgl-darkgray !important;
+    background-color: $dgl-gray4 !important;
+    color: #FFF !important;
+  }
+
+  .list-group-item-captain{
+    background-color: $dgl-gray2 !important;
+    color: #FFF !important;
   }
 
   .list-group-item-gray{
-    background-color: $dgl-gray !important;
-    color: $dgl-primary !important;
+    background-color: $dgl-gray4 !important;
+    color: #FFF !important;
   }
 
   .list-group-settings{
@@ -634,11 +647,11 @@ body{
     width: 100%;
     background-color: darken(desaturate($dgl-purple, 25%),20%);
   }
-  //.team-logo-300-trans{
-  //  width: 100%;
-  //  background-color: transparent;
-  //  border: none;
-
+  .team-logo-300-trans {
+    //width: 100%;
+    background-color: transparent;
+    border: none;
+  }
 
     .sm-md-logo{
       //min-width: 50px;
@@ -653,16 +666,19 @@ body{
     //background-color: white;
 
     label{
+      color: $dgl-gray;
+    }
+    input[type=file]
+    {
       color: $dgl-blue;
     }
-
-    input{
-      border-color: $dgl-blue;
-      background-color: transparent;
+    input[type=text]{
+      border-color: $dgl-gray3;
+      background-color: $dgl-gray5;
       color: $dgl-blue;
 
       &:focus{
-        background-color: $dgl-blue;
+        background-color: $dgl-gray;
         border-color: $dgl-purple;
         color: $dgl-dark;
       }

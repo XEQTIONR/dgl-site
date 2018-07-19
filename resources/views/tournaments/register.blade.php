@@ -59,6 +59,9 @@
                       <input type="text" name="tag" class="form-control" id="teamTag">
                     </div>
                   </div>
+                  <div class="form-group mt-4 mb-1">
+                    <label for="images">Clan Logos</label>
+                  </div>
                   <div class="row">
                     <div class="col">
                       <div class="form-group">
@@ -98,15 +101,17 @@
                         <input type="file" name="img100" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
                       </div>
                     </div></div>
-
+                  <div class="form-group mt-4 mb-1">
+                    <label for="images">Team Roster</label>
+                  </div>
                   <ol class="list-group">
-                    <li  v-for="gamer in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
+                    <li  v-for="(gamer, index) in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer) && (gamer.captain=='false'), 'list-group-item-captain' : isOK(gamer) && (gamer.captain=='true'), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
                       <div class="row">
                         <div v-bind:class="[{'visible' : !isRegistered(gamer)&&!isNew(gamer)}, {'hidden' : isRegistered(gamer)||isNew(gamer)}, 'col-12']" >
                           <div class="row" style="width :100%"> {{--Need this CSS hack--}}
                             <label class="col-12 col-md-6 col-form-label">Email Address OR DGLusername </label>
                             <div class="col-12 col-md-6">
-                              <input type="text" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
+                              <input type="text" class="form-control" v-bind:name="'gamer['+ gamer.sl +']'" v-on:change="getGamer(gamer)" v-model="gamer.alias" v-bind:id="gamer.sl">
                             </div>
                             {{--<div v-if="gamer.captain === 'true'" class="col-1">--}}
                             {{--<span>captain</span>--}}
@@ -123,7 +128,11 @@
                             <span>@{{gamer.alias}}</span>
                           </div>
                           <div class="col-1">
-                            <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+                            <button v-if="index!=0" class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">
+                              <i class="fas fa-trash-alt"></i>
+                              Kick
+                            </button>
+                            <span v-else class=" btn-sm bg-purple">CAPTAIN</span>
                           </div>
                         </div>
                         <div v-bind:class="[{'visible' : isNew(gamer)}, {'hidden' : !isNew(gamer)}, 'col-md-10']">
@@ -136,7 +145,10 @@
                             this tournament.
                           </div>
                           <div class="col-1">
-                            <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">Kick</button>
+                            <button class="btn btn-danger btn-sm" type="button" v-on:click="unsetGamer(gamer)">
+                              <i class="fas fa-trash-alt"></i>
+                              Kick
+                            </button>
                           </div>
                         </div>
 
@@ -181,7 +193,7 @@
       <script>
           let data = {
               gamers:[
-                  {sl: "0", captain : "true", fname : "", lname : "", email : "", alias : null, status : "init"},
+                  {sl: "0", captain : "true", fname : "{{Auth::user()->fname}}", lname : "{{Auth::user()->lname}}", email : "{{Auth::user()->email}}", alias : "{{Auth::user()->alias}}", status : "ok"},
                   @for($i=1; $i<$tournament->squadsize; $i++)
                   {sl: "{{$i}}", captain : "false", fname : "", lname : "", email : "", alias : null, status : "init"},
                 @endfor

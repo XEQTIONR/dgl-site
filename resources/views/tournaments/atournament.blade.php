@@ -151,13 +151,13 @@
             </div>
           </div>
           @endif
-          <div class="mt-4 card-body card-title">
+          <div class="mt-4 mb-0 card-body card-title py-3">
             <span class="font-white font-primary text-uppercase">Standings</span>
           </div>
-          <div class="row justify-content-center mt-4">
+          <div class="card-body justify-content-center bg-purple3 pt-4 mt-0">
             <div class="col-11">
               <table class="table table-sm table-dark">
-                <thead class="thead-dark">
+                <thead class="">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Team</th>
