@@ -14,7 +14,9 @@
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.4",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/socialite": "^3.0",
+        "laravel/tinker": "~1.0",
+        "socialiteproviders/discord": "^2.0"
     },
     "require-dev": {
         "backpack/generators": "^1.1",
