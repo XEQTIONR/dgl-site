@@ -118,7 +118,7 @@
                 <div class="row">
                     <img v-bind:src="gamer.steamavatar" width="64" height="64">
                     <h3 class="d-none d-lg-inline ml-1">@{{gamer.personaname}}</h3>
-                    <h5 class="d-inline d-lg-none ml-1">@{{gamer.personaname}}</h5>
+                    <h6 class="d-inline d-lg-none ml-1">@{{gamer.personaname}}</h6>
                 </div>
                 @else
                 <dd>@{{ gamer.steam }}</dd>
@@ -132,7 +132,7 @@
                 <div class="row">
                     <img v-bind:src="gamer.owavatar" width="64" height="64">
                     <h3 class="d-none d-lg-inline ml-1">@{{ gamer.battlenet }}</h3>
-                    <h5 class="d-inline d-lg-none ml-1">@{{ gamer.battlenet }}</h5>
+                    <h6 class="d-inline d-lg-none ml-1">@{{ gamer.battlenet }}</h6>
                 </div>
               @else
               <dl>
@@ -143,9 +143,16 @@
             </dd>
             <dt class="col-sm-3">Discord ID</dt>
             <dd class="col-sm-9">
-              <dl>
+
+              <div v-if="gamer.discord!='-none-'" class="row">
+                <img v-bind:src="gamer.discordavatar" width="64" height="64">
+                <h3 class="d-none d-lg-inline ml-1">@{{ gamer.discord }}</h3>
+                <h6 class="d-inline d-lg-none ml-1">@{{ gamer.discord }}</h6>
+              </div>
+
+              <dl v-else>
                 <dd>@{{ gamer.discord }}</dd>
-                <dd v-if="gamer.discord=='-none-'"><small><em>You need to provide this to register for ANY DGL tournaments.</em></small></dd>
+                <dd><small><em>You need to provide this to register for ANY DGL tournaments.</em></small></dd>
               </dl>
             </dd>
           </dl>
@@ -226,7 +233,7 @@
             <div class="col-12 ml-0 pl-0">
               <label>Steam64ID</label>
             </div>
-            <div class="col-2">
+            <div class="col-2 pl-0">
               <img v-bind:src="steamAvatarURL">
             </div>
             <div class="col-9">
@@ -260,7 +267,7 @@
             <div class="col-12 ml-0 pl-0">
               <label>Battle Tag</label>
             </div>
-            <div class="col-2">
+            <div class="col-2 pl-0">
               <img v-bind:src="owAvatarURL" width="64" height="64">
             </div>
             <div class="col-9">
@@ -275,7 +282,23 @@
 
           <div class="form-group row">
             <label for="inputLname">Discord ID</label>
-            <input name="inputDiscord" v-model="discordInput" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Discord ID">
+          </div>
+          <div v-if="gamer.discord!='-none-'" class="form-group row">
+            <div class="col-2 pl-0">
+              <img v-bind:src="gamer.discordavatar" width="64">
+            </div>
+            <div class="col-9">
+              <h3>@{{ gamer.discord }}</h3>
+            </div>
+          </div>
+          <div class="form-group row">
+            <a href="/discord-oauth" class="btn btn-primary" style="background-color: #7289DA; color: #FFF;">
+              <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50">
+              Setup Discord
+            </a>
+          </div>
+          <div class="form-group row">
+            <input name="inputDiscord" v-model="discordInput" type="hidden" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Discord ID">
             <small id="emailHelp" class="form-text text-muted">Required for all tournaments. No exceptions.</small>
           </div>
 
@@ -621,7 +644,8 @@
           'battlenet': '{{ ($gamer->battlenetid) ? $gamer->battlenetid : "-none-" }}',
           'battletag': '{{ ($gamer->battletag) ? $gamer->battletag : null }}',
           'owavatar': '{{$gamer->owavatar ? $gamer->owavatar : null}}',
-          'discord': '{{ ($gamer->discordid) ? $gamer->discordid : "-none-" }}'
+          'discord': '{{ ($gamer->discord_username) ? $gamer->discord_username : "-none-" }}',
+          'discordavatar': '{{$gamer->discord_avatar ? $gamer->discord_avatar : null}}',
       }
   };
 

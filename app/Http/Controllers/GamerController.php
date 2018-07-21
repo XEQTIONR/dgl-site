@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\ContendingTeam;
 use App\GamerMeta;
+use Carbon\Carbon;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Roster;
 use DB;
 use App\Gamer;
+use Laravel\Socialite\Facades\Socialite;
 class GamerController extends Controller
 {
     //
@@ -87,32 +89,11 @@ class GamerController extends Controller
         if($gamer->battlenetid!=$request->battlenetid)
         {
           $gamer->battlenetid = $request->battlenetid;
-//          if($request->battlenetid)
-//          {
-//            $battnet_meta = new GamerMeta();
-//            $battnet_meta->meta_key = 'overwatch_avatar_url';
-//            $battnet_meta->meta_value = $request->battleNetAvatarURL;
-//            array_push($meta, $battnet_meta);
-//          }
-//
-//          GamerMeta::where('gamer_id', $gamer->id)
-//                  ->where('meta_key', 'overwatch_avatar_url')
-//                  ->delete();
           $changed = true;
         }
         if($gamer->steamid!=$request->steamid)
         {
           $gamer->steamid = $request->steamid;
-//          if($request->steamid) //if not null
-//          {
-//            $steam_meta = new GamerMeta();
-//            $steam_meta->meta_key = 'steam_avatar_url';
-//            $steam_meta->meta_value = $request->steamAvatarURL;
-//            array_push($meta, $steam_meta);
-//          }
-//          GamerMeta::where('gamer_id', $gamer->id)
-//                  ->where('meta_key', 'steam_avatar_url')
-//                  ->delete();
           $changed = true;
         }
         if($gamer->discordid != $request->inputDiscord)
@@ -124,9 +105,6 @@ class GamerController extends Controller
         if($changed)
           $gamer->save();
 
-//        if(count($meta)>0)
-//          $gamer->meta()->saveMany($meta);
-
         $notification = "Your information has been updated.";
         $type = 'info';
         $request = request();
@@ -135,6 +113,11 @@ class GamerController extends Controller
         return redirect('/settings');
       }
       abort(404);
+    }
+
+    public function setupDiscord()
+    {
+      return view('discord');
     }
 
 // Functions
@@ -157,6 +140,7 @@ class GamerController extends Controller
 
         $steamid=$gamer->steamid;
         $battletag = $gamer->battlenetid;
+        $discordtoken = $gamer->discordid;
         if (!is_null($steamid))
         {
           $data=$this->getSteamInfo($steamid);
@@ -174,6 +158,17 @@ class GamerController extends Controller
           if($info->responseStatus == 'success') {
             $gamer->battletag=$battletag;
             $gamer->owavatar=$info->data;
+          }
+        }
+        if(!is_null($discordtoken))
+        {
+          //dd($discordtoken);
+          $discord_data = Socialite::driver('discord')->userFromToken($discordtoken);
+          //dd($discord_data);
+          if(!is_null($discord_data))
+          {
+            $gamer->discord_username = $discord_data->nickname;
+            $gamer->discord_avatar = $discord_data->avatar;
           }
         }
 

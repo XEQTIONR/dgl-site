@@ -38,7 +38,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/settings/discord';
 
     /**
      * Create a new controller instance.
@@ -94,7 +94,7 @@ class RegisterController extends Controller
 
             'steamid'     =>  $data['steamid'],
             'battlenetid' =>  $data['battlenetid'],
-            'discordid'   =>  $data['discordid'],
+            //'discordid'   =>  $data['discordid'],
         ]);
 
         if(array_has($data, ['inviteId']))//skip the email verification
@@ -111,30 +111,30 @@ class RegisterController extends Controller
           $team = ContendingTeam::find($teamId);
 
           $roster->gamer_id = $gamer->id;
-          $roster->status =  'ok';
+          $roster->status =  'discord_required';
           $roster->contending_team_id = $teamId;
           $team->roster()->save($roster);
 
-          $verified_rosters = Roster::where('contending_team_id', $teamId)
-            ->where('status', 'ok')
-            ->get();
-
-          $teamsize = $team->tournament->esport->teamsize;
-
-          if(count($verified_rosters)>=$teamsize)
-          {
-            if($team->status == 'registration_incomplete')
-            {
-              $team->status = 'unverified';
-              $team->save();
-            }
-          }
+//          $verified_rosters = Roster::where('contending_team_id', $teamId)
+//            ->where('status', 'ok')
+//            ->get();
+//
+//          $teamsize = $team->tournament->esport->teamsize;
+//
+//          if(count($verified_rosters)>=$teamsize)
+//          {
+//            if($team->status == 'registration_incomplete')
+//            {
+//              $team->status = 'unverified';
+//              $team->save();
+//            }
+//          }
 
           //update the tournament invite to unusable
           $tournament_invite->status = 'used';
           $tournament_invite->save();
           // Send an email confirming entry into tournament
-          $notification = "You have successfully registered to DaGameLeague and for the tournament";
+          //$notification = "You have successfully registered to DaGameLeague and for the tournament";
         }
         else
         {
@@ -147,14 +147,15 @@ class RegisterController extends Controller
           $email = new VerifyEmailAddress($data['email'], $metaVerify->meta_value);
 
           Mail::to($data['email'])->send($email);
-          $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
+//          $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
+//          $type = 'success';
+//          $request = request();
+//          $request->session()->flash('notification', $notification);
+//          $request->session()->flash('notification_type', $type);
         }
 
 
-        $type = 'success';
-        $request = request();
-        $request->session()->flash('notification', $notification);
-        $request->session()->flash('notification_type', $type);
+
 
         return $gamer;
 

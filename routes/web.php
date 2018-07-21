@@ -76,10 +76,80 @@ Route::get('/album/{album}','MediaController@listAlbum');
     CRUD::resource('widget', 'WidgetCrudController');
   });
 
+
+Route::get('/findgamer/{alias}', 'GamerController@findByAlias');
+
 Route::get('/steamapi/{steam64id}', 'GamerController@getSteamInfo');
 Route::get('/owapi/{battletag}', 'GamerController@getOverwatchInfo');
 
 Route::get('/settings', 'GamerController@settings')->name('settings')->middleware('auth');
+Route::get('/settings/discord','GamerController@setupDiscord')->middleware('auth');
+
+//This link goes to discord site.. use this.
+Route::get('/discord-oauth', function(Illuminate\Http\Request $request){
+
+  return Socialite::with('discord')->redirect();
+});
+Route::get('/discord', function(Illuminate\Http\Request $request){
+
+  $data = Socialite::driver('discord')->user();
+
+  $user = Auth::user();
+
+  $user->discordid = $data->token;
+  $user->save();
+
+  $notification = "All done. Discord ID setup with DGL.";
+  $type = 'success';
+  $request = request();
+  $request->session()->flash('notification', $notification);
+  $request->session()->flash('notification_type', $type);
+
+
+  $rosters = Roster::with('contendingTeam.tournament')
+    ->where('gamer_id', $user->id)
+    ->get();
+
+  foreach($rosters as $roster)
+  {
+    $tournament = $rosters->contendingTeam->tournament;
+    $team = $rosters->contendingTeam;
+    $teamsize = $tournament->esport->teamsize;
+
+    $startdate = Carbon::parse($tournament->startdate);
+
+    if($startdate->gte(Carbon::now()))
+    {
+      if ($roster->status=='discord_required')
+      {
+        $roster->status=='ok';
+        $roster->save();
+
+        $rosters = \App\Roster::where('contending_team_id', $team->id)
+                  ->where('status', 'ok')
+                  ->get();
+
+        if(count($rosters)>=$teamsize);
+          if($team->status == 'registration_incomplete')
+          {
+            $team->status = 'unverified';
+            $team->save();
+            //send email to admin.
+          }
+
+      }
+
+
+    }
+  }
+
+  //echo "in /discord";
+  //return $request;
+  return redirect('/settings');
+});
+
+
+
 
 Route::get('/test', function(){
 
@@ -133,8 +203,3 @@ Route::get('/test4', function(){
 
 
 
-  Route::get('/findgamer/{alias}', 'GamerController@findByAlias');
-
-Route::post('/testform', function(Illuminate\Http\Request $request){
-  dd($request);
-});
