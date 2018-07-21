@@ -12,36 +12,34 @@
       <div class="title-right py-1 mw w-100">
         {{--<h1 class="d-inline-block font-white text-center">DGL</h1>--}}
         @if(Auth::guest())
+         <span class="scroll-hide my-auto d-none d-lg-inline">
+            <a href="{{  route('login')  }}" class="">
+            {{--<i class="fas fa-sign-in-alt"></i>--}}
+            sign in
+            </a><span class="mx-3">/</span>
+         </span>
           <span class="my-auto d-none d-lg-inline">
-        <a href="{{  route('login')  }}" class="">
-          {{--<i class="fas fa-sign-in-alt"></i>--}}
-          sign in
-        </a><span class="mx-3">/</span>
-      </span>
-          <span class="my-auto d-none d-lg-inline">
-        <a href="{{  route('register')  }}" class="">
-          {{--<i class="fas fa-user-plus"></i>--}}
-          register
-        </a>
-      </span>
+            <a href="{{  route('register')  }}" class="">
+            {{--<i class="fas fa-user-plus"></i>--}}
+            register
+            </a>
+          </span>
         @else
           <span class="my-auto d-none d-lg-inline">
-        <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="">
-          {{--<i class="fas fa-cog"></i>--}}
-          settings
-        </a>/
-      </span>
-      <span class="my-auto d-none d-lg-inline">
-      <a href="{{ route('logout') }}" class=""
-         onclick="event.preventDefault();
+            <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="">
+              settings
+            </a>/
+          </span>
+          <span class="my-auto d-none d-lg-inline">
+            <a href="{{ route('logout') }}" class=""
+              onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-        {{--<i class="fas fa-sign-out-alt"></i>--}}
-        sign out
-      </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          {{ csrf_field() }}
-        </form>
-      </span>
+               sign out
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
+          </span>
         @endif
       </div>
     </div>
@@ -125,8 +123,36 @@
               <a class="dropdown-item" href="{{route('about-dateam')}}">About DaTeaM</a>
             </div>
           </li>
-          </ul>
 
+          @if(Auth::guest())
+          <li class="scroll-hide my-auto">
+            <a href="{{  route('login')  }}" class="">
+              {{--<i class="fas fa-sign-in-alt"></i>--}}
+              sign in
+            </a><span class="mx-3">/</span>
+          </li>
+          <li class="scroll-hide my-auto">
+            <a href="{{  route('register')  }}" class="">
+              {{--<i class="fas fa-user-plus"></i>--}}
+              register
+            </a>
+          </li>
+          @else
+          <li class="scroll-hide my-auto">
+            <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="">
+            settings
+            </a>
+          </li>
+          <li class="scroll-hide my-auto">
+            <a href="{{ route('logout') }}" class=""
+                onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+              sign out
+            </a>
+          </li>
+          @endif
+        </ul>
+        {{--for small screens --}}
         <ul class="navbar-nav mx-0 d-lg-none">
           <li class="nav-item active">
             <a href="/news" class="nav-link" href="#">news<span class="sr-only">(current)</span></a>
@@ -154,14 +180,42 @@
               <a class="dropdown-item" href="{{route('about-dateam')}}">About DaTeaM</a>
             </div>
           </li>
+          @if(Auth::guest())
+            <li class="nav-item">
+              <a href="{{  route('login')  }}" class="nav-link">
+                {{--<i class="fas fa-sign-in-alt"></i>--}}
+                sign in
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{  route('register')  }}" class="nav-link">
+                {{--<i class="fas fa-user-plus"></i>--}}
+                register
+              </a>
+            </li>
+          @else
+            <li class="nav-item">
+              <a href="{{  route('settings')  }}" class="nav-link" onclick="toastr.info('Loading your settings. Please Wait.')">
+                {{--<i class="fas fa-user-plus"></i>--}}
+                settings
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('logout') }}" class="nav-link"
+                 onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                sign out
+              </a>
+            </li>
+          @endif
         </ul>
-
       </div>
       <script>
         $(document).ready(function(){
             var margin = parseFloat($("#Header").height()) + parseFloat($("#preHeader").height());
             $(".navbar-dgl").css("margin-top", margin - $(window).scrollTop());
-
+            $(".scroll-hide").hide();
+            
             if($(window).scrollTop()<margin)
             {
                 $(".small-logo").css("display", "none");
@@ -174,11 +228,12 @@
               {
                   $(".user-control").hide();
                   $(".navbar-dgl").css("margin-top", margin - scroll);
-
+                  $(".scroll-hide").hide();
                   if($(".small-logo").css("display") != "none")
                     $(".small-logo").slideUp();
               }
               else {
+                  $(".scroll-hide").show();
                   $(".user-control").show();
                   $(".navbar-dgl").css("margin-top", "0");
                   if($(".small-logo").css("display") == "none")
