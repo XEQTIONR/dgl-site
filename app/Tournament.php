@@ -27,7 +27,7 @@ class Tournament extends Model
     protected $fillable = ['name', 'description', 'rules', 'registration_end',
                           'startdate', 'enddate', 'squadsize', 'title',
                           'caption', 'overview' ,' standings_json',
-                          'banner', 'logo', 'logo_visibility'];
+                          'banner', 'logo', 'logo_visibility', 'bracket'];
     // protected $hidden = [];
     // protected $dates = [];
     //protected $hidden = [];

@@ -45,6 +45,14 @@ class TournamentCrudController extends CrudController
         ]
         , 'update/create/both');
 
+
+      $this->crud->addField([
+          'name' => 'bracket',
+          'label' => 'Bracket',
+          'type' => 'url'
+        ]
+        , 'update/create/both');
+
         $this->crud->addField([
             'name' => 'description',
             'label' => 'Description',
@@ -216,6 +224,12 @@ class TournamentCrudController extends CrudController
           'entity'  =>  'esport',
           'attribute' =>  'name',
           'model' => "App\Esport"
+        ]);
+
+        $this->crud->addColumn([
+          'name' => 'bracket',
+          'type' => 'text',
+          'label' => 'Bracket',
         ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
