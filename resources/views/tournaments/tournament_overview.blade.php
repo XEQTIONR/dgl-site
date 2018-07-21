@@ -2,6 +2,13 @@
   <div class="col-12">
     <h1 class="font-white py-3">Overview</h1>
   </div>
+
+  @if($tournament->bracket)
+  <div class="col-12 mt-3 mb-5">
+    <h2 class="text-uppercase font-white">Brackets</h2>
+    <iframe src="{{$tournament->bracket}}" width="100%" height="500" frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
+  </div>
+  @endif
   <div class="col-12 tournament-overview-container">
 
     <h2 class="text-uppercase font-white">Upcoming matches</h2>
