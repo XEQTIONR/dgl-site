@@ -193,10 +193,14 @@
       <script>
           let data = {
               gamers:[
+                  @if(Auth::user())
                   {sl: "0", captain : "true", fname : "{{Auth::user()->fname}}", lname : "{{Auth::user()->lname}}", email : "{{Auth::user()->email}}", alias : "{{Auth::user()->alias}}", status : "ok"},
+                  @else
+                  {sl: "0", captain : "true", fname : "", lname : "", email : "", alias : "", status : "init"},
+                  @endif
                   @for($i=1; $i<$tournament->squadsize; $i++)
                   {sl: "{{$i}}", captain : "false", fname : "", lname : "", email : "", alias : null, status : "init"},
-                @endfor
+                  @endfor
               ],
               image100: '',
               image300: '',
