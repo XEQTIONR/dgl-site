@@ -25,6 +25,41 @@
   font-family: 'Dimitri';
   src : url('/fonts/DIMITRI.TTF');
 }
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Bold.otf');
+  //src: url('/fonts/ParaType-FuturaPTMedium.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-BoldItalic.otf');
+  //src: url('/fonts/ParaType-FuturaPTMedium.otf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Black.otf');
+  //src: url('/fonts/ParaType-FuturaPTMedium.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-BlackItalic.otf');
+  //src: url('/fonts/ParaType-FuturaPTMedium.otf');
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+
+
 // Borders
 .white-border{
   border-color: #FFF !important;
@@ -305,8 +340,8 @@ $dgl-dark: #272A38;
 }
 
 // Typography
-$font-primary:  "Montserrat", Helvetica, serif;
-$font-copy: Open Sans, Libre Franklin, Helvetica, sans-serif;
+$font-primary:  Gilroy, Helvetica, serif;
+$font-copy:  Muli, Helvetica, sans-serif;
 $font-futura: "FuturaMedium", "Helvetica", "Arial";
 $font-logo: Dimitri !important;
 $font-logo2: Dimitri Swank !important;

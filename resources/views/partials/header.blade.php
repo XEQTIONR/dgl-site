@@ -28,7 +28,7 @@
           <span class="my-auto d-none d-lg-inline">
             <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="">
               settings
-            </a>/
+            </a><span class="mx-3">/</span>
           </span>
           <span class="my-auto d-none d-lg-inline">
             <a href="{{ route('logout') }}" class=""
@@ -83,14 +83,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="justify-content-center d-none d-lg-inline-block mx-auto">
-      <a class=" small-logo pl-5 ml-xl-5 pr-5" href="/">
-        <img class="mt-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="65" alt="">
+      <a class=" small-logo px-5  my-0 py-0" href="/">
+        <span class="logo text-center font-white">DAGAMELEAGUE</span>
+        {{--<img class="mt-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="100" alt="">--}}
         {{--<span class="logo small">DAGAMELEAGUE</span>--}}
         {{--<span class="d-none d-xl-inline-block navbar-text vertical-align-center dagameleague-small">ĐAGAMELEAGUE</span>--}}
       </a>
       </div>
       <a class="logo d-lg-none mx-auto pl-0 pr-6 " href="/">
-        <img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="65" class="mt-1 d-block d-md-inline-block align-text-bottom" alt="">
+        <span class="logo d-block pt-2 text-center font-white">DAGAMELEAGUE</span>
+        {{--<img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="100" class="mt-1 d-block d-md-inline-block align-text-bottom" alt="">--}}
         {{--<span class="logo small">DAGAMELEAGUE</span>--}}
       </a>
       <div class="collapse navbar-collapse mw" id="navbarSupportedContent">
@@ -126,28 +128,36 @@
 
           @if(Auth::guest())
           <li class="scroll-hide my-auto">
-            <a href="{{  route('login')  }}" class="">
-              {{--<i class="fas fa-sign-in-alt"></i>--}}
-              sign in
-            </a><span class="mx-3">/</span>
+            <a href="{{  route('login')  }}" class="nav-link">
+              <i class="fas fa-sign-in-alt"></i>
+              {{--sign indasd--}}
+            </a>
           </li>
           <li class="scroll-hide my-auto">
-            <a href="{{  route('register')  }}" class="">
-              {{--<i class="fas fa-user-plus"></i>--}}
-              register
+            <span class="d-block px-2">/</span>
+          </li>
+          <li class="scroll-hide my-auto">
+            <a href="{{  route('register')  }}" class="nav-link">
+              <i class="fas fa-user-plus"></i>
+              {{--register--}}
             </a>
           </li>
           @else
           <li class="scroll-hide my-auto">
-            <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="">
-            settings
+            <a href="{{  route('settings')  }}" onclick="toastr.info('Loading your settings. Please Wait.')" class="nav-link">
+              <i class="fas fa-cog"></i>
+              {{--settings--}}
             </a>
           </li>
           <li class="scroll-hide my-auto">
-            <a href="{{ route('logout') }}" class=""
+            <span class="d-block px-2">/</span>
+          </li>
+          <li class="scroll-hide my-auto">
+            <a href="{{ route('logout') }}" class="nav-link"
                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-              sign out
+              <i class="fas fa-sign-in-alt"></i>
+              {{--sign out--}}
             </a>
           </li>
           @endif
@@ -218,7 +228,7 @@
             
             if($(window).scrollTop()<margin)
             {
-                $(".small-logo").css("display", "none");
+                $(".small-logo .logo").css("display", "none");
                 $(".user-control").hide();
             }
             $(window).scroll(function(){
@@ -229,15 +239,15 @@
                   $(".user-control").hide();
                   $(".navbar-dgl").css("margin-top", margin - scroll);
                   $(".scroll-hide").hide();
-                  if($(".small-logo").css("display") != "none")
-                    $(".small-logo").slideUp();
+                  if($(".small-logo .logo").css("display") != "none")
+                    $(".small-logo .logo").slideUp();
               }
               else {
                   $(".scroll-hide").show();
                   $(".user-control").show();
                   $(".navbar-dgl").css("margin-top", "0");
-                  if($(".small-logo").css("display") == "none")
-                    $(".small-logo").slideDown();
+                  if($(".small-logo .logo").css("display") == "none")
+                    $(".small-logo .logo").slideDown();
               }
             });
         });

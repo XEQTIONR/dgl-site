@@ -25,12 +25,12 @@
           @if($match->hrdate == $today)
           <div class="fixture-table-primary row justify-content-center mb-5">
             <div class="col-12 pt-2 back-color-purple section-title">
-              <span class="d-block mx-auto my-3 text-uppercase text-center font-white">
+              <span class="d-block mx-auto my-3 text-uppercase text-center font-white font-weight-bold">
                 TODAY
           @else
           <div class="fixture-table-purple row justify-content-center mb-5">
             <div class="col-12 pt-2 back-color-purple section-title">
-              <span class="d-block mx-auto my-3 text-uppercase text-center font-white">
+              <span class="d-block mx-auto my-3 text-uppercase text-center font-white font-weight-bold">
                 <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span> {{$match->hrdate}}
           @endif
               </span>
@@ -94,7 +94,7 @@
 
     <div class="row fixture-table-purple justify-content-center mb-5">
       <div class="col-12 pt-2 back-color-purple section-title">
-        <span class="d-block mx-auto my-3 text-uppercase text-center font-white">
+        <span class="d-block mx-auto my-3 text-uppercase text-center font-white font-weight-bold">
           <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span>
           {{$match->hrdate}}
         </span>

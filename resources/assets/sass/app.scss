@@ -372,6 +372,7 @@ span.light{
 }
 .carousel-text-header{
   font-size: 3em;
+  font-weight: 900 !important;
   //text-align: start;
 }
 
@@ -979,7 +980,7 @@ body{
     }
     h1{
       font-family: $font-primary;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 3rem;
       z-index:2;
       position: absolute;
@@ -987,7 +988,7 @@ body{
       left: 10%;
       text-transform: uppercase;
       color: #FFF;
-      text-shadow: -3px 0 #474d55, 0 3px #474d55, 3px 0 #474d55, 0 -3px #474d55;
+      //text-shadow: -3px 0 #474d55, 0 3px #474d55, 3px 0 #474d55, 0 -3px #474d55;
     }
     .banner-icon{
       position: absolute;

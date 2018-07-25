@@ -33,6 +33,34 @@
   src: url("/fonts/DIMITRI.TTF");
 }
 
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/fonts/Gilroy-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/fonts/Gilroy-BoldItalic.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/fonts/Gilroy-Black.otf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("/fonts/Gilroy-BlackItalic.otf");
+  font-weight: 900;
+  font-style: italic;
+}
+
 .white-border {
   border-color: #FFF !important;
 }
@@ -263,11 +291,11 @@ h1,
 h2,
 h3,
 h5 {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
 }
 
 p {
-  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
   font-size: 1em;
   color: #272A38;
 }
@@ -348,7 +376,7 @@ form .list-group-item {
 }
 
 #preHeader a {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-size: .7rem;
 }
 
@@ -358,7 +386,7 @@ form .list-group-item {
 }
 
 #Header h6 {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
 }
 
 #Header span.logo {
@@ -460,7 +488,7 @@ span.light h6 {
   color: white;
   font-size: 35px;
   font-weight: bold;
-  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
 }
 
 .main-banner .left span.first::before {
@@ -517,7 +545,7 @@ span.light h6 {
 }
 
 .tournament-overview-container span {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
 }
 
 .dagameleague-small {
@@ -532,12 +560,12 @@ span.light h6 {
 }
 
 .font-primary {
-  font-family: "Montserrat", Helvetica, serif !important;
+  font-family: Gilroy, Helvetica, serif !important;
   font-weight: normal;
 }
 
 .font-copy {
-  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
   text-transform: none;
 }
 
@@ -617,7 +645,7 @@ span.light h6 {
 
 .carousel-item .slide-text {
   color: #4D6CAB;
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   text-transform: none;
   font-weight: normal;
 }
@@ -632,6 +660,7 @@ span.light h6 {
 
 .carousel-text-header {
   font-size: 3em;
+  font-weight: 900 !important;
 }
 
 .carousel-control-prev,
@@ -664,13 +693,13 @@ span.light h6 {
 }
 
 body {
-  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
   background-color: #282840;
   font-size: 16px;
 }
 
 body .tag {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-weight: 700;
   padding: 0px 2px;
 }
@@ -771,7 +800,7 @@ body .list-group-tournament-match .list-group-item.waiting {
 }
 
 body .table th {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   text-transform: uppercase;
 }
 
@@ -807,7 +836,7 @@ body .pagination li {
 
 body .pagination li span,
 body .pagination li a {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-size: 12px;
   display: block;
   margin: auto;
@@ -885,7 +914,7 @@ body #alertBannerTop {
 
 body #moreButton {
   margin-top: 5px;
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   color: #FDFEFD;
   font-size: 1.4em;
   font-weight: 700;
@@ -1046,7 +1075,7 @@ body .btn-dgl {
   border-width: 0;
   -webkit-transform: skewX(10deg);
           transform: skewX(10deg);
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-weight: bold;
 }
 
@@ -1098,7 +1127,7 @@ body .navbar {
 }
 
 body .navbar .dropdown-item {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-size: .7em;
 }
 
@@ -1130,7 +1159,7 @@ body .navbar .nav-item.lined.last {
 }
 
 body .nav-brand a {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-weight: 900;
   vertical-align: baseline;
 }
@@ -1195,12 +1224,12 @@ body .navbar-dgl .navbar-toggler-icon {
 }
 
 body .navbar-dgl .navbar-text {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
 }
 
 body .navbar-dgl a {
   color: #FFF;
-  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   padding-left: 13px;
@@ -1208,7 +1237,7 @@ body .navbar-dgl a {
 }
 
 body .navbar-dgl a.nav-link {
-  font-family: "Montserrat", Helvetica, serif, Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Gilroy, Helvetica, serif, Muli, Helvetica, sans-serif;
   font-size: .7em;
 }
 
@@ -1251,8 +1280,8 @@ body .banner-row .banner-row-background {
 }
 
 body .banner-row h1 {
-  font-family: "Montserrat", Helvetica, serif;
-  font-weight: 700;
+  font-family: Gilroy, Helvetica, serif;
+  font-weight: 900;
   font-size: 3rem;
   z-index: 2;
   position: absolute;
@@ -1260,7 +1289,6 @@ body .banner-row h1 {
   left: 10%;
   text-transform: uppercase;
   color: #FFF;
-  text-shadow: -3px 0 #474d55, 0 3px #474d55, 3px 0 #474d55, 0 -3px #474d55;
 }
 
 body .banner-row .banner-icon {
@@ -1379,17 +1407,17 @@ body .post-body-hover:hover .post-title {
 }
 
 body .footer {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
 }
 
 body .footer h5 {
-  font-family: "FuturaMedium", "Montserrat", Helvetica, serif;
+  font-family: "FuturaMedium", Gilroy, Helvetica, serif;
   font-size: 1rem;
 }
 
 body .footer a {
   color: #a1a8a7;
-  font-family: Open Sans, Libre Franklin, Helvetica, sans-serif;
+  font-family: Muli, Helvetica, sans-serif;
   text-decoration: none;
 }
 
@@ -1403,7 +1431,7 @@ body .footer h6 {
 }
 
 body .footer-text span {
-  font-family: "Montserrat", Helvetica, serif;
+  font-family: Gilroy, Helvetica, serif;
   font-size: .8em;
 }
 

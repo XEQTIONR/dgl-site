@@ -35,7 +35,7 @@
           <div class="row">
             <h2 class="font-white">{{$tournament->name}}</h2>
             <div class="col-12 pl-0">
-              <span class="font-white">{!! $tournament->excerpt !!}</span>
+              <span class="font-gray">{!! $tournament->excerpt !!}</span>
             </div>
             </div>
             <img class="d-inline-block mr-4" width="48" src="{{$tournament->esport->icon}}">
