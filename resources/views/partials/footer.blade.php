@@ -9,7 +9,7 @@
       }
     </style>
    <img class="d-block mx-auto mt-5 mb-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="400" >
-    <h1 class="font-white font-logo text-center mb-5 mx-auto d-none d-md-block" style="font-size: 70px; position: relative; top: -50px">DAGAMELEAGUE</h1>
+    <h1 class="font-white font-logo text-center mb-5 mx-auto d-none d-md-block" style="font-size: 70px;">DAGAMELEAGUE</h1>
     <h1 class="font-white font-logo text-center mb-5 mx-auto d-md-none">DAGAMELEAGUE</h1>
     <h6 class="font-gray text-uppercase text-center mb-5 mx-auto">Pro Bangladeshi E-sports tournaments and leagues.</h6>
   </div>

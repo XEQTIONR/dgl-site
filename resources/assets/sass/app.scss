@@ -91,7 +91,8 @@ form{
   }
 }
 #Header{
-
+  z-index: 1040;
+  max-height: 136px;
   h6,span{
     font-size: 12px;
   }
@@ -101,6 +102,17 @@ form{
   }
   span.logo{
     font-size: 40px !important;
+  }
+
+  img.logo{
+    position: absolute;
+    top: 0px;
+    left: 11vw;
+    z-index: 1200;
+    //overflow-y: visible;
+    //z-index: 1031;
+    //position: relative;
+    //top: -50px;
   }
 }
 

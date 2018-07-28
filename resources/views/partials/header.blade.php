@@ -44,10 +44,10 @@
       </div>
     </div>
     <div id="Header" class="row dgl-nav-title justify-content-center justify-content-md-start mw">
-      <div class="ml-5 mt-4 mr-5 d-none d-lg-block">
+      <div class="w-25  d-none d-lg-block" style="height: 100px;">
 
-        {{--<img class="d-block mt-4 mx-auto mb-1 pb-0 py-xl-0" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="60" alt="">--}}
-        <span class="logo d-block mt-3 pt-1 text-center font-white">DAGAMELEAGUE</span>
+        <img class="d-block mx-auto logo" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="200" alt="">
+        {{--<span class="logo d-block mt-3 pt-1 text-center font-white">DAGAMELEAGUE</span>--}}
       </div>
       <div class="ml-5 mt-4 mr-5 d-none d-md-block d-lg-none">
         <span class="logo d-block mt-3 pt-1 text-center font-white">DGL</span>

@@ -380,6 +380,11 @@ form .list-group-item {
   font-size: .7rem;
 }
 
+#Header {
+  z-index: 1040;
+  max-height: 136px;
+}
+
 #Header h6,
 #Header span {
   font-size: 12px;
@@ -391,6 +396,13 @@ form .list-group-item {
 
 #Header span.logo {
   font-size: 40px !important;
+}
+
+#Header img.logo {
+  position: absolute;
+  top: 0px;
+  left: 11vw;
+  z-index: 1200;
 }
 
 a.btn {
