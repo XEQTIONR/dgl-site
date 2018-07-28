@@ -7,6 +7,7 @@ use App\Gamer;
 use App\Roster;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
+use Illuminate\Support\Facades\Mail;
 use App\Mail\TeamApproved;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -214,23 +215,26 @@ class Contending_teamCrudController extends CrudController
 
     public function approve(ContendingTeam $team)
     {
-      $team->status = 'ok';
-      $team->save();
 
-      $roster = Roster::where('contending_team', $team->id)
+      $team->status = 'ok';
+
+      //return $team->name;
+
+      $roster = Roster::where('contending_team_id', $team->id)
                       ->where('captain', 'true')
                       ->first();
 
       $captain = Gamer::find($roster->gamer_id);
-      $tournament = $team->tournament();
+      $tournament = $team->tournament;
+
       //Send email to captain that their team has been approved by DGL
-      $mail = new TeamApproved($captain->email,$captain->alias,$team->name,$team->tag,$tournament->name);
+      $mail = new TeamApproved($captain->email,$captain->alias,$team->name,$team->tag, $tournament->name);
       Mail::to($captain->email)->send($mail);
 
       \Alert::success('Approved team '.$team->name.' for '.$team->tournament->name.'. Email sent to '.$captain->email.'.')->flash();
 
-
-
+      //if everything goes well. then save
+      $team->save();
 
       return redirect(config('backpack.base.route_prefix').'/contending_team');
     }
