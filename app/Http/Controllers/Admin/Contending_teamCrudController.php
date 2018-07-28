@@ -172,7 +172,8 @@ class Contending_teamCrudController extends CrudController
         // $this->crud->addClause('withoutGlobalScopes');
         // $this->crud->addClause('withoutGlobalScope', VisibleScope::class);
         // $this->crud->with(); // eager load relationships
-        // $this->crud->orderBy();
+        if(!$this->request->has('order'))
+        $this->crud->orderBy('tournament_id');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
