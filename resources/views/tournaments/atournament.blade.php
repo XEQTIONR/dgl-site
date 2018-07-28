@@ -88,17 +88,18 @@
                       $('.tournament-row-rules').show();
                   });
 
-                  if({{$tournament->registration_active}})
-                  {
+                  @if($tournament->registration_active)
+                  //{
                     $('#navRegistration').click(function () {
+                        console.log('navreg');
                         $('.nav-link').removeClass('active');
                         $('#navRegistration').addClass('active');
                         $('.tournament-row').hide();
                         $('.register-row').show();
                     });
-                  }
-                  else
-                  {
+                  //}
+                  @else
+                  //{
                       $('#navRegistration').addClass("disabled");
                       $('#navRegistration').click(function () {
 
@@ -109,7 +110,7 @@
                           }
                           toastr.error("Too Late. Registration window has closed.");
                       })
-                  }
+                  @endif//}
               });
           </script>
           @include('tournaments.tournament_overview')

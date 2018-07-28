@@ -125,7 +125,7 @@ class TournamentController extends Controller
     {
         //
       $Parsedown = new \Parsedown();
-      $registration_active = 'true';
+      $registration_active = true;
       $future = collect();
       $checkingin = collect();
       $waiting = collect();
@@ -178,14 +178,14 @@ class TournamentController extends Controller
         $tournament->rules = $Parsedown->text($tournament->rules);
 
       if($now->gte(new Carbon($tournament->registration_end)))
-        $registration_active = 'false';
+        $registration_active = false;
 
       $tournament->registration_active = $registration_active;
 
       $standings = json_decode($tournament->standings_json);
 
       $tournament->standings = $standings;
-
+      //dd($now, new Carbon($tournament->registration_end));
       //return $nextmatch;
       return view('tournaments.atournament',
         compact('tournament', 'waiting','checkingin','future', 'past','contenders', 'nextmatch'));
@@ -293,10 +293,27 @@ class TournamentController extends Controller
         $team->logo_size2 = $path2;
       $team->save();
 
+
+
+
+      $i=0;
       foreach ($gamerCollection as $alias)
       {
         // if the alias returned is an email then create a new gamer
-        if( filter_var($alias, FILTER_VALIDATE_EMAIL))
+
+        if($i== 0) // increment at the end of foreach
+        {
+          $gamer = Gamer::where('alias', $alias)->first();
+          $roster  = new Roster();
+          $roster->gamer_id = $gamer->id;
+          $roster->status = 'ok';
+          $roster->contending_team_id = $team->id;
+          $roster->captain = "true";
+
+          $roster->save();
+
+        }
+        else if( filter_var($alias, FILTER_VALIDATE_EMAIL))
         {
 
           $invite = new TournamentInvite();
@@ -319,14 +336,15 @@ class TournamentController extends Controller
           $roster->status = 'confirmation_required'; //previously ok
           $roster->contending_team_id = $team->id;
 
-          if($gamerCollection[0] == $alias) // if this is the first in gamer collection
-            $roster->captain = "true"; // then this person is the captain of the team
-          else
+//          if($gamerCollection[0] == $alias) // if this is the first in gamer collection
+//            $roster->captain = "true"; // then this person is the captain of the team
+//          else
             $roster->captain = "false";
 
           $rosters->push($roster);
           Mail::to($gamer->email)->send($emailNotification);
         }
+        $i++;
       }
       $team->roster()->saveMany($rosters);
       $team->invites()->saveMany($invites);
