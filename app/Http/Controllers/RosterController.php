@@ -79,9 +79,10 @@ class RosterController extends Controller
 //            foreach($other_rosters as $aroster)
 
             //Otherwise update all other roster request to rejected
-            DB::table('rosters')
-              ->whereNotIn('id', $other_rosters)
-              ->update(['status' => 'ineligible']);
+            if(count($other_rosters)>0)
+              DB::table('rosters')
+                ->whereIn('id', $other_rosters)
+                ->update(['status' => 'ineligible']);
 
 
             $notification = "Succesfully registered for this tournament for team ". $team->name.".";
