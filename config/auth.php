@@ -76,8 +76,9 @@ return [
         ],
 
         'admins' => [
-          'driver' => 'eloquent',
-          'model' => Backpack\Base\app\Models\BackpackUser::class,
+          'driver' => 'database',
+          'table' => 'admins'
+          //'model' => Backpack\Base\app\Models\BackpackUser::class,
         ],
 
         // 'users' => [
