@@ -362,6 +362,16 @@
                               app.gamers[sl].alias = null;
                               document.getElementById(sl).focus();
                           }
+                          else if(response.data == "no-discord")
+                          {
+                              alert("This teammate needs to provide us their Discord ID on the Settings page before they can be recruited.");
+                              app.gamers[sl].status = "undefined";
+                              app.gamers[sl].fname = "";
+                              app.gamers[sl].lname = "";
+                              app.gamers[sl].email = "";
+                              app.gamers[sl].alias = null;
+                              document.getElementById(sl).focus();
+                          }
                           else if(is_email)  // NEW UNREGISTERED gamer
                           {
                               //console.log("NEW UNREGISTERED GAMER: " + gamer);

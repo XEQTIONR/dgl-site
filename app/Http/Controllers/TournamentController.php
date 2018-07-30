@@ -359,6 +359,7 @@ class TournamentController extends Controller
       return redirect('/tournaments/'.$tournament->id);
     }
 
+    //api call during tournament registration
     public function verifyGamer($identifier, Tournament $tournament)
     {
       $is_email = filter_var($identifier, FILTER_VALIDATE_EMAIL);
@@ -383,6 +384,8 @@ class TournamentController extends Controller
       {
         if( $gamer->status == 'unverified')
           return "gamer-unverified";
+        else if ($gamer->discord == NULL)
+          return "no-discord";
         $registrations = Roster::where('gamer_id', $gamer->id)
           ->where('status', 'ok')
           ->get();
