@@ -99,26 +99,26 @@ Route::get('/discord', function(Illuminate\Http\Request $request){
   $user->discordid = $data->token;
   $user->save();
 
-  $notification = "All done. Discord ID setup with DGL.";
+  $notification = "Discord ID setup with DGL.";
   $type = 'success';
   $request = request();
   $request->session()->flash('notification', $notification);
   $request->session()->flash('notification_type', $type);
 
 
-  $rosters = Roster::with('contendingTeam.tournament')
+  $rosters = App\Roster::with('contendingTeam.tournament')
     ->where('gamer_id', $user->id)
     ->get();
 
   foreach($rosters as $roster)
   {
-    $tournament = $rosters->contendingTeam->tournament;
-    $team = $rosters->contendingTeam;
+    $tournament = $roster->contendingTeam->tournament;
+    $team = $roster->contendingTeam;
     $teamsize = $tournament->esport->teamsize;
 
-    $startdate = Carbon::parse($tournament->startdate);
+    $startdate = \Carbon\Carbon::parse($tournament->startdate);
 
-    if($startdate->gte(Carbon::now()))
+    if($startdate->gte(\Carbon\Carbon::now()))
     {
       if ($roster->status=='discord_required')
       {

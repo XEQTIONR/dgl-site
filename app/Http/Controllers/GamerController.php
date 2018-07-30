@@ -162,9 +162,16 @@ class GamerController extends Controller
         }
         if(!is_null($discordtoken))
         {
-          //dd($discordtoken);
-          $discord_data = Socialite::driver('discord')->userFromToken($discordtoken);
-          //dd($discord_data);
+
+          try
+          {
+            $discord_data = Socialite::driver('discord')->userFromToken($discordtoken);
+          }
+          catch(\Exception $e)
+          {
+            return redirect('/discord-oauth'); // regen discord token
+          }
+
           if(!is_null($discord_data))
           {
             $gamer->discord_username = $discord_data->nickname;
