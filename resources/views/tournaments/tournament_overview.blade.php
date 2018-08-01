@@ -375,13 +375,13 @@
                 @if(is_numeric($match->contestants[0]->score))
                   {{$match->contestants[0]->score}}
                 @else
-                  -
+                  ?
                 @endif
-                :
+                -
                 @if(is_numeric($match->contestants[1]->score))
                   {{$match->contestants[1]->score}}
                 @else
-                  -
+                  ?
                 @endif
               </div>
               {{--<div class="row justify-content-center">--}}

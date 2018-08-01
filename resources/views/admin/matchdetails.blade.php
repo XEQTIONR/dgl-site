@@ -4,22 +4,34 @@
   </div>
   <div class="row" >
     <div class="col-xs-12 col-md-10">
-      <table class="table table-striped">
-        <tr style="background-color: #555299">
-          <td style="color: white">Team Name</td>
-          <td style="color: white">Team Tag</td>
-          <td style="color: white">Clan</td>
-          <td style="color: white">Status</td>
-        </tr>
-        @foreach($contestants as $contender)
-          <tr>
-            <td>{{$contender->contending_team->name}}</td>
-            <td>{{$contender->contending_team->tag}}</td>
-            <td>{{$contender->contending_team->clan_id}}</td>
-            <td>{{$contender->contending_team->status}}</td>
+      <form method="post" action="/admin/score/{{$id}}">
+        {{csrf_field()}}
+        <table class="table table-striped">
+          <tr style="background-color: #555299">
+            <td style="color: white">Team Name</td>
+            <td style="color: white">Team Tag</td>
+            <td style="color: white">Clan</td>
+            <td style="color: white">Status</td>
+            <td style="color: white">Score</td>
+
           </tr>
-        @endforeach
-      </table>
+          @foreach($contestants as $contender)
+            <tr>
+              <td>{{$contender->contending_team->name}}</td>
+              <td>{{$contender->contending_team->tag}}</td>
+              <td>{{$contender->contending_team->clan_id}}</td>
+              <td>{{$contender->contending_team->status}}</td>
+              <td><input name="{{$contender->id}}" value="{{$contender->score}}"> </td>
+            </tr>
+          @endforeach
+        </table>
+
+        <label>Winner</label>
+        <select name="winner">
+
+        </select>
+        <button type="submit" class="btn btn-primary">Update Scores</button>
+      </form>
     </div>
   </div>
   <div class="row">

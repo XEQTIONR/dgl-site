@@ -232,7 +232,7 @@ class MatchCrudController extends CrudController
       $checkins = DB::table('checkins')
                       ->where('match_id', $id)
                       ->get();
-      return view('admin.matchdetails', compact('contestants','checkins'));
+      return view('admin.matchdetails', compact('contestants','checkins', 'id'));
     }
 
     public function store(StoreRequest $request)
@@ -274,5 +274,23 @@ class MatchCrudController extends CrudController
     {
       MatchContestant::where('match_id', $id)->delete();
       parent::destroy($id);
+    }
+
+    public function updateScore($match, \Illuminate\Http\Request $request)
+    {
+      $ids = [];
+      foreach($request->input() as $key => $value)
+      {
+        if($key!='_token')
+        {
+          //echo $key."=>".$value.'\n';
+          DB::table('match_contestants')
+            //->where('match_id', $match)
+            ->where('id', $key)
+            ->update(['score' => $value]);
+        }
+      }
+
+      return redirect('admin/match');
     }
 }

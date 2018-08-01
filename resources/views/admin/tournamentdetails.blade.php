@@ -6,12 +6,14 @@
       <div class="col-xs-12">
         <table class="table table-striped">
           <tr style="background-color: #555299">
+            <td style="color: white">Team ID</td>
             <td style="color: white">Team Name</td>
             <td style="color: white">Team Tag</td>
             <td style="color: white">Status</td>
           </tr>
           @foreach($contenders as $contender)
           <tr>
+            <td>{{$contender->id}}</td>
             <td>{{$contender->name}}</td>
             <td>{{$contender->tag}}</td>
             <td>{{$contender->status}}</td>
