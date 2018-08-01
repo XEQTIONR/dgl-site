@@ -76,7 +76,7 @@ class Match_contestantCrudController extends CrudController
           'label' => 'Contending Team',
           'entity' => 'contending_team',
           'attribute' =>  'name',
-          'model' => "App\ContendingTeam"
+          'model' => "App\MatchContestant"
         ]);
         $this->crud->addColumn([
           'name' => 'score',

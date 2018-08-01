@@ -17,8 +17,8 @@
           </tr>
           @foreach($contestants as $contender)
             <tr>
-              <td>{{$contender->contending_team->name}}</td>
-              <td>{{$contender->contending_team->tag}}</td>
+              <td>{{$contender->name}}</td>
+              <td>{{$contender->tag}}</td>
               <td>{{$contender->contending_team->clan_id}}</td>
               <td>{{$contender->contending_team->status}}</td>
               <td><input name="{{$contender->id}}" value="{{$contender->score}}"> </td>
@@ -28,7 +28,14 @@
 
         <label>Winner</label>
         <select name="winner">
-
+            <option value="none"></option>
+          @foreach($contestants as $contender)
+            @if($match->won_id == $contender->id)
+              <option value="{{$contender->id}}" selected>{{$contender->name}}</option>
+            @else
+              <option value="{{$contender->id}}">{{$contender->name}}</option>
+            @endif
+          @endforeach
         </select>
         <button type="submit" class="btn btn-primary">Update Scores</button>
       </form>

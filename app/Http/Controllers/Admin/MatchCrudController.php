@@ -161,7 +161,7 @@ class MatchCrudController extends CrudController
         'name' => 'won_id', // the column that contains the ID of that connected entity;
         'entity' => 'winner', // the method that defines the relationship in your Model
         'attribute' => "name", // foreign key attribute that is shown to user
-        'model' => "App\ContendingTeam", // foreign key model
+        'model' => "App\MatchContestant", // foreign key model
       ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
@@ -229,10 +229,11 @@ class MatchCrudController extends CrudController
     public function showDetailsRow($id)
     {
       $contestants = \App\MatchContestant::where('match_id', $id)->with('contending_team.roster.gamer')->get();
+      $match = \App\Match::find($id);
       $checkins = DB::table('checkins')
                       ->where('match_id', $id)
                       ->get();
-      return view('admin.matchdetails', compact('contestants','checkins', 'id'));
+      return view('admin.matchdetails', compact('contestants','checkins', 'id', 'match'));
     }
 
     public function store(StoreRequest $request)
@@ -281,7 +282,7 @@ class MatchCrudController extends CrudController
       $ids = [];
       foreach($request->input() as $key => $value)
       {
-        if($key!='_token')
+        if($key!='_token' && $key!='winner')
         {
           //echo $key."=>".$value.'\n';
           DB::table('match_contestants')
@@ -290,6 +291,16 @@ class MatchCrudController extends CrudController
             ->update(['score' => $value]);
         }
       }
+
+      if($request->input('winner')=='none')
+        DB::table('matches')
+          ->where('id', $match)
+          ->update(['won_id' => NULL]);
+
+      else
+        DB::table('matches')
+          ->where('id', $match)
+          ->update(['won_id' => intval($request->input('winner'))]);
 
       return redirect('admin/match');
     }

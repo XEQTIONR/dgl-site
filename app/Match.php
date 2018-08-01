@@ -30,7 +30,7 @@ class Match extends Model
   public function winner()
   {
     // won_id references id on contending_teams table
-    return $this->belongsTo('App\ContendingTeam', 'won_id');
+    return $this->belongsTo('App\MatchContestant', 'won_id');
   }
 
   public function contestants()

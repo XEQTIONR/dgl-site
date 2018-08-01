@@ -12,7 +12,7 @@
 
   </a>
 </li>
-<li><a href="{{ backpack_url('match_contestant') }}"><i class="fa fa-bar-chart"></i> <span>Scores</span></a></li>
+{{--<li><a href="{{ backpack_url('match_contestant') }}"><i class="fa fa-bar-chart"></i> <span>Scores</span></a></li>--}}
 <li><a href="{{ backpack_url('banner') }}"><i class="fa fa-object-ungroup"></i> <span>Banners</span></a></li>
 <li><a href="{{ backpack_url('album') }}"><i class="fa fa-book"></i> <span>Albums</span></a></li>
 <li><a href="{{ backpack_url('widget') }}"><i class="fa fa-cogs"></i> <span>Widgets</span></a></li>

@@ -20,4 +20,14 @@ class MatchContestant extends Model
       return $this->belongsTo('App\Match');
     }
 
+    public function getNameAttribute()
+    {
+      return $this->contending_team->name;
+    }
+
+    public function getTagAttribute()
+    {
+      return $this->contending_team->tag;
+    }
+
 }
