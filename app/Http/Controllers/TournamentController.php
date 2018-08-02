@@ -177,7 +177,7 @@ class TournamentController extends Controller
       if(!is_null($tournament->rules))
         $tournament->rules = $Parsedown->text($tournament->rules);
 
-      if($now->gte(new Carbon($tournament->registration_end)))
+      if($now->gte(new Carbon($tournament->registration_end)) || $now->lte(new Carbon($tournament->registration_start)))
         $registration_active = false;
 
       $tournament->registration_active = $registration_active;

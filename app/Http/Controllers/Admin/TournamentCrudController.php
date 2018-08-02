@@ -47,18 +47,55 @@ class TournamentCrudController extends CrudController
 
 
       $this->crud->addField([
+          'name' => 'registration_start',
+          'label' => 'Registration Start',
+          'type' => 'datetime'
+        ]
+        , 'update/create/both');
+      $this->crud->addField([
+          'name' => 'registration_end',
+          'label' => 'Registration End',
+          'type' => 'datetime'
+        ]
+        , 'update/create/both');
+
+      $this->crud->addField([
+          'name' => 'startdate',
+          'type' => 'date_picker',
+          'label' => 'Start Date',
+          // optional:
+          'date_picker_options' => [
+            'todayBtn' => true,
+            'format' => 'dd-mm-yyyy',
+            'language' => 'en'
+          ],]
+        , 'update/create/both');
+
+      $this->crud->addField([
+          'name' => 'enddate',
+          'type' => 'date_picker',
+          'label' => 'End Date',
+          // optional:
+          'date_picker_options' => [
+            'todayBtn' => true,
+            'format' => 'dd-mm-yyyy',
+            'language' => 'en'
+          ],]
+        , 'update/create/both');
+
+      $this->crud->addField([
           'name' => 'bracket',
           'label' => 'Bracket',
           'type' => 'url'
         ]
         , 'update/create/both');
 
-        $this->crud->addField([
-            'name' => 'description',
-            'label' => 'Description',
-            'type' => 'simplemde'
-          ]
-          , 'update/create/both');
+      $this->crud->addField([
+          'name' => 'description',
+          'label' => 'Description',
+          'type' => 'simplemde'
+        ]
+        , 'update/create/both');
 
       $this->crud->addField([
           'name' => 'overview',
@@ -67,54 +104,24 @@ class TournamentCrudController extends CrudController
         ]
         , 'update/create/both');
 
-        $this->crud->addField([
-            'name' => 'rules',
-            'label' => 'Rules',
-            'type' => 'simplemde'
-          ]
-          , 'update/create/both');
+      $this->crud->addField([
+          'name' => 'rules',
+          'label' => 'Rules',
+          'type' => 'simplemde'
+        ]
+        , 'update/create/both');
 
-        $this->crud->addField([
-            'name' => 'registration_end',
-            'label' => 'Registration End',
-            'type' => 'datetime'
-          ]
-          , 'update/create/both');
 
-        $this->crud->addField([
-            'name' => 'startdate',
-            'type' => 'date_picker',
-            'label' => 'Start Date',
-            // optional:
-            'date_picker_options' => [
-              'todayBtn' => true,
-              'format' => 'dd-mm-yyyy',
-              'language' => 'en'
-            ],]
-          , 'update/create/both');
-
-        $this->crud->addField([
-            'name' => 'enddate',
-            'type' => 'date_picker',
-            'label' => 'End Date',
-            // optional:
-            'date_picker_options' => [
-              'todayBtn' => true,
-              'format' => 'dd-mm-yyyy',
-              'language' => 'en'
-            ],]
-          , 'update/create/both');
-
-        $this->crud->addField([
-              'name' => 'squadsize',
-              'label' => 'Squad Size',
-              'type' => 'number',
-              // optionals
-              // 'attributes' => ["step" => "any"], // allow decimals
-              // 'prefix' => "$",
-               'suffix' => " Players",
-          ]
-          , 'update/create/both');
+      $this->crud->addField([
+            'name' => 'squadsize',
+            'label' => 'Squad Size',
+            'type' => 'number',
+            // optionals
+            // 'attributes' => ["step" => "any"], // allow decimals
+            // 'prefix' => "$",
+             'suffix' => " Players",
+        ]
+        , 'update/create/both');
 
       $this->crud->addField([
           'name' => 'banner',
@@ -147,15 +154,15 @@ class TournamentCrudController extends CrudController
       ]
       , 'update/create/both');
 
-        $this->crud->addField([
-            'name' => 'title',
-            'label' => 'Esport',
-            'type' => 'select2',
-            'entity'  => 'esport',
-            'attribute' =>  'name',
-            'model' => "App\Esport"
-          ]
-          , 'update/create/both');
+      $this->crud->addField([
+          'name' => 'title',
+          'label' => 'Esport',
+          'type' => 'select2',
+          'entity'  => 'esport',
+          'attribute' =>  'name',
+          'model' => "App\Esport"
+        ]
+        , 'update/create/both');
 
       $this->crud->addField([ // Table
           'name' => 'standings_json',
@@ -187,50 +194,56 @@ class TournamentCrudController extends CrudController
 
         // ------ CRUD COLUMNS
 
-        $this->crud->addColumn([
-          'name' => 'name',
-          'type' => 'text',
-          'label' => 'Tournament Name',
-        ]);
+      $this->crud->addColumn([
+        'name' => 'name',
+        'type' => 'text',
+        'label' => 'Tournament Name',
+      ]);
 
-        $this->crud->addColumn([
-          'name' => 'registration_end',
-          'type' => 'datetime',
-          'label' => 'Registration Ends',
-        ]);
+      $this->crud->addColumn([
+        'name' => 'registration_start',
+        'type' => 'datetime',
+        'label' => 'Registration Starts',
+      ]);
 
-        $this->crud->addColumn([
-          'name' => 'startdate',
-          'type' => 'date',
-          'label' => 'Start Date',
-        ]);
+      $this->crud->addColumn([
+        'name' => 'registration_end',
+        'type' => 'datetime',
+        'label' => 'Registration Ends',
+      ]);
 
-        $this->crud->addColumn([
-          'name' => 'enddate',
-          'type' => 'date',
-          'label' => 'End Date',
-        ]);
+      $this->crud->addColumn([
+        'name' => 'startdate',
+        'type' => 'date',
+        'label' => 'Start Date',
+      ]);
 
-        $this->crud->addColumn([
-          'name' => 'squadsize',
-          'type' => 'number',
-          'label' => 'Squad Size',
-        ]);
+      $this->crud->addColumn([
+        'name' => 'enddate',
+        'type' => 'date',
+        'label' => 'End Date',
+      ]);
 
-        $this->crud->addColumn([
-          'name' => 'title',
-          'type' => 'select',
-          'label' => 'Esport',
-          'entity'  =>  'esport',
-          'attribute' =>  'name',
-          'model' => "App\Esport"
-        ]);
+      $this->crud->addColumn([
+        'name' => 'squadsize',
+        'type' => 'number',
+        'label' => 'Squad Size',
+      ]);
 
-        $this->crud->addColumn([
-          'name' => 'bracket',
-          'type' => 'text',
-          'label' => 'Bracket',
-        ]);
+      $this->crud->addColumn([
+        'name' => 'title',
+        'type' => 'select',
+        'label' => 'Esport',
+        'entity'  =>  'esport',
+        'attribute' =>  'name',
+        'model' => "App\Esport"
+      ]);
+
+      $this->crud->addColumn([
+        'name' => 'bracket',
+        'type' => 'text',
+        'label' => 'Bracket',
+      ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
