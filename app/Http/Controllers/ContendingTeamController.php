@@ -18,7 +18,7 @@ class ContendingTeamController extends Controller
         //
       $tournaments = Tournament::all();
       $this_tournament = "All";
-      $teams = ContendingTeam::paginate(2);
+      $teams = ContendingTeam::where('status', 'ok')->paginate(2);
 
       return view('teams', compact('teams', 'tournaments', 'this_tournament'));
     }
