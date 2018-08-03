@@ -108,7 +108,8 @@
                               "timeOut": "8000",
                               "preventDuplicates": true
                           }
-                          toastr.error("Too Late. Registration window has closed.");
+                          toastr.error("Currently not accepting registrations : Either registration window " +
+                              "is closed, or maximum number of participants have already registered!");
                       })
                   @endif//}
               });

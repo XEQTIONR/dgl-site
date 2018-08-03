@@ -131,7 +131,7 @@ class TournamentController extends Controller
       $waiting = collect();
       $past = collect();
       $now = Carbon::now();
-      $contenders = $tournament->contenders()->get();
+      $contenders = $tournament->contenders()->where('status', 'ok')->get();
       $matches = $tournament->matches()
         ->with(['contestants.contending_team.roster'=>function($query){
             $query->where('status','ok');
@@ -177,7 +177,9 @@ class TournamentController extends Controller
       if(!is_null($tournament->rules))
         $tournament->rules = $Parsedown->text($tournament->rules);
 
-      if($now->gte(new Carbon($tournament->registration_end)) || $now->lte(new Carbon($tournament->registration_start)))
+      if($now->gte(new Carbon($tournament->registration_end))
+        || $now->lte(new Carbon($tournament->registration_start))
+        || (($tournament->num_contestants>0) && (count($contenders)>=$tournament->num_contestants)))
         $registration_active = false;
 
       $tournament->registration_active = $registration_active;

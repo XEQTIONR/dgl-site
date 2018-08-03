@@ -28,6 +28,7 @@ class ContendingTeamController extends Controller
       $tournaments = Tournament::all();
       $this_tournament = $tournament;
       $teams = ContendingTeam::where('tournament_id', $tournament->id)
+                              ->where('status', 'ok')
                               ->get();
       return view('teams', compact('teams', 'tournaments', 'this_tournament'));
     }

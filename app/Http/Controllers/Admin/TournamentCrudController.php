@@ -91,6 +91,28 @@ class TournamentCrudController extends CrudController
         , 'update/create/both');
 
       $this->crud->addField([
+          'name' => 'num_contenders',
+          'label' => '# of participants',
+          'type' => 'number',
+          // optionals
+          // 'attributes' => ["step" => "any"], // allow decimals
+          // 'prefix' => "$",
+          'suffix' => " Teams",
+        ]
+        , 'update/create/both');
+
+      $this->crud->addField([
+          'name' => 'squadsize',
+          'label' => 'Squad Size',
+          'type' => 'number',
+          // optionals
+          // 'attributes' => ["step" => "any"], // allow decimals
+          // 'prefix' => "$",
+          'suffix' => " Players",
+        ]
+        , 'update/create/both');
+
+      $this->crud->addField([
           'name' => 'description',
           'label' => 'Description',
           'type' => 'simplemde'
@@ -108,18 +130,6 @@ class TournamentCrudController extends CrudController
           'name' => 'rules',
           'label' => 'Rules',
           'type' => 'simplemde'
-        ]
-        , 'update/create/both');
-
-
-      $this->crud->addField([
-            'name' => 'squadsize',
-            'label' => 'Squad Size',
-            'type' => 'number',
-            // optionals
-            // 'attributes' => ["step" => "any"], // allow decimals
-            // 'prefix' => "$",
-             'suffix' => " Players",
         ]
         , 'update/create/both');
 
@@ -201,6 +211,28 @@ class TournamentCrudController extends CrudController
       ]);
 
       $this->crud->addColumn([
+        'name' => 'title',
+        'type' => 'select',
+        'label' => 'Esport',
+        'entity'  =>  'esport',
+        'attribute' =>  'name',
+        'model' => "App\Esport"
+      ]);
+
+      $this->crud->addColumn([
+        'name' => 'num_contenders',
+        'type' => 'number',
+        'label' => 'Max Contestants',
+      ]);
+
+
+      $this->crud->addColumn([
+        'name' => 'squadsize',
+        'type' => 'number',
+        'label' => 'Squad Size',
+      ]);
+
+      $this->crud->addColumn([
         'name' => 'registration_start',
         'type' => 'datetime',
         'label' => 'Registration Starts',
@@ -222,21 +254,6 @@ class TournamentCrudController extends CrudController
         'name' => 'enddate',
         'type' => 'date',
         'label' => 'End Date',
-      ]);
-
-      $this->crud->addColumn([
-        'name' => 'squadsize',
-        'type' => 'number',
-        'label' => 'Squad Size',
-      ]);
-
-      $this->crud->addColumn([
-        'name' => 'title',
-        'type' => 'select',
-        'label' => 'Esport',
-        'entity'  =>  'esport',
-        'attribute' =>  'name',
-        'model' => "App\Esport"
       ]);
 
       $this->crud->addColumn([
