@@ -5,12 +5,19 @@
       <div style="margin: 10px">
         <h2>Captain {{$alias}},</h2>
         <p>Your team,</p>
+        <img src="{{env('APP_URL','http://localhost:8000')}}{{$logo}}"
+          style="display: block; margin-left: auto; margin-right: auto">
         <p>{{$teamName}}</p>
         <p>has been approved for tournament :</p>
         <p>{{$tournament}}</p>
 
-        <p>Now it's up to you to rally your team for matches.
-        Visit DGLcore.com to keep up with fixtures.</p>
+        <p>Now its time to make sure you all your teammates join our Discord channel.
+        All moderation and match refereeing is done through discord. This is mandatory for
+        all players.</p>
+
+        <p style="font-weight: bold">Our Discord Server</p>
+        <a href="https://discord.gg/9rcvXmZ">https://discord.gg/9rcvXmZ</a>
+
         <p>Happy Gaming</p>
         <hr>
       </div>

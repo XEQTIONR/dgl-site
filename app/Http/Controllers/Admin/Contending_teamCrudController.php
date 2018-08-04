@@ -229,7 +229,7 @@ class Contending_teamCrudController extends CrudController
       $tournament = $team->tournament;
 
       //Send email to captain that their team has been approved by DGL
-      $mail = new TeamApproved($captain->email,$captain->alias,$team->name,$team->tag, $tournament->name);
+      $mail = new TeamApproved($captain->email, $captain->alias, $team, $tournament->name);
       Mail::to($captain->email)->send($mail);
 
       \Alert::success('Approved team '.$team->name.' for '.$team->tournament->name.'. Email sent to '.$captain->email.'.')->flash();
