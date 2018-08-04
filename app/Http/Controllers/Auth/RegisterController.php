@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 
 use App\Http\Controllers\Controller;
+use App\Mail\TournamentRegistrationFinished;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Mail;
@@ -115,26 +116,14 @@ class RegisterController extends Controller
           $roster->contending_team_id = $teamId;
           $team->roster()->save($roster);
 
-//          $verified_rosters = Roster::where('contending_team_id', $teamId)
-//            ->where('status', 'ok')
-//            ->get();
-//
-//          $teamsize = $team->tournament->esport->teamsize;
-//
-//          if(count($verified_rosters)>=$teamsize)
-//          {
-//            if($team->status == 'registration_incomplete')
-//            {
-//              $team->status = 'unverified';
-//              $team->save();
-//            }
-//          }
 
           //update the tournament invite to unusable
           $tournament_invite->status = 'used';
           $tournament_invite->save();
           // Send an email confirming entry into tournament
-          //$notification = "You have successfully registered to DaGameLeague and for the tournament";
+          $email = new TournamentRegistrationFinished($team->tournament, $team, $gamer);
+          Mail::to($gamer->email)->send($email);
+
         }
         else
         {

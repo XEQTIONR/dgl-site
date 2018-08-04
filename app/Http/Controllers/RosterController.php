@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Mail\TournamentRegistrationFinished;
 use Illuminate\Http\Request;
 use App\ContendingTeam;
 use App\Gamer;
@@ -48,6 +49,10 @@ class RosterController extends Controller
           {
             $roster->status = 'ok';
             $roster->save();
+
+            //Send email asking to join Discord server
+            $email = new TournamentRegistrationFinished($tournament, $team, $gamer);
+            Mail::to($gamer->email)->send($email);
 
             //change status of team in enough members are registered.
             $verified_rosters = Roster::where('contending_team_id', $team->id)
