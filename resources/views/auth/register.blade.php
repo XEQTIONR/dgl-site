@@ -39,6 +39,15 @@
     </style>
     <script>
         let data = {
+
+            fname: "",
+            lname: "",
+            alias: "",
+            email: "",
+            dob: "",
+            password: "",
+            confirm_password: "",
+
             searchingSteam: false,
             steamIdInput: "",
             steamProfileFound: false,
@@ -49,6 +58,7 @@
             battleTagInput: "",
             owProfileFound: false,
             owAvatarURL: "",
+            errors: [],
 
             submit_disabled: false
         };
@@ -131,6 +141,32 @@
                            }
                        });
                    }
+               },
+               validation: function(e) {
+                   console.log('validation called');
+                   app.errors = [];
+
+                   if(!app.fname.length>0)
+                       app.errors.push("Your first name is required.");
+                   if(!app.lname.length>0)
+                       app.errors.push("Your last name is required.");
+                   if(!app.alias.length>0)
+                       app.errors.push("An alias/screen name is required.");
+                   if(!app.email.length>0)
+                       app.errors.push("Enter your email");
+                   if(!app.dob.length>0)
+                       app.errors.push("Enter your date of birth");
+                   if(!app.password.length>0)
+                       app.errors.push("Enter a password you will use to log into DGL.");
+                   if(!app.confirm_password.length>0)
+                       app.errors.push("You need to enter your password again in the confirm password field.");
+                   if(app.password!=app.confirm_password)
+                       app.errors.push("Your password entries DO NOT match.")
+
+                   if(!app.errors.length)
+                       return true;
+
+                   e.preventDefault();
                }
            }
         });
@@ -145,15 +181,15 @@
             </div>
             <div class="row justify-content-center"><h6>Sign up for DaGameLeague</h6></div>
             <div class="row mt-4 justify-content-center px-1 px-md-5">
-                <div id="app" class="col-12">
-                    <form id="" class="form-horizontal w-100" method="POST" action="{{ route('register') }}">
+                <div class="col-12">
+                    <form id="app" @submit="validation" class="form-horizontal w-100" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
                             {{--<label for="fname" class="col-md-4 control-label">First Name</label>--}}
 
                             <div class="col">
-                                <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" placeholder="First name" required autofocus>
+                                <input v-model="fname" id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" placeholder="First name">
 
                                 @if ($errors->has('fname'))
                                     <span class="help-block">
@@ -167,7 +203,7 @@
                             {{--<label for="lname" class="col-md-4 control-label">Last Name</label>--}}
 
                             <div class="col">
-                                <input id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}" placeholder="Last Name" required autofocus>
+                                <input v-model="lname" id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}" placeholder="Last Name">
 
                                 @if ($errors->has('lname'))
                                     <span class="help-block">
@@ -181,7 +217,7 @@
                             {{--<label for="alias" class="col-md-4 control-label">Alias</label>--}}
 
                             <div class="col">
-                                <input id="alias" type="text" class="form-control" name="alias" value="{{ old('alias') }}" placeholder="Alias" required autofocus>
+                                <input v-model="alias" id="alias" type="text" class="form-control" name="alias" value="{{ old('alias') }}" placeholder="Alias">
 
                                 @if ($errors->has('alias'))
                                     <span class="help-block">
@@ -195,7 +231,7 @@
                             {{--<label for="email" class="col-md-4 control-label">E-Mail Address</label>--}}
 
                             <div class="col">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address" required>
+                                <input v-model="email" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -213,7 +249,7 @@
                                  data-date-format="dd/mm/yyyy"
                                  data-date-end-date="-10y"
                                  data-date-start-date="01/01/1950">
-                                <input name="dob" class="form-control" required autofocus autocomplete="off">
+                                <input v-model="dob" name="dob" class="form-control" autofocus autocomplete="off">
                                 <div id="dob-btn" class="input-group-addon px-3 py-2" style="display: inline; background-color: #67c; border-radius: 2px">
                                     <i class="far fa-calendar-alt" style="color: #FFF"></i>
                                 </div>
@@ -314,7 +350,7 @@
                             {{--<label for="password" class="col-md-4 control-label">Password</label>--}}
 
                             <div class="col">
-                                <input id="password" type="password" class="form-control" name="password"  placeholder="Password" required>
+                                <input v-model="password" id="password" type="password" class="form-control" name="password"  placeholder="Password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -329,8 +365,14 @@
                             {{--<label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>--}}
 
                             <div class="col">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
+                                <input v-model="confirm_password" id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
                             </div>
+                        </div>
+
+                        <div v-if="errors.length" class="w-100 mt-3">
+                          <ul v-for="error in errors">
+                            <li class="font-red">@{{error}}</li>
+                          </ul>
                         </div>
 
                         <div class="form-group my-5">

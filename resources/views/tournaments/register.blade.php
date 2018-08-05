@@ -46,17 +46,17 @@
                                 ->get();
               if(!count($rosters)>0) :
             ?>
-              <form method="POST" enctype="multipart/form-data" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
+              <form  id="app" @submit="validation" method="POST" enctype="multipart/form-data" action="/tournaments/{{$tournament->id}}/register" class="team-registration">
                 {{csrf_field()}}
-                <div id="app">
+                <div>
                   <div class="form-group">
                     <label for="teamName">Team Name</label>
-                    <input type="text" name="name" class="form-control" id="teamName">
+                    <input v-model="name" type="text" name="name" class="form-control" id="teamName">
                   </div>
                   <div class="form-group">
                     <label for="teamTag">Team Tag</label>
                     <div class="col-2 pl-0">
-                      <input type="text" name="tag" class="form-control" id="teamTag">
+                      <input v-model="tag" type="text" name="tag" class="form-control" id="teamTag">
                     </div>
                   </div>
                   <div class="form-group mt-4 mb-1">
@@ -156,15 +156,21 @@
                       </div>
                     </li>
                   </ol>
-
                   <div class="form-check mt-5">
-                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option2 ">
+                    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" v-model="confirm">
                     <label class="form-check-label" for="exampleRadios1">
                       I confirm that I have read and understood the rules and regulations of the tournament. I understand that if I am in violation of these rules, I or my team maybe disqualified from the tournament and/or banned from DGL.
                     </label>
                   </div>
+                  <div v-if="errors.length" class="w-100 mt-3">
+                    <ul v-for="error in errors">
+                      <li class="font-red">@{{error}}</li>
+                    </ul>
+                  </div>
                 </div>
+
                 <br>
+
                 <button  class="btn btn-outline-dgl" type="submit" value="submit">Submit</button>
               </form>
             <?php else : ?>
@@ -193,6 +199,8 @@
 
       <script>
           let data = {
+              name: "",
+              tag: "",
               gamers:[
                   @if(Auth::user())
                   {sl: "0", captain : "true", fname : "{{Auth::user()->fname}}", lname : "{{Auth::user()->lname}}", email : "{{Auth::user()->email}}", alias : "{{Auth::user()->alias}}", status : "ok"},
@@ -205,6 +213,10 @@
               ],
               image100: '',
               image300: '',
+              confirm: false,
+              errors: []
+              //verified_gamers: 0,
+              //verified_log0s: false
           };
 
           var app = new Vue({
@@ -408,6 +420,34 @@
 
                       } );
 
+                  },
+
+                  validation: function(e){
+                      //console.log('validation called');
+                      app.errors = [];
+                      var min_gamers = {{$tournament->esport->teamsize}};
+                      var g = 0;
+                      for(var i=0; i<app.gamers.length; i++)
+                        if((app.gamers[i].status=="new")||(app.gamers[i].status=="ok"))
+                          g++;
+
+                      if(g<min_gamers)
+                          app.errors.push("You need more teammates on your team.");
+
+                      if(!app.name.length)
+                          app.errors.push("You need to decide on a name for your team.");
+
+                      if(!app.tag.length)
+                          app.errors.push("You team needs a tag team/clan tag. Its a shorter acronym for your team.");
+
+                      if(!app.confirm)
+                          app.errors.push("You need to confirm that you agree to DGL rules and regulations.");
+
+                      if(!app.errors.length)
+                          return true;
+
+                      app.confirm = false;
+                      e.preventDefault();
                   }
               }
 
