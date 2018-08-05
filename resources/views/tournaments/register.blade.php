@@ -60,13 +60,14 @@
                     </div>
                   </div>
                   <div class="form-group mt-4 mb-1">
-                    <label for="images">Clan Logos</label>
+                    <label for="images">Clan Logos</label> <br>
+                    <label for="images"><small>You can use JPEG/JPG or PNG images. PNG is recommended becuase it can use transparent backgrounds.</small></label>
                   </div>
                   <div class="row">
                     <div class="col">
                       <div class="form-group">
                         <div v-if="!image300">
-                          <h5 class="font-primary-color">Select an image</h5>
+                          <h5 class="font-primary-color">Select a 300 x 300 image</h5>
                         </div>
                         <div v-else>
                           <div class="row my-0 justify-content-center">
@@ -85,7 +86,7 @@
                     <div class="col">
                       <div class="form-group">
                         <div v-if="!image100">
-                          <h5 class="font-primary-color">Select an image</h5>
+                          <h5 class="font-primary-color">Select a 50 x 50 image</h5>
                         </div>
                         <div v-else>
                           <div class="row my-0 justify-content-center">

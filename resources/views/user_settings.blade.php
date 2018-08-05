@@ -536,11 +536,19 @@
                     <small><strong>{{$team->tournament->name}}</strong></small>
                   </div>
                   <div class="d-flex w-100 justify-content-between">
-                    <div class="d-flex w-100 justify-content-start">
+                    <div class="d-flex w-50 justify-content-start">
                       <p class="mr-1"><strong>{{$team->tag}}</strong></p>
                       <span>{{$roster->gamer->alias}}</span>
                     </div>
-                    <small><strong>{{$roster->status}}</strong></small>
+
+                    @if($roster->status=='ok')
+                      <span class="font-primary-color"><i class="fas fa-check mr-3"></i><strong>TEAM JOINED</strong></span>
+                    @elseif($roster->status=='rejected')
+                      <span class="font-red"><i class="fas fa-times mr-3"></i><strong>DECLINED</strong></span>
+                      {{--@else--}}
+                      {{--<span class="font-light-gray"><i class="fas fa-exclamation mr-3"></i><strong>INVITE EXIPRED</strong></span>--}}
+                    @endif
+                    {{--<small><strong>{{$roster->status}}</strong></small>--}}
                   </div>
                 </li>
                 @endforeach
@@ -553,7 +561,18 @@
                   <div class="d-flex w-100 justify-content-between">
                     <span>{{$invite->email}}</span>
 
-                    <small><strong>{{$invite->status}}</strong></small>
+                    @if($invite->status=='available')
+                      <span class="font-primary-color"><i class="fas fa-check mr-3"></i><strong>TEAM JOINED</strong></span>
+                    {{--@elseif($invite->status=='rejected')--}}
+                      {{--<span class="font-red"><i class="fas fa-times mr-3"></i><strong>DECLINED</strong></span>--}}
+                    {{--@else--}}
+                      {{--<span class="font-light-gray"><i class="fas fa-exclamation mr-3"></i><strong>INVITE EXIPRED</strong></span>--}}
+                    @endif
+
+
+
+
+                    {{--<small><strong>{{$invite->status}}</strong></small>--}}
                   </div>
                 </li>
                 @endforeach

@@ -269,6 +269,7 @@ class TournamentController extends Controller
       $validatedData = $request->validate([
         //'title' => 'required|unique:posts|max:255',
         'img300' => 'required',
+        'img100' => 'required', // disable this to make img 100 optional
       ]);
 
 
