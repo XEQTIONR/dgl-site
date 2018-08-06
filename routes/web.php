@@ -76,6 +76,7 @@ Route::get('/album/{album}','MediaController@listAlbum');
     CRUD::resource('banner','BannerCrudController');
     CRUD::resource('album', 'AlbumCrudController');
     CRUD::resource('widget', 'WidgetCrudController');
+    CRUD::resource('platform', 'PlatformCrudController');
   });
 
 

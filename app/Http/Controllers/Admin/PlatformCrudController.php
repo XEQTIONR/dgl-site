@@ -5,32 +5,63 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\EsportRequest as StoreRequest;
-use App\Http\Requests\EsportRequest as UpdateRequest;
+use App\Http\Requests\PlatformRequest as StoreRequest;
+use App\Http\Requests\PlatformRequest as UpdateRequest;
 
-class EsportCrudController extends CrudController
+/**
+ * Class PlatformCrudController
+ * @package App\Http\Controllers\Admin
+ * @property-read CrudPanel $crud
+ */
+class PlatformCrudController extends CrudController
 {
     public function setup()
     {
+        /*
+        |--------------------------------------------------------------------------
+        | BASIC CRUD INFORMATION
+        |--------------------------------------------------------------------------
+        */
+        $this->crud->setModel('App\Models\Platform');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/platform');
+        $this->crud->setEntityNameStrings('platform', 'platforms');
 
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Esport');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/esport');
-        $this->crud->setEntityNameStrings('esport', 'esports');
 
-        /*
-        |--------------------------------------------------------------------------
-        | BASIC CRUD INFORMATION
-        |--------------------------------------------------------------------------
-        */
+        //$this->crud->setFromDb();
 
+        // ------ CRUD COLUMNS
+        $this->crud->addColumn([
+          'name' => 'name',
+          'type' => 'text',
+          'label' => 'Name',
+        ]);
 
-        // ------ CRUD FIELDS - for Forms
+        $this->crud->addColumn([
+          'name' => 'slug',
+          'type' => 'text',
+          'label' => 'Slug',
+        ]);
+        $this->crud->addColumn([
+          'name' => 'icon',
+          'type' => 'image',
+          //'width' => '50px',
+          'height' => '100px',
+          'label' => 'Platform Icon',
+        ]);
 
+        // $this->crud->addColumn(); // add a single column, at the end of the stack
+        // $this->crud->addColumns(); // add multiple columns, at the end of the stack
+        // $this->crud->removeColumn('column_name'); // remove a column from the stack
+        // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
+        // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
+        // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
+
+        // ------ CRUD FIELDS
         $this->crud->addField([
           'name' => 'name',
           'label' => 'Name',
@@ -46,50 +77,14 @@ class EsportCrudController extends CrudController
         , 'update/create/both');
 
         $this->crud->addField([
-            'name' => 'icon',
-            'label' => 'Esport Icon',
-            'type' => 'image',
-            'crop' => false, // set to true to allow cropping, false to disable
-            'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
-            'upload' => true,
-            'disk' => 'uploads',
-            //'prefix' => 'uploads/images/blog_banners/'
-        ]
-        , 'update/create/both');
-
-        $this->crud->addField([
-          'name' => 'description',
-          'label' => 'Description',
-          'type' => 'simplemde'
-        ]
-        , 'update/create/both');
-
-        $this->crud->addField([
-          'name' => 'teamsize',
-          'label' => 'Team Size',
-          'type' => 'number'
-        ]
-        , 'update/create/both');
-
-        $this->crud->addField([
           'name' => 'icon',
-          'label' => 'Esports Icon',
+          'label' => 'Platform Icon',
           'type' => 'image',
-          'crop' => true, // set to true to allow cropping, false to disable
+          'crop' => false, // set to true to allow cropping, false to disable
           'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
           'upload' => true,
           'disk' => 'uploads',
           //'prefix' => 'uploads/images/blog_banners/'
-        ]
-        , 'update/create/both');
-
-        $this->crud->addField([
-          'name' => 'platform_id',
-          'label' => 'Platform',
-          'type' => 'select2',
-          'entity' => 'platform',
-          'attribute' => 'name',
-          'model' => 'App\Models\Platform'
         ]
         , 'update/create/both');
         // $this->crud->addField($options, 'update/create/both');
@@ -97,48 +92,9 @@ class EsportCrudController extends CrudController
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
-        // ------ CRUD COLUMNS
-
-        $this->crud->addColumn([
-          'name' => 'name',
-          'type' => 'text',
-          'label' => 'Name',
-        ]);
-
-        $this->crud->addColumn([
-          'name' => 'slug',
-          'type' => 'text',
-          'label' => 'Slug',
-        ]);
-
-        $this->crud->addColumn([
-          'name' => 'teamsize',
-          'type' => 'number',
-          'label' => 'Team Size',
-        ]);
-
-        $this->crud->addColumn([
-          'name' => 'icon',
-          'type' => 'image',
-          //'width' => '50px',
-          'height' => '100px',
-          'label' => 'Esports Icon',
-        ]);
-
-        $this->crud->addColumn([
-          'label' => "Platform", // Table column heading
-          'type' => "select",
-          'name' => 'platform_id', // the column that contains the ID of that connected entity;
-          'entity' => 'platform', // the method that defines the relationship in your Model
-          'attribute' => "name", // foreign key attribute that is shown to user
-          'model' => 'App\Models\Platform', // foreign key model
-        ]);
-        // $this->crud->addColumn(); // add a single column, at the end of the stack
-        // $this->crud->addColumns(); // add multiple columns, at the end of the stack
-        // $this->crud->removeColumn('column_name'); // remove a column from the stack
-        // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
-        // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
-        // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
+        // add asterisk for fields that are required in PlatformRequest
+        //$this->crud->setRequiredFields(StoreRequest::class, 'create');
+        //$this->crud->setRequiredFields(UpdateRequest::class, 'edit');
 
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
@@ -182,7 +138,7 @@ class EsportCrudController extends CrudController
         // ------ ADVANCED QUERIES
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
-        // $this->crud->addClause('where', 'name', '==', 'car');
+        // $this->crud->addClause('where', 'name', '=', 'car');
         // $this->crud->addClause('whereName', 'car');
         // $this->crud->addClause('whereHas', 'posts', function($query) {
         //     $query->activePosts();

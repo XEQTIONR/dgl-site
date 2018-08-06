@@ -8,12 +8,24 @@ use Backpack\CRUD\CrudTrait;
 class Esport extends Model
 {
 
-  protected $fillable = ['id','name','slug','icon','description','teamsize'];
+  protected $fillable = ['id','name','slug','icon','description','teamsize','platform_id'];
   // protected $hidden = [];
   // protected $dates = [];
     use CrudTrait;
 
-  /*
+
+/*
+|--------------------------------------------------------------------------
+| RELATIONS
+|--------------------------------------------------------------------------
+*/
+
+  public function platform()
+  {
+    return $this->belongsTo('App\Models\Platform', 'platform_id');
+  }
+
+/*
  |--------------------------------------------------------------------------
  | ACCESORS
  |--------------------------------------------------------------------------
