@@ -44,7 +44,7 @@
             lname: "",
             alias: "",
             email: "",
-            dob: "",
+            //dob: "", cannot use this because of bootstap datepicker
             password: "",
             confirm_password: "",
 
@@ -154,14 +154,17 @@
                        app.errors.push("An alias/screen name is required.");
                    if(!app.email.length>0)
                        app.errors.push("Enter your email");
-                   if(!app.dob.length>0)
-                       app.errors.push("Enter your date of birth");
+                   // if(!app.dob.length>0)
+                   //     app.errors.push("Enter your date of birth");
                    if(!app.password.length>0)
                        app.errors.push("Enter a password you will use to log into DGL.");
                    if(!app.confirm_password.length>0)
                        app.errors.push("You need to enter your password again in the confirm password field.");
                    if(app.password!=app.confirm_password)
-                       app.errors.push("Your password entries DO NOT match.")
+                       app.errors.push("Your password entries DO NOT match.");
+
+                   if(!document.querySelector('#dobField').value.length>0)
+                       app.errors.push("Enter your date of birth");
 
                    if(!app.errors.length)
                        return true;
@@ -249,7 +252,7 @@
                                  data-date-format="dd/mm/yyyy"
                                  data-date-end-date="-10y"
                                  data-date-start-date="01/01/1950">
-                                <input v-model="dob" name="dob" class="form-control" autofocus autocomplete="off">
+                                <input id="dobField"  name="dob" class="form-control" autocomplete="off">
                                 <div id="dob-btn" class="input-group-addon px-3 py-2" style="display: inline; background-color: #67c; border-radius: 2px">
                                     <i class="far fa-calendar-alt" style="color: #FFF"></i>
                                 </div>

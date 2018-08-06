@@ -35,7 +35,7 @@
       @else
         <tr>
           <td colspan="5">
-          <p class="text-center">No players yet. This list gets populated as teams register for new tournaments.</p>
+          <h5 class="text-center font-gray my-5">No players yet. This list gets populated as teams register for new tournaments.</h5>
           </td>
         </tr>
 
