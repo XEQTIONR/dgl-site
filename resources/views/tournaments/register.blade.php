@@ -30,6 +30,17 @@
                   punishment period is over.</p>
               </div>
             </div>
+          @elseif(is_null(Auth::user()->discordid))
+            <div class="row justify-content-center">
+              <div class="col-10">
+                <h3 class="font-gray">DISCORD ID REQUIRED</h3>
+                <p class="font-white">You need to verify your discord id with us before you can register.</p>
+                <a href="/discord-oauth" class="btn btn-primary mt-3 mb-5" style="background-color: #7289DA; color: #FFF;">
+                  <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50">
+                  Setup Discord
+                </a>
+              </div>
+            </div>
           @elseif(Auth::user()->status == 'normal' ||  Auth::user()->status == 'other')
             <?php
               $ids = array();
@@ -77,7 +88,7 @@
                             <img :src="image300" width="300" height="300" style="border: 1px solid #6ACC5C"/>
                           </div>
                           <div class="row mt-2 justify-content-center">
-                            <button @click="removeImage300">Remove image</button>
+                            <button class="btn btn-danger" @click="removeImage300">Remove image</button>
                           </div>
                         </div>
                         <input type="file" name="img300" @change="onFileChange" id="img300Input" v-bind:class="[{'visible' : !image300}, {'hidden' : image300}]">
@@ -96,14 +107,15 @@
                             <img :src="image100" width="50" height="50" style="margin-top: 0px; margin-bottom: 125px;border: 1px solid #6ACC5C;"/>
                           </div>
                           <div class="row mt-2 justify-content-center">
-                            <button @click="removeImage100">Remove image</button>
+                            <button class="btn btn-danger" @click="removeImage100">Remove image</button>
                           </div>
                         </div>
                         <input type="file" name="img100" @change="onFileChange2" id="img100Input" v-bind:class="[{'visible' : !image100}, {'hidden' : image100}]">
                       </div>
                     </div></div>
                   <div class="form-group mt-4 mb-1">
-                    <label for="images">Team Roster</label>
+                    <label for="roster">Team Roster</label>
+                    <label for="roster"><small>You are the team captain</small></label>
                   </div>
                   <ol class="list-group">
                     <li  v-for="(gamer, index) in gamers" v-bind:class="[{'list-group-item-primary' : isOK(gamer) && (gamer.captain=='false'), 'list-group-item-captain' : isOK(gamer) && (gamer.captain=='true'), 'list-group-item-gray' : isNew(gamer)}, 'list-group-item']">
@@ -431,14 +443,17 @@
                         if((app.gamers[i].status=="new")||(app.gamers[i].status=="ok"))
                           g++;
 
-                      if(g<min_gamers)
-                          app.errors.push("You need more teammates on your team.");
-
                       if(!app.name.length)
                           app.errors.push("You need to decide on a name for your team.");
 
                       if(!app.tag.length)
-                          app.errors.push("You team needs a tag team/clan tag. Its a shorter acronym for your team.");
+                          app.errors.push("Your team needs a tag team/clan tag. Its a shorter acronym for your team.");
+
+                      if(!(app.image300.length && app.image100.length))
+                          app.errors.push("You need to upload your team logos.");
+
+                      if(g<min_gamers)
+                          app.errors.push("You need more teammates on your team.");
 
                       if(!app.confirm)
                           app.errors.push("You need to confirm that you agree to DGL rules and regulations.");
