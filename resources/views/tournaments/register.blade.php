@@ -41,6 +41,22 @@
                 </a>
               </div>
             </div>
+          @elseif($tournament->esport->platform->slug == 'steam' && is_null(Auth::user()->steamid))
+            <div class="row justify-content-center">
+              <div class="col-10">
+                <h3 class="font-gray">STEAM ID REQUIRED</h3>
+                <p class="font-white">You need to register your steam id with us before you can perform this action.
+                You can do it in the settings page.</p>
+              </div>
+            </div>
+          @elseif($tournament->esport->platform->slug == 'battlenet' && is_null(Auth::user()->battlenetid))
+            <div class="row justify-content-center">
+              <div class="col-10">
+                <h3 class="font-gray">BATTLE TAG REQUIRED</h3>
+                <p class="font-white">You need to register your BattleTag with us before you can perform this action.
+                  You can do it in the settings page.</p>
+              </div>
+            </div>
           @elseif(Auth::user()->status == 'normal' ||  Auth::user()->status == 'other')
             <?php
               $ids = array();
