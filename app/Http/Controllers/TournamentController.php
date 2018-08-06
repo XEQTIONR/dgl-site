@@ -389,6 +389,14 @@ class TournamentController extends Controller
           return "gamer-unverified";
         else if ($gamer->discordid == NULL)
           return "no-discord";
+        else
+        {
+          if($tournament->esport->platform->slug == config('social.steam_slug') && is_null($gamer->steamid))
+            return "steam-required";
+
+          if($tournament->esport->platform->slug == config('social.battlenet_slug') && is_null($gamer->battlenetid))
+            return "battlenet-required";
+        }
         $registrations = Roster::where('gamer_id', $gamer->id)
           ->where('status', 'ok')
           ->get();

@@ -41,7 +41,7 @@
                 </a>
               </div>
             </div>
-          @elseif($tournament->esport->platform->slug == 'steam' && is_null(Auth::user()->steamid))
+          @elseif($tournament->esport->platform->slug == config('social.steam_slug') && is_null(Auth::user()->steamid))
             <div class="row justify-content-center">
               <div class="col-10">
                 <h3 class="font-gray">STEAM ID REQUIRED</h3>
@@ -49,7 +49,7 @@
                 You can do it in the settings page.</p>
               </div>
             </div>
-          @elseif($tournament->esport->platform->slug == 'battlenet' && is_null(Auth::user()->battlenetid))
+          @elseif($tournament->esport->platform->slug == config('social.battlenet_slug') && is_null(Auth::user()->battlenetid))
             <div class="row justify-content-center">
               <div class="col-10">
                 <h3 class="font-gray">BATTLE TAG REQUIRED</h3>
@@ -402,6 +402,8 @@
                           let is_email = re.test(gamer);
                           // NOTE : app.gamers[sl] =  gamer -- causes view updates to fail (model still updates).. WTF?
                           //these return undefined if not found.
+                          console.log('response.data');
+                          console.log(response.data);
                           if(response.data == "already-registered")
                           {
                               alert("This gamer has already registered for another team in this tournament.");
@@ -432,6 +434,29 @@
                               app.gamers[sl].alias = null;
                               document.getElementById(sl).focus();
                           }
+
+                          else if(response.data == "steam-required")
+                          {
+                              alert("This teammate needs to provide us their STEAM ID on the Settings page before they can be recruited.");
+                              app.gamers[sl].status = "undefined";
+                              app.gamers[sl].fname = "";
+                              app.gamers[sl].lname = "";
+                              app.gamers[sl].email = "";
+                              app.gamers[sl].alias = null;
+                              document.getElementById(sl).focus();
+                          }
+
+                          else if(response.data == "battlenet-required")
+                          {
+                              alert("This teammate needs to provide us their BATTLE TAG on the Settings page before they can be recruited.");
+                              app.gamers[sl].status = "undefined";
+                              app.gamers[sl].fname = "";
+                              app.gamers[sl].lname = "";
+                              app.gamers[sl].email = "";
+                              app.gamers[sl].alias = null;
+                              document.getElementById(sl).focus();
+                          }
+
                           else if(is_email)  // NEW UNREGISTERED gamer
                           {
                               //console.log("NEW UNREGISTERED GAMER: " + gamer);

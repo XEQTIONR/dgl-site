@@ -9,5 +9,8 @@ return
 
   'discord_client_id' => env('DISCORD_CLIENT_ID'),
   'discord_client_secret' => env('DISCORD_CLIENT_SECRET'),
-  'discord_redirect_url' => env('DISCORD_REDIRECT_URI')
+  'discord_redirect_url' => env('DISCORD_REDIRECT_URI'),
+
+  'battlenet_slug' => env('BATTLENET_SLUG', 'battlenet'),
+  'steam_slug' => env('STEAM_SLUG', 'steam')
 ];
