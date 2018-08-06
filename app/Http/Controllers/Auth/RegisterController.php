@@ -136,11 +136,11 @@ class RegisterController extends Controller
           $email = new VerifyEmailAddress($data['email'], $metaVerify->meta_value);
 
           Mail::to($data['email'])->send($email);
-//          $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
-//          $type = 'success';
-//          $request = request();
-//          $request->session()->flash('notification', $notification);
-//          $request->session()->flash('notification_type', $type);
+          $notification = "You have successfully registered to DaGameLeague. Don't forget to verify your email address.";
+          $type = 'success';
+          $request = request();
+          $request->session()->flash('notification', $notification);
+          $request->session()->flash('notification_type', $type);
         }
 
 

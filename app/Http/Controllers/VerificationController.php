@@ -19,17 +19,23 @@ class VerificationController extends Controller
     {
         $meta = GamerMeta::where('meta_key', 'email_verification_code')
                           ->where('meta_value', $code)->first();
-        $gamer = $meta->gamer;
-        $gamer->status = 'normal';
-        $gamer->save();
 
-        $meta->delete();
+        if($meta)
+        {
+          $gamer = $meta->gamer;
+          $gamer->status = 'normal';
+          $gamer->save();
 
-        $notification = "Email address verified. Well done!";
-        $type = 'success';
-        $request->session()->flash('notification', $notification);
-        $request->session()->flash('notification_type', $type);
-        return redirect('/');
+          $meta->delete();
+
+          $notification = "Email address verified. Well done!";
+          $type = 'success';
+          $request->session()->flash('notification', $notification);
+          $request->session()->flash('notification_type', $type);
+          return redirect('/');
+        }
+        abort(404);
+
     }
 
     public function resendVerificationEmail(Gamer $gamer)

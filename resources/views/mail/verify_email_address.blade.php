@@ -10,6 +10,9 @@
   <p>If you cannot see the button visit the following link </p>
 
   <a href="{{env('APP_URL','http://localhost:8000')}}/verify/{{$verificationCode}}">{{env('APP_URL','http://localhost:8000')}}/verify/{{$verificationCode}}</a>
+
+  <p>This link only works once for verification. If your email address is unverified and you lose this email you can generate another one from DGL settinngs page</p>
+  <a href="{{env('APP_URL', 'http://localhost:8000')}}/settings">{{env('APP_URL', 'http://localhost:8000')}}/settings</a>
   <p>Happy Gaming</p>
       <hr>
     </div>
