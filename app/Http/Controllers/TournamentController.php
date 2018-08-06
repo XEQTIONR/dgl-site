@@ -266,7 +266,7 @@ class TournamentController extends Controller
     public function register(Request $request, Tournament $tournament)
     {
 
-      $validatedData = $request->validate([
+     $request->validate([
         //'title' => 'required|unique:posts|max:255',
         'img300' => 'required',
         'img100' => 'required', // disable this to make img 100 optional
@@ -329,7 +329,7 @@ class TournamentController extends Controller
           $invites->push($invite);
           Mail::to($alias)->send($email);
         }
-        else // an alias of an already existing gamer was returned
+        else if($alias!="" && !is_null($alias))// an alias of an already existing gamer was returned
         {
           $gamer = Gamer::where('alias', $alias)->first();
           $roster  = new Roster();
@@ -387,7 +387,7 @@ class TournamentController extends Controller
       {
         if( $gamer->status == 'unverified')
           return "gamer-unverified";
-        else if ($gamer->discord == NULL)
+        else if ($gamer->discordid == NULL)
           return "no-discord";
         $registrations = Roster::where('gamer_id', $gamer->id)
           ->where('status', 'ok')

@@ -168,6 +168,18 @@
                       </div>
                     </li>
                   </ol>
+                  <div v-if="gamers_on_team < team_size" class="w-100 my-2">
+                    <span class="font-white">Atleast</span> <span class="font-white">@{{team_size-gamers_on_team}}</span> <span class="font-white">more teammates needed</span>
+                  </div>
+                  <div v-else class="w-100 my-2">
+                    <span class="font-primary-color">You have enough teammates</span>
+                  </div>
+                  <div v-if="gamers_on_team < squad_size" class="w-100 my-2">
+                    <span class="font-white">Upto</span> <span class="font-white">@{{gamers_on_team < team_size ? squad_size - team_size : squad_size-gamers_on_team }}</span> <span class="font-white">more subs</span>
+                  </div>
+                  <div v-else class="w-100 my-2">
+                    <span class="font-red">Team Full</span>
+                  </div>
                   <div class="form-check mt-5">
                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" v-model="confirm">
                     <label class="form-check-label" for="exampleRadios1">
@@ -204,7 +216,7 @@
           @endif
         @else
           <h3 class="font-gray">You must be logged in in order to view this content.</h3>
-          <a href="/tournament/login/{{$tournament->id}}" class="btn  btn-success btn-large">SIGN IN</a>
+          <a href="/tournament/login/{{$tournament->id}}" class="btn  btn-success btn-large my-3">SIGN IN</a>
         @endif
       </div>  <!-- col -->
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -226,7 +238,10 @@
               image100: '',
               image300: '',
               confirm: false,
-              errors: []
+              errors: [],
+              gamers_on_team: 1,
+              team_size: {{$tournament->esport->teamsize}},
+              squad_size: {{$tournament->squadsize}}
               //verified_gamers: 0,
               //verified_log0s: false
           };
@@ -348,16 +363,20 @@
                       return false;
                   },
                   unsetGamer: function(gamer){
-                      let sl = gamer.sl;
-                      app.gamers[sl].fname= "";
-                      app.gamers[sl].lname = "";
-                      app.gamers[sl].email = "";
-                      app.gamers[sl].alias = null;
-                      app.gamers[sl].status = "init";
+                      var sl = gamer.sl;
+
+                          app.gamers[sl].fname= "";
+                          app.gamers[sl].lname = "";
+                          app.gamers[sl].email = "";
+                          app.gamers[sl].alias = null;
+                          app.gamers[sl].status = "init";
+
+                      app.gamers_on_team--;
                   },
                   getGamer: function(input){
 
                       let sl = input.sl;
+                      app.gamers[sl].status = "searching";
                       //Update the gamer based on the alias change that just occurred.
                       axios.get('/tournaments/'+input.alias+"/{{$tournament->id}}").then( function(response) {
 
@@ -404,6 +423,7 @@
                               app.gamers[sl].fname = null;
                               app.gamers[sl].lname = null;
                               app.gamers[sl].email = gamer;
+                              app.gamers_on_team++;
 
                           }
                           else // REGISTERED gamer FOUND
@@ -415,6 +435,7 @@
 
                               if ((gamer.fname != undefined) && (gamer.lname != undefined) && (gamer.email != undefined)) {
                                   app.gamers[sl].status = "ok";
+                                  app.gamers_on_team++;
 
                               }
                               else// gamer was not found
@@ -437,11 +458,17 @@
                   validation: function(e){
                       //console.log('validation called');
                       app.errors = [];
-                      var min_gamers = {{$tournament->esport->teamsize}};
+                      var min_gamers = app.team_size;
                       var g = 0;
+                      var search = false;
                       for(var i=0; i<app.gamers.length; i++)
-                        if((app.gamers[i].status=="new")||(app.gamers[i].status=="ok"))
-                          g++;
+                      {
+                          if((app.gamers[i].status=="new")||(app.gamers[i].status=="ok"))
+                              g++;
+                          if(app.gamers[i].status=="searching")
+                              search = true;
+                      }
+
 
                       if(!app.name.length)
                           app.errors.push("You need to decide on a name for your team.");
@@ -458,7 +485,7 @@
                       if(!app.confirm)
                           app.errors.push("You need to confirm that you agree to DGL rules and regulations.");
 
-                      if(!app.errors.length)
+                      if(!app.errors.length && !search)
                           return true;
 
                       app.confirm = false;
