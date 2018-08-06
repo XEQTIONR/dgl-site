@@ -53,7 +53,7 @@
               $rosters = DB::table('rosters')
                                 ->whereIn('contending_team_id', $ids)
                                 ->where('gamer_id', Auth::id())
-                                 //->where('status', 'ok');
+                                ->where('status', 'ok')
                                 ->get();
               if(!count($rosters)>0) :
             ?>

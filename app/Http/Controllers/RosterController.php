@@ -67,6 +67,7 @@ class RosterController extends Controller
               {
                 $team->status = 'unverified';
                 $team->save();
+                //Email Admin to check team;
               }
             }
 
