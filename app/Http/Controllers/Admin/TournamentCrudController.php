@@ -49,13 +49,25 @@ class TournamentCrudController extends CrudController
       $this->crud->addField([
           'name' => 'registration_start',
           'label' => 'Registration Start',
-          'type' => 'datetime'
+          'type' => 'datetime_picker',
+          // optional:
+          'datetime_picker_options' => [
+            'format' => 'DD/MM/YYYY HH:mm',
+            'language' => 'en'
+          ],
+          'allows_null' => false,
         ]
         , 'update/create/both');
       $this->crud->addField([
           'name' => 'registration_end',
           'label' => 'Registration End',
-          'type' => 'datetime'
+          'type' => 'datetime_picker',
+          // optional:
+          'datetime_picker_options' => [
+            'format' => 'DD/MM/YYYY HH:mm',
+            'language' => 'en'
+          ],
+          'allows_null' => false,
         ]
         , 'update/create/both');
 

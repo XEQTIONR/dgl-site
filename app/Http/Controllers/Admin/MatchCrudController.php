@@ -57,7 +57,7 @@ class MatchCrudController extends CrudController
             'format' => 'DD/MM/YYYY HH:mm',
             'language' => 'en'
           ],
-          'allows_null' => true,
+          'allows_null' => false,
         ]
         , 'update/create/both');
       $this->crud->addField([
