@@ -11,6 +11,7 @@ use App\Roster;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Mail;
 
 class RosterController extends Controller
 {

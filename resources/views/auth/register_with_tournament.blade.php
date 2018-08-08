@@ -18,11 +18,6 @@
       $('#dob-btn').click(function(){
           $('#dob').focus();
       });
-
-      $('#app').submit(function(){
-          $('#email').removeAttr('disabled');
-          return true;
-      })
   </script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -46,8 +41,8 @@
           fname: "",
           lname: "",
           alias: "",
-          email: "",
-          dob: "",
+          email: "{{$toEmail}}",
+          //dob: "", cannot use this because of bootstap datepicker
           password: "",
           confirm_password: "",
 
@@ -157,16 +152,32 @@
                       app.errors.push("An alias/screen name is required.");
                   if(!app.email.length>0)
                       app.errors.push("Enter your email");
-                  if(!app.dob.length>0)
-                      app.errors.push("Enter your date of birth");
+                  // if(!app.dob.length>0)
+                  //     app.errors.push("Enter your date of birth");
                   if(!app.password.length>0)
                       app.errors.push("Enter a password you will use to log into DGL.");
                   if(!app.confirm_password.length>0)
                       app.errors.push("You need to enter your password again in the confirm password field.");
                   if(app.password!=app.confirm_password)
-                      app.errors.push("Your password entries DO NOT match.")
+                      app.errors.push("Your password entries DO NOT match.");
 
+                  if(!document.querySelector('#dobField').value.length>0)
+                      app.errors.push("Enter your date of birth");
+
+                  @if($esport->platform->slug == config('social.battlenet_slug'))
+                  if(!app.owProfileFound)
+                      app.errors.push("You Battle Tag is required to process your tournament registration.");
+                  @endif
+
+                  @if($esport->platform->slug == config('social.steam_slug'))
+                  if(!app.steamProfileFound)
+                      app.errors.push("You Steam id is required to process your tournament registration.");
+                  @endif
                   if(!app.errors.length)
+                  {
+                      document.querySelector('#email').removeAttribute('disabled');
+                      //$('#email').removeAttr('disabled');
+                  }
                       return true;
 
                   e.preventDefault();
@@ -236,7 +247,7 @@
                 {{--<label for="email" class="col-md-4 control-label">E-Mail Address</label>--}}
 
                 <div class="col">
-                  <input v-model="email" id="email" type="email" class="form-control" name="email" value="{{ $toEmail }}" placeholder="Email address">
+                  <input v-model="email" id="email" type="email" class="form-control" name="email" disabled placeholder="Email address">
 
                   @if ($errors->has('email'))
                     <span class="help-block">
@@ -254,7 +265,7 @@
                      data-date-format="dd/mm/yyyy"
                      data-date-end-date="-10y"
                      data-date-start-date="01/01/1950">
-                  <input v-model="dob" name="dob" class="form-control" autofocus autocomplete="off">
+                  <input id="dobField" name="dob" class="form-control" autocomplete="off">
                   <div id="dob-btn" class="input-group-addon px-3 py-2" style="display: inline; background-color: #67c; border-radius: 2px">
                     <i class="far fa-calendar-alt" style="color: #FFF"></i>
                   </div>

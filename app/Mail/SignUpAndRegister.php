@@ -9,6 +9,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\ContendingTeam;
 use App\Tournament;
+use App\Gamer;
+use App\Roster;
 
 class SignUpAndRegister extends Mailable
 {
