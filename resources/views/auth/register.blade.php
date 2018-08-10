@@ -335,19 +335,19 @@
                           </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('discordid') ? ' has-error' : '' }}">
+                        {{--<div class="form-group{{ $errors->has('discordid') ? ' has-error' : '' }}">--}}
                             {{--<label for="discordid" class="col-md-4 control-label">Discord ID</label>--}}
 
-                            <div class="col">
-                                <input id="discordid" type="text" class="form-control" name="discordid" value="{{ old('discordid') }}" placeholder="Discord ID"  autofocus>
+                            {{--<div class="col">--}}
+                                {{--<input id="discordid" type="text" class="form-control" name="discordid" value="{{ old('discordid') }}" placeholder="Discord ID"  autofocus>--}}
 
-                                @if ($errors->has('discordid'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('discordid') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                                {{--@if ($errors->has('discordid'))--}}
+                                    {{--<span class="help-block">--}}
+                                        {{--<strong>{{ $errors->first('discordid') }}</strong>--}}
+                                    {{--</span>--}}
+                                {{--@endif--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             {{--<label for="password" class="col-md-4 control-label">Password</label>--}}
