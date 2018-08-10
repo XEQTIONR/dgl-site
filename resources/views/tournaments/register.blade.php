@@ -78,12 +78,12 @@
                 <div>
                   <div class="form-group">
                     <label for="teamName">Team Name</label>
-                    <input v-model="name" type="text" name="name" class="form-control" id="teamName">
+                    <input v-on:input="checkName" v-model="name" type="text" name="name" class="form-control" id="teamName" placeholder="Max 25 characters">
                   </div>
                   <div class="form-group">
                     <label for="teamTag">Team Tag</label>
                     <div class="col-2 pl-0">
-                      <input v-model="tag" type="text" name="tag" class="form-control" id="teamTag">
+                      <input v-on:input="checkTag" v-model="tag" type="text" name="tag" class="form-control" id="teamTag" placeholder="Max 5 characters.">
                     </div>
                   </div>
                   <div class="form-group mt-4 mb-1">
@@ -184,18 +184,22 @@
                       </div>
                     </li>
                   </ol>
+
                   <div v-if="gamers_on_team < team_size" class="w-100 my-2">
                     <span class="font-white">Atleast</span> <span class="font-white">@{{team_size-gamers_on_team}}</span> <span class="font-white">more teammates needed</span>
                   </div>
                   <div v-else class="w-100 my-2">
                     <span class="font-primary-color">You have enough teammates</span>
                   </div>
+
+                  @if( $tournament->squadsize > $tournament->esport->teamsize )
                   <div v-if="gamers_on_team < squad_size" class="w-100 my-2">
                     <span class="font-white">Upto</span> <span class="font-white">@{{gamers_on_team < team_size ? squad_size - team_size : squad_size-gamers_on_team }}</span> <span class="font-white">more subs</span>
                   </div>
                   <div v-else class="w-100 my-2">
                     <span class="font-red">Team Full</span>
                   </div>
+                  @endif
                   <div class="form-check mt-5">
                     <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" v-model="confirm">
                     <label class="form-check-label" for="exampleRadios1">
@@ -460,40 +464,96 @@
                           else if(is_email)  // NEW UNREGISTERED gamer
                           {
                               //console.log("NEW UNREGISTERED GAMER: " + gamer);
-                              app.gamers[sl].status = "new";
-                              app.gamers[sl].fname = null;
-                              app.gamers[sl].lname = null;
-                              app.gamers[sl].email = gamer;
-                              app.gamers_on_team++;
 
-                          }
-                          else // REGISTERED gamer FOUND
-                          {
-                              app.gamers[sl].alias = gamer.alias;
-                              app.gamers[sl].fname = gamer.fname;
-                              app.gamers[sl].lname = gamer.lname;
-                              app.gamers[sl].email = gamer.email;
 
-                              if ((gamer.fname != undefined) && (gamer.lname != undefined) && (gamer.email != undefined)) {
-                                  app.gamers[sl].status = "ok";
-                                  app.gamers_on_team++;
+                              var duplicate = false;
+                              for(i=0; i<app.gamers.length; i++)
+                              {
+                                  if(app.gamers[i].email == gamer)
+                                  {
+                                      duplicate = true;
+                                      break;
+                                  }
 
                               }
-                              else// gamer was not found
+                              if(duplicate)
                               {
+                                  alert(gamer + " is already on your team");
                                   app.gamers[sl].status = "undefined";
                                   app.gamers[sl].fname = "";
                                   app.gamers[sl].lname = "";
                                   app.gamers[sl].email = "";
                                   app.gamers[sl].alias = null;
-
                                   document.getElementById(sl).focus();
+                              }
+                              else
+                              {
+                                  app.gamers[sl].status = "new";
+                                  app.gamers[sl].fname = null;
+                                  app.gamers[sl].lname = null;
+                                  app.gamers[sl].email = gamer;
+                                  app.gamers_on_team++;
+                              }
+
+                          }
+                          else // REGISTERED gamer FOUND
+                          {
+                              var duplicate = false;
+                              for(i=0; i<app.gamers.length; i++)
+                              {
+                                  if(app.gamers[i].email == gamer.email)
+                                  {
+                                      duplicate = true;
+                                      break;
+                                  }
+
+                              }
+                              if(duplicate)
+                              {
+                                  alert(gamer.alias + " is already on your team");
+                                  app.gamers[sl].status = "undefined";
+                                  app.gamers[sl].fname = "";
+                                  app.gamers[sl].lname = "";
+                                  app.gamers[sl].email = "";
+                                  app.gamers[sl].alias = null;
+                                  document.getElementById(sl).focus();
+                              }
+                              else{
+                                  app.gamers[sl].alias = gamer.alias;
+                                  app.gamers[sl].fname = gamer.fname;
+                                  app.gamers[sl].lname = gamer.lname;
+                                  app.gamers[sl].email = gamer.email;
+
+                                  if ((gamer.fname != undefined) && (gamer.lname != undefined) && (gamer.email != undefined)) {
+                                      app.gamers[sl].status = "ok";
+                                      app.gamers_on_team++;
+
+                                  }
+                                  else// gamer was not found
+                                  {
+                                      app.gamers[sl].status = "undefined";
+                                      app.gamers[sl].fname = "";
+                                      app.gamers[sl].lname = "";
+                                      app.gamers[sl].email = "";
+                                      app.gamers[sl].alias = null;
+
+                                      document.getElementById(sl).focus();
+                                  }
                               }
                           }
                           //this is not the same instance as app.gamers[sl]
 
                       } );
 
+                  },
+
+                  checkName: function(){
+                      if(app.name.length>25);
+                        app.name = app.name.substring(0, 24);
+                  },
+                  checkTag: function(){
+                      if(app.tag.length>5);
+                      app.tag = app.tag.substring(0, 4);
                   },
 
                   validation: function(e){

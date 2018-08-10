@@ -268,6 +268,8 @@ class TournamentController extends Controller
 
      $request->validate([
         //'title' => 'required|unique:posts|max:255',
+        'name'  =>  'required|max:25',
+        'tag' => 'required|max:5',
         'img300' => 'required',
         'img100' => 'required', // disable this to make img 100 optional
       ]);
