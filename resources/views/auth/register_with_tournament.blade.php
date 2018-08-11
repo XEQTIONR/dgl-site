@@ -8,13 +8,6 @@
   <script src="http://code.jquery.com/jquery-3.2.1.min.js" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
   <script>
-      $('#dob').datepicker({
-          format: 'dd/mm/yyyy',
-          autoclose: true,
-          startDate: '-90y',
-          endDate: '-12y'
-      });
-
       $('#dob-btn').click(function(){
           $('#dob').focus();
       });
@@ -38,13 +31,15 @@
   <script>
       let data = {
 
-          fname: "",
-          lname: "",
-          alias: "",
+          fname: "{{old('fname')}}",
+          lname: "{{old('lname')}}",
+          alias: "{{old('alias')}}",
           email: "{{$toEmail}}",
           //dob: "", cannot use this because of bootstap datepicker
           password: "",
           confirm_password: "",
+
+          searchingAlias: false,
 
           searchingSteam: false,
           steamIdInput: "",
@@ -65,6 +60,32 @@
           el: '#app',
           data: data,
           methods:{
+
+              findGamer: function(){
+
+                  app.searchingAlias = true;
+                  axios.get('/findgamer/'+ app.alias).then(function(response)
+                  {
+                      app.searchingAlias = false;
+                      var alias = response.data;
+                      console.log("alias: "+ alias);
+                      toastr.options = {
+                          "closeButton" : true,
+                          "timeOut": "3000",
+                      };
+                      if(alias == "")
+                      {
+                          toastr.success(app.aliasInput+ " is available.");
+                      }
+                      else
+                      {
+                          toastr.error(app.alias+" is taken.");
+                          app.alias="";
+                      }
+                  });
+                  app.searchingAlias = false;
+
+              },
 
               submitDisable: function(){
                   app.submit_disabled = true;
@@ -143,7 +164,7 @@
               validation: function(e) {
                   console.log('validation called');
                   app.errors = [];
-
+                  this.findGamer();
                   if(!app.fname.length>0)
                       app.errors.push("Your first name is required.");
                   if(!app.lname.length>0)
@@ -263,8 +284,8 @@
                 <div id="dob" class="input-group date px-3"
                      data-provide="datepicker"
                      data-date-format="dd/mm/yyyy"
-                     data-date-end-date="-10y"
-                     data-date-start-date="01/01/1950">
+                     data-date-end-date="-9y"
+                     data-date-start-date="-80y">
                   <input id="dobField" name="dob" class="form-control" autocomplete="off">
                   <div id="dob-btn" class="input-group-addon px-3 py-2" style="display: inline; background-color: #67c; border-radius: 2px">
                     <i class="far fa-calendar-alt" style="color: #FFF"></i>
@@ -393,7 +414,7 @@
 
               <div class="form-group my-5">
                 <div class="col">
-                  <button type="submit" class="btn btn-lg btn-block btn btn-outline-success">
+                  <button v-bind:disabled="searchingSteam || searchingBattleTag || searchingAlias" type="submit" class="btn btn-lg btn-block btn btn-outline-success">
                     Sign Up
                   </button>
                 </div>

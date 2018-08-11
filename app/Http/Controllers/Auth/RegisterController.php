@@ -64,8 +64,8 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:gamers',
             'password' => 'required|string|min:6|confirmed',
             'alias' => 'required|string|min:1|max:25|unique:gamers',
-            'fname' =>  'required|alpha_dash|min:1|max:25',
-            'lname' =>  'required|alpha_dash|min:1|max:25',
+            'fname' =>  'required|alpha|min:1|max:25',
+            'lname' =>  'required|alpha|min:1|max:25',
             'dob' =>  'required',
         ]);
     }
