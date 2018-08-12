@@ -11,7 +11,7 @@
         <img src="{{env('APP_URL','http://localhost:8000')}}{{$team->logo_size1}}"
              style="display: block; margin-left: auto; margin-right: auto">
 
-        <p>Now its time to make sure you all your teammates join our Discord channel.
+        <p>Now its time to make sure you and all your teammates join our Discord channel.
           All moderation and match refereeing is done through discord. This is mandatory for
           all players.</p>
 

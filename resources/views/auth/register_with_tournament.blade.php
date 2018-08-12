@@ -197,9 +197,8 @@
                   if(!app.errors.length)
                   {
                       document.querySelector('#email').removeAttribute('disabled');
-                      //$('#email').removeAttr('disabled');
-                  }
                       return true;
+                  }
 
                   e.preventDefault();
               }
