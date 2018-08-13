@@ -21,6 +21,7 @@ class TeamApproved extends Mailable
     public $tournament;
     public $toEmail;
     public $alias;
+    public $logo;
 
     public function __construct($toAddress, $toAlias, $team, $tournamentName)
     {
