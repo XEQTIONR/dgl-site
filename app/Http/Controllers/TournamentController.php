@@ -15,6 +15,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Mail\NewTeamRegisterAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SignUpAndRegister;
@@ -354,14 +355,18 @@ class TournamentController extends Controller
       $team->roster()->saveMany($rosters);
       $team->invites()->saveMany($invites);
 
+      $adminNotification = new NewTeamRegisterAdmin($tournament->name, $team->name, $team->tag, $team->logo_size1, $team->created_at);
+      Mail::to(config('app.admin_email'))->send($adminNotification);
 
-      //return $team->id;
+
       $notification = "Registration form submitted. Your team registration will complete when all your teammates accept their invitations.";
       $type = 'warning';
       $request->session()->flash('notification', $notification);
       $request->session()->flash('notification_type', $type);
 
       return redirect('/tournaments/'.$tournament->id);
+
+
     }
 
     //api call during tournament registration
