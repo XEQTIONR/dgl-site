@@ -7,32 +7,28 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NewTeamRegisterAdmin extends Mailable
+class VerifyTeamAdmin extends Mailable
 {
     use Queueable, SerializesModels;
 
-
+    public $tournament;
     public $name;
     public $tag;
+    public $updated_at;
     public $logo;
-    public $created;
-    public $tournament;
-
-  /**
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($tournament, $name, $tag, $logo, $created)
+    public function __construct($tournament, $name, $tag, $logo, $updated_at)
     {
         //
-
+      $this->tournament = $tournament;
       $this->name = $name;
       $this->tag = $tag;
       $this->logo = $logo;
-      $this->created = $created;
-      $this->tournament = $tournament;
-
+      $this->updated_at = $updated_at;
     }
 
     /**
@@ -42,6 +38,6 @@ class NewTeamRegisterAdmin extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.admin_new_team_register');
+        return $this->view('mail.admin_verify_team');
     }
 }

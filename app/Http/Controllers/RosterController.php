@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Mail\TournamentRegistrationFinished;
+use App\Mail\VerifyTeamAdmin;
 use Illuminate\Http\Request;
 use App\ContendingTeam;
 use App\Gamer;
@@ -69,6 +70,8 @@ class RosterController extends Controller
                 $team->status = 'unverified';
                 $team->save();
                 //Email Admin to check team;
+                $adminNotification = new VerifyTeamAdmin($tournament->name, $team->name, $team->tag, $team->logo_size1, $team->updated_at);
+                Mail::to(config('app.admin_email'))->send($adminNotification);
               }
             }
 

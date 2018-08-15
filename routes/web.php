@@ -139,6 +139,9 @@ Route::get('/discord', function(Illuminate\Http\Request $request){
             $team->status = 'unverified';
             $team->save();
             //send email to admin.
+            $adminNotification = new \App\Mail\VerifyTeamAdmin($tournament->name, $team->name, $team->tag, $team->logo_size1, $team->updated_at);
+            Mail::to(config('app.admin_email'))->send($adminNotification);
+
           }
 
       }
