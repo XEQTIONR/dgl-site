@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Mail\MatchNotification;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
@@ -46,6 +47,31 @@ class Match extends Model
   public function checkins()
   {
     return $this->hasMany('App\Checkin');
+  }
+
+  public function notifyButton()
+  {
+    if(!$this->notified)
+      return "<a href='/".config('backpack.base.route_prefix')."/notify-match/".$this->id."' class='btn btn-xs btn-success'><i class='fa fa-check'></i>Email Contestants</a>";
+    return null;
+//    $contestants = $this->contestants->with('contending_team.tournament')->get();
+//
+//    if(count($contestants>1))
+//    {
+//      foreach($contestants as $contestant)
+//      {
+//        $team = $contestant->contending_team;
+//        $rosters = $team->roster->with('gamer');
+//
+//        foreach($rosters as $roster)
+//        {
+//          if($roster->status == 'ok')
+//          {
+//            $mail = new MatchNotification($this, $contestants, $team);
+//          }
+//        }
+//      }
+//    }
   }
 
   

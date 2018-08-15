@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Mail\MatchNotification;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Match;
 use App\MatchContestant;
@@ -171,7 +172,9 @@ class MatchCrudController extends CrudController
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
 
         // ------ CRUD BUTTONS
-        // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
+        $this->crud->addButtonFromModelFunction('line', 'notify', 'notifyButton', 'beginning'); // add a button whose HTML is returned by a method in the CRUD model
+
+      // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
         // $this->crud->addButtonFromModelFunction($stack, $name, $model_function_name, $position); // add a button whose HTML is returned by a method in the CRUD model
         // $this->crud->addButtonFromView($stack, $name, $view, $position); // add a button whose HTML is in a view placed at resources\views\vendor\backpack\crud\buttons
@@ -303,5 +306,27 @@ class MatchCrudController extends CrudController
           ->update(['won_id' => intval($request->input('winner'))]);
 
       return redirect('admin/match');
+    }
+
+    public function emailNotify(Match $match)
+    {
+      $contestants = $match->contestants->with('contending_team.roster.gamer')->get();
+
+      foreach($contestants as $contestant)
+      {
+        $rosters = $contestant->contending_team->roster;
+
+        foreach($rosters as $roster)
+        {
+          if($roster->status == 'ok')
+          {
+            $mail = new MatchNotification($match, $contestants, $contestant->contending_team);
+            Mail::to($roster->gamer->email)->send($mail);
+          }
+        }
+      }
+
+      $match->notified = 1;
+      $match->save();
     }
 }

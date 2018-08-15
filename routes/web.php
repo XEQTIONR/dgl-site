@@ -64,6 +64,7 @@ Route::get('/album/{album}','MediaController@listAlbum');
     // your CRUD resources and other admin routes here
     Route::get('/approve/{team}', 'Contending_teamCrudController@approve');
     Route::post('/score/{match}', 'MatchCrudController@updateScore');
+    Route::get('/notify-match/{match}', 'MatchCrudController@emailNotify');
 
     CRUD::resource('tournament', 'TournamentCrudController');
     CRUD::resource('gamer', 'GamerCrudController');
