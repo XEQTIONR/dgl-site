@@ -124,9 +124,10 @@ Route::get('/discord', function(Illuminate\Http\Request $request){
 
     if($startdate->gte(\Carbon\Carbon::now()))
     {
+
       if ($roster->status=='discord_required')
       {
-        $roster->status=='ok';
+        $roster->status='ok';
         $roster->save();
 
         $rosters = \App\Roster::where('contending_team_id', $team->id)
