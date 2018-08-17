@@ -19,8 +19,8 @@ class Platform extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    //protected $fillable = ['id','name', 'slug', 'icon',];
-    protected $hidden = [];
+    protected $fillable = ['name', 'slug', 'icon'];
+    //protected $hidden = [];
     protected $dates = ['created_at', 'updated_at'];
 
     /*
