@@ -5,7 +5,7 @@
       <div style="margin: 10px">
         <h2>Captain {{$alias}},</h2>
         <p>Your team,</p>
-        <img src="{{env('APP_URL','http://localhost:8000')}}{{$logo}}"
+        <img src="{{config('app.url','http://localhost:8000')}}/{{$logo}}"
           style="display: block; margin-left: auto; margin-right: auto">
         <p>{{$teamName}}</p>
         <p>has been approved for tournament :</p>

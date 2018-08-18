@@ -11,11 +11,11 @@
         <p>Please go to the following link to confirm your registration. You are considered officially not on the roster until you have confirmed your spot.
           {{$team->name}} will be disqualified if all teammates have not signed up and confirmed by the time registration closes.</p>
 
-        <a class="button" href="{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">Join {{$team->name}}</a>
+        <a class="button" href="{{config('app.url','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">Join {{$team->name}}</a>
 
         <p>If you cannot see the button visit the following link </p>
 
-        <a href="{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">{{env('APP_URL','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}</a>
+        <a href="{{config('app.url','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}">{{config('app.url','http://localhost:8000')}}/roster/{{$alias}}/{{$team->id}}</a>
         <p>Happy Gaming</p>
         <hr>
       </div>

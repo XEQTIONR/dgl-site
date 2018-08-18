@@ -12,19 +12,13 @@
         <p>Please go to the following link to register to DGL. You are considered officially not on the roster until you have registered and confirmed your spot.
         {{$team->name}} will be disqualified if all teammates have not signed up and confirmed by the time registration closes.</p>
 
-        <a class="button" href="{{env('APP_URL','http://localhost:8000')}}/tournament_invites/{{$inviteId}}">Join {{$team->name}}</a>
+        <a class="button" href="{{config('app.url','http://localhost:8000')}}/tournament_invites/{{$inviteId}}">Join {{$team->name}}</a>
 
         <p>If you cannot see the button visit the following link </p>
 
-        <a href="{{env('APP_URL','http://localhost:8000')}}/tournament_invites/{{$inviteId}}">{{env('APP_URL','http://localhost:8000')}}/tournament_invites/{{$inviteId}}</a>
+        <a href="{{config('app.url','http://localhost:8000')}}/tournament_invites/{{$inviteId}}">{{config('app.url','http://localhost:8000')}}/tournament_invites/{{$inviteId}}</a>
         <p>Happy Gaming</p>
 
-
-      {{--Tournament ID : {{$tournamentId}} Tournament {{$tournamentName}} <br>--}}
-
-      {{--Team ID: {{$teamId}}  Team Name {{$teamName}}   Team Tag {{$teamTag}}<br>--}}
-
-      {{--<a href="http://localhost:8000/tournament_invites/{{$inviteId}}">INVITE LINK</a>--}}
 
       <hr>
       </div>
