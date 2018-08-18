@@ -238,7 +238,7 @@
     <hr class="w-100">
   </div>
   <div class="row justify-content-center bg-lightgray">
-    <img  src="{{URL::asset('storage/heartmouse.png')}}">
+    <img  src="{{URL::asset('storage/HeartMouse.png')}}">
   </div>
   <div class="row justify-content-center  bg-lightgray mb-5">
     <div class="col-12">
