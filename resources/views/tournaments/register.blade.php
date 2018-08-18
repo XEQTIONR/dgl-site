@@ -239,8 +239,8 @@
           <a href="/tournament/login/{{$tournament->id}}" class="btn  btn-success btn-large my-3">SIGN IN</a>
         @endif
       </div>  <!-- col -->
-      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-
+      {{--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>--}}
+      <script src="/js/vue.min.js"></script>
       <script>
           let data = {
               name: "",

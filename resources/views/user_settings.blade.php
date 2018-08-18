@@ -595,8 +595,8 @@
         });
     });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-
+{{--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>--}}
+<script src="/js/vue.min.js"></script>
 <script>
   let data = {
 
