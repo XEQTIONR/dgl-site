@@ -44,15 +44,14 @@
       </div>
     </div>
     <div id="Header" class="row dgl-nav-title justify-content-center justify-content-md-start mw">
-      <div class="w-25  d-none d-lg-block" style="height: 100px;">
-
-        <img class="d-block mx-auto logo" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="200" alt="">
+      <a href="/"><div class="w-25  d-none d-lg-block mt-2" style="height: 100px;">
+        <img class="d-block mx-auto" src="{{URL::asset('storage/DGLcolorLogo.png')}}" width="250" alt="">
         {{--<span class="logo d-block mt-3 pt-1 text-center font-white">DAGAMELEAGUE</span>--}}
-      </div>
+      </div></a>
       <div class="ml-5 mt-4 mr-5 d-none d-md-block d-lg-none">
-        <span class="logo d-block mt-3 pt-1 text-center font-white">DGL</span>
+        <span class="logo d-block mb-3 pt-1 text-center font-white">DGL</span>
       </div>
-      <div class="d-flex my-5">
+      <div class="d-flex mt-4 mb-4 pt-4">
           <div class=" my-auto mr-0 d-flex align-center">
             <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-trophy-cup-100.png')}}" height="40px">
           </div>
@@ -91,8 +90,8 @@
       </a>
       </div>
       <a class="logo d-lg-none mx-auto pl-0 pr-6 " href="/">
-        <span class="logo d-block pt-2 text-center font-white">DAGAMELEAGUE</span>
-        {{--<img src="{{URL::asset('storage/DGLCrownWhite.svg')}}" height="100" class="mt-1 d-block d-md-inline-block align-text-bottom" alt="">--}}
+        {{--<span class="logo d-block pt-2 text-center font-white">DAGAMELEAGUE</span>--}}
+        <img src="{{URL::asset('storage/Crown.png')}}" height="50" class="mt-1 d-block d-md-inline-block align-text-bottom" alt="">
         {{--<span class="logo small">DAGAMELEAGUE</span>--}}
       </a>
       <div class="collapse navbar-collapse mw" id="navbarSupportedContent">

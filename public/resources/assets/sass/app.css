@@ -654,16 +654,11 @@ span.light h6 {
   font-weight: normal;
 }
 
-.carousel-caption {
-  margin-bottom: 20vh;
-}
-
 .carousel-caption h1 {
   font-weight: bolder;
 }
 
 .carousel-text-header {
-  font-size: 3em;
   font-weight: 900 !important;
 }
 

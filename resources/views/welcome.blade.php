@@ -24,8 +24,8 @@
                         <div class="w-100 h-100 bg-darkgray banner-layer"></div>
 
                         <div class="d-block carousel-caption mx-0 px-0">
-                            <h1 class="d-block text-center carousel-text-header">{{$banner->title}}</h1>
-                            <h5 class="d-block slide-text carousel-text-subheader">{{$banner->subtitle}}</h5>
+                            <h3 class="d-block text-center carousel-text-header">{{$banner->title}}</h3>
+                            <h6 class="d-block slide-text carousel-text-subheader">{{$banner->subtitle}}</h6>
                         </div>
                     </a>
                     @endforeach
