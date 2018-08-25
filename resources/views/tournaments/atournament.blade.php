@@ -30,8 +30,8 @@
           </div>
         </div>
         @if($tournament->logo && $tournament->logo_visibility == 'visible')
-          <div class="row justify-content-center">
-            <img src="{{$tournament->logo}}"}} style="width: 28vw; height: 28vw; max-width: 250px; max-height: 250px; min-width: 150px; min-height: 150px;">
+          <div id="tournamentLogoDiv" class="row justify-content-center">
+            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: 28vw; height: 28vw; max-width: 250px; max-height: 250px; min-width: 150px; min-height: 150px;">
           </div>
         @else
           <div class="aspacer">
@@ -58,6 +58,7 @@
 
           <script>
               $( document ).ready(function(){
+
                   $('.tournament-row').hide();
                   $('.tournament-row-overview').show();
 
@@ -87,7 +88,15 @@
                       $('.tournament-row').hide();
                       $('.tournament-row-rules').show();
                   });
+                  @if($tournament->logo && $tournament->logo_visibility == 'visible')
+                  $('.jumbotron-atournament').hover(function(){
+                     $('#tournamentLogo').fadeOut();
+                     //$('.jumbotron-atournament::after').css('background-color', 'blue');
+                  }, function(){
+                      $('#tournamentLogo').fadeIn();
+                  });
 
+                  @endif
                   @if($tournament->registration_active)
                   //{
                     $('#navRegistration').click(function () {

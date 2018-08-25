@@ -530,11 +530,16 @@ span.light h6 {
   height: 35vh;
 }
 
+.jumbotron-atournament:hover:after {
+  opacity: 0;
+}
+
 .jumbotron-atournament::after {
   content: "";
   background-size: cover !important;
   background-position: center !important;
-  opacity: 0.20;
+  background-color: black;
+  opacity: 0.25;
   top: 0;
   left: 0;
   bottom: 0;

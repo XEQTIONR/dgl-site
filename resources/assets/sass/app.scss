@@ -224,9 +224,13 @@ span.light{
   background-size: cover !important;
   background-position: center !important;
 
-
   .tournament-name-row + div{
     height: 35vh;
+  }
+  &:hover{
+    &:after{
+      opacity: 0;
+    }
   }
 }
 
@@ -234,7 +238,8 @@ span.light{
   content: "";
   background-size: cover !important;
   background-position: center !important;
-  opacity: 0.20;
+  background-color: black;
+  opacity: 0.25;
   top: 0;
   left: 0;
   bottom: 0;
