@@ -22,21 +22,22 @@
         {{--}--}}
       </style>
       <div class="jumbotron-fluid jumbotron-atournament" style="background-image: url('{{$tournament->banner}}');
-                                                                background-position: center">
-        <div class="row tournament-name-row pt-5 justify-content-center" style="">
-          <div class="col-12">
-            <h1 class="display-4 text-center">{{$tournament->name}}</h1>
+                                                                background-position: center; min-height: 450px !important;">
 
-          </div>
-        </div>
         @if($tournament->logo && $tournament->logo_visibility == 'visible')
-          <div id="tournamentLogoDiv" class="row justify-content-center">
-            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: 28vw; height: 28vw; max-width: 250px; max-height: 250px; min-width: 150px; min-height: 150px;">
+          <div id="tournamentLogoDiv" class="row justify-content-center mt-7" style="min-height: 100px;">
+            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: auto; min-height: 100px; max-height: 200px; display: block;">
           </div>
         @else
-          <div class="aspacer">
+          <div class="aspacer mt-5 row" style="min-height: 150px;">
           </div>
         @endif
+          <div class="row tournament-name-row pt-0 justify-content-center" style="position: relative;">
+          <div class="col-12">
+          <h1 class="display-4 text-center">{{$tournament->name}}</h1>
+
+          </div>
+          </div>
       </div>
     </div>
   </div>
@@ -92,13 +93,15 @@
                   $('.jumbotron-atournament').hover(function(){
                      $('#tournamentLogo').fadeOut();
                      //$('.jumbotron-atournament::after').css('background-color', 'blue');
-                  }, function(){
+                  }
+                  ,
+                      function(){
                       $('#tournamentLogo').fadeIn();
-                  });
+                  }
+                  );
 
                   @endif
                   @if($tournament->registration_active)
-                  //{
                     $('#navRegistration').click(function () {
                         console.log('navreg');
                         $('.nav-link').removeClass('active');
@@ -106,9 +109,7 @@
                         $('.tournament-row').hide();
                         $('.register-row').show();
                     });
-                  //}
                   @else
-                  //{
                       $('#navRegistration').addClass("disabled");
                       $('#navRegistration').click(function () {
 
@@ -120,7 +121,7 @@
                           toastr.error("Currently not accepting registrations : Either registration window " +
                               "is closed, or maximum number of participants have already registered!");
                       })
-                  @endif//}
+                  @endif
               });
           </script>
           @include('tournaments.tournament_overview')
