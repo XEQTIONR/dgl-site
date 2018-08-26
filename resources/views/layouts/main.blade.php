@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DaGameLeague - DGLcore.com</title>
+  <title>DaGameLeague | DGLcore.com | Pro Bangladeshi Esports Tournaments and Leagues</title>
 
+  <meta name="description" content="Bangladesh's first ever multiplayer gaming / esports community. Professional online esports tournaments and leagues. Go Pro Now. DOTA 2 | Overwatch">
   <!--Fonts-->
   {{--<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400|Barlow+Condensed:700|Lato:400,400i,700,700i" rel="stylesheet">--}}
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i|Montserrat:700" rel="stylesheet">
