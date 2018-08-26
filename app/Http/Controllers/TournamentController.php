@@ -122,8 +122,34 @@ class TournamentController extends Controller
      * @param  \App\Tournament  $tournament
      * @return \Illuminate\Http\Response
      */
-    public function show(Tournament $tournament)
+
+//    public function showByName($slug)
+//    {
+//      if(is_numeric($slug))
+//      {
+//        $t = Tournament::find($slug);
+//        dd($t);
+//      }
+//        //$this->show();
+//      else
+//        echo $slug;
+//    }
+    public function show($identifier)
     {
+      if(is_numeric($identifier))
+      {
+        $tournament = Tournament::find($identifier);
+        //dd($t);
+      }
+        //$this->show();
+      else
+      {
+        $tournament = Tournament::where('slug', $identifier)->first();
+      }
+
+      if(is_null($tournament))
+        abort(404);
+
         //
       $Parsedown = new \Parsedown();
       $registration_active = true;
