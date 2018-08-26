@@ -4,7 +4,7 @@
     <div class="row post-body mb-5 d-block d-md-none"  onclick="window.location.href='/news/{{$post->link}}'">
       <div class="col-12">
         <div class="thumbnail thumbnail-rect-smscreen">
-          <img class="mt-3" src="{{$post->banner}}">
+          <img class="mt-3" src="{{$post->banner}}" alt="DGL Bangladesh Esports News Blog post banner">
         </div>
       </div>
       <div class="col-12 mt-3 px-4 px-sm-5">
@@ -23,7 +23,7 @@
     <!-- div for large screens -->
     <div class="row post-body post-body-hover d-none d-md-flex" onclick="window.location.href='/news/{{$post->link}}'">
       <div class="thumbnail thumbnail-new my-3 mx-2">
-        <img class="" src="{{$post->banner}}">
+        <img class="" src="{{$post->banner}}" alt="DGL Bangladesh Esports News Blog post banner">
       </div>
       <div class="post-text">
         <a class="post-link" href="/news/{{$post->link}}">

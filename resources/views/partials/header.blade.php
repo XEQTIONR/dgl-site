@@ -45,7 +45,7 @@
     </div>
     <div id="Header" class="row dgl-nav-title justify-content-center justify-content-md-start mw">
       <a href="/"><div class="w-25  d-none d-lg-block mt-2" style="height: 100px;">
-        <img class="d-block mx-auto" src="{{URL::asset('storage/DGLcolorLogo.png')}}" width="250" alt="">
+        <img class="d-block mx-auto" src="{{URL::asset('storage/DGLcolorLogo.png')}}" width="250" alt="DaGameLeague Logo">
         {{--<span class="logo d-block mt-3 pt-1 text-center font-white">DAGAMELEAGUE</span>--}}
       </div></a>
       <div class="ml-5 mt-4 mr-5 d-none d-md-block d-lg-none">
@@ -53,21 +53,21 @@
       </div>
       <div class="d-flex mt-4 mb-4 pt-4">
           <div class=" my-auto mr-0 d-flex align-center">
-            <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-trophy-cup-100.png')}}" height="40px">
+            <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-trophy-cup-100.png')}}" height="40px" alt="DaGameLeague esport tournaments logo">
           </div>
           <div class="my-auto mr-sm-5 d-none d-sm-inline">
             <h6 class="font-white my-0">TOURNAMENTS</h6>
             <span class="font-gray">COMPETITIVE ESPORT</span>
           </div>
           <div class="my-auto mr-0 d-flex align-center">
-            <img class="my-auto mr-3" src="{{URL::asset('storage/icons8-whistle-100.png')}}" height="40px">
+            <img class="my-auto mr-3" src="{{URL::asset('storage/icons8-whistle-100.png')}}" height="40px" alt="DaGameLeague esport matches logo">
           </div>
           <div class="my-auto mr-sm-5 d-none d-sm-inline">
             <h6 class="font-white my-0">MATCHES</h6>
             <span class="font-gray">PRO BATTLES</span>
           </div>
           <div class="my-auto mr-0 d-flex align-center">
-            <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-microphone-100.png')}}" height="40px">
+            <img class="my-auto mr-2" src="{{URL::asset('storage/icons8-microphone-100.png')}}" height="40px" alt="DaGameLeague esport broadcasts logo">
           </div>
           <div class="my-auto d-none d-sm-inline">
             <h6 class="font-white my-0">BROADCASTS</h6>

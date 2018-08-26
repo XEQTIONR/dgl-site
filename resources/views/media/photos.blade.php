@@ -3,7 +3,7 @@
 
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/Banner1.png')}}"
+      <img src="{{URL::asset('storage/Banner1.png')}}" alt="DaGameLeague Esports photos banner"
            class="banner-row-background">
       <h1>Media</h1>
       <img src="{{URL::asset('storage/icons8-tv-show-64.png')}}" class="banner-icon">
@@ -28,7 +28,7 @@
           <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-3">
             <a href="/uploads/images/albums/{{$album->folder_slug}}/{{basename($file)}}">
               <div class="card team-logo-300-gray">
-                <img class="card-img-top" src="/uploads/images/albums/{{$album->folder_slug}}/{{basename($file)}}" alt="Photo/Video {{$file}}">
+                <img class="card-img-top" src="/uploads/images/albums/{{$album->folder_slug}}/{{basename($file)}}" alt="Esports Photo / Video {{$file}}">
               </div>
             </a>
           </div>

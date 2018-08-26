@@ -4,7 +4,7 @@
     <div class="col-10 col-lg-5 mb-5" style="background-color: white; max-width: 400px; box-shadow: 7px 7px 75px #e6e6e6;">
 
     <div class="row mt-4 justify-content-center">
-        <img src="{{URL::asset('storage/Crown.png')}}" style=" height:auto; width:auto; max-width: 80%; object-fit: contain"/>
+        <img src="{{URL::asset('storage/Crown.png')}}" alt="DaGameLeague Logo" style=" height:auto; width:auto; max-width: 80%; object-fit: contain"/>
     </div>
     <div class="row justify-content-center px-1 px-md-5">
         <div class="col-12">

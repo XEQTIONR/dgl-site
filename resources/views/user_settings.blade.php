@@ -116,7 +116,7 @@
               <dl>
                 @if($steamflag)
                 <div class="row">
-                    <img v-bind:src="gamer.steamavatar" width="64" height="64">
+                    <img v-bind:src="gamer.steamavatar" width="64" height="64" alt="Steam avatar for current user">
                     <h3 class="d-none d-lg-inline ml-1">@{{gamer.personaname}}</h3>
                     <h6 class="d-inline d-lg-none ml-1">@{{gamer.personaname}}</h6>
                 </div>
@@ -130,7 +130,7 @@
             <dd class="col-sm-9">
               @if($owflag)
                 <div class="row">
-                    <img v-bind:src="gamer.owavatar" width="64" height="64">
+                    <img v-bind:src="gamer.owavatar" width="64" height="64" alt="Overwatch avatar for current user">
                     <h3 class="d-none d-lg-inline ml-1">@{{ gamer.battlenet }}</h3>
                     <h6 class="d-inline d-lg-none ml-1">@{{ gamer.battlenet }}</h6>
                 </div>
@@ -145,7 +145,7 @@
             <dd class="col-sm-9">
 
               <div v-if="gamer.discord!='-none-'" class="row">
-                <img v-bind:src="gamer.discordavatar" width="64" height="64">
+                <img v-bind:src="gamer.discordavatar" width="64" height="64" alt="Discord avatar for current user">
                 <h3 class="d-none d-lg-inline ml-1">@{{ gamer.discord }}</h3>
                 <h6 class="d-inline d-lg-none ml-1">@{{ gamer.discord }}</h6>
               </div>
@@ -234,7 +234,7 @@
               <label>Steam64ID</label>
             </div>
             <div class="col-2 pl-0">
-              <img v-bind:src="steamAvatarURL">
+              <img v-bind:src="steamAvatarURL" alt="Steam avatar for current user">
             </div>
             <div class="col-9">
               <h3>@{{ steamPersonaName }}</h3>
@@ -268,7 +268,7 @@
               <label>Battle Tag</label>
             </div>
             <div class="col-2 pl-0">
-              <img v-bind:src="owAvatarURL" width="64" height="64">
+              <img v-bind:src="owAvatarURL" width="64" height="64" alt="Overwatch avatar for current user">
             </div>
             <div class="col-9">
               <h3>@{{ battleTagInput }}</h3>
@@ -285,7 +285,7 @@
           </div>
           <div v-if="gamer.discord!='-none-'" class="form-group row">
             <div class="col-2 pl-0">
-              <img v-bind:src="gamer.discordavatar" width="64">
+              <img v-bind:src="gamer.discordavatar" width="64" alt="Discord avatar for current user">
             </div>
             <div class="col-9">
               <h3>@{{ gamer.discord }}</h3>
@@ -293,7 +293,7 @@
           </div>
           <div class="form-group row">
             <a href="/discord-oauth" class="btn btn-primary" style="background-color: #7289DA; color: #FFF;">
-              <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50">
+              <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50" alt="Discord Logo">
               Setup Discord
             </a>
           </div>
@@ -320,7 +320,7 @@
             <div class="row">
               <div class="col">
         <span>
-          <img class="align-center" src="{{$roster->contendingTeam->logo_size2}}" alt="{{$roster->contendingTeam->tag}} logo">
+          <img class="align-center" src="{{$roster->contendingTeam->logo_size2}}" alt="Esports team {{$roster->contendingTeam->tag}} logo">
           <span class="d-inline d-md-none">{{$roster->contendingTeam->tag}}</span>
           <span class="d-none d-md-inline">{{$roster->contendingTeam->name}}</span>
           <span class="ml-3">competing in</span>
@@ -358,7 +358,7 @@
                       <div class="col-1">vs</div>
                       <div class="col">
                         <span>
-                        <img class="align-center" src="{{$opponent->contending_team->logo_size2}}">
+                        <img class="align-center" src="{{$opponent->contending_team->logo_size2}}" alt="Esports team {{$opponent->contending_team->name}} logo">
                         <span class="d-inline d-md-none">{{$opponent->contending_team->tag}}</span>
                         <span class="d-none d-md-inline">{{$opponent->contending_team->name}}</span>
                         </span>

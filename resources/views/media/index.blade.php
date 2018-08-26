@@ -3,7 +3,7 @@
 
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/head-banner.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}" alt="DaGameLeague Esports media banner"
            class="banner-row-background">
       <h1>Media</h1>
       {{--<img src="{{URL::asset('storage/icons8-tv-show-64.png')}}" class="banner-icon">--}}

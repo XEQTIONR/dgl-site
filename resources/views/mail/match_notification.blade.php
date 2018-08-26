@@ -9,7 +9,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <img src="{{$team->logo_size2}}" width="50" height="50">
+          <img src="{{$team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
           <span>{{$team->name}}</span><span>{{$team->tag}}</span>
         </div>
         <div class="col">
@@ -19,7 +19,7 @@
           @foreach($contestants as $contestant)
             @if($contestant->contending_team->id != $team->id)
               <span>{{$team->tag}}</span><span>{{$team->name}}</span>
-              <img src="{{$$contestant->contending_team->logo_size2}}" width="50" height="50">
+              <img src="{{$$contestant->contending_team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
             @endif
           @endforeach
         </div>

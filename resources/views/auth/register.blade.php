@@ -200,7 +200,7 @@
     <div class="row justify-content-center mt-5" >
         <div class="col-10" style="background-color: white; max-width: 600px; box-shadow: 7px 7px 75px #e6e6e6;">
             <div class="row mt-4 justify-content-center">
-              <img src="{{URL::asset('storage/Crown.png')}}" style=" height:auto; width:auto; max-width: 80%; object-fit: contain"/>
+              <img src="{{URL::asset('storage/Crown.png')}}" alt="DaGameLeague Logo" style=" height:auto; width:auto; max-width: 80%; object-fit: contain"/>
             </div>
             <div class="row justify-content-center"><h6>Sign up for DaGameLeague</h6></div>
             <div class="row mt-4 justify-content-center px-1 px-md-5">
@@ -306,7 +306,7 @@
                             <label>Steam64ID</label>
                           </div>
                           <div class="col">
-                            <img v-bind:src="steamAvatarURL">
+                            <img v-bind:src="steamAvatarURL"  alt="Gamer Steam Avatar">
                           </div>
                           <div class="col">
                             <h3>@{{ steamPersonaName }}</h3>
@@ -343,7 +343,7 @@
                             <label>Battle Tag</label>
                           </div>
                           <div class="col">
-                            <img v-bind:src="owAvatarURL" width="64" height="64">
+                            <img v-bind:src="owAvatarURL" width="64" height="64"  alt="Gamer Overwatch Avatar">
                           </div>
                           <div class="col">
                             <h3>@{{ battleTagInput }}</h3>

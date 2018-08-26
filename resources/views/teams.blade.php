@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/commonbanner2.png')}}"
+      <img src="{{URL::asset('storage/commonbanner2.png')}}" alt="DaGameLeague Esports teams banner"
            class="banner-row-background">
       <h1>Teams</h1>
       {{--<img src="{{URL::asset('storage/icons8-conference-64.png')}}" class="banner-icon">--}}
@@ -40,7 +40,7 @@
           @foreach($teams as $team)
           <div class="col-6 col-md-4 col-lg-3  my-3">
             <div class="card p-4 bg-purple4">
-              <img class="card-img-top" src="{{$team->logo_size1}}" alt="Card image cap">
+              <img class="card-img-top" src="{{$team->logo_size1}}" alt="Esports team {{$team->name}} {{$team->tag}} logo">
               <div class="card-body">
                 <h5 class="card-title text-center font-white">{{$team->name}}</h5>
               </div>

@@ -3,10 +3,10 @@
 @section('body-section')
 
   <div class="row justify-content-center mt-5 bg-lightgray">
-    {{--<div class="col-4">--}}
-      {{--<img class="" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" />--}}
-    {{--</div>--}}
-    <div class="col-12 my-5">
+    <div class="col-4">
+      <img class="d-block mx-auto mt-5 mb-0" src="{{URL::asset('storage/Crown.png')}}" alt="DaGameLeague Logo - Esports Bangladesh "/>
+    </div>
+    <div class="col-12 mb-5">
       <h1 class="text-center dagameleague-med">DAGAMELEAGUE</h1>
     </div>
   </div>

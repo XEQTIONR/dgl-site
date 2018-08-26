@@ -36,7 +36,7 @@
                 <h3 class="font-gray">DISCORD ID REQUIRED</h3>
                 <p class="font-white">You need to verify your discord id with us before you can register.</p>
                 <a href="/discord-oauth" class="btn btn-primary mt-3 mb-5" style="background-color: #7289DA; color: #FFF;">
-                  <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50">
+                  <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50" alt="Discord Logo">
                   Setup Discord
                 </a>
               </div>
@@ -101,7 +101,7 @@
                             <span class="font-primary-color">300 x 300</span>
                           </div>
                           <div class="row mt-1 justify-content-center">
-                            <img :src="image300" width="300" height="300" style="border: 1px solid #6ACC5C"/>
+                            <img :src="image300" width="300" height="300" style="border: 1px solid #6ACC5C" alt="300 pixel esports team logo image"/>
                           </div>
                           <div class="row mt-2 justify-content-center">
                             <button class="btn btn-danger" @click="removeImage300">Remove image</button>
@@ -120,7 +120,7 @@
                             <span class="font-primary-color" style="margin-top: 125px;">50 x 50</span>
                           </div>
                           <div class="row mt-1 justify-content-center">
-                            <img :src="image100" width="50" height="50" style="margin-top: 0px; margin-bottom: 125px;border: 1px solid #6ACC5C;"/>
+                            <img :src="image100" width="50" height="50" style="margin-top: 0px; margin-bottom: 125px;border: 1px solid #6ACC5C;" alt="50 pixel esports team logo image"/>
                           </div>
                           <div class="row mt-2 justify-content-center">
                             <button class="btn btn-danger" @click="removeImage100">Remove image</button>

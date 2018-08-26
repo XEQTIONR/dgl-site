@@ -98,7 +98,7 @@
                             <div class="row post-body mb-5 d-block d-md-none"  onclick="window.location.href='/news/{{$post->id}}'">
                                 <div class="col-12">
                                     <div class="thumbnail thumbnail-rect-smscreen">
-                                    <img class="mt-3" src="{{$post->banner}}">
+                                    <img class="mt-3" src="{{$post->banner}}" alt="DaGameLeague esports news {{$post->title}} banner">
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3 px-4 px-sm-5">
@@ -117,7 +117,7 @@
                             {{--<!-- div for large screens -->--}}
                             <div class="row post-body post-body-hover d-none d-md-flex" onclick="window.location.href='/news/{{$post->id}}'">
                               <div class="thumbnail thumbnail-new my-3 mx-2">
-                                  <img class="" src="{{$post->banner}}">
+                                  <img class="" src="{{$post->banner}}" alt="DaGameLeague esports news {{$post->title}} banner">
                               </div>
                               <div class="post-text">
                                 <a class="post-link" href="/news/{{$post->id}}">
@@ -193,11 +193,11 @@
                             </div>
                             <div class="card-body">
                           @if($tournament->logo)
-                              <img class="dgl-card-img my-auto" src="{{$tournament->logo}}" alt="{{$tournament->name}} tournament logo">
+                              <img class="dgl-card-img my-auto" src="{{$tournament->logo}}" alt="DaGameLeague{{$tournament->name}} tournament logo">
                             @elseif($tournament->banner)
-                              <img class="card-img" src="{{$tournament->banner}}" alt="{{$tournament->name}} tournament logo">
+                              <img class="card-img" src="{{$tournament->banner}}" alt="DaGameLeague {{$tournament->name}} tournament banner">
                             @else
-                              <img class="dgl-card-img my-auto" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="{{$tournament->name}} tournament logo">
+                              <img class="dgl-card-img my-auto" src="{{URL::asset('storage/Crown.png')}}" alt="DaGameLeague {{$tournament->name}} default tournament logo">
                             @endif
                             </div>
                             <div class="card-body">
@@ -225,11 +225,11 @@
                         </div>
                       <div class="card-body">
                         @if($tournament->logo)
-                          <img class="dgl-card-img my-auto" src="{{$tournament->logo}}" alt="{{$tournament->name}} tournament logo">
+                          <img class="dgl-card-img my-auto" src="{{$tournament->logo}}" alt="DaGameLeague Esports{{$tournament->name}} tournament logo">
                         @elseif($tournament->banner)
-                          <img class="card-img" src="{{$tournament->banner}}" alt="{{$tournament->name}} tournament logo">
+                          <img class="card-img" src="{{$tournament->banner}}" alt="DaGameLeague Esports {{$tournament->name}} tournament logo">
                         @else
-                          <img class="dgl-card-img-small my-auto" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" alt="{{$tournament->name}} tournament logo">
+                          <img class="dgl-card-img-small my-auto" src="{{URL::asset('storage/Crown.png')}}" alt="DaGameLeague Esports {{$tournament->name}} default tournament logo">
                         @endif
                       </div>
                       <div class="card-body">

@@ -11,7 +11,7 @@
 
 <div id="about" class="row">
   <div class="col-12 px-0">
-    <img src="{{URL::asset('storage/dtm-banner.png')}}" style="width: 100%;">
+    <img src="{{URL::asset('storage/dtm-banner.png')}}" style="width: 100%;" alt="DaTeam DtM Esports Clan Banner">
   </div>
 </div>
 <div class="row justify-content-center bg-lightgray">
@@ -33,7 +33,7 @@
 
 <div class="row bg-lightgray">
   <div class="col-12 px-0">
-    <img src="{{URL::asset('storage/dgl-players.png')}}" style="width: 100%;">
+    <img src="{{URL::asset('storage/dgl-players.png')}}" style="width: 100%;" alt="DaTeaM DtM players">
   </div>
 </div>
 <div class="row justify-content-center bg-lightgray">
@@ -91,7 +91,7 @@
 
 <div class="row bg-lightgray">
   <div class="col-12 px-0">
-    <img src="{{URL::asset('storage/dgl-players3.png')}}" style="width: 100%;">
+    <img src="{{URL::asset('storage/dgl-players3.png')}}" style="width: 100%;" alt="DaTeaM DtM players">
   </div>
 </div>
 

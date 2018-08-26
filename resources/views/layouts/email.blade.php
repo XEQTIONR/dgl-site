@@ -55,7 +55,7 @@
 </style>
 <div class="row">
   <div class="col" style="background: url('{{URL::asset('storage/banner-email.png')}}')">
-    <img class="logo" src="{{URL::asset('storage/DGLCrownWhite.svg')}}" width="100" alt="">
+    <img class="logo" src="{{URL::asset('Crown.png')}}" width="100"  alt="DaGameLeague Logo">
     {{--<img src="{{URL::asset('storage/banner-email.png')}}" width="100%">--}}
     <h2 class="text-center">ĐAGAMELEAGUE</h2>
   </div>

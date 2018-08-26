@@ -4,7 +4,7 @@
 
 <span>Tournament : </span> {{$tournament}}
 
-<img style="display: block; margin: 5px auto;" src="{{config('app.url','http://localhost:8000')}}/{{$logo}}">
+<img style="display: block; margin: 5px auto;" src="{{config('app.url','http://localhost:8000')}}/{{$logo}}"  alt="Tournament {{$name}} Logo">
 <span>Team Name : </span> {{$name}}
 <span>Tag :</span> {{$tag}}
 <span>{{$updated_at}}</span>

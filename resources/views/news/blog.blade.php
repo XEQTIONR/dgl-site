@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/head-banner.png')}}"
+      <img src="{{URL::asset('storage/head-banner.png')}}" alt="DaGameLeague Esports News / Blog banner"
            class="banner-row-background">
       <h1>News</h1>
       {{--<img src="{{URL::asset('storage/icons8-news-64.png')}}" class="banner-icon">--}}

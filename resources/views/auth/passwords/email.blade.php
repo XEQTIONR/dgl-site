@@ -4,7 +4,7 @@
         <div class="col-10 col-lg-5 mb-5" style="background-color: white; max-width: 400px; box-shadow: 7px 7px 75px #e6e6e6;">
 
             <div class="row mt-4 justify-content-center">
-                <img src="{{URL::asset('storage/DGLCrownLightGray.svg')}}" width="125" />
+                <img src="{{URL::asset('storage/Crown.png')}}" width="125" alt="DaGameLeague Logo"/>
             </div>
             <div class="row justify-content-center"><h6>Reset your password</h6></div>
             <div class="row justify-content-center px-1 px-md-5">

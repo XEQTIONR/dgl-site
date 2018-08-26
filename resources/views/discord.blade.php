@@ -11,7 +11,7 @@
   </div>
   <div class="row bg-white py-5">
       <a href="/discord-oauth" class="d-block mx-auto btn btn-lg py-2 pl-3 pr-4" style="background-color: #7289DA; color: #FFF;">
-        <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50">
+        <img src="{{URL::asset('storage/Discord-Logo-White.svg')}}" width="50" alt="Discord Logo">
         Setup Discord</a>
   </div>
 

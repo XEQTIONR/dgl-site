@@ -20,18 +20,18 @@
       <div class="w-100">
         <div class="row">
           <div class="col">
-            <img class="mx-2" src="{{URL::asset('storage/Crown.png')}}" height="48px"
+            <img class="mx-2" src="{{URL::asset('storage/Crown.png')}}" height="48px" alt="DaGameLeague Crown Logo"
                  data-toggle="tooltip" title="Must be registered on DGL with email address verified.">
-            <img class="mx-2" src="{{$tournament->esport->icon}}" width="48" height="48"
+            <img class="mx-2" src="{{$tournament->esport->icon}}" width="48" height="48" alt="{{$tournament->esport->name}} icon"
                  data-toggle="tooltip" title="Must own an official copy of {{$tournament->esport->name}}">
-            <img class="mx-2" src="{{$tournament->esport->platform->icon}}" width="48" height="48"
+            <img class="mx-2" src="{{$tournament->esport->platform->icon}}" width="48" height="48" alt="{{$tournament->esport->platform->name}} icon"
                  data-toggle="tooltip" title="Must have a valid {{$tournament->esport->platform->name}} account registered on DGL.">
-            <img class="mx-2" src="{{URL::asset('storage/Discord-Logo-Color.svg')}}" width="48" height="48"
+            <img class="mx-2" src="{{URL::asset('storage/Discord-Logo-Color.svg')}}" width="48" height="48" alt="Discord Logo"
                  style="background: url({{URL::asset('storage/white-background.jpg')}}); background-repeat: no-repeat; background-position: center; background-size: 24px 22px"
                  data-toggle="tooltip" title="Must have a valid Discord ID registered on DGL">
-            <img class="mx-2" src="{{URL::asset('storage/icons8-checkmark-64.png')}}" width="48" height="48"
+            <img class="mx-2" src="{{URL::asset('storage/icons8-checkmark-64.png')}}" width="48" height="48" alt="DaGameLeague approved icon"
                  data-toggle="tooltip" title="Team must be approved by DGL admin.">
-            <img class="ml-2" src="{{URL::asset('storage/icons8-conference-64.png')}}" height="48"
+            <img class="ml-2" src="{{URL::asset('storage/icons8-conference-64.png')}}" height="48" alt="DaGameLeague esports tournament team roster logo"
                  data-toggle="tooltip"
                  title="
                  @if($tournament->squadsize> $tournament->esport->teamsize)
@@ -79,7 +79,7 @@
             <span>
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
           </div>
 
@@ -119,7 +119,7 @@
         <div class="col-4">
           <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
             </span>
@@ -208,7 +208,7 @@
 
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
               </div>
             </div>
@@ -226,7 +226,7 @@
             <div class="col-4">
               <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
 
@@ -293,7 +293,7 @@
 
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
               </div>
               <div class="row justify-content-end">
@@ -302,7 +302,7 @@
                     @if($roster->id==$checkin->roster_id)
                       <div class="back-color-primary mx-1">
                         {{--{{$roster->gamer->alias}}--}}
-                        <img src="{{URL::asset('storage/icons8-ok-16.png')}}"
+                        <img src="{{URL::asset('storage/icons8-ok-16.png')}}" alt="{{$roster->gamer->alias}} checked in to match"
                              data-toggle="tooltip" title="{{$roster->gamer->alias}}">
                       </div>
                     @endif
@@ -324,7 +324,7 @@
             <div class="col-4">
               <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
 
@@ -337,7 +337,7 @@
                       <div class="back-color-primary mx-1">
                         {{--{{$roster->gamer->alias}}--}}
                         <img src="{{URL::asset('storage/icons8-ok-16.png')}}"
-                             data-toggle="tooltip" title="{{$roster->gamer->alias}}">
+                             data-toggle="tooltip" title="{{$roster->gamer->alias}}" alt="{{$roster->gamer->alias}} checked into match">
                       </div>
                     @endif
                   @endforeach
@@ -361,7 +361,7 @@
 
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
           </div>
         </div>
@@ -394,7 +394,7 @@
         <div class="col-4">
           <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}">
+              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
 

@@ -2,7 +2,7 @@
 @section('body-section')
   <div class="row justify-content-center banner-row">
     <div class="col-12 mx-0 px-0">
-      <img src="{{URL::asset('storage/commonbanner3.png')}}"
+      <img src="{{URL::asset('storage/commonbanner3.png')}}" alt="DaGameLeague Esports Tournaments Banner"
            class="banner-row-background">
       <h1>Tournaments</h1>
       {{--<img src="{{URL::asset('storage/icons8-trophy-64.png')}}" class="banner-icon">--}}
@@ -102,13 +102,13 @@
         <div class="row mx-md-5 py-5 post-body   bg-purple3">
           <div class="col-12 col-md-3 offset-md-1">
             <div class="thumbnail thumbnail-rect d-none d-lg-inline-block">
-              <img class="mt-3" src="{{$tournament->banner}}">
+              <img class="mt-3" src="{{$tournament->banner}}" alt="DaGameLeague Esports Tournament {{$tournament->name}} banner">
             </div>
             <div class="thumbnail thumbnail-sq-lg d-none d-md-inline-block d-lg-none">
-              <img class="mt-3" src="{{$tournament->banner}}">
+              <img class="mt-3" src="{{$tournament->banner}}" alt="DaGameLeague Esports Tournament {{$tournament->name}} banner">
             </div>
             <div class="thumbnail thumbnail-rect-smscreen pl-0 d-block d-md-none">
-              <img class="mt-3" src="{{$tournament->banner}}">
+              <img class="mt-3" src="{{$tournament->banner}}" alt="DaGameLeague Esports Tournament {{$tournament->name}} banner">
             </div>
           </div>
           <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">

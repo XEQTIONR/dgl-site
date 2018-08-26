@@ -26,7 +26,7 @@
 
         @if($tournament->logo && $tournament->logo_visibility == 'visible')
           <div id="tournamentLogoDiv" class="row justify-content-center mt-7" style="min-height: 100px;">
-            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: auto; min-height: 100px; max-height: 200px; display: block;">
+            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: auto; min-height: 100px; max-height: 200px; display: block;" alt="DaGameLeague Esport Tournament Logo">
           </div>
         @else
           <div class="aspacer mt-5 row" style="min-height: 150px;">
@@ -146,7 +146,7 @@
 
             <div class="col-5">
               <div class="card bg-transparent team-logo-300-trans">
-                <img class="card-img-top" src="{{$nextmatch->contestants[0]->contending_team->logo_size1}}" alt="Card image cap">
+                <img class="card-img-top" src="{{$nextmatch->contestants[0]->contending_team->logo_size1}}" alt="Esports team {{$nextmatch->contestants[0]->contending_team->name}} {{$nextmatch->contestants[0]->contending_team->tag}}">
               </div>
             </div>
             <div class="col-2 pt-4">
@@ -154,7 +154,7 @@
             </div>
             <div class="col-5">
               <div class="card bg-transparent team-logo-300-trans">
-                <img class="card-img-top" src="{{$nextmatch->contestants[1]->contending_team->logo_size1}}" alt="Card image cap">
+                <img class="card-img-top" src="{{$nextmatch->contestants[1]->contending_team->logo_size1}}" alt="Esports team {{$nextmatch->contestants[1]->contending_team->name}} {{$nextmatch->contestants[1]->contending_team->tag}}">
               </div>
             </div>
           </div>
