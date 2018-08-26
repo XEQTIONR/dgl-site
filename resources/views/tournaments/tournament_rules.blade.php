@@ -3,8 +3,9 @@
       <h1 class="font-white py-3">Rules & Regulations</h1>
     </div>
   <div class="col-12 p-3 tournament-rules-container">
-
+    <div class="p-3">
     <span>{!! $tournament->rules !!}</span>
+    </div>
     {{--<ol class="dgl-ol">--}}
     {{--<li><p class="font-blue">Wayfarers synth trust fund blog put a bird on it farm-to-table williamsburg disrupt whatever occupy seitan fam. Street art af occupy quinoa lumbersexual. Sartorial raw denim palo santo, man braid master cleanse listicle man bun organic marfa microdosing kitsch yuccie tote bag celiac health goth. Chambray before they sold out lumbersexual cliche asymmetrical, prism tousled art party shabby chic lomo locavore scenester synth lyft. 3 wolf moon gentrify swag, raclette austin shoreditch vice shabby chic yr kombucha. Lyft art party ethical messenger bag, migas kinfolk banh mi gentrify offal truffaut whatever flexitarian XOXO.--}}
     {{--</p></li>--}}

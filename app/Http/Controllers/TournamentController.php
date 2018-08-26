@@ -204,6 +204,9 @@ class TournamentController extends Controller
       if(!is_null($tournament->rules))
         $tournament->rules = $Parsedown->text($tournament->rules);
 
+      if(!is_null($tournament->overview))
+        $tournament->overview = $Parsedown->text($tournament->overview);
+
       if($now->gte(new Carbon($tournament->registration_end))
         || $now->lte(new Carbon($tournament->registration_start))
         || (($tournament->num_contestants>0) && (count($contenders)>=$tournament->num_contestants)))
@@ -214,6 +217,22 @@ class TournamentController extends Controller
       $standings = json_decode($tournament->standings_json);
 
       $tournament->standings = $standings;
+
+      $tournament->local_start_string = Carbon::parse($tournament->startdate,config('app.timezone'))
+                                              ->setTimezone(config('app.user_timezone'))
+                                              ->format('j M Y');
+
+      $tournament->local_end_string = Carbon::parse($tournament->startdate,config('app.timezone'))
+                                            ->setTimezone(config('app.user_timezone'))
+                                            ->format('j M Y');
+
+      $tournament->local_reg_start = Carbon::parse($tournament->registration_start,config('app.timezone'))
+                                            ->setTimezone(config('app.user_timezone'))
+                                            ->format('j M Y h:i A');
+
+      $tournament->local_reg_end = Carbon::parse($tournament->registration_end,config('app.timezone'))
+                                          ->setTimezone(config('app.user_timezone'))
+                                          ->format('j M Y h:i A');
       //dd($now, new Carbon($tournament->registration_end));
       //return $nextmatch;
       return view('tournaments.atournament',

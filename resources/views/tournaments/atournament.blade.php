@@ -34,8 +34,12 @@
         @endif
           <div class="row tournament-name-row mt-3 justify-content-center" style="position: relative;">
           <div class="col-12">
-          <h1 class="display-4 text-center">{{$tournament->name}}</h1>
-
+          <h1 class="display-5 text-center">{{$tournament->name}}</h1>
+          <h5 class="text-center">
+            {{$tournament->local_start_string}}
+            -
+            {{$tournament->local_end_string}}
+          </h5>
           </div>
           </div>
       </div>
@@ -91,12 +95,14 @@
                   });
                   @if($tournament->logo && $tournament->logo_visibility == 'visible')
                   $('.jumbotron-atournament').hover(function(){
-                     $('#tournamentLogo').fadeOut();
+                     $('#tournamentLogo').fadeTo("1","0");
+                     //$('#tournamentLogo').css('opacity', '0');
+                     //$('#tournamentLogo').css('display', 'block');
                      //$('.jumbotron-atournament::after').css('background-color', 'blue');
                   }
                   ,
                       function(){
-                      $('#tournamentLogo').fadeIn();
+                      $('#tournamentLogo').fadeTo("1","1");
                   }
                   );
 
