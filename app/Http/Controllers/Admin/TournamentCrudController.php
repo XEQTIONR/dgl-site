@@ -45,6 +45,12 @@ class TournamentCrudController extends CrudController
         ]
         , 'update/create/both');
 
+      $this->crud->addField([
+          'name' => 'slug',
+          'label' => 'Slug',
+          'type' => 'text'
+        ]
+        , 'update/create/both');
 
       $this->crud->addField([
           'name' => 'registration_start',

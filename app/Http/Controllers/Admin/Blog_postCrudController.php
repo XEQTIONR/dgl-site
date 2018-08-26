@@ -43,6 +43,14 @@ class Blog_postCrudController extends CrudController
           'type' => 'text'
         ]
         , 'update/create/both');
+
+      $this->crud->addField([
+          'name' => 'slug',
+          'label' => 'Slug',
+          'type' => 'text'
+        ]
+        , 'update/create/both');
+      
       $this->crud->addField([
           'name' => 'banner',
           'label' => 'Banner Image',

@@ -18,7 +18,7 @@
     protected $table = 'blog_posts';
     public $timestamps = true;
     //protected $guarded = ['id'];
-    protected $fillable = ['title', 'subtitle', 'banner', 'body','tournament_id'];
+    protected $fillable = ['title', 'subtitle', 'banner', 'body','tournament_id', 'slug'];
     // protected $hidden = [];
     // protected $dates = [];
 

@@ -24,7 +24,7 @@ class Tournament extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     //protected $guarded = ['id'];
-    protected $fillable = ['name', 'description', 'rules', 'registration_start', 'registration_end',
+    protected $fillable = ['name', 'description', 'slug' , 'rules', 'registration_start', 'registration_end',
                           'startdate', 'enddate', 'squadsize', 'num_contenders', 'title',
                           'caption', 'overview' ,' standings_json',
                           'banner', 'logo', 'logo_visibility', 'bracket'];
