@@ -87,6 +87,13 @@ class Tournament extends Model
     return $link;
   }
 
+  public function getLinkAttribute()
+  {
+    if(is_null($this->slug))
+      return $this->id;
+    return $this->slug;
+  }
+
   /*
   |--------------------------------------------------------------------------
   | MUTATORS

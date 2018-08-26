@@ -205,7 +205,7 @@
                               <p class="card-text text-center font-gray">{{$tournament->caption}}</p>
                             </div>
                             <div class="card-body justify-content-center">
-                              <a href="/tournaments/{{$tournament->id}}" class="btn btn-success py-2 mb-5 btn-block text-uppercase">Go to tournament</a>
+                              <a href="/tournaments/{{$tournament->link}}" class="btn btn-success py-2 mb-5 btn-block text-uppercase">Go to tournament</a>
                             </div>
                           </div>
                             @php $i++ @endphp

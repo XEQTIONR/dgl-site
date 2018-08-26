@@ -39,13 +39,13 @@
           <!-- A match -->
           <div class="match col-12 py-3 bg-purple4" style="">
             <div class="row justify-content-center d-flex d-sm-none">
-              <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
+              <a class="match-tournament-link" href="/tournaments/{{$match->tournament->link}}">
                 {{$match->tournament->name}}
               </a>
             </div>
             <div class="row justify-content-center">
               <div class="col-3 justify-content-center align-items-center d-none d-sm-flex">
-                <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
+                <a class="match-tournament-link" href="/tournaments/{{$match->tournament->link}}">
                   {{$match->tournament->name}}
                 </a>
               </div>
@@ -106,13 +106,13 @@
 
       <div class="match col-12 py-3 bg-purple4" style="">
         <div class="row justify-content-center d-flex d-sm-none">
-          <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
+          <a class="match-tournament-link" href="/tournaments/{{$match->tournament->link}}">
             {{$match->tournament->name}}
         </div>
         <div class="row">
 
           <div class="col-3 justify-content-center align-items-center d-none d-sm-flex">
-            <a class="match-tournament-link" href="/tournaments/{{$match->tournament->id}}">
+            <a class="match-tournament-link" href="/tournaments/{{$match->tournament->link}}">
               {{$match->tournament->name}}
             </a>
           </div>

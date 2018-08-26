@@ -27,19 +27,7 @@
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function getExcerptAttribute()
-    {
-      $body = $this->body;
-      $words = explode(" ", $body);
-      $words20 = array_slice($words,0,30);
 
-      $excerpt = implode(' ', $words20);
-      $excerpt = $excerpt." ...";
-      $Parsedown = new \Parsedown();
-      $excerpt = $Parsedown->text($excerpt);
-
-      return $excerpt;
-    }
 
 
     /*
@@ -61,6 +49,29 @@
     | ACCESORS
     |--------------------------------------------------------------------------
     */
+
+    public function getLinkAttribute()
+    {
+      if(is_null($this->slug))
+        return $this->id;
+      return $this->slug;
+    }
+
+    public function getExcerptAttribute()
+    {
+      $body = $this->body;
+      $words = explode(" ", $body);
+      $words20 = array_slice($words,0,30);
+
+      $excerpt = implode(' ', $words20);
+      $excerpt = $excerpt." ...";
+      $Parsedown = new \Parsedown();
+      $excerpt = $Parsedown->text($excerpt);
+
+      return $excerpt;
+    }
+
+
     public function getBannerAttribute($value)
     {
       //$name = $this->banner;
