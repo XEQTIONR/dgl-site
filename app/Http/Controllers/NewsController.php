@@ -35,8 +35,23 @@ class NewsController extends Controller
     public function show($id)
     {
         //
+
+      if(is_numeric($id))
+      {
+        $post = \App\Blog_post::find($id);
+        //dd($t);
+      }
+      //$this->show();
+      else
+      {
+        $post = \App\Blog_post::where('slug', $id)->first();
+      }
+
+      if(is_null($post))
+        abort(404);
+
       $Parsedown = new \Parsedown();
-      $post = \App\Blog_post::find($id);
+      //$post = \App\Blog_post::find($id);
 
       $post->body = $Parsedown->text($post->body);
       return view('news.ablog', compact('post'));
