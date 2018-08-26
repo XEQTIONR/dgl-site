@@ -32,7 +32,7 @@
           <div class="aspacer mt-5 row" style="min-height: 150px;">
           </div>
         @endif
-          <div class="row tournament-name-row pt-0 justify-content-center" style="position: relative;">
+          <div class="row tournament-name-row mt-3 justify-content-center" style="position: relative;">
           <div class="col-12">
           <h1 class="display-4 text-center">{{$tournament->name}}</h1>
 

@@ -1043,7 +1043,10 @@ body{
     background-color: $dgl-purple2;
   }
   .dgl-card-img{
-    width: 50%;
+    min-width: 50%;
+    max-width: 90%;
+    height: auto;
+    max-height: 200px;
     display: block;
     margin: 2em auto 0 auto;
 
