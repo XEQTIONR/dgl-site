@@ -202,12 +202,21 @@ Route::get('/test4', function(){
 
   $to = 'x.e.q.tionrz@gmail.com';
   $al = 'XEQTIONR';
-  $tn = 'DaTeaM';
+  $tn = App\ContendingTeam::first();
   $tt = 'DtM`';
   $tourney = 'DA* League 2018';
 
-  return new App\Mail\TeamApproved($to, $al, $tn, $tt, $tourney);
+  return new App\Mail\TeamApproved($to, $al, $tn, $tourney);
 });
+  Route::get('/test5', function(){
+
+    $to = App\Tournament::first();
+    $tm = App\ContendingTeam::first();
+    $gm = App\Gamer::first();
+
+    return new App\Mail\TournamentRegistrationFinished($to, $tm, $gm);
+  });
+
 
 
 

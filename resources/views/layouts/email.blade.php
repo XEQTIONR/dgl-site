@@ -1,10 +1,10 @@
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+  @import url('https://fonts.googleapis.com/css?family=Muli');
 
   body
   {
-    font-family: "Titillium Web";
-    font-size: 20px;
+    font-family: Muli;
+    font-size: 17px;
   }
   .row{
     width: 100%;
@@ -54,10 +54,10 @@
   }
 </style>
 <div class="row">
-  <div class="col" style="background: url('{{URL::asset('storage/banner-email.png')}}')">
-    <img class="logo" src="{{URL::asset('Crown.png')}}" width="100"  alt="DaGameLeague Logo">
+  <div class="col" style="">
+    <img class="logo" src="{{URL::asset('storage/DGLcolorLogo.png')}}"  alt="DaGameLeague Logo">
     {{--<img src="{{URL::asset('storage/banner-email.png')}}" width="100%">--}}
-    <h2 class="text-center">ĐAGAMELEAGUE</h2>
+    {{--<h2 class="text-center">ĐAGAMELEAGUE</h2>--}}
   </div>
   {{--<hr>--}}
 </div>
