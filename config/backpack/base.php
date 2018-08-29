@@ -15,14 +15,14 @@ return [
     'project_name' => 'Backpack',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<b>D</b>A<b>G</b>AME<b>L</b>EAGUE',
+    'logo_mini' => '<b>DGL</b>',
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Cristian Tabacitu',
+    'developer_name' => 'Ishtehar Hussain',
 
     // Developer website. Link in footer.
-    'developer_link' => 'http://tabacitu.ro',
+    'developer_link' => 'http://dglcore.com',
 
     // Show powered by Laravel Backpack in the footer?
     'show_powered_by' => true,
