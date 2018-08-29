@@ -222,7 +222,7 @@ class TournamentController extends Controller
                                               ->setTimezone(config('app.user_timezone'))
                                               ->format('j M Y');
 
-      $tournament->local_end_string = Carbon::parse($tournament->startdate,config('app.timezone'))
+      $tournament->local_end_string = Carbon::parse($tournament->enddate,config('app.timezone'))
                                             ->setTimezone(config('app.user_timezone'))
                                             ->format('j M Y');
 
