@@ -165,7 +165,7 @@
               validation: function(e) {
                   console.log('validation called');
                   app.errors = [];
-                  this.findGamer();
+                  //this.findGamer();
                   if(!app.fname.length>0)
                       app.errors.push("Your first name is required.");
                   if(!app.lname.length>0)
@@ -254,7 +254,7 @@
                 {{--<label for="alias" class="col-md-4 control-label">Alias</label>--}}
 
                 <div class="col">
-                  <input v-model="alias" id="alias" type="text" class="form-control" name="alias" value="{{ old('alias') }}" placeholder="Alias">
+                  <input v-model="alias" id="alias" v-on:change="findGamer()" type="text" class="form-control" name="alias" value="{{ old('alias') }}" placeholder="Alias">
 
                   @if ($errors->has('alias'))
                     <span class="help-block">
