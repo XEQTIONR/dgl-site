@@ -291,24 +291,28 @@
                           vm.image300 = e.target.result;
 
                           image.src = _URL.createObjectURL(file);
-                          image.onload = function(){
-                              if(this.width!=300||this.height!=300)
-                              {
-                                  alert("Image uploaded of size 300px x 300px."+
-                                      " Image uploaded is "+this.width+"px x "+ this.height + "px.");
-                                  vm.image300 ='';
-                                  var input = document.getElementById("img300Input");
-                                  input.value = "";
-                              }
-                              else if(file["type"]!="image/png")
-                              {
-                                  alert("Image uploaded must be PNG"+
-                                      " Image uploaded is "+ file["type"]);
-                                  vm.image300 ='';
-                                  var input = document.getElementById("img300Input");
-                                  input.value = "";
-                              }
-                          };
+
+                          console.log('file type2');
+                          console.log(file["type"]);
+
+                          if(!(file["type"]=="image/png" || file["type"]=="image/jpeg"))
+                          {
+                              alert("Image uploaded must be a PNG or JPG file.");
+                              vm.image300 ='';
+                              var input = document.getElementById("img300Input");
+                              input.value = "";
+                          }
+                          else
+                            image.onload = function(){
+                                if(this.width!=300||this.height!=300)
+                                {
+                                    alert("Image uploaded of size 300px x 300px."+
+                                        " Image uploaded is "+this.width+"px x "+ this.height + "px.");
+                                    vm.image300 ='';
+                                    var input = document.getElementById("img300Input");
+                                    input.value = "";
+                                }
+                            };
                       };
                       reader.readAsDataURL(file);
                   },
@@ -336,24 +340,25 @@
                           vm.image100 = e.target.result;
 
                           image.src = _URL.createObjectURL(file);
-                          image.onload = function(){
-                              if(this.width!=50||this.height!=50)
-                              {
-                                  alert("Image uploaded of size 50px x 50px."+
-                                      " Image uploaded is "+this.width+"px x "+ this.height + "px.");
-                                  vm.image100 ='';
-                                  var input = document.getElementById("img100Input");
-                                  input.value = "";
-                              }
-                              else if(file["type"]!="image/png")
-                              {
-                                  alert("Image uploaded must be PNG"+
-                                      " Image uploaded is "+ file["type"]);
-                                  vm.image100 ='';
-                                  var input = document.getElementById("img100Input");
-                                  input.value = "";
-                              }
+
+                          if(!(file["type"]=="image/png" || file["type"]=="image/jpeg"))
+                          {
+                              alert("Image uploaded must be a PNG or JPG file.");
+                              vm.image100 ='';
+                              var input = document.getElementById("img100Input");
+                              input.value = "";
                           }
+                          else
+                            image.onload = function(){
+                                if(this.width!=50||this.height!=50)
+                                {
+                                    alert("Image uploaded of size 50px x 50px."+
+                                        " Image uploaded is "+this.width+"px x "+ this.height + "px.");
+                                    vm.image100 ='';
+                                    var input = document.getElementById("img100Input");
+                                    input.value = "";
+                                }
+                            }
                       };
                       reader.readAsDataURL(file);
                   },
@@ -549,11 +554,11 @@
 
                   checkName: function(){
                       if(app.name.length>25);
-                        app.name = app.name.substring(0, 24);
+                        app.name = app.name.substring(0, 25);
                   },
                   checkTag: function(){
                       if(app.tag.length>5);
-                      app.tag = app.tag.substring(0, 4);
+                      app.tag = app.tag.substring(0, 5);
                   },
 
                   validation: function(e){
@@ -575,7 +580,7 @@
                           app.errors.push("You need to decide on a name for your team.");
 
                       if(!app.tag.length)
-                          app.errors.push("Your team needs a tag team/clan tag. Its a shorter acronym for your team.");
+                          app.errors.push("Your team needs a team/clan tag. It is a shorter acronym for your team.");
 
                       if(!(app.image300.length && app.image100.length))
                           app.errors.push("You need to upload your team logos.");
