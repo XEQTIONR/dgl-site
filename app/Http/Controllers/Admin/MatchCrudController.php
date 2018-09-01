@@ -310,7 +310,7 @@ class MatchCrudController extends CrudController
 
     public function emailNotify(Match $match)
     {
-      $contestants = $match->contestants->with('contending_team.roster.gamer')->get();
+      $contestants = $match->contestants()->with('contending_team.roster.gamer')->get();
 
       foreach($contestants as $contestant)
       {
