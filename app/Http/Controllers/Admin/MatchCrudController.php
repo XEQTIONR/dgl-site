@@ -10,6 +10,7 @@ use App\MatchContestant;
 use App\Http\Requests\MatchRequest as StoreRequest;
 use App\Http\Requests\MatchRequest as UpdateRequest;
 use DB;
+use Illuminate\Support\Facades\Mail;
 
 class MatchCrudController extends CrudController
 {
