@@ -19,7 +19,7 @@
           @foreach($contestants as $contestant)
             @if($contestant->contending_team->id != $team->id)
               <span>{{$team->tag}}</span><span>{{$team->name}}</span>
-              <img src="{{$contestant->contending_team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
+              <img src="{{config('app.url','http://localhost:8000')}}{{$contestant->contending_team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
             @endif
           @endforeach
         </div>
