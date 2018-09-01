@@ -76,7 +76,7 @@
                       };
                       if(alias == "")
                       {
-                          toastr.success(app.aliasInput+ " is available.");
+                          toastr.success(app.alias+ " is available.");
                       }
                       else
                       {
