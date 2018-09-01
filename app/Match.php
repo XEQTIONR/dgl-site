@@ -52,7 +52,7 @@ class Match extends Model
   public function notifyButton()
   {
     if(!$this->notified)
-      return "<a href='/".config('backpack.base.route_prefix')."/notify-match/".$this->id."' class='btn btn-xs btn-warning'><i class='fa fa-envelope'></i>Email Contestants</a>";
+      return "<a href='/".config('backpack.base.route_prefix')."/notify-match/".$this->id."' class='btn btn-xs btn-warning'><i class='fa fa-envelope'></i> Email Contestants</a>";
     return null;
 //    $contestants = $this->contestants->with('contending_team.tournament')->get();
 //
