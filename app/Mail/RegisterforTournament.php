@@ -43,8 +43,7 @@ class RegisterforTournament extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@dglcore.com')
-                    ->subject($this->captain->alias.' ('.$this->captain->fname.' '.$this->captain->lname.') invited you to participate in tournament : '.$this->tournament->name.' for his team '.$this->team->name.'.')
+        return $this->subject($this->captain->alias.' ('.$this->captain->fname.' '.$this->captain->lname.') invited you to participate in tournament : '.$this->tournament->name.' for his team '.$this->team->name.'.')
                     ->view('mail.register_confirmation_for_tournament');
     }
 }

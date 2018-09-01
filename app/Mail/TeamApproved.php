@@ -41,8 +41,7 @@ class TeamApproved extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@dglcore.com')
-                    ->subject($this->teamTag.' approved for '.$this->tournament.'.')
+        return $this->subject($this->teamTag.' approved for '.$this->tournament.'.')
                     ->view('mail.team_approved');
     }
 }

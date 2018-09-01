@@ -9,7 +9,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <img src="{{$team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
+          <img src="{{config('app.url','http://localhost:8000')}}{{$team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
           <span>{{$team->name}}</span><span>{{$team->tag}}</span>
         </div>
         <div class="col">
