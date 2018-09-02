@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col">
           <img src="{{config('app.url','http://localhost:8000')}}{{$team->logo_size2}}" width="50" height="50"  alt="Esports team {{$team->name}} logo.">
-          <span>{{$team->name}}</span><span>{{$team->tag}}</span>
+          <span>{{$team->name}}</span><span>({{$team->tag}})</span>
         </div>
         <div class="col">
           vs
@@ -18,7 +18,7 @@
         <div class="col">
           @foreach($contestants as $contestant)
             @if($contestant->contending_team->id != $team->id)
-              <span>{{$team->tag}}</span><span>{{$team->name}}</span>
+              <span>({{$contestant->contending_team->tag}})</span><span>{{$contestant->contending_team->name}}</span>
               <img src="{{config('app.url','http://localhost:8000')}}{{$contestant->contending_team->logo_size2}}" width="50" height="50"  alt="Esports team {{$contestant->contending_team->name}} logo.">
             @endif
           @endforeach
