@@ -140,6 +140,8 @@ class TournamentController extends Controller
       {
         $tournament = Tournament::find($identifier);
         //dd($t);
+        if(strlen($tournament->slug))
+        return redirect('/tournaments/'.$tournament->slug);
       }
         //$this->show();
       else
