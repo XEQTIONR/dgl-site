@@ -96,7 +96,7 @@ class MatchCrudController extends CrudController
 
       $this->crud->addField([
           'label' => "Match Contestants",
-          'type' => 'select2_multiple',
+          'type' => 'contendingteam', // this is a custom field we created // checkout contendingteam.blade.php
           'name' => 'contestants', // the method that defines the relationship in your Model
           'entity' => 'contestants', // the method that defines the relationship in your Model
           'attribute' => 'name', // foreign key attribute that is shown to user
