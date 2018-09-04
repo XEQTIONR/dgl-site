@@ -21,20 +21,23 @@
           {{--background: url({{$tournament->banner}});--}}
         {{--}--}}
       </style>
-      <div class="jumbotron-fluid jumbotron-atournament" style="background-image: url('{{$tournament->banner}}');
-                                                                background-position: center; min-height: 450px !important;">
+      <div class="jumbotron-fluid jumbotron-atournament d-flex flex-column justify-content-center" style="background-image: url('{{$tournament->banner}}');
+                                                                background-position: center; min-height: 450px !important;
+        align-items: center;">
 
         @if($tournament->logo && $tournament->logo_visibility == 'visible')
-          <div id="tournamentLogoDiv" class="row justify-content-center mt-7" style="min-height: 100px;">
-            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: auto; min-height: 100px; max-height: 200px; display: block;" alt="DaGameLeague Esport Tournament Logo">
-          </div>
-        @else
-          <div class="aspacer mt-5 row" style="min-height: 150px;">
-          </div>
+          {{--<div id="tournamentLogoDiv" class="" style="min-height: 100px; max-height: 300px;">--}}
+            <img id="tournamentLogo" src="{{$tournament->logo}}"}} style="width: auto; min-height: 100px; max-height: 200px;" alt="{{$tournament->name}} Logo">
+          {{--</div>--}}
+        {{--@else--}}
+          {{--<div class="aspacer mt-5 row" style="min-height: 150px;">--}}
+          {{--</div>--}}
         @endif
-          <div class="row tournament-name-row mt-3 justify-content-center" style="position: relative;">
+          <div class="row tournament-name-row mt-3 justify-content-center">
           <div class="col-12">
+          @if(!($tournament->logo && $tournament->logo_visibility == 'visible'))
           <h1 class="display-5 text-center">{{$tournament->name}}</h1>
+          @endif
           <h5 class="text-center">
             {{$tournament->local_start_string}}
             -
@@ -95,14 +98,14 @@
                   });
                   @if($tournament->logo && $tournament->logo_visibility == 'visible')
                   $('.jumbotron-atournament').hover(function(){
-                     $('#tournamentLogo').fadeTo("1","0");
+                     $('#tournamentLogo, .tournament-name-row').fadeTo("1","0");
                      //$('#tournamentLogo').css('opacity', '0');
                      //$('#tournamentLogo').css('display', 'block');
                      //$('.jumbotron-atournament::after').css('background-color', 'blue');
                   }
                   ,
                       function(){
-                      $('#tournamentLogo').fadeTo("1","1");
+                      $('#tournamentLogo, .tournament-name-row').fadeTo("1","1");
                   }
                   );
 
