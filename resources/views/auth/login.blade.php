@@ -45,13 +45,13 @@
                         </div>
 
                         <div class="form-row justify-content-between ml-3 mb-4 pl-2 pr-3">
-                            <div class="d-block">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
+                            {{--<div class="d-block">--}}
+                                {{--<div class="checkbox">--}}
+                                    {{--<label>--}}
+                                        {{--<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me--}}
+                                    {{--</label>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="d-block">
                                 <a class="btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
                             </div>
