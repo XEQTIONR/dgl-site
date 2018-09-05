@@ -218,6 +218,18 @@ Route::get('/test4', function(){
     return new App\Mail\TournamentRegistrationFinished($to, $tm, $gm);
   });
 
+  Route::get('/test6', function(){
+
+    $match = App\Match::first();
+    $contestants = $match->contestants;
+    $team = $contestants->first()->contending_team;
+
+    return new App\Mail\MatchNotification($match, $contestants, $team);
+  });
+
+
+
+
 
 
 
