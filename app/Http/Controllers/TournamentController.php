@@ -57,6 +57,21 @@ class TournamentController extends Controller
       {
         $active_tournament->description = $Parsedown->text($active_tournament->description);
         array_push($ids,$active_tournament->id);
+        $active_tournament->local_start_string = Carbon::parse($active_tournament->startdate,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y');
+
+        $active_tournament->local_end_string = Carbon::parse($active_tournament->enddate,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y');
+
+        $active_tournament->local_reg_start = Carbon::parse($active_tournament->registration_start,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y h:i A');
+
+        $active_tournament->local_reg_end = Carbon::parse($active_tournament->registration_end,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y h:i A');
       }
       $tournaments = Tournament::whereNotIn('id', $ids)
                                 ->orderBy('startdate','DESC')
@@ -65,6 +80,21 @@ class TournamentController extends Controller
                                 ->get();
       foreach ($tournaments as $tournament)
       {
+        $tournament->local_start_string = Carbon::parse($tournament->startdate,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y');
+
+        $tournament->local_end_string = Carbon::parse($tournament->enddate,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y');
+
+        $tournament->local_reg_start = Carbon::parse($tournament->registration_start,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y h:i A');
+
+        $tournament->local_reg_end = Carbon::parse($tournament->registration_end,config('app.timezone'))
+          ->setTimezone(config('app.user_timezone'))
+          ->format('j M Y h:i A');
         $tournament->description = $Parsedown->text($tournament->description);
         $date = Carbon::createFromFormat('Y-m-d',$tournament->startdate);
         if($date->gt($now))

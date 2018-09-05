@@ -32,8 +32,16 @@
           </div>
         </div>
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
-          <div class="row">
+            <div class="row">
             <h2 class="font-white">{{$tournament->name}}</h2>
+            </div>
+            <div class="row mb-2">
+              <small>
+              <i data-toggle="tooltip" title="Tournament Dates" class="fas fa-calendar-alt font-green mt-1 mr-2"></i>
+              <span class="font-green">{{$tournament->local_start_string}} - {{$tournament->local_end_string}}</span>
+              </small>
+            </div>
+            <div class="row mb-4">
             <div class="col-12 pl-0">
               <span class="font-gray">{!! $tournament->excerpt !!}</span>
             </div>
@@ -74,6 +82,16 @@
         <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
           <div class="row">
             <h2 class="font-gray">{{$tournament->name}}</h2>
+          </div>
+          <div class="row mb-2">
+            <small>
+              <i data-toggle="tooltip" title="Tournament Dates" class="fas fa-calendar-alt font-white mt-1 mr-1"></i>
+              <span class="font-white">{{$tournament->local_start_string}} - {{$tournament->local_end_string}}</span>
+              <i data-toggle="tooltip" title="Registration Dates" class="fas fa-pencil-alt font-white mt-1 ml-3 mr-1"></i>
+              <span class="font-white">{{$tournament->local_reg_start}} - {{$tournament->local_reg_end}}</span>
+            </small>
+          </div>
+          <div class="row">
             <div class="col-12 pl-0">
             <p class="font-gray">{!! $tournament->excerpt !!}</p>
             </div>
@@ -114,6 +132,14 @@
           <div class="col-10 offset-1 col-md-6 offset-md-1 offset-lg-0 mt-2">
             <div class="row">
               <h2 class="font-gray">{{$tournament->name}}</h2>
+            </div>
+            <div class="row mb-2">
+              <small>
+              <i data-toggle="tooltip" title="Tournament Dates" class="fas fa-calendar-alt font-gray mt-1 mr-1"></i>
+              <span class="font-gray">{{$tournament->local_start_string}} - {{$tournament->local_end_string}}</span>
+              </small>
+            </div>
+            <div class="row">
               <div class="col-12 pl-0">
                 <p class="font-gray">{!! $tournament->excerpt !!}</p>
               </div>
