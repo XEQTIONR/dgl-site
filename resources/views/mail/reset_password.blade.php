@@ -34,11 +34,11 @@
     text-decoration: none;
     color: white;
     font-weight: bold"
-           href="{{config('app.url','http://localhost:8000')}}/{{$link}}">Reset Password</a>
+           href="{{config('app.url','http://localhost:8000')}}/password/reset/{{$token}}">Reset Password</a>
 
         <p>If you cannot see the button visit the following link </p>
 
-        <a href="{{config('app.url','http://localhost:8000')}}/{{$link}}">{{config('app.url','http://localhost:8000')}}/{{$link}}</a>
+        <a href="{{config('app.url','http://localhost:8000')}}/password/reset/{{$token}}">{{config('app.url','http://localhost:8000')}}/password/reset/{{$token}}</a>
         <p style="font-weight: bold;">Happy Gaming</p>
         <hr>
       </div>
