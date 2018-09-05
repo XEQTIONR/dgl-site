@@ -10,10 +10,10 @@
         <span class="font-gray">to</span>
         <span class="font-white">{{$tournament->local_end_string}}</span>
       </h5>
-    <h5 class="font-red">Registration Start :
+    <h5 class="font-red">Registration Starts :
       <span class="font-white">{{$tournament->local_reg_start}}</span>
     </h5>
-    <h5 class="font-red">Registration End :
+    <h5 class="font-red">Registration Ends :
       <span class="font-white">{{$tournament->local_reg_end}}</span>
     </h5>
     <h5 class="font-red">Requirements : </h5>

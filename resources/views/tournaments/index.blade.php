@@ -14,7 +14,7 @@
     <div class="col-12 mt-5 mw">
       <div class="row mt-5 mb-3 mx-md-5 justify-content-center">
         <div class="col-12 generic-section-title py-4 bg-purple3">
-          <span class="font-primary-color font-primary">ACTIVE TOURNAMENTS</span>
+          <span class="font-green font-primary">ACTIVE TOURNAMENTS</span>
         </div>
       </div>
       <!-- active tournaments rows -->
