@@ -19,12 +19,13 @@
 */
 
 Route::get('/', 'MiscController@home');
+
 Route::get('/about-us','MiscController@aboutus')->name('about');
 Route::get('/about-dateam','MiscController@aboutdateam')->name('about-dateam');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function(){ return redirect('/');})->name('home');
 
 Route::get('/verify/{code}', 'VerificationController@verifyEmail');
 Route::get('/resend_verify/{gamer}','VerificationController@resendVerificationEmail');
