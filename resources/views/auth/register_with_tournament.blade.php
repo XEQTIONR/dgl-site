@@ -5,7 +5,7 @@
 @endsection
 @section('footer-scripts')
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.standalone.min.css">
-  <script src="http://code.jquery.com/jquery-3.2.1.min.js" ></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
   <script>
       $('#dob-btn').click(function(){
