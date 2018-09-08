@@ -51,6 +51,8 @@ class TournamentController extends Controller
       //return $now;
       $active_tournaments = Tournament::whereDate('startdate', '<=', $nowstr)
                                       ->whereDate('enddate','>=', $nowstr)
+                                      ->orderBy('startdate','ASC')
+                                      ->orderBy('enddate','ASC')
                                       ->with('esport')
                                       ->get();
       foreach ($active_tournaments as $active_tournament)
@@ -74,8 +76,8 @@ class TournamentController extends Controller
           ->format('j M Y h:i A');
       }
       $tournaments = Tournament::whereNotIn('id', $ids)
-                                ->orderBy('startdate','DESC')
-                                ->orderBy('enddate','DESC')
+                                ->orderBy('startdate','ASC')
+                                ->orderBy('enddate','ASC')
                                 ->with('esport')
                                 ->get();
       foreach ($tournaments as $tournament)
@@ -103,8 +105,12 @@ class TournamentController extends Controller
           $tournament->upcoming = false;
       }
 
+      $past_tournaments = $tournaments->where('upcoming', false)->sortByDesc('startdate')->sortByDesc('enddate');
+
+      //dd($past_tournaments);
+
       return view('tournaments.index', compact('active_tournaments',
-                                                          'tournaments'));
+                                                          'tournaments', 'past_tournaments'));
     }
 
     /**
