@@ -16,6 +16,15 @@
     <h5 class="font-red">Registration Ends :
       <span class="font-white">{{$tournament->local_reg_end}}</span>
     </h5>
+    <h5 class="font-red">Number of teams :
+      <span class="font-white">
+        @if(intval($tournament->num_contenders))
+          {{$tournament->num_contenders}}
+        @else
+          &infin;
+        @endif
+      </span>
+    </h5>
     <h5 class="font-red">Requirements : </h5>
       <div class="w-100">
         <div class="row">
