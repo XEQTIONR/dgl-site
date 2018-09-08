@@ -468,7 +468,7 @@ span h6 {
 }
 
 span li {
-  color: #6677CC;
+  color: #21A560;
 }
 
 span p {
@@ -498,6 +498,10 @@ span.light h4,
 span.light h5,
 span.light h6 {
   color: #EE2C54;
+}
+
+span.light li {
+  color: #43609C;
 }
 
 .main-banner {

@@ -159,7 +159,7 @@ span{
     text-transform: none !important;
   }
   li{
-    color: #6677CC;
+    color: $dgl-green2;
   }
 
   p{
@@ -180,6 +180,9 @@ span.light{
   }
   h1,h2,h3,h4,h5,h6{
     color: $dgl-red;
+  }
+  li{
+    color: $dgl-blue2;
   }
 }
 .main-banner{
