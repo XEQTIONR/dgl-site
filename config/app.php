@@ -13,6 +13,8 @@ return [
     'admin_email' => env('ADMIN_EMAIL', 'x.e.q.tionrz@gmail.com'),
 
     'posts_per_page' => env('POSTS_PER_PAGE', 5),
+
+    'gamers_per_page' => env('GAMERS_PER_PAGE', 10),
     /*
     |--------------------------------------------------------------------------
     | Application Name

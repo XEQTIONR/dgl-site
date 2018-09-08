@@ -28,7 +28,7 @@ class GamerController extends Controller
         array_push($ids, $roster->gamer_id);
       }
       $page = $request->page;
-      $pagesize = 2;
+      $pagesize = config('app.gamers_per_page',2);
       $offset = ($page-1) * $pagesize;
       if($offset<0)
         $offset=0;
