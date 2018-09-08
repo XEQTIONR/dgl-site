@@ -12,6 +12,7 @@ return [
 
     'admin_email' => env('ADMIN_EMAIL', 'x.e.q.tionrz@gmail.com'),
 
+    'posts_per_page' => env('POSTS_PER_PAGE', 5),
     /*
     |--------------------------------------------------------------------------
     | Application Name
