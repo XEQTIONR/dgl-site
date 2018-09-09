@@ -250,7 +250,7 @@
             </div>
           </div>
           <div v-if="!owProfileFound" class="form-group row">
-            <label for="inputKname">Battle Tag
+            <label for="inputKname">Battle Tag (case-sensitive)
               <span class="ml-2" v-bind:class="[{'visible-inline': searchingBattleTag },{'hidden': !searchingBattleTag}]">
                 <i class="fa-spin fas fa-circle-notch"></i>
               </span>

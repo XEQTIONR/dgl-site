@@ -62,3 +62,9 @@
   {{--<hr>--}}
 </div>
 @yield('content')
+
+
+<br>
+<span style="font-size: 9px;">Please do not reply to this email. Any questions/comments should be sent to
+  <span style="font-weight: bold;">admin@dglcore.com</span>
+</span>

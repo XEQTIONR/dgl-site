@@ -444,8 +444,8 @@ class TournamentController extends Controller
 
       $notification = "Registration form submitted. Your team registration will complete when all your teammates accept their invitations.";
       $type = 'warning';
-      $request->session()->flash('notification', $notification);
-      $request->session()->flash('notification_type', $type);
+      $request->session()->put('notification', $notification);
+      $request->session()->put('notification_type', $type);
 
       return redirect('/tournaments/'.$tournament->id);
 

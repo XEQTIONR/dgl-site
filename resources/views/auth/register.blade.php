@@ -285,18 +285,15 @@
                         </div>
 
                         <div v-if="!steamProfileFound" class="form-group">
-                            {{--<label for="steamid" class="col-md-4 control-label">Steam ID:</label>--}}
-
                             <div class="col">
                               <div class="input-group">
                                 <input v-model="steamIdInput" v-on:change="getSteamInfo()" id="steamid" name="steamid" type="text" class="form-control" value="{{ old('steamid') }}" placeholder="SteamID"  autofocus>
                                 <label v-show="!searchingSteam" class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getSteamInfo()" for="date">
                                   <span class="fas fa-search"></span>
-                                  {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
+
                                 </label>
                                 <label v-show="searchingSteam" class="input-group-addon btn mb-0 bg-lightestgray" for="date">
                                   <span class="fa-spin fas fa-circle-notch"></span>
-                                  {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
                                 </label>
                               </div>
                             </div>
@@ -310,7 +307,6 @@
                           </div>
                           <div class="col">
                             <h3>@{{ steamPersonaName }}</h3>
-                            {{--<span>@{{ steamStatus }}</span>--}}
 
                             {{-- hidden inputs for those which get replaced in DOM--}}
                             <input name="steamid" v-model="steamIdInput" type="hidden">
@@ -323,17 +319,14 @@
                         </div>
 
                         <div v-if="!owProfileFound" class="form-group">
-                            {{--<label for="fname" class="col-md-4 control-label">Battle.Net ID:</label>--}}
                             <div class="col">
                               <div class="input-group">
                                 <input v-model="battleTagInput" v-on:change="getOverwatchInfo()" name="battlenetid" id="battlenetid" type="text" class="form-control"  value="{{ old('battlenetid') }}"  placeholder="BattleNet Account"  autofocus>
                                 <label v-show="!searchingBattleTag" class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getOverwatchInfo()" for="date">
                                   <span class="fas fa-search"></span>
-                                  {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
                                 </label>
                                 <label v-show="searchingBattleTag" class="input-group-addon btn mb-0 bg-lightestgray" for="date">
                                   <span class="fa-spin fas fa-circle-notch"></span>
-                                  {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
                                 </label>
                               </div>
                             </div>

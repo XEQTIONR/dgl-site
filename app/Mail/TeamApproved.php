@@ -31,7 +31,7 @@ class TeamApproved extends Mailable
       $this->teamName = $team->name;
       $this->teamTag = $team->tag;
       $this->tournament = $tournamentName;
-      $this->logo = $team->logo_size2;
+      $this->logo = $team->logo_size1;
     }
 
     /**

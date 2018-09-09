@@ -88,7 +88,7 @@
             <span>
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
+              <img class="align-center team-logo-small" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
           </div>
 
@@ -128,7 +128,7 @@
         <div class="col-4">
           <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
             </span>
@@ -217,7 +217,7 @@
 
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
               </div>
             </div>
@@ -235,7 +235,7 @@
             <div class="col-4">
               <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
 
@@ -302,7 +302,7 @@
 
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
               </div>
               <div class="row justify-content-end">
@@ -333,7 +333,7 @@
             <div class="col-4">
               <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
 
@@ -370,7 +370,7 @@
 
               <span class="d-none d-md-inline">{{$match->contestants[0]->contending_team->name}}</span>
               <span class="d-inline d-md-none">{{$match->contestants[0]->contending_team->tag}}</span>
-              <img class="align-center" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[0]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[0]->contending_team->name}} {{$match->contestants[0]->contending_team->tag}} logo">
             </span>
           </div>
         </div>
@@ -403,7 +403,7 @@
         <div class="col-4">
           <div class="row justify-content-start">
             <span>
-              <img class="align-center" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
+              <img class="align-center  team-logo-small" src="{{$match->contestants[1]->contending_team->logo_size2}}" alt="Esports team {{$match->contestants[1]->contending_team->name}} {{$match->contestants[1]->contending_team->tag}} logo">
               <span class="d-inline d-md-none">{{$match->contestants[1]->contending_team->tag}}</span>
               <span class="d-none d-md-inline">{{$match->contestants[1]->contending_team->name}}</span>
 

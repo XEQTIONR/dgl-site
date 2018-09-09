@@ -151,18 +151,13 @@ Route::get('/discord', function(Illuminate\Http\Request $request){
 
     }
   }
-
-  //echo "in /discord";
-  //return $request;
   return redirect('/settings');
 });
 
 
 
-
+if(config('app.env')=='local' || config('app.env')=='develop') :
 Route::get('/test', function(){
-
-  //return view('test');
   $address = 'test@test.com';
   $code = '321j3u1j3o1';
   return new App\Mail\VerifyEmailAddress($address, $code);
@@ -170,21 +165,14 @@ Route::get('/test', function(){
 
 Route::get('/test2', function(){
 
-
-  //return view('test');
   $tournament = App\Tournament::first();
   $team = App\ContendingTeam::first();
-  //dd($tournament, $team);
   $alias = 'gamertag1';
-//    $tournament->name = 'DA* League 2018';
-//    $team->name = 'DaTeaM Prime';
-//    $team->id = 1;
   return new App\Mail\RegisterforTournament($alias, $team, $tournament);
 });
 Route::get('/test3', function(){
 
 
-  //return view('test');
   $tournamentId = \App\Tournament::first();
   $tournamentName = "DA* League 2018";
   $teamId = \App\ContendingTeam::first();
@@ -192,11 +180,7 @@ Route::get('/test3', function(){
   $teamTag = 'DtM`';
   $inviteId = 1;
   $email = 'x.e.q.tionrz@gmail.com';
-  //dd($tournament, $team);
-  //$alias = 'gamertag1';
-//    $tournament->name = 'DA* League 2018';
-//    $team->name = 'DaTeaM Prime';
-//    $team->id = 1;
+
   return new App\Mail\SignUpAndRegister($email, $inviteId, $teamId, $tournamentId);
 });
 Route::get('/test4', function(){
@@ -226,7 +210,7 @@ Route::get('/test4', function(){
 
     return new App\Mail\MatchNotification($match, $contestants, $team);
   });
-
+endif;
 
 
 
