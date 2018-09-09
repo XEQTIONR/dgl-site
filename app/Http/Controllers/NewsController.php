@@ -16,11 +16,11 @@ class NewsController extends Controller
         //
       if($request->ajax())
       {
-        $postsajax=\App\Blog_post::paginate(1);
+        $postsajax=\App\Blog_post::orderBy('created_at', 'DESC')->paginate(config('app.posts_per_page'));
         return view('partials.postsblog', compact('postsajax'));
       }
       else{
-        $posts = \App\Blog_post::paginate(1);
+        $posts = \App\Blog_post::orderBy('created_at', 'DESC')->paginate(config('app.posts_per_page'));
         $lastpage = $posts->lastPage();
         return view('news.blog', compact('posts','lastpage'));
       }

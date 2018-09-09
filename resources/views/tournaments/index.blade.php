@@ -114,8 +114,7 @@
           <span class="font-purple font-primary">PAST TOURNAMENTS</span>
         </div>
       </div>
-      @foreach($tournaments as $tournament)
-      @if( !$tournament->upcoming )
+      @foreach($past_tournaments as $tournament)
       <!-- past tournaments rows -->
         <div class="row mx-md-5 py-5 post-body   bg-purple3">
           <div class="col-12 col-md-3 offset-md-1">
@@ -150,7 +149,6 @@
             </div>
           </div>
         </div><!-- past tournament rows -->
-      @endif
       @endforeach
     </div><!-- active tournament container column -->
   </div> <!-- active tournament container row-->

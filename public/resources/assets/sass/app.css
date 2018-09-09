@@ -460,7 +460,7 @@ span h6 {
 }
 
 span li {
-  color: #6677CC;
+  color: #91a5cd;
 }
 
 span p {
@@ -479,6 +479,17 @@ span th {
   background-color: #ff7324;
 }
 
+span img.team-logo-small {
+  display: inline;
+  margin: auto;
+}
+
+span img {
+  display: block;
+  max-width: 33%;
+  margin: 1em auto;
+}
+
 span.light p {
   color: #000;
 }
@@ -490,6 +501,10 @@ span.light h4,
 span.light h5,
 span.light h6 {
   color: #EE2C54;
+}
+
+span.light li {
+  color: #000;
 }
 
 .main-banner {
@@ -716,6 +731,7 @@ body {
   font-family: Muli, Helvetica, sans-serif;
   background-color: #282840;
   font-size: 16px;
+  font-weight: 600;
 }
 
 body .tag {

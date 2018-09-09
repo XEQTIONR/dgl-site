@@ -159,7 +159,7 @@ span{
     text-transform: none !important;
   }
   li{
-    color: #6677CC;
+    color: lighten($dgl-blue, 20%);
   }
 
   p{
@@ -173,6 +173,16 @@ span{
   th{
     background-color: $dgl-orange;
   }
+
+  img.team-logo-small{
+    display: inline;
+    margin: auto;
+  }
+  img{
+    display: block;
+    max-width: 33%;
+    margin: 1em auto;
+  }
 }
 span.light{
   p{
@@ -180,6 +190,9 @@ span.light{
   }
   h1,h2,h3,h4,h5,h6{
     color: $dgl-red;
+  }
+  li{
+    color: #000;
   }
 }
 .main-banner{
@@ -423,6 +436,7 @@ body{
   font-family: $font-copy;
   background-color: $dgl-purple4;
   font-size: 16px;
+  font-weight: 600;
   .tag{
     font-family: $font-primary;
     font-weight: 700;

@@ -14,12 +14,12 @@ class MiscController extends Controller
       if($request->ajax())
       {
         //return "AJAX RES";
-        $postsajax=\App\Blog_post::paginate(1);
+        $postsajax=\App\Blog_post::orderBy('created_at', 'DESC')->paginate(config('app.posts_per_page'));
         return view('partials.postswelcome', compact('postsajax'));
       }
       else {
         $banners = Banner::orderBy('lft')->get();
-        $posts=\App\Blog_post::paginate(1);
+        $posts=\App\Blog_post::orderBy('created_at', 'DESC')->paginate(config('app.posts_per_page'));
         $lastpage = $posts->lastPage();
 
         $tournaments = \App\Tournament::whereDate('enddate', '>', Carbon::now())

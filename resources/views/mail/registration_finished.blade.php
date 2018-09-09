@@ -29,7 +29,7 @@
         <p style="font-weight: bold">{{$tournament->name}}</p>
         <p>For team :</p>
         <p style="font-weight: bold">{{$team->name}}</p>
-        <img src="{{config('app.url','http://localhost:8000')}}{{$team->logo_size2}}"
+        <img src="{{config('app.url','http://localhost:8000')}}{{$team->logo_size1}}"
              style="display: block; margin : 10px auto;" width="100" height="100">
 
         <p>Now its time to make sure you and all your teammates join our Discord channel.
