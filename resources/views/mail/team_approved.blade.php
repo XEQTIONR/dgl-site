@@ -37,7 +37,7 @@
         all players.</p>
 
         <p style="font-weight: bold">Our Discord Server</p>
-        <a href="https://discord.gg/jsq68nE">https://discord.gg/jsq68nE</a>
+        <a href="https://discord.gg/{{config('social.discord_invite_code')}}">https://discord.gg/jsq68nE</a>
 
         <p style="font-weight: bold">Happy Gaming</p>
         <br>
