@@ -49,6 +49,10 @@
   <p>This link only works once for verification. If your email address is unverified and you lose this email you can generate another one from DGL settings page</p>
   <a href="{{config('app.url', 'http://localhost:8000')}}/settings">{{config('app.url', 'http://localhost:8000')}}/settings</a>
   <p style="font-weight: bold;">Happy Gaming</p>
+  <br>
+  <span style="font-size: 9px;">Please do not reply to this email. Any questions/comments should be sent to
+    <a href="mailto:admin@dglcore.com" style="font-weight: bold;">admin@dglcore.com</span>
+  </span>
       <hr>
     </div>
   </div>
