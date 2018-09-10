@@ -11,9 +11,14 @@
    <img class="d-block mx-auto mt-5 mb-0" src="{{URL::asset('storage/Crown.png')}}" alt="DaGameLeague footer Crown logo." width="75" >
     <h1 class="font-white font-logo text-center mb-5 mx-auto d-none d-md-block" style="font-size: 70px;">DAGAMELEAGUE</h1>
     <h1 class="font-white font-logo text-center mb-5 mx-auto d-md-none">DAGAMELEAGUE</h1>
-    <h6 class="font-gray text-uppercase text-center mb-5 mx-auto">Pro Bangladeshi E-sports tournaments and leagues.</h6>
+    <h6 class="font-gray text-uppercase text-center mb-0 mx-auto">Pro Bangladeshi E-sports tournaments and leagues.</h6>
   </div>
 
+</div>
+<div class="row footer justify-content-center">
+  <a class="mx-2 mb-5" href="https://discord.gg/{{config('social.discord_invite_code')}}"> <img src="{{URL::asset('storage/icons8-discord.png')}}" width="30" height="30"> </a>
+  <a class="mx-2 mb-5" href="https://facebook.com/dglcore"> <img src="{{URL::asset('storage/icons8-facebook.png')}}" width="30" height="30"> </a>
+  <a class="mx-2 mb-5" href="mailto:admin@dglcore.com"> <img src="{{URL::asset('storage/icons8-mail.png')}}" width="30" height="30"> </a>
 </div>
 <div class="row footer bg-purple5">
   <div class="col ml-5 my-3 mw footer-text">
