@@ -293,11 +293,18 @@
                           image.src = _URL.createObjectURL(file);
 
                           console.log('file type2');
-                          console.log(file["type"]);
+                          console.log(file["size"]);
 
                           if(!(file["type"]=="image/png" || file["type"]=="image/jpeg"))
                           {
                               alert("Image uploaded must be a PNG or JPG file.");
+                              vm.image300 ='';
+                              var input = document.getElementById("img300Input");
+                              input.value = "";
+                          }
+                          else if(parseFloat(file["size"])/1000.0>200.0)
+                          {
+                              alert("Images should be under 200KB.");
                               vm.image300 ='';
                               var input = document.getElementById("img300Input");
                               input.value = "";
@@ -344,6 +351,13 @@
                           if(!(file["type"]=="image/png" || file["type"]=="image/jpeg"))
                           {
                               alert("Image uploaded must be a PNG or JPG file.");
+                              vm.image100 ='';
+                              var input = document.getElementById("img100Input");
+                              input.value = "";
+                          }
+                          else if(parseFloat(file["size"])/1000.0>200.0)
+                          {
+                              alert("Images should be under 200KB.");
                               vm.image100 ='';
                               var input = document.getElementById("img100Input");
                               input.value = "";
