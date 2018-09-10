@@ -175,13 +175,18 @@ span{
   }
 
   img.team-logo-small{
-    display: inline;
+    display: inline-block;
     margin: auto;
   }
   img{
+
     display: block;
-    max-width: 33%;
-    margin: 1em auto;
+    height: initial;
+    max-height: 300px;
+    margin: auto;
+
+    //align-items: center;
+    //justify-content: cent;
   }
 }
 span.light{
