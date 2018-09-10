@@ -66,7 +66,11 @@
 
         <p style="font-weight: bold;">Happy, Gaming</p>
       {{--</div>--}}
-
+      <br>
+      <span style="font-size: 9px;">Please do not reply to this email. Any questions/comments should be sent to
+        <a href="mailto:admin@dglcore.com" style="font-weight: bold;">admin@dglcore.com</a>
+      </span>
+      <hr>
     </div>
   </div>
 </body>
