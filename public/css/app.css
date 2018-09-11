@@ -493,10 +493,29 @@ span img.team-logo-small {
 }
 
 span img {
-  display: block;
   height: initial;
   max-height: 300px;
   margin: auto;
+}
+
+span blockquote {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+span blockquote p {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 span.light p {

@@ -180,7 +180,7 @@ span{
   }
   img{
 
-    display: block;
+    //display: block;
     height: initial;
     max-height: 300px;
     margin: auto;
@@ -188,7 +188,20 @@ span{
     //align-items: center;
     //justify-content: cent;
   }
+
+  blockquote {
+    display: flex !important;
+    justify-content: center;
+
+    p{
+      display: flex !important;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
 }
+
+
 span.light{
   p{
     color: #000;
