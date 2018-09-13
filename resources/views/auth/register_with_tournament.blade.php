@@ -162,6 +162,25 @@
                       });
                   }
               },
+              validateAlias: function()
+              {
+                  if(app.alias.length>25);
+                  app.alias = app.alias.substring(0, 25);
+
+                  var regex = /[a-zA-Z0-9]/;
+                  var string="";
+                  for(i=0; i<app.alias.length; i++)
+                  {
+                      var char = ""+app.alias.charAt(i);
+
+                      if(regex.test(char))
+                          string = string + char;
+                      else
+                          console.log('fail ' + char);
+                  }
+
+                  app.alias = string;
+              },
               validation: function(e) {
                   console.log('validation called');
                   app.errors = [];
@@ -254,7 +273,7 @@
                 {{--<label for="alias" class="col-md-4 control-label">Alias</label>--}}
 
                 <div class="col">
-                  <input v-model="alias" id="alias" v-on:change="findGamer()" type="text" class="form-control" name="alias" value="{{ old('alias') }}" placeholder="Alias">
+                  <input v-model="alias" v-on:input="validateAlias()" id="alias" v-on:change="findGamer()" type="text" class="form-control" name="alias" value="{{ old('alias') }}" placeholder="Alias">
 
                   @if ($errors->has('alias'))
                     <span class="help-block">
