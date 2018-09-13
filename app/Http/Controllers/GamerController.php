@@ -47,6 +47,7 @@ class GamerController extends Controller
               AND L.recent_at = R.created_at 
               AND L.rosters_gamer_id = G.id
               AND T.id = R.contending_team_id
+              AND T.status = 'ok'
               
               "));
 
