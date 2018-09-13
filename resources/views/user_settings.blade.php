@@ -176,7 +176,7 @@
             <span class="ml-2" v-bind:class="[{'visible-inline': searchingAlias },{'hidden': !searchingAlias}]">
                 <i class="fa-spin fas fa-circle-notch"></i>
               </span>
-            <input v-model="aliasInput" v-on:change="findGamer()" v-on:blur="submitEnable()" v-on:focus="submitDisable()" type="text" name="alias" class="form-control" id="inputAlias" aria-describedby="aliasHelp" placeholder="Enter alias">
+            <input v-model="aliasInput" v-on:input="validateAlias()" v-on:change="findGamer()" v-on:blur="submitEnable()" v-on:focus="submitDisable()" type="text" name="alias" class="form-control" id="inputAlias" aria-describedby="aliasHelp" placeholder="Enter alias">
             <small id="emailHelp" class="form-text text-muted">Must be unique</small>
           </div>
           <div class="form-group row">
@@ -750,7 +750,25 @@
               }
               app.verifyingNames = false;
           },
+          validateAlias: function()
+          {
+              if(app.aliasInput.length>25);
+              app.aliasInput = app.aliasInput.substring(0, 25);
 
+              var regex = /[a-zA-Z0-9]/;
+              var string="";
+              for(i=0; i<app.aliasInput.length; i++)
+              {
+                  var char = ""+app.aliasInput.charAt(i);
+
+                  if(regex.test(char))
+                      string = string + char;
+                  else
+                      console.log('fail ' + char);
+              }
+
+              app.aliasInput = string;
+          },
           findGamer: function() //find game by alias
           {
 
