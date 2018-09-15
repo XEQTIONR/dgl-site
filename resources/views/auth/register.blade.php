@@ -127,6 +127,13 @@
                                app.steamIdInput="";
                                toastr.error("Could not find your profile. :(");
                            }
+                       }, function (response)
+                       {
+                           app.searchingSteam = false;
+                           app.submit_disabled = false;
+                           app.steamProfileFound = false;
+                           app.steamIdInput="";
+                           toastr.error("Could not find your profile. :(");
                        });
                    }
                },
