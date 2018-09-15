@@ -322,7 +322,7 @@
 
                 <div class="col">
                   <div class="input-group">
-                    <input v-model="steamIdInput" v-on:change="getSteamInfo()" id="steamid" name="steamid" type="text" class="form-control" value="{{ old('steamid') }}" placeholder="SteamID"  autofocus>
+                    <input v-model="steamIdInput" v-on:change="getSteamInfo()" id="steamid" name="steamid" type="text" class="form-control" value="{{ old('steamid') }}" placeholder="Steam64ID"  autofocus>
                     <label v-show="!searchingSteam" class="input-group-addon btn mb-0 bg-lightestgray" v-on:click="getSteamInfo()" for="date">
                       <span class="fas fa-search"></span>
                       {{--<span v-bind:class="[{'fa-spin fas fa-circle-notch': !searchingBattleTag },{'fas fa-search': searchingBattleTag}]"></span>--}}
