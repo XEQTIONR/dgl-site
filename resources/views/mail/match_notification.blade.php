@@ -52,18 +52,20 @@
         {{--</div>--}}
       </div>
       {{--<div class="row">--}}
-        <h3 style="font-weight: bolder;">Checkin starts : </h3> <span>{{\Carbon\Carbon::parse($match->checkinstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->toDateTimeString()}}</span>
+        <h3 style="font-weight: bolder;">Checkin starts : </h3> <span>{{\Carbon\Carbon::parse($match->checkinstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('l jS F g:i A')}}</span>
       {{--</div>--}}
       {{--<div class="row">--}}
-        <h3 style="font-weight: bolder;">Checkin ends : </h3> <span>{{\Carbon\Carbon::parse($match->checkinend,config('app.timezone'))->setTimezone(config('app.user_timezone'))->toDateTimeString()}}</span>
+        <h3 style="font-weight: bolder;">Checkin ends : </h3> <span style=" color: red;">{{\Carbon\Carbon::parse($match->checkinend,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('l jS F g:i A')}}</span>
       {{--</div>--}}
       {{--<div class="row">--}}
-        <h3 style="font-weight: bolder;">Match starts : </h3> <span>{{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->toDateTimeString()}}</span>
+        <h3 style="font-weight: bolder;">Match starts : </h3> <span style="font-weight: bolder;">{{\Carbon\Carbon::parse($match->matchstart,config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('l jS F g:i A')}}</span>
       {{--</div>--}}
       {{--<div class="row">--}}
-        <span style="font-weight: bold; display: block; margin-top: 20px;">Make sure to to checkin to your matches during the checkin window before the match. You can do that by either
-        going you settings page or by visiting the tournament page on DGL. You must be signed in.</span>
+        <span style="display: block; margin-top: 20px;">Make sure to to checkin to your matches during the checkin window before the match. You can do that by either
+          going you <a href="{{config('app.url','http://localhost:8000')}}/settings">settings page</a> or by visiting the <a href="{{config('app.url','http://localhost:8000')}}/tournaments/{{$team->tournament->id}}">tournament page</a> on DGL. You must be signed in.</span>
 
+      <span style="font-weight: bold; display: block; margin-top: 20px;">Join our <a href="https://discord.gg/jsq68nE">Discord Channel</a> after you are done checking in for further instructions.</span>
+      <span style="font-weight: bold; display: block; margin-top: 20px; font-style: italic">Check-in Early, Join Early.</span>
         <p style="font-weight: bold;">Happy, Gaming</p>
       {{--</div>--}}
       <br>
