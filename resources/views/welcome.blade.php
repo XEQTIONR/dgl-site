@@ -214,7 +214,23 @@
                       </div>
                     </div>
                 </div>
-
+                <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
+                  <div class="card bg-purple3 mx-auto">
+                    <div class="card-body card-title px-1 pt-3" style="margin-bottom: 0 !important;">
+                      <span class="font-primary font-white mx-3">TWITCH</span>
+                    </div>
+                    <div class="cardy-body" >
+                      <iframe style="display: block; margin: auto;"
+                        src="https://player.twitch.tv/?channel=dagameleague"
+                        height="300"
+                        width="100%"
+                        frameborder="0"
+                        scrolling="no"
+                        allowfullscreen="true">
+                      </iframe>
+                    </div>
+                  </div>
+                </div>
                 @foreach($tournaments as $tournament)
                   @if($tournament->status == 'current')
                   <div class="col-12 col-sm-6 col-md-4 col-lg-12 my-4 mx-auto">
