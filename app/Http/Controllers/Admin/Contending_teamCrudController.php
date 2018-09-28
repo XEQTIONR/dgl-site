@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Laravel\Socialite\Facades\Socialite;
+
 use App\ContendingTeam;
 use App\Gamer;
 use App\Roster;
@@ -181,6 +183,7 @@ class Contending_teamCrudController extends CrudController
     public function showDetailsRow($id)
     {
       $team = ContendingTeam::find($id);
+      $platform_slug = $team->tournament->esport->platform->slug;
       $roster = $team->roster()->get();
       $gamerids = array();
 
@@ -191,7 +194,32 @@ class Contending_teamCrudController extends CrudController
 
       $gamers = Gamer::find($gamerids);
 
-      return view('admin.teamdetails', compact('gamers','roster'));
+      foreach($gamers as $gamer)
+      {
+        if(!is_null($gamer->discordid))
+        {
+          $discord_data = null;
+          try
+          {
+            $discord_data = Socialite::driver('discord')->userFromToken($gamer->discordid);
+          }
+          catch(\Exception $e)
+          {
+            $gamer->discord_username = "-EXPIRED-";
+            //return redirect('/discord-oauth'); // regen discord token
+          }
+
+          if(!is_null($discord_data))
+          {
+            $gamer->discord_username = $discord_data->nickname;
+            //$gamer->discord_avatar = $discord_data->avatar;
+          }
+        }
+        else // should never reach here.
+          $gamer->discord_username = "-NONE-";
+      }
+
+      return view('admin.teamdetails', compact('gamers','roster','platform_slug'));
     }
 
     public function store(StoreRequest $request)
