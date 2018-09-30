@@ -234,7 +234,8 @@ class TournamentController extends Controller
           $past->push($match);
         }
       }
-      $past = $past->reverse();
+      $future = $future->sortBy('matchstart');
+      $past = $past->sortByDesc('matchstart');
 
       if(!is_null($tournament->description))
         $tournament->description = $Parsedown->text($tournament->description);

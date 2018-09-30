@@ -29,7 +29,7 @@
                 TODAY
           @else
           <div class="fixture-table-purple row justify-content-center mb-5">
-            <div class="col-12 pt-2 back-color-purple section-title">
+            <div class="col-12 pt-2 bg-purple section-title">
               <span class="d-block mx-auto my-3 text-uppercase text-center font-white font-weight-bold">
                 <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span> {{$match->hrdate}}
           @endif
@@ -93,7 +93,7 @@
       @endif
 
     <div class="row fixture-table-purple justify-content-center mb-5">
-      <div class="col-12 pt-2 back-color-purple section-title">
+      <div class="col-12 pt-2 bg-gray4 section-title" style="border-left: 5px solid rgba(88,95,104,1.0);">
         <span class="d-block mx-auto my-3 text-uppercase text-center font-white font-weight-bold">
           <span class="font-lighter-gray mr-2">{{$match->hrdow}}</span>
           {{$match->hrdate}}
@@ -104,7 +104,7 @@
 
 
 
-      <div class="match col-12 py-3 bg-purple4" style="">
+      <div class="match col-12 py-3 bg-gray5" style="">
         <div class="row justify-content-center d-flex d-sm-none">
           <a class="match-tournament-link" href="/tournaments/{{$match->tournament->link}}">
             {{$match->tournament->name}}
