@@ -28,6 +28,9 @@ class Tournament extends Model
                           'startdate', 'enddate', 'squadsize', 'num_contenders', 'title',
                           'caption', 'overview' ,' standings_json',
                           'banner', 'logo', 'logo_visibility', 'bracket'];
+    protected $casts = [
+      'standings_json' => 'array'
+    ];
     // protected $hidden = [];
     // protected $dates = [];
     //protected $hidden = [];
