@@ -209,7 +209,7 @@ class TournamentCrudController extends CrudController
             'gt' => 'GT',
             'points' => 'Points'
           ],
-          'max' => 5, // maximum rows allowed in the table
+          'max' => 25, // maximum rows allowed in the table
           'min' => 0 // minimum rows allowed in the table
         ]
         , 'update/create/both');
