@@ -7,6 +7,7 @@ use App\Tournament;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\TournamentRequest as StoreRequest;
 use App\Http\Requests\TournamentRequest as UpdateRequest;
+use DB;
 
 class TournamentCrudController extends CrudController
 {
@@ -365,6 +366,9 @@ class TournamentCrudController extends CrudController
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
+      DB::table('tournaments')
+        ->where('id', $request->id)
+        ->update(['standings_json' => $request->standings_json]);
         return $redirect_location;
     }
 }
