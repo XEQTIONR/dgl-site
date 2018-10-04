@@ -39,7 +39,7 @@ class MatchController extends Controller
 
       $fixtures = array();
       $results = array();
-      $today = Carbon::now()->format('jS F');;
+      $today = Carbon::now(config('app.timezone'))->setTimezone(config('app.user_timezone'))->format('jS F');
       //dd($today);
       foreach ($matches as $match)
       {
