@@ -22,7 +22,7 @@
             <td>{{$gamers[$i]->alias}}</td>
             <td>{{$gamers[$i]->fname}} {{$gamers[$i]->lname}}</td>
             <td>{{$gamers[$i]->email}}</td>
-            <td>{{$roster[$i]->status}}</td>
+            <td>{{$gamers[$i]->roster_entry->status}}</td>
             @if($platform_slug == config('social.steam_slug'))
             <td>{{$gamers[$i]->steamid}}</td>
             @endif
