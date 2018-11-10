@@ -217,9 +217,18 @@ class Contending_teamCrudController extends CrudController
         }
         else // should never reach here.
           $gamer->discord_username = "-NONE-";
+
+        foreach($roster as $item)
+        {
+          if($item->gamer_id == $gamer->id)
+          {
+            $gamer->roster_entry = $item;
+            break;
+          }
+        }
       }
 
-      return view('admin.teamdetails', compact('gamers','roster','platform_slug'));
+      return view('admin.teamdetails', compact('gamers','platform_slug'));
     }
 
     public function store(StoreRequest $request)
