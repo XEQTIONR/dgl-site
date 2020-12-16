@@ -15,8 +15,7 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile
-    image: 'dgl-site'
+    image: 'dgl-site-giffy'
     ports:
       - "80:80"
-    volumes:
-      - ./:/var/www/html
+

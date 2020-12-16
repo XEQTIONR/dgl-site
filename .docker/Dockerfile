@@ -24,9 +24,17 @@ COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN composer install
+COPY composer.json composer.json
 
-RUN chown -R www-data:www-data /var/www/html \
-    && a2enmod rewrite
+#RUN composer update
 
-RUN php artisan migrate --force
+#COPY . .
+
+RUN composer install  --prefer-dist --no-scripts --no-dev --no-autoloader
+
+COPY . .
+
+RUN composer dump-autoload
+#RUN chown -R www-data:www-data /var/www/html/public \
+#    && a2enmod rewrite
+
