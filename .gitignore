@@ -19,3 +19,5 @@ yarn-error.log
 /public/packages/*
 public/packages/*
 public/uploads/*
+
+/db
