@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
         zip \
         curl \
         unzip \
-
     && docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
@@ -34,7 +33,9 @@ RUN composer install  --prefer-dist --no-scripts --no-dev --no-autoloader
 
 COPY . .
 
-RUN composer dump-autoload
-#RUN chown -R www-data:www-data /var/www/html/public \
-#    && a2enmod rewrite
+RUN composer dump-autoload \
+  && php artisan storage:link
+
+RUN chown -R www-data:www-data /var/www/html \
+   && a2enmod rewrite
 
