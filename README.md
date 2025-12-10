@@ -1,9 +1,24 @@
-Project Name : dgl-site
-http://www.dglcore.com
-======================
+<p align="center"><img src="https://github.com/XEQTIONR/dgl-site/blob/e5d367f60e2d46edbc41fdac5a6f0f856d478a4f/storage/app/public/DGLcolorLogo.png" /></p>
 
 
-###Installing Backpack for admin backend
+## About DGL
+
+DGL is a platform that hosts online e-sports tournaments for classic multiplayer games. This is an open-source project by <i>Ishtehar Hussain</i>
+
+### Stack
+- PHP
+- Laravel
+- MySQL
+- Javascript
+
+### License
+
+MIT
+
+### Dev Notes
+
+
+#### Installing Backpack for admin backend
 
 The following commands were run in order
 
